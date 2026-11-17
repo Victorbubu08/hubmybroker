@@ -1,0 +1,116 @@
+/* Seções institucionais por cima do sistema do portal (usa os tokens --base, --relevo-alto, --azul, --marinho do portal) */
+.i-caminhos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;margin-top:36px}
+.i-caminho{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:10px;min-height:440px;padding:26px;border-radius:30px;color:#fff;text-decoration:none;box-shadow:var(--relevo-alto);transition:transform .5s var(--ease-out)}
+.i-caminho img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.2s var(--ease-out)}
+.i-caminho::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,16,60,0) 30%,rgba(10,16,60,.55) 60%,rgba(8,12,48,.92) 100%)}
+.i-caminho:hover{transform:translateY(-6px)}
+.i-caminho:hover img{transform:scale(1.06)}
+.i-caminho .i-tag{position:absolute;top:20px;left:20px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.i-caminho h3{font-size:clamp(24px,2vw,30px);font-weight:500;letter-spacing:-.03em;line-height:1.05;margin:0}
+.i-caminho p{margin:0;font-size:15.5px;line-height:1.45;color:rgba(255,255,255,.84)}
+.i-caminho .i-ir{display:inline-flex;align-items:center;gap:8px;margin-top:6px;font-weight:700;font-size:15px}
+.i-caminho .i-ir i{transition:transform .3s}
+.i-caminho:hover .i-ir i{transform:translateX(4px)}
+.i-caminho--evento{background:#000}
+.i-caminho--evento::after{background:linear-gradient(180deg,rgba(0,0,0,.1) 20%,rgba(0,0,0,.6) 55%,rgba(0,0,0,.95) 100%)}
+.i-caminho--evento .i-tag{background:#FC9C55;color:#000;backdrop-filter:none}
+.i-caminho--evento .i-ir{color:#FC9C55}
+@media (max-width:1100px){.i-caminhos{grid-template-columns:repeat(2,minmax(0,1fr))}.i-caminho{min-height:380px}}
+@media (max-width:600px){.i-caminhos{grid-template-columns:1fr}.i-caminho{min-height:320px}}
+
+/* história em linha do tempo */
+.i-tempo{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:36px}
+.i-marco{position:relative;background:var(--base);border-radius:24px;box-shadow:var(--relevo);padding:22px 22px 24px;display:grid;gap:6px;align-content:start}
+.i-marco .i-ano{font-size:36px;font-weight:500;letter-spacing:-.04em;line-height:1;color:var(--azul)}
+.i-marco h3{margin:6px 0 0;font-size:19px;font-weight:600;letter-spacing:-.02em;line-height:1.2}
+.i-marco p{margin:0;color:var(--mudo);font-size:15px;line-height:1.45}
+.i-marco a{color:var(--azul);font-weight:700}
+.i-marco--agora{background:var(--azul);color:#fff;box-shadow:10px 14px 28px rgba(42,58,225,.35)}
+.i-marco--agora .i-ano{color:#fff}
+.i-marco--agora p{color:rgba(255,255,255,.85)}
+.i-marco--agora a{color:#fff}
+@media (max-width:1000px){.i-tempo{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.i-tempo{grid-template-columns:1fr}}
+
+/* mapa das cidades */
+.i-mapa{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:28px;margin-top:36px;align-items:stretch}
+.i-mapa__tela{position:relative;border-radius:30px;background:radial-gradient(80% 70% at 60% 40%,#2f3fe6 0%,#1a24a8 55%,#0d136b 100%);box-shadow:var(--relevo-alto);padding:clamp(14px,2vw,28px);overflow:hidden}
+.i-mapa__tela svg{display:block;width:100%;height:auto}
+.i-mapa__tela .uf{fill:rgba(255,255,255,.07);stroke:rgba(255,255,255,.28);stroke-width:1;transition:fill .3s}
+.i-mapa__tela .uf.on{fill:rgba(255,255,255,.18)}
+.i-pino circle.halo{fill:rgba(252,156,85,.28);transform-box:fill-box;transform-origin:center;animation:i-halo 2.6s ease-out infinite}
+.i-pino circle.ponto{fill:#fff;stroke:#2a3ae1;stroke-width:2.5}
+.i-pino.sede circle.ponto{fill:#FC9C55;stroke:#fff}
+.i-pino.on circle.ponto{fill:#FC9C55}
+.i-pino text{font-family:inherit;font-size:22px;font-weight:700;fill:#fff;paint-order:stroke;stroke:#0d136b;stroke-width:5px;stroke-linejoin:round}
+@keyframes i-halo{0%{transform:scale(.6);opacity:.9}100%{transform:scale(2.4);opacity:0}}
+.i-mapa__eua{position:absolute;left:clamp(14px,2vw,28px);top:clamp(14px,2vw,28px);display:grid;gap:4px;padding:12px 16px;border-radius:16px;background:rgba(255,255,255,.12);color:#fff;font-size:13px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.i-mapa__eua b{font-size:15px}
+.i-mapa__lista{display:grid;gap:14px;align-content:start}
+.i-regiao{background:var(--base);border-radius:24px;box-shadow:var(--relevo);padding:18px 20px}
+.i-regiao h3{margin:0 0 10px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--azul)}
+.i-regiao ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.i-regiao button{font:inherit;font-size:14.5px;font-weight:600;color:var(--grafite);border:0;cursor:pointer;padding:8px 13px;border-radius:12px;background:var(--base);box-shadow:var(--relevo-baixo);transition:box-shadow .25s,color .25s}
+.i-regiao button:hover,.i-regiao button.on{box-shadow:var(--afundado);color:var(--azul)}
+.i-regiao button.sede::after{content:" · sede";color:#e8762c;font-weight:700}
+.i-mapa__nota{margin:4px 0 0;font-size:13px;color:var(--mudo)}
+@media (max-width:900px){.i-mapa{grid-template-columns:1fr}}
+
+/* faixa do evento, no visual da Academia */
+.i-evento{position:relative;overflow:hidden;isolation:isolate;border-radius:34px;background:#000;color:#FFFADF;padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:1.3fr 1fr;gap:36px;align-items:end;box-shadow:14px 20px 40px rgba(0,0,0,.25)}
+.i-evento>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:.55}
+.i-evento::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.6) 55%,rgba(0,0,0,.3) 100%)}
+.i-evento .i-rot{font-family:"Geist Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#FC9C55}
+.i-evento h2{font-family:"Anton",Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:0;font-size:clamp(40px,5.4vw,80px);line-height:.95;margin:14px 0 0}
+.i-evento h2 b{font-weight:400;color:#FC9C55}
+.i-evento p{margin:14px 0 0;color:rgba(255,250,223,.82);max-width:46ch}
+.i-evento .i-lado{display:grid;gap:16px;justify-items:start}
+.i-relogio{display:flex;gap:8px}
+.i-relogio span{display:grid;place-items:center;min-width:64px;padding:10px 8px;border-radius:14px;background:rgba(255,250,223,.08);border:1px solid rgba(255,250,223,.14);font-family:"Geist Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.i-relogio b{font-size:24px;font-weight:700;color:#FFFADF}
+.i-relogio small{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,250,223,.6)}
+.i-btn-pessego{display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 30px;border-radius:100px;background:#FC9C55;color:#000;text-decoration:none;font-family:"Geist Mono",ui-monospace,monospace;font-weight:700;text-transform:uppercase;font-size:14px;animation:i-pulsa 2.4s ease-in-out infinite}
+@keyframes i-pulsa{0%,100%{box-shadow:0 0 0 0 rgba(252,156,85,.7)}50%{box-shadow:0 0 0 16px rgba(252,156,85,0)}}
+@media (max-width:860px){.i-evento{grid-template-columns:1fr}}
+
+/* Broker Academy: marca em texto, no lugar do logo do Instituto */
+.i-ba{display:inline-flex;align-items:center;gap:10px}
+.i-ba__selo{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:var(--marinho);color:#fff;font-weight:700;font-size:15px;letter-spacing:-.02em}
+
+/* formulário que vira mensagem de WhatsApp */
+.i-ok{margin:8px 0 0;font-weight:600;color:var(--azul)}
+.i-ok a{color:inherit}
+
+@media (prefers-reduced-motion:reduce){.i-pino circle.halo,.i-btn-pessego{animation:none}}
+
+/* abertura no tamanho da referência: card baixo, frase centralizada */
+.s-hero.i-hero{min-height:clamp(340px,42vh,430px);align-items:center;justify-content:center;text-align:center;border-radius:28px;padding:56px 20px}
+.i-hero__miolo{position:relative;display:grid;justify-items:center;gap:18px;max-width:900px;color:#fff}
+.i-hero h1{margin:0;padding:0;width:auto;font-size:clamp(34px,4.2vw,62px);font-weight:500;letter-spacing:-.04em;line-height:1.05;text-wrap:balance}
+.i-hero h1 em{font-style:italic;font-weight:400}
+.i-hero p{margin:0;font-size:clamp(15.5px,1.2vw,18px);color:rgba(255,255,255,.82);max-width:52ch}
+.i-hero__selo{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);font-size:13px;font-weight:600;letter-spacing:.02em;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.i-hero__cta{display:inline-flex;align-items:center;gap:12px;margin-top:6px;padding:7px 7px 7px 22px;border-radius:999px;background:#0b0f2e;color:#fff;text-decoration:none;font-weight:600;font-size:15px;box-shadow:0 10px 30px rgba(5,8,40,.45);transition:transform .3s var(--ease-out)}
+.i-hero__cta span{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#fff;color:#0b0f2e}
+.i-hero__cta:hover{transform:translateY(-2px)}
+@media (max-width:700px){.s-hero.i-hero{min-height:360px;padding:44px 18px}}
+.i-rotulos text{font-family:inherit;font-size:22px;font-weight:700;fill:#fff;paint-order:stroke;stroke:#0d136b;stroke-width:5px;stroke-linejoin:round}
+
+/* fotos que passam dentro dos cards dos caminhos */
+.i-fotos{position:absolute;inset:0;z-index:-2}
+.i-fotos img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1.2s ease,transform 6s ease}
+.i-fotos img.on{opacity:1;transform:scale(1)}
+.i-caminho > img{display:none}
+
+/* VGV: o rosto do Ronaldo no painel da direita */
+.s-man__painel--3{background:url("ronaldo.webp") 50% 6%/165% auto no-repeat,radial-gradient(120% 90% at 30% 20%,#8fb6ff 0%,#4c63e8 45%,#1b2390 100%)!important}
+
+/* WhatsApp do Ronaldo, sempre à mão */
+.i-zap{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:70;display:flex;align-items:center;gap:12px;padding:7px 8px 7px 7px;border-radius:999px;background:#fff;color:#121212;text-decoration:none;box-shadow:0 14px 34px rgba(18,22,70,.28);transition:transform .3s var(--ease-out)}
+.i-zap:hover{transform:translateY(-3px)}
+.i-zap img{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:50% 20%;border:2px solid #25D366}
+.i-zap__txt{display:grid;line-height:1.15;padding-right:4px}
+.i-zap__txt b{font-size:15px}
+.i-zap__txt small{font-size:12.5px;color:#5f5d59}
+.i-zap__ico{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#25D366;color:#fff;font-size:24px}
+@media (max-width:600px){.i-zap__txt{display:none}.i-zap{padding:6px;gap:6px}}

@@ -1,0 +1,61 @@
+/* Menu superior: tamanho compacto nas duas versões + a versão "menu azul" (escolhida por página em menu-azul.js).
+   Da hero para baixo nada muda. */
+
+/* ---------- as duas versões: teclas compactas e mais elegantes (mesmos textos, fonte menor) ---------- */
+.topo nav .neu { gap: 5px; padding: 6px; border-radius: 18px; }
+.topo .tecla { height: 36px; padding: 0 12px; border-radius: 12px; font-size: 13px; font-weight: 600; letter-spacing: .005em; }
+.topo .tecla i { font-size: 16px; }
+.topo .tecla .miolo, .topo .tecla .conteudo { gap: 6px; }
+/* relevo proporcional ao tamanho menor */
+.topo .tecla::before { box-shadow: 3px 3px 7px var(--sombra), -3px -3px 7px var(--luz); }
+.topo .tecla::after { box-shadow: inset 3px 3px 6px var(--sombra), inset -3px -3px 6px var(--luz); }
+@media (max-width: 1400px) { .topo nav .tecla { padding: 0 9px; font-size: 12.5px; } }
+
+/* ---------- as duas versões: botões de filtro com fonte menor (vitrine e mapa) ---------- */
+.filtros .tecla, .filtros .gatilho { font-size: 13px; }
+.filtros .tecla i, .filtros .gatilho i { font-size: 16px; }
+.filtros .quartos .rotulo { font-size: 13px; }
+/* linha de filtros da vitrine mais baixa: teclas de 44 para 36 px, bandejas e gatilhos de 58 para 46 px */
+.filtros:not(.filtros--compacto) .neu { padding: 5px; border-radius: 17px; }
+.filtros:not(.filtros--compacto) .tecla { height: 36px; border-radius: 12px; }
+.filtros:not(.filtros--compacto) .tecla::before { box-shadow: 3px 3px 7px var(--sombra), -3px -3px 7px var(--luz); }
+.filtros:not(.filtros--compacto) .tecla::after { box-shadow: inset 3px 3px 6px var(--sombra), inset -3px -3px 6px var(--luz); }
+.filtros:not(.filtros--compacto) .quartos .tecla { min-width: 36px; }
+.filtros:not(.filtros--compacto) .gatilho { height: 46px; padding: 0 14px; border-radius: 17px; }
+
+/* ---------- versão azul: a faixa do topo inteira em azul da marca, com a logo em branco ---------- */
+html.menu-azul {
+  /* o azul da marca (#2a3ae1, hsl 235 75% 52%) um pouco menos vivo na faixa: mesmo tom, saturação menor */
+  --mz-base: hsl(235 60% 50%);
+  --mz-luz: hsl(235 62% 66% / .5);       /* azul claro: a luz vem de cima e da esquerda */
+  --mz-sombra: hsl(235 64% 28% / .6);    /* azul fundo: a sombra vai para baixo e para a direita */
+  --mz-texto: rgba(226, 231, 255, .86);
+}
+html.menu-azul .topo { background: var(--mz-base); box-shadow: inset 0 -1px 0 rgba(255, 255, 255, .08); margin-bottom: 0; }
+/* vitrine e mapa: a faixa azul encosta direto na imagem da capa, sem a faixa clara entre as duas */
+html.menu-azul .topo + main > .hero:first-child, html.menu-azul .topo + .vitrine > .hero:first-child { margin-top: 0; }
+/* logo vigente toda em branco (símbolo e nome) */
+html.menu-azul .topo .marca img { filter: brightness(0) invert(1); }
+
+/* bandeja do menu: o mesmo azul da faixa, marcada só pelo relevo azul claro / azul fundo */
+html.menu-azul .topo nav .neu { background: var(--mz-base); box-shadow: 6px 6px 14px var(--mz-sombra), -6px -6px 14px var(--mz-luz); }
+html.menu-azul .topo .tecla { color: var(--mz-texto); background: var(--mz-base); }
+html.menu-azul .topo .tecla::before { box-shadow: 3px 3px 7px var(--mz-sombra), -3px -3px 7px var(--mz-luz); }
+html.menu-azul .topo .tecla::after { box-shadow: inset 3px 3px 6px var(--mz-sombra), inset -3px -3px 6px var(--mz-luz); }
+html.menu-azul .topo .tecla i { color: var(--mz-texto); }
+html.menu-azul .topo .tecla.ativo, html.menu-azul .topo .tecla[aria-current="page"],
+html.menu-azul .topo .tecla.ativo i, html.menu-azul .topo .tecla[aria-current="page"] i { color: #fff; }
+@media (any-hover: hover) {
+  html.menu-azul .topo .tecla:not(.ativo):hover, html.menu-azul .topo .tecla:not(.ativo):hover i { color: #fff; }
+}
+html.menu-azul .topo .tecla:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+/* ---------- botão Mapa: o primeiro da linha de filtros, no mesmo azul da faixa do menu ---------- */
+.filtros .tecla--mapa { background: hsl(235 60% 50%); color: #fff; font-weight: 700; }
+.filtros .tecla--mapa i { color: #fff; }
+.filtros .tecla--mapa::before { box-shadow: 4px 4px 10px hsl(235 64% 28% / .35), -3px -3px 8px var(--luz), inset 1px 1px 0 hsl(235 62% 72% / .45); }
+.filtros .tecla--mapa::after { box-shadow: inset 3px 3px 7px hsl(235 64% 28% / .55), inset -2px -2px 6px hsl(235 62% 66% / .4); }
+@media (any-hover: hover) { .filtros .tecla--mapa:hover { background: hsl(235 60% 46%); } }
+.filtros .tecla--mapa:focus-visible { outline: 2px solid var(--azul); outline-offset: 3px; }
+/* o mapa mantém o nome visível em telas médias: é a ação principal da linha */
+@media (max-width: 1440px) and (min-width: 1181px) { .filtros .tecla--mapa .tecla__rotulo { display: inline; } .filtros .tecla--mapa { padding: 0 12px; } }

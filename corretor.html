@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Seja corretor My Broker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Anton&family=Geist+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="assets/mb.css">
+<script>window.MB={raiz:"",pagina:"corretor"}</script>
+</head>
+<body>
+<header id="topo"></header>
+<main>
+  <section class="hero">
+    <canvas id="heroOndas" aria-hidden="true"></canvas>
+    <div class="miolo">
+      <span class="rotulo">Carreira na My Broker</span>
+      <h1><span class="s-linha"><span class="s-pal"><span style="--k:0">Venda</span></span> <span class="s-pal"><span style="--k:1">com</span></span> <span class="s-pal"><span style="--k:2">quem</span></span> <span class="s-pal"><span style="--k:3">forma</span></span></span><span class="s-linha"><span class="s-pal"><span style="--k:4">os</span></span> <span class="s-pal"><span style="--k:5">melhores</span></span> <span class="s-pal"><span style="--k:6"><em>corretores</em>.</span></span></span></h1>
+      <p class="sob">Treinamento contínuo, lançamentos das principais incorporadoras e um time premiado como um dos melhores lugares para trabalhar no Brasil.</p>
+      <div class="btns"><a class="btn btn-branco" href="#quero">Quero fazer parte</a><a class="btn" href="#beneficios" style="background:rgba(255,255,255,.14);color:#fff">O que você recebe</a></div>
+    </div>
+  </section>
+
+  <section class="secao" id="beneficios">
+    <div class="wrap">
+      <div class="cabeca"><span class="rotulo">O que você recebe</span><h2 class="titulo">Tudo para você <em>vender mais</em>, desde o primeiro mês</h2></div>
+      <div class="grade">
+        <div class="cartao"><span class="ico" data-icone="instituto"></span><h3>Formação pela Broker Academy</h3><p>Prospecção, captação, precificação, cartório e SPIN Selling na prática, com quem vive o mercado.</p></div>
+        <div class="cartao"><span class="ico" data-icone="evento"></span><h3>Academia de Vendas</h3><p>O maior evento de vendas do mercado imobiliário, com quem já passou por milhares de negociações.</p></div>
+        <div class="cartao"><span class="ico" data-icone="casa"></span><h3>Produto para vender</h3><p>Lançamentos e prontos em 21 cidades, Orlando e Miami, com condições especiais da rede.</p></div>
+        <div class="cartao"><span class="ico" data-icone="corretor"></span><h3>Clientes chegando</h3><p>Leads do portal e das campanhas da My Broker, com curadoria por objetivo do cliente.</p></div>
+        <div class="cartao"><span class="ico" data-icone="historia"></span><h3>Plano de carreira</h3><p>De corretor a gestor de equipe: quem entrega cresce junto com a empresa.</p></div>
+        <div class="cartao"><span class="ico" data-icone="franquia"></span><h3>Um lugar premiado</h3><p>Great Place to Work 2026: Melhores Empresas para Trabalhar no Brasil.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" style="padding-top:0">
+    <div class="wrap">
+      <div class="cabeca"><span class="rotulo">Como entrar</span><h2 class="titulo">Com CRECI ou começando agora, <em>tem um caminho</em></h2></div>
+      <ol class="passos">
+        <li><b>Inscrição</b><span>Mande seus dados pelo formulário abaixo.</span></li>
+        <li><b>Conversa</b><span>Um gestor fala com você sobre experiência e objetivos.</span></li>
+        <li><b>Integração</b><span>Processos, ferramentas e a primeira trilha da Broker Academy.</span></li>
+        <li><b>Acompanhamento</b><span>Plantões, produtos e um gestor ao seu lado nas primeiras vendas.</span></li>
+        <li><b>Academia de Vendas</b><span>O evento anual para afiar a técnica e ampliar a rede.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="secao" id="quero" style="padding-top:0">
+    <div class="wrap dupla">
+      <div class="cabeca">
+        <span class="rotulo">Quero ser corretor My Broker</span>
+        <h2 class="titulo">Comece a sua <em>trajetória</em></h2>
+        <p class="apoio">Preencha e a mensagem vai pronta para o WhatsApp do time de recrutamento.</p>
+        <div class="faq"><details><summary>Preciso ter CRECI?</summary><p>Para intermediar vendas, sim. Se você ainda não tem, conte no formulário: indicamos o caminho do curso técnico e você já começa a se preparar com a gente.</p></details><details><summary>Preciso ter experiência?</summary><p>Não. O Broker Academy forma quem está começando e aprofunda quem já vende.</p></details><details><summary>Como é a remuneração?</summary><p>Comissão por venda, com regras apresentadas na conversa com o gestor.</p></details><details><summary>Em quais cidades posso atuar?</summary><p>Nas cidades onde a My Broker tem operação ou franquia. Diga a sua no formulário.</p></details></div>
+      </div>
+      <form class="cartao form" data-whatsapp="Olá! Quero ser corretor My Broker.">
+        <label>Nome<input id="c-nome" name="Nome" required autocomplete="name"></label>
+        <label>WhatsApp<input id="c-tel" name="WhatsApp" required inputmode="tel" autocomplete="tel"></label>
+        <label>Cidade<input id="c-cidade" name="Cidade" required></label>
+        <label>CRECI<select id="c-creci" name="CRECI"><option value="">Escolha</option><option>Tenho CRECI ativo</option><option>Estou fazendo o curso</option><option>Ainda não tenho</option></select></label>
+        <label class="cheio">Experiência com vendas<select id="c-exp" name="Experiência"><option value="">Escolha</option><option>Já vendo imóveis</option><option>Vendo outros produtos</option><option>Estou começando</option></select></label>
+        <label class="cheio">Conte um pouco sobre você (opcional)<textarea id="c-msg" name="Sobre mim"></textarea></label>
+        <div class="cheio"><button class="btn btn-azul" type="submit" data-icone="zap">Enviar pelo WhatsApp</button></div>
+        <p class="ok" hidden></p>
+        <p class="nota">Seus dados vão só na mensagem do WhatsApp. Nada fica guardado nesta página.</p>
+      </form>
+    </div>
+  </section>
+</main>
+<footer id="rodape"></footer>
+<script src="assets/mb.js"></script>
+<script src="assets/fluido.js"></script>
+</body>
+</html>

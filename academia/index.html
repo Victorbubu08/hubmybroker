@@ -1,0 +1,796 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Academia de Vendas 27</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: palco preto, texto creme, pêssego só em títulos e ações; cards de foto que passam e abrem */
+:root{
+  --bg:#000000; --card:#141414; --card-2:#0d0d0d; --fg:#FFFADF; --muted:rgba(255,250,223,.6); --line:rgba(255,250,223,.12);
+  --accent:#FC9C55; --accent-deep:#F26B1D; --bar:#FF4A12; --on-accent:#000000; --ok:#4ADE80;
+  --tier-1:linear-gradient(160deg,#16306b 0%,#0b1838 55%,#060d22 100%);
+  --tier-2:linear-gradient(160deg,#a3200f 0%,#5c0f08 55%,#2a0603 100%);
+  --tier-3:linear-gradient(160deg,#e9e9e9 0%,#b9b9b9 45%,#7d7d7d 100%);
+  --display:"Anton",Impact,"Arial Narrow",sans-serif;
+  --body:"Geist",system-ui,Arial,sans-serif;
+  --mono:"Geist Mono",ui-monospace,Menlo,monospace;
+  --ease:cubic-bezier(.22,1,.36,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bar)}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:1280px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:-.005em;line-height:.95;margin:0;text-wrap:balance}
+.eyebrow{font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--fg);margin:0}
+.title{font-size:clamp(40px,5.6vw,80px);color:var(--accent)}
+.sub{color:var(--fg);opacity:.8;font-size:18px;margin:0;max-width:60ch}
+.center{text-align:center;justify-items:center}
+.head{display:grid;gap:18px}
+section{padding-block:clamp(72px,9vw,128px)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* botões */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;min-width:240px;font-family:var(--mono);font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:.02em;text-decoration:none;white-space:nowrap;border-radius:100px;padding:21px 34px;cursor:pointer;border:2px solid var(--accent);transition:transform .4s var(--ease),background-color .5s var(--ease),color .45s var(--ease)}
+.btn span{display:inline-block;transition:transform .4s var(--ease)}
+.btn:hover,.btn:focus-visible{transform:scale(1.08)}
+.btn:hover span,.btn:focus-visible span{transform:scale(.926)}
+.btn:active{transform:scale(1.03)}
+.btn-fill{background:var(--accent);color:var(--on-accent);animation:pulse 2.4s ease-in-out infinite}
+.btn-fill:hover{animation-duration:1s}
+.btn-line{background:transparent;color:var(--accent)}
+.btn-line:hover,.btn-line:focus-visible{background:var(--accent);color:var(--on-accent)}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(252,156,85,.7)}50%{box-shadow:0 0 0 18px rgba(252,156,85,0)}}
+
+/* barra do lote */
+.promo{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--bar);color:#fff}
+.promo .wrap{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;padding-block:9px;font-weight:600;font-size:14px;text-align:center}
+.clock{display:flex;gap:6px}
+.clock span{background:rgba(0,0,0,.18);border-radius:999px;padding:5px 10px;font-family:var(--mono);font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+.clock small{font-size:9px;font-weight:500;opacity:.75;margin-left:4px;text-transform:uppercase;letter-spacing:.06em}
+.promo a{background:#000;color:#fff;text-decoration:none;padding:8px 16px;border-radius:999px;font-size:13px;white-space:nowrap}
+
+/* topo */
+.nav{position:absolute;top:0;left:0;right:0;z-index:5}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px}
+.logo{display:grid;gap:5px;text-decoration:none;line-height:1}
+.logo b{font-family:var(--display);font-weight:400;font-size:26px;letter-spacing:.02em}
+.logo b span{color:var(--accent)}
+.logo small{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.nav ul{display:flex;gap:30px;list-style:none;margin:0;padding:0;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+.nav ul a{text-decoration:none;color:var(--fg);opacity:.85}
+.nav ul a:hover{color:var(--accent);opacity:1}
+.nav .btn{min-width:0;padding:13px 20px;font-size:12px;animation:none}
+@media (max-width:960px){.nav ul{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:min(100svh,940px);display:flex;align-items:flex-end;justify-content:center;overflow:hidden;isolation:isolate;padding-block:140px clamp(80px,12vh,150px);text-align:center}
+.hero video,.hero > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 65%;z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,rgba(0,0,0,.15) 25%,rgba(0,0,0,.55) 50%,rgba(0,0,0,.88) 75%,#000 100%)}
+.hero > .wrap{position:relative;z-index:1;display:grid;justify-items:center;width:100%}
+.hero .meta{font-family:var(--mono);color:var(--accent);font-size:13px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;margin:0 0 28px}
+.hero h1{font-size:clamp(46px,6.8vw,108px);max-width:14ch;margin:0 0 22px}
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.04em}
+.hero h1 .w > span{display:inline-block;animation:rise .9s var(--ease) both;animation-delay:var(--d)}
+@keyframes rise{from{transform:translateY(105%)}to{transform:none}}
+.hero .lead{font-size:18px;opacity:.85;max-width:620px;margin:0 0 32px}
+.actions{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+.proof{display:flex;align-items:center;gap:14px;margin-top:32px}
+.faces{display:flex}
+.faces img{width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:78% 20%;border:2px solid #000;background:#1a1a1a}
+.faces img + img{margin-left:-12px}
+.proof p{margin:0;font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-align:left;line-height:1.4}
+.proof strong{color:var(--accent);font-weight:600}
+@media (max-width:640px){
+  .hero .meta{font-size:11px;letter-spacing:.2em}
+  .actions{flex-direction:column;width:100%;max-width:360px}
+  .btn{width:100%;min-width:0;padding:19px 20px;font-size:13px}
+}
+
+/* 3D: "27" extrudado (leve: 10 camadas, giro por CSS) */
+.mono3d{position:absolute;left:50%;top:38%;z-index:0;width:min(900px,120vw);aspect-ratio:2/1;transform:translate(-50%,-50%);perspective:1400px;pointer-events:none}
+.m3-tilt{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(var(--rx,8deg)) rotateY(var(--ry,0deg));transition:transform 1s var(--ease)}
+.m3-inner{position:absolute;inset:0;transform-style:preserve-3d;animation:sway 14s ease-in-out infinite;will-change:transform}
+.m3-inner span{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-size:min(560px,72vw);line-height:1;letter-spacing:-.02em;color:transparent;transform:translateZ(calc(var(--z) * 1px));-webkit-text-stroke:1px rgba(252,156,85,calc(.06 + var(--k) * .22))}
+.m3-inner span.face{color:rgba(8,8,8,.6);-webkit-text-stroke:2px rgba(252,156,85,.9)}
+@keyframes sway{0%,100%{transform:rotateY(-24deg) translateY(0)}50%{transform:rotateY(4deg) translateY(-12px)}}
+@media (max-width:640px){.mono3d{top:30%;opacity:.7}}
+
+/* 3D: cards inclinam com o mouse */
+.tilt{transform-style:preserve-3d;will-change:transform;transition:transform .5s var(--ease)}
+.tilt .glare{position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,250,223,.22),transparent 55%);opacity:0;transition:opacity .4s;z-index:3}
+.tilt:hover .glare{opacity:1}
+
+/* faixa de fotos passando */
+.legacy{padding-bottom:0}
+.marquee{margin-top:56px;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.marquee-track{display:flex;align-items:center;gap:18px;width:max-content;animation:slide 60s linear infinite;will-change:transform;padding-block:24px}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.shot{flex:0 0 auto;width:clamp(220px,22vw,320px);aspect-ratio:3/4;border-radius:22px;overflow:hidden;position:relative;background:var(--card);transition:transform .5s var(--ease)}
+.shot:nth-child(even){aspect-ratio:4/5}
+.shot:hover{transform:scale(1.04) rotate(-1deg)}
+.shot img{width:100%;height:100%;object-fit:cover}
+.shot b{position:absolute;left:14px;bottom:12px;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.14em;background:rgba(0,0,0,.6);padding:5px 10px;border-radius:999px}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* números */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:64px}
+.stat{position:relative;background:var(--card);border-radius:20px;padding:28px 24px;display:grid;gap:8px;align-content:start}
+.stat strong{font-family:var(--display);font-weight:400;font-size:clamp(38px,4.4vw,60px);line-height:1;color:var(--fg);font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:15px}
+.stat.big{grid-column:span 2;background:var(--accent);color:var(--on-accent)}
+.stat.big strong{color:var(--on-accent);font-size:clamp(60px,7.4vw,104px)}
+.stat.big span{color:rgba(0,0,0,.72)}
+@media (max-width:860px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* palestrantes 2027: carrossel que abre um card por vez (só transform e largura, sem filtro animado) */
+.speakers{--n:min(15vw,220px);--a:min(38vw,520px);--g:16px;--h:clamp(360px,48vw,580px);--autoplay:6s}
+.sp-top{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.sp-top .title .muted{color:var(--fg)}
+.sp-nav{display:flex;gap:10px}
+.nav-btn{width:52px;height:52px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--fg);display:grid;place-items:center;cursor:pointer;transition:background .3s,border-color .3s,color .3s}
+.nav-btn:hover{background:var(--accent);border-color:var(--accent);color:#000}
+.nav-btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.carousel{margin-top:48px;overflow:hidden}
+.track{display:flex;gap:var(--g);height:var(--h);transform:translate3d(calc(var(--shift,0px) * -1),0,0);transition:transform .9s var(--ease);will-change:transform}
+.card{position:relative;flex:0 0 var(--n);height:100%;border-radius:24px;overflow:hidden;background:#111;cursor:pointer;contain:layout paint;transition:flex-basis .9s var(--ease)}
+.card .ph{position:absolute;inset:0;background:radial-gradient(120% 70% at 50% 110%,rgba(252,156,85,.35),transparent 60%),linear-gradient(180deg,#1b1b1b,#0b0b0b)}
+.card .ini{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-size:clamp(90px,12vw,190px);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(252,156,85,.55);transition:opacity .6s,transform .9s var(--ease)}
+.card img{position:absolute;left:0;right:0;bottom:0;width:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.card img.corte{top:7%;height:93%;object-position:50% 0%}
+.card img.full{top:0;height:100%;object-position:50% 25%}
+.card.on img{transform:scale(1.03)}
+.card .gray{position:absolute;inset:0;background:#000;mix-blend-mode:saturation;transition:opacity .6s}
+.card .dim{position:absolute;inset:0;background:rgba(0,0,0,.35);transition:opacity .6s}
+.card .shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.9))}
+.card .vname{position:absolute;left:50%;bottom:22px;writing-mode:vertical-rl;transform:translateX(-50%) rotate(180deg);font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;color:var(--accent);transition:opacity .4s}
+.card .info{position:absolute;left:26px;right:26px;bottom:24px;display:grid;gap:8px;opacity:0;transform:translateY(16px);transition:opacity .5s .25s,transform .6s .25s var(--ease)}
+.card .info h3{font-size:clamp(34px,3.4vw,52px)}
+.card .info p{margin:0;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.card .soon{position:absolute;top:18px;left:18px;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--line);background:rgba(0,0,0,.5);border-radius:999px;padding:5px 11px;color:var(--muted);opacity:0;transition:opacity .5s}
+.progress{height:3px;background:rgba(255,250,223,.2);border-radius:3px;overflow:hidden;margin-top:10px}
+.bar{height:100%;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left}
+.card.on{flex-basis:var(--a);cursor:default}
+.card.on .gray,.card.on .dim{opacity:0}
+.card.on .vname{opacity:0}
+.card.on .info,.card.on .soon{opacity:1;transform:none}
+.card.on .ini{transform:scale(1.15) translateY(-8%)}
+.card.on .bar{animation:fill var(--autoplay) linear forwards}
+.carousel.paused .card.on .bar{animation-play-state:paused}
+.card:not(.on):hover .dim{opacity:0}
+@keyframes fill{to{transform:scaleX(1)}}
+@media (max-width:640px){.speakers{--n:56px;--g:10px;--a:calc(100vw - 32px - 66px - 28px);--h:440px}.card .vname{font-size:11px}.card .ini{font-size:120px}}
+
+/* quem já passou: nomes passando em duas faixas */
+.alumni{margin-top:72px;display:grid;gap:14px}
+.alumni .eyebrow{text-align:center;color:var(--muted)}
+.names{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.names-track{display:flex;gap:12px;width:max-content;animation:slide 45s linear infinite;will-change:transform}
+.names.rev .names-track{animation-direction:reverse}
+.pill{display:inline-flex;align-items:center;gap:12px;padding:10px 22px 10px 10px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-family:var(--display);font-size:clamp(20px,2.2vw,30px);text-transform:uppercase;line-height:1;white-space:nowrap}
+.pill.np{padding-left:22px}
+.pill img{width:46px;height:46px;border-radius:50%;object-fit:cover;object-position:50% 20%;filter:grayscale(1)}
+
+/* edições */
+.years{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,30%);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:56px;padding-bottom:14px;scrollbar-color:var(--accent) var(--card)}
+.year{scroll-snap-align:start;position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/5;max-width:100%;background:var(--card)}
+.year img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.year:hover img{transform:scale(1.05)}
+.year::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.92))}
+.year .txt{position:absolute;left:20px;right:20px;bottom:18px;z-index:1;display:grid;gap:8px}
+.year b{font-family:var(--display);font-weight:400;font-size:64px;line-height:1;color:var(--accent)}
+.year small{font-family:var(--display);font-size:24px;line-height:1.05;text-transform:uppercase;text-wrap:balance}
+@media (max-width:600px){.years{grid-auto-columns:80%}}
+
+/* é / não é */
+.isnot{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px}
+.col{background:var(--card);border-radius:22px;padding:32px;display:grid;gap:22px;align-content:start}
+.col.yes{background:var(--accent);color:var(--on-accent)}
+.col h3{font-size:30px}
+.col ul{list-style:none;margin:0;padding:0;display:grid;gap:14px;font-size:17px}
+.col li{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:start}
+.col li svg{width:20px;height:20px;margin-top:3px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.col.no li{color:var(--muted)}
+@media (max-width:760px){.isnot{grid-template-columns:1fr}}
+.who{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:16px}
+.who article{position:relative;background:var(--card);border-radius:22px;padding:28px;display:grid;gap:10px;align-content:start}
+.who h3{font-size:26px;color:var(--accent)}
+.who p{margin:0;color:var(--muted);font-size:15px}
+@media (max-width:960px){.who{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.who{grid-template-columns:1fr}}
+
+/* cidades */
+.cities{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:56px}
+.city{position:relative;background:var(--card);border-radius:22px;padding:32px 28px;display:grid;gap:12px;align-content:start}
+.city b{font-family:var(--display);font-weight:400;font-size:84px;line-height:.85;color:transparent;-webkit-text-stroke:1.5px var(--accent)}
+.city h3{font-size:32px}
+.city p{margin:0;color:var(--muted);font-size:15px}
+.city .tag{justify-self:start;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;background:var(--accent);color:#000;padding:6px 12px;border-radius:999px}
+.city.now b{color:var(--accent)}
+@media (max-width:860px){.cities{grid-template-columns:1fr}}
+
+/* ingressos */
+.lots{list-style:none;margin:40px auto 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;max-width:760px}
+.lots li{border-top:4px solid var(--line);padding-top:12px;display:grid;gap:2px;text-align:left}
+.lots b{font-family:var(--display);font-weight:400;font-size:24px;text-transform:uppercase;line-height:1}
+.lots span{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.lots .gone{opacity:.4}
+.lots .gone b{text-decoration:line-through}
+.lots .cur{border-top-color:var(--accent)}
+.lots .cur span{color:var(--accent)}
+@media (max-width:520px){.lots{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.offer{display:inline-flex;align-items:center;gap:12px;margin-top:22px;background:rgba(255,74,18,.12);border:1px solid rgba(255,74,18,.5);color:var(--fg);border-radius:999px;padding:12px 22px;font-family:var(--mono);font-size:14px;font-weight:500}
+.offer b{color:var(--accent);font-variant-numeric:tabular-nums}
+.offer .dot{width:9px;height:9px;border-radius:50%;background:var(--bar);animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:.25}}
+.pricing{margin-top:56px;overflow-x:auto}
+.ptable{min-width:780px;display:grid;grid-template-columns:minmax(220px,1.3fr) repeat(3,minmax(0,1fr));gap:0 14px}
+.tier{border-radius:22px 22px 0 0;padding:30px 22px 24px;display:grid;gap:14px;align-content:start;position:relative;overflow:hidden}
+.tier::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 2px,transparent 2px 22px);pointer-events:none}
+.tier > *{position:relative}
+.tier h3{font-family:var(--body);font-weight:600;font-size:clamp(32px,3vw,46px);text-align:center;letter-spacing:.04em}
+.tier .kicker{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;line-height:1.35}
+.tier .was{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;opacity:.7;min-height:1.2em}
+.tier .inst{font-family:var(--mono);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.tier .price{font-family:var(--display);font-weight:400;font-size:clamp(40px,3.6vw,54px);line-height:1;font-variant-numeric:tabular-nums}
+.tier .cash{font-family:var(--mono);font-size:12px;opacity:.75}
+.tier .btn{min-width:0;width:100%;padding:15px 12px;font-size:13px;background:var(--fg);border-color:var(--fg);color:#000;animation:none;margin-top:4px}
+.tier .btn:hover{background:var(--accent);border-color:var(--accent)}
+.t1{background:var(--tier-1)}
+.t2{background:var(--tier-2)}
+.t3{background:var(--tier-3);color:#111}
+.t3 .btn{background:#111;border-color:#111;color:var(--fg)}
+.rowlab{padding:18px 18px 18px 0;border-bottom:1px solid var(--line);display:grid;gap:2px;align-content:center}
+.rowlab b{font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.rowlab span{font-size:13px;color:var(--muted)}
+.cell{border-bottom:1px solid var(--line);display:grid;place-items:center;padding:18px 0;background:var(--card-2)}
+.cell svg{width:22px;height:22px}
+.yes-i{fill:var(--ok)}
+.no-i{fill:none;stroke:rgba(255,250,223,.25);stroke-width:2.4;stroke-linecap:round}
+.pricing .spacer{border-bottom:0}
+.group{margin-top:48px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:16px;align-items:stretch}
+.group > div{background:var(--card);border-radius:22px;padding:28px;display:grid;gap:10px;align-content:start;position:relative}
+.group .lead-g{background:var(--accent);color:#000}
+.group h3{font-size:34px}
+.group .gprice{font-family:var(--display);font-size:46px;line-height:1}
+.group small{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+.group p{margin:0}
+.group .btn{min-width:0;width:100%;margin-top:6px}
+.group .lead-g .btn{background:#000;border-color:#000;color:var(--fg);animation:none}
+@media (max-width:900px){.group{grid-template-columns:1fr}}
+
+/* patrocínio */
+.sponsor .box{background:var(--accent);color:#000;border-radius:28px;padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:start}
+.sponsor .eyebrow{color:#000;opacity:.75}
+.sponsor h2{font-size:clamp(40px,5vw,72px);color:#000}
+.sponsor p{font-size:18px;margin:0;max-width:44ch}
+.quotas{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(0,0,0,.25)}
+.quotas li{padding:14px 0;border-bottom:1px solid rgba(0,0,0,.25);font-weight:600;font-size:16px}
+.quotas li:nth-child(odd){padding-right:16px}
+.sponsor .actions{justify-content:flex-start}
+.sponsor .btn-fill{background:#000;border-color:#000;color:var(--fg);animation:none}
+.sponsor .btn-line{border-color:#000;color:#000}
+.sponsor .btn-line:hover{background:#000;color:var(--fg)}
+@media (max-width:860px){.sponsor .box{grid-template-columns:1fr;gap:32px}}
+@media (max-width:480px){.quotas{grid-template-columns:1fr}.quotas li:nth-child(odd){padding-right:0}}
+
+/* faq */
+.faq{max-width:900px;margin:56px auto 0}
+details{background:var(--card);border-radius:18px;margin-bottom:10px;padding:0 24px}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font-weight:600;font-size:18px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--mono);color:var(--accent);font-size:24px;line-height:1;transition:transform .3s var(--ease)}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin:0 0 22px;color:var(--muted);max-width:62ch}
+
+/* fechamento */
+.closing{position:relative;overflow:hidden;isolation:isolate;text-align:center}
+.closing > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:.5}
+.closing::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#000 0%,rgba(0,0,0,.4) 40%,rgba(0,0,0,.6) 70%,#000 100%)}
+.closing .wrap{display:grid;justify-items:center;gap:24px}
+.closing h2{font-size:clamp(48px,7.4vw,112px);max-width:13ch}
+.closing h2 em{font-style:normal;color:var(--accent)}
+
+footer{border-top:1px solid var(--line);padding-block:40px calc(40px + env(safe-area-inset-bottom,0px))}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--muted);font-size:14px;align-items:center}
+
+.zapf{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:70;display:flex;align-items:center;gap:12px;padding:7px 8px 7px 7px;border-radius:999px;background:var(--fg);color:#000;text-decoration:none;box-shadow:0 14px 34px rgba(0,0,0,.45);transition:transform .3s var(--ease)}
+.zapf:hover{transform:translateY(-3px)}
+.zapf img{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:50% 20%;border:2px solid #25D366}
+.zapf__t{display:grid;line-height:1.15;padding-right:4px;font-family:var(--body)}
+.zapf__t b{font-size:15px}
+.zapf__t small{font-size:12px;opacity:.7}
+.zapf__i{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#25D366;color:#fff}
+.zapf__i svg{width:24px;height:24px}
+@media (max-width:600px){.zapf__t{display:none}.zapf{padding:6px;gap:6px}}
+@media (prefers-reduced-motion:reduce){
+  .btn-fill,.marquee-track,.hero h1 .w > span,.card.on .bar{animation:none}
+  .card.on .bar{transform:scaleX(1)}
+  .track,.card,.card img{transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="promo" role="region" aria-label="Oferta do 3º lote">
+  <div class="wrap">
+    <span id="lot-msg">Últimos dias do 3º lote · o preço sobe na virada para o 4º lote</span>
+    <div class="clock" aria-label="Tempo até a virada do lote">
+      <span><b id="cd-d">00</b><small>dias</small></span>
+      <span><b id="cd-h">00</b><small>horas</small></span>
+      <span><b id="cd-m">00</b><small>min</small></span>
+      <span><b id="cd-s">00</b><small>seg</small></span>
+    </div>
+    <a href="#ingressos">Quero aproveitar</a>
+  </div>
+</div>
+
+<main>
+  <section class="hero" id="topo">
+    <header class="nav">
+      <div class="wrap">
+        <a class="logo" href="#topo"><b>ACADEMIA DE VENDAS <span>27</span></b><small>by Broker Academy Education</small></a>
+        <ul>
+          <li><a href="#evento">O evento</a></li>
+          <li><a href="#palestrantes">Palestrantes</a></li>
+          <li><a href="#patrocinio">Seja patrocinador</a></li>
+          <li><a href="../index.html">My Broker</a></li>
+        </ul>
+        <a class="btn btn-fill" href="#ingressos"><span>Reserve seu lugar</span></a>
+      </div>
+    </header>
+    <video autoplay muted loop playsinline preload="auto" poster="fotos/video-poster.jpg" aria-hidden="true">
+      <source src="video/destaques.mp4" type="video/mp4">
+    </video>
+    <div class="mono3d" id="mono3d" aria-hidden="true"><div class="m3-tilt" id="m3t"><div class="m3-inner" id="m3"></div></div></div>
+    <div class="wrap">
+      <p class="meta">13 e 14 jan 2027 · Goiânia · Flamboyant Hall</p>
+      <h1 aria-label="Participe do maior evento para corretores do Brasil">
+        <span class="w" aria-hidden="true"><span style="--d:.05s">Participe</span></span> <span class="w" aria-hidden="true"><span style="--d:.12s">do</span></span> <span class="w" aria-hidden="true"><span style="--d:.19s">maior</span></span> <span class="w" aria-hidden="true"><span style="--d:.26s">evento</span></span> <span class="w" aria-hidden="true"><span style="--d:.33s">para</span></span> <span class="w" aria-hidden="true"><span style="--d:.40s">corretores</span></span> <span class="w" aria-hidden="true"><span style="--d:.47s">do</span></span> <span class="w" aria-hidden="true"><span style="--d:.54s">Brasil</span></span>
+      </h1>
+      <p class="lead">Dois dias intensos de conteúdo, prática e networking com quem mais vende imóveis no país.</p>
+      <div class="actions">
+        <a class="btn btn-fill" href="#ingressos"><span>Ingresso individual</span></a>
+        <a class="btn btn-line" href="#ingressos"><span>Ingresso em grupo</span></a>
+      </div>
+      <div class="proof">
+        <div class="faces" aria-hidden="true">
+          <img src="fotos/rostos/chris-gardner.jpg" alt="">
+          <img src="fotos/rostos/thiago-nigro.jpg" alt="">
+          <img src="fotos/rostos/clovis-de-barros.jpg" alt="">
+          <img src="fotos/rostos/daniel-dias.jpg" alt="">
+        </div>
+        <p><strong>+19.500 profissionais</strong><br>já passaram pela Academia</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="legacy" id="evento">
+    <div class="wrap head center">
+      <p class="eyebrow">O legado da Academia</p>
+      <h2 class="title">Conectando corretores desde 2016</h2>
+      <p class="sub">Nasceu na maior crise financeira do país, quando a My Broker decidiu investir em quem vende. Uma década de palcos lotados depois, é o maior treinamento de vendas do mercado imobiliário.</p>
+    </div>
+    <div class="marquee" aria-label="Fotos das edições anteriores">
+      <div class="marquee-track">
+        <figure class="shot" style="margin:0"><img src="fotos/historia-2026.jpg" alt="Academia de Vendas em 2026"><b>2026</b></figure>
+        <figure class="shot" style="margin:0"><img src="fotos/historia-2024.jpg" alt="Academia de Vendas em 2024, em Balneário Camboriú"><b>2024</b></figure>
+        <figure class="shot" style="margin:0"><img src="fotos/historia-2023.jpg" alt="Academia de Vendas em 2023, no WTC em São Paulo"><b>2023</b></figure>
+        <figure class="shot" style="margin:0"><img src="fotos/palestra.jpg" alt="Plateia com as lanternas dos celulares acesas"><b>AO VIVO</b></figure>
+        <figure class="shot" style="margin:0"><img src="fotos/historia-2025.jpg" alt="Academia de Vendas em 2025"><b>2025</b></figure>
+        <figure class="shot" style="margin:0"><img src="fotos/historia-2022.jpg" alt="Academia de Vendas em 2022"><b>2022</b></figure>
+        <figure class="shot" style="margin:0"><img src="fotos/historia-2017.jpg" alt="Academia de Vendas em 2017"><b>2017</b></figure>
+        <figure class="shot" style="margin:0"><img src="fotos/historia-2016.jpg" alt="Academia de Vendas em 2016"><b>2016</b></figure>
+        <figure class="shot" style="margin:0" aria-hidden="true"><img src="fotos/historia-2026.jpg" alt=""><b>2026</b></figure>
+        <figure class="shot" style="margin:0" aria-hidden="true"><img src="fotos/historia-2024.jpg" alt=""><b>2024</b></figure>
+        <figure class="shot" style="margin:0" aria-hidden="true"><img src="fotos/historia-2023.jpg" alt=""><b>2023</b></figure>
+        <figure class="shot" style="margin:0" aria-hidden="true"><img src="fotos/palestra.jpg" alt=""><b>AO VIVO</b></figure>
+        <figure class="shot" style="margin:0" aria-hidden="true"><img src="fotos/historia-2025.jpg" alt=""><b>2025</b></figure>
+        <figure class="shot" style="margin:0" aria-hidden="true"><img src="fotos/historia-2022.jpg" alt=""><b>2022</b></figure>
+        <figure class="shot" style="margin:0" aria-hidden="true"><img src="fotos/historia-2017.jpg" alt=""><b>2017</b></figure>
+        <figure class="shot" style="margin:0" aria-hidden="true"><img src="fotos/historia-2016.jpg" alt=""><b>2016</b></figure>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat big tilt"><strong>+19.500</strong><span>profissionais já passaram pela Academia</span></div>
+        <div class="stat tilt"><strong>5.180.889</strong><span>visualizações nas redes</span></div>
+        <div class="stat tilt"><strong>2.104.379</strong><span>pessoas alcançadas</span></div>
+        <div class="stat tilt"><strong>+572h</strong><span>de conteúdo em todas as edições</span></div>
+        <div class="stat tilt"><strong>+120</strong><span>marcas impactadas</span></div>
+        <div class="stat tilt"><strong>90%</strong><span>do público vem do mercado imobiliário</span></div>
+        <div class="stat tilt"><strong>55/45</strong><span>% de mulheres e homens no público</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="speakers" id="palestrantes">
+    <div class="wrap">
+      <div class="sp-top">
+        <div class="head">
+          <p class="eyebrow">Palestrantes já confirmados</p>
+          <h2 class="title">Quem sobe ao <span class="muted">palco em 2027</span></h2>
+        </div>
+        <div class="sp-nav">
+          <button class="nav-btn" type="button" id="sp-prev" aria-label="Palestrante anterior"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button class="nav-btn" type="button" id="sp-next" aria-label="Próximo palestrante"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+        </div>
+      </div>
+      <div class="carousel" id="carousel" aria-roledescription="carrossel">
+        <div class="track" id="track"></div>
+      </div>
+    </div>
+    <div class="alumni">
+      <p class="eyebrow">Quem já passou pelo nosso palco</p>
+      <div class="names"><div class="names-track" id="names-a"></div></div>
+      <div class="names rev"><div class="names-track" id="names-b"></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap head center">
+      <p class="eyebrow">Uma década de palcos lotados</p>
+      <h2 class="title">A edição 2026 foi épica, 2027 será ainda melhor</h2>
+      <p class="sub">Arraste para ver cada edição.</p>
+    </div>
+    <div class="wrap">
+      <div class="years" tabindex="0" aria-label="Edições anteriores">
+        <div class="year tilt"><img src="fotos/historia-2016.jpg" alt="Academia de Vendas em 2016" loading="lazy"><div class="txt"><small>Nasce a Academia</small><b>2016</b></div></div>
+        <div class="year tilt"><img src="fotos/historia-2017.jpg" alt="Academia de Vendas em 2017" loading="lazy"><div class="txt"><b>2017</b></div></div>
+        <div class="year tilt"><img src="fotos/historia-2020.jpg" alt="Academia de Vendas em 2020" loading="lazy"><div class="txt"><small>Conexões além do presencial</small><b>2020</b></div></div>
+        <div class="year tilt"><img src="fotos/historia-2022.jpg" alt="Academia de Vendas em 2022" loading="lazy"><div class="txt"><b>2022</b></div></div>
+        <div class="year tilt"><img src="fotos/historia-2023.jpg" alt="Academia de Vendas em 2023" loading="lazy"><div class="txt"><small>Primeira edição fora de Goiânia</small><b>2023</b></div></div>
+        <div class="year tilt"><img src="fotos/historia-2024.jpg" alt="Academia de Vendas em 2024" loading="lazy"><div class="txt"><small>Uma edição épica no Sul</small><b>2024</b></div></div>
+        <div class="year tilt"><img src="fotos/historia-2025.jpg" alt="Academia de Vendas em 2025" loading="lazy"><div class="txt"><b>2025</b></div></div>
+        <div class="year tilt"><img src="fotos/historia-2026.jpg" alt="Academia de Vendas em 2026" loading="lazy"><div class="txt"><small>Uma década de liderança</small><b>2026</b></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap head center">
+      <p class="eyebrow">O que esperar da edição 2027</p>
+      <h2 class="title">Dois dias para voltar vendendo mais</h2>
+    </div>
+    <div class="wrap">
+      <div class="isnot">
+        <div class="col no">
+          <h3>A Academia de Vendas não é</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>Palestra motivacional que acaba quando você sai do auditório</li>
+            <li><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>Teoria distante da rotina de quem vende</li>
+            <li><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>Evento de stands com pouco conteúdo</li>
+          </ul>
+        </div>
+        <div class="col yes">
+          <h3>A Academia de Vendas é</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>Conteúdo prático de negociação e vendas, feito para o mercado imobiliário</li>
+            <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>Palestrantes que são referência no que ensinam</li>
+            <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>Networking com milhares de profissionais do setor</li>
+            <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>Dois dias de imersão para voltar vendendo mais</li>
+          </ul>
+        </div>
+      </div>
+      <div class="who">
+        <article class="tilt"><h3>Corretores de imóveis</h3><p>Do primeiro contrato ao topo do ranking: negociação e prospecção para aplicar já no dia seguinte.</p></article>
+        <article class="tilt"><h3>Gestores comerciais</h3><p>Ferramentas para liderar times, bater metas e construir uma cultura comercial de alta performance.</p></article>
+        <article class="tilt"><h3>Profissionais de vendas</h3><p>Estratégias atualizadas para vender mais e melhor, em qualquer cenário econômico.</p></article>
+        <article class="tilt"><h3>Novos talentos</h3><p>Uma porta de entrada no mercado, com base sólida e conexão com quem já chegou lá.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap head center">
+      <p class="eyebrow">Locais por onde já passamos</p>
+      <h2 class="title">Em 2027, a Academia volta para casa</h2>
+    </div>
+    <div class="wrap">
+      <div class="cities">
+        <div class="city now tilt"><b>GO</b><h3>Goiânia</h3><p>O berço da Academia de Vendas, referência em inovação e volume de negócios.</p><span class="tag">2027 · Flamboyant Hall</span></div>
+        <div class="city tilt"><b>SP</b><h3>São Paulo</h3><p>Ampliou nossa força no maior mercado imobiliário do país, com mais de 2.000 corretores no WTC.</p></div>
+        <div class="city tilt"><b>SC</b><h3>Balneário Camboriú</h3><p>Reforçou a presença no Sul, conectando marcas a um público exigente e em expansão.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ingressos">
+    <div class="wrap head center">
+      <p class="eyebrow">13 e 14 de janeiro de 2027 · Flamboyant Hall</p>
+      <h2 class="title" id="lot-title">Reserve seu lugar no 3º lote</h2>
+      <p class="sub">Garanta seu ingresso no maior evento para corretores do Brasil.</p>
+      <ol class="lots" aria-label="Lotes de ingresso" id="lots"></ol>
+      <div class="offer" id="offer"><span class="dot"></span><span id="offer-txt">O 3º lote vira em</span> <b data-lot-left>00d 00h 00m 00s</b></div>
+    </div>
+    <div class="wrap">
+      <div class="pricing">
+        <div class="ptable" id="ptable">
+          <div class="rowlab spacer"></div>
+          <div class="tier t1 tilt">
+            <h3>PASS</h3>
+            <span class="kicker">Garanta sua entrada</span>
+            <span class="was" data-was="pass"></span>
+            <span class="inst" data-inst="pass">12x de</span>
+            <span class="price" data-price="pass">R$ 66,17</span>
+            <span class="cash" data-cash="pass">ou R$ 794,04 à vista</span>
+            <a class="btn" data-buy="Pass" href="#" target="_blank" rel="noopener"><span>Comprar agora</span></a>
+          </div>
+          <div class="tier t2 tilt">
+            <h3>VIP</h3>
+            <span class="kicker">Acessos exclusivos</span>
+            <span class="was" data-was="vip"></span>
+            <span class="inst" data-inst="vip">12x de</span>
+            <span class="price" data-price="vip">R$ 124,75</span>
+            <span class="cash" data-cash="vip">ou R$ 1.497,00 à vista</span>
+            <a class="btn" data-buy="VIP" href="#" target="_blank" rel="noopener"><span>Comprar agora</span></a>
+          </div>
+          <div class="tier t3 tilt">
+            <h3>ULTRA</h3>
+            <span class="kicker">Unidades ultra limitadas · 50 vagas</span>
+            <span class="was" data-was="ultra"></span>
+            <span class="inst" data-inst="ultra">12x de</span>
+            <span class="price" data-price="ultra">R$ 249,75</span>
+            <span class="cash" data-cash="ultra">ou R$ 2.997,00 à vista</span>
+            <a class="btn" data-buy="Ultra" href="#" target="_blank" rel="noopener"><span>Aplique-se</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="group">
+        <div class="lead-g tilt">
+          <small>Para sua imobiliária</small>
+          <h3>Leve seu time inteiro</h3>
+          <p>Ingresso Pass com preço de grupo, atendimento dedicado e a equipe toda falando a mesma língua comercial.</p>
+          <a class="btn btn-fill" href="https://wa.me/5562998810378?text=Ol%C3%A1!%20Quero%20levar%20a%20equipe%20da%20minha%20imobili%C3%A1ria%20para%20a%20Academia%20de%20Vendas%2027." target="_blank" rel="noopener"><span>Quero ingressos para grupos</span></a>
+        </div>
+        <div class="tilt">
+          <small>A partir de 5 corretores</small>
+          <span class="gprice">R$ 694</span>
+          <p>por pessoa, ingresso Pass</p>
+        </div>
+        <div class="tilt">
+          <small>A partir de 10 corretores</small>
+          <span class="gprice">R$ 594</span>
+          <p>por pessoa, ingresso Pass, e 1 VIP para o gestor</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sponsor" id="patrocinio">
+    <div class="wrap">
+      <div class="box">
+        <div class="head">
+          <p class="eyebrow">Seja patrocinador</p>
+          <h2>Sua marca no maior palco de vendas do mercado imobiliário</h2>
+          <p>Associe sua marca à Academia de Vendas e fale com quem mais vende imóveis no país, antes, durante e depois do evento.</p>
+          <div class="actions">
+            <a class="btn btn-fill" href="https://wa.me/5562998810378?text=Ol%C3%A1!%20Quero%20receber%20o%20m%C3%ADdia%20kit%20da%20Academia%20de%20Vendas%2027." target="_blank" rel="noopener"><span>Solicitar mídia kit</span></a>
+            <a class="btn btn-line" href="https://wa.me/5562998810378?text=Ol%C3%A1!%20Quero%20patrocinar%20a%20Academia%20de%20Vendas%2027." target="_blank" rel="noopener"><span>Falar no WhatsApp</span></a>
+          </div>
+        </div>
+        <div class="head">
+          <p class="eyebrow">Formatos de cota</p>
+          <ul class="quotas">
+            <li>Naming rights de palestra</li><li>Palco Talk Broker</li>
+            <li>Credenciamento oficial</li><li>Stand no evento</li>
+            <li>Cota de apoio</li><li>Vídeo institucional no telão</li>
+            <li>Logomarca nos materiais</li><li>Credenciais e área exclusiva</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap head center">
+      <p class="eyebrow">Dúvidas</p>
+      <h2 class="title">Perguntas frequentes</h2>
+    </div>
+    <div class="wrap">
+      <div class="faq">
+        <details open><summary>Quando e onde é a edição 2027?</summary><p>Nos dias 13 e 14 de janeiro de 2027, no Flamboyant Hall, dentro do Flamboyant Shopping, em Goiânia.</p></details>
+        <details><summary>O que é a Academia de Vendas?</summary><p>É o maior treinamento de vendas do mercado imobiliário: dois dias intensos de conteúdo, prática e networking. Foi criada pela My Broker em 2016 e hoje é aberta a todo o mercado.</p></details>
+        <details><summary>Para quem é o evento?</summary><p>Para corretores de imóveis, gestores comerciais, profissionais de vendas e novos talentos que estão entrando no mercado.</p></details>
+        <details><summary>Preciso fazer parte da My Broker para participar?</summary><p>Não. A Academia de Vendas é aberta a todo o mercado.</p></details>
+        <details><summary>Posso levar a equipe da minha imobiliária?</summary><p>Sim. Há condições para grupos e atendimento dedicado para imobiliárias.</p></details>
+        <details><summary>Como minha marca pode patrocinar?</summary><p>Peça o mídia kit pelo WhatsApp. Temos cotas de naming rights, palco, credenciamento, stand, apoio e presença nas redes.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <img src="fotos/historia-2026.jpg" alt="" loading="lazy">
+    <div class="wrap">
+      <p class="eyebrow">13 e 14 de janeiro de 2027 · Flamboyant Hall</p>
+      <h2>Quem domina o mercado, <em>passou por aqui</em></h2>
+      <p class="sub">Seja parte dos próximos 10 anos da Academia de Vendas.</p>
+      <div class="actions">
+        <a class="btn btn-fill" href="#ingressos"><span>Quero participar</span></a>
+        <a class="btn btn-line" href="#patrocinio"><span>Seja patrocinador</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="logo"><b>ACADEMIA DE VENDAS <span>27</span></b><small>by Broker Academy Education</small></span>
+    <span>Criada pela My Broker em 2016 · <a href="https://instagram.com/academiadevendas" target="_blank" rel="noopener">@academiadevendas</a></span>
+    <small style="flex-basis:100%;font-size:11px;opacity:.6">Fotos: Chris Gardner por Angela George (CC BY-SA 3.0); Thiago Nigro por Guilherme Cácomo de Medeiros (CC BY-SA 4.0); Clóvis de Barros Filho por CPFL Cultura (CC BY 2.0); Daniel Dias por Fernando Frazão/Agência Brasil (CC BY 3.0 BR), via Wikimedia Commons.</small>
+  </div>
+</footer>
+<a class="zapf" href="https://wa.me/5562998810378?text=Ol%C3%A1%2C%20Ronaldo!%20Quero%20saber%20da%20Academia%20de%20Vendas%2027." target="_blank" rel="noopener" aria-label="Falar com o Ronaldo Dantas no WhatsApp"><img src="fotos/ronaldo-avatar.jpg" alt="" width="52" height="52"><span class="zapf__t"><b>Fale com o Ronaldo</b><small>Ingressos e grupos no WhatsApp</small></span><span class="zapf__i" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg></span></a>
+<script>
+(function(){
+  var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function p(n){return String(n).padStart(2,"0")}
+  function brl(v){return "R$ "+v.toFixed(2).replace(".",",").replace(/\B(?=(\d{3})+(?!\d))/g,".")}
+
+  /* lotes: o 3º vira para o 4º em 19/11 às 23h59 */
+  var TURN=new Date("2026-11-19T23:59:59-03:00").getTime();
+  var EVENT=new Date("2027-01-13T08:00:00-03:00").getTime();
+  var PRICES={
+    3:{pass:794.04,vip:1497,ultra:2997},
+    4:{pass:914.04,vip:1697,ultra:3497}
+  };
+  var WA="https://wa.me/5562998810378?text=";
+  function lot(){return Date.now()<TURN?3:4}
+  var shownLot=0;
+  function renderLot(){
+    var L=lot(); if(L===shownLot) return; shownLot=L;
+    var list=[["1º lote","Esgotado","gone"],["2º lote","Esgotado","gone"],["3º lote",L===3?"Termina 19/11":"Esgotado",L===3?"cur":"gone"],["4º lote",L===3?"A partir de 20/11":"Vendas abertas",L===4?"cur":""]];
+    document.getElementById("lots").innerHTML=list.map(function(x){return '<li class="'+x[2]+'"><b>'+x[0]+'</b><span>'+x[1]+'</span></li>'}).join("");
+    document.getElementById("lot-title").textContent="Reserve seu lugar no "+L+"º lote";
+    document.getElementById("lot-msg").textContent=L===3?"Últimos dias do 3º lote · o preço sobe na virada para o 4º lote":"4º lote aberto · faltam para a Academia de Vendas 27";
+    document.getElementById("offer-txt").textContent=L===3?"O 3º lote vira em":"Faltam para o evento";
+    ["pass","vip","ultra"].forEach(function(k){
+      var v=PRICES[L][k];
+      document.querySelector('[data-price="'+k+'"]').textContent=brl(Math.round(v/12*100)/100);
+      document.querySelector('[data-cash="'+k+'"]').textContent="ou "+brl(v)+" à vista";
+      document.querySelector('[data-was="'+k+'"]').textContent=L===3?"Sobe para "+brl(PRICES[4][k])+" em 20/11":"";
+    });
+    document.querySelectorAll("[data-buy]").forEach(function(a){
+      a.href=WA+encodeURIComponent("Olá! Quero o ingresso "+a.dataset.buy+" do "+L+"º lote da Academia de Vendas 27.");
+    });
+  }
+  function tick(){
+    renderLot();
+    var target=lot()===3?TURN:EVENT;
+    var t=Math.max(0,Math.floor((target-Date.now())/1000));
+    var d=Math.floor(t/86400),h=Math.floor(t%86400/3600),m=Math.floor(t%3600/60),sec=t%60;
+    document.getElementById("cd-d").textContent=p(d);
+    document.getElementById("cd-h").textContent=p(h);
+    document.getElementById("cd-m").textContent=p(m);
+    document.getElementById("cd-s").textContent=p(sec);
+    document.querySelectorAll("[data-lot-left]").forEach(function(el){el.textContent=p(d)+"d "+p(h)+"h "+p(m)+"m "+p(sec)+"s"});
+  }
+  tick();setInterval(tick,1000);
+
+  /* tabela de benefícios */
+  var rows=[
+    ["Acesso aos 2 dias","13 e 14 de janeiro",[1,1,1]],
+    ["Palestras e palco","Os maiores nomes de vendas",[1,1,1]],
+    ["Networking","Milhares de profissionais do setor",[1,1,1]],
+    ["Credencial e certificado","Oficiais do evento",[1,1,1]],
+    ["Credenciamento rápido","Sem fila na entrada",[0,1,1]],
+    ["Lugar marcado","Nas primeiras filas",[0,1,1]],
+    ["Almoço nos 2 dias","Incluído",[0,1,1]],
+    ["Área VIP","Com coffee",[0,1,1]],
+    ["Primeira fila","Exclusiva Ultra",[0,0,1]],
+    ["Encontro com palestrantes","Nos bastidores, com foto",[0,0,1]],
+    ["Jantar Ultra","Noite do dia 13, com palestrantes e diretoria",[0,0,1]],
+    ["Encontro online","Em grupo, depois do evento",[0,0,1]],
+    ["Kit oficial e estacionamento","No Flamboyant",[0,0,1]]
+  ];
+  var yes='<svg viewBox="0 0 24 24" aria-label="Incluído"><circle class="yes-i" cx="12" cy="12" r="11"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#000" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var no='<svg viewBox="0 0 24 24" aria-label="Não incluído"><path class="no-i" d="M7 12h10"/></svg>';
+  var html="";
+  rows.forEach(function(r){html+='<div class="rowlab"><b>'+r[0]+'</b><span>'+r[1]+'</span></div>';r[2].forEach(function(v){html+='<div class="cell">'+(v?yes:no)+'</div>'})});
+  document.getElementById("ptable").insertAdjacentHTML("beforeend",html);
+
+  /* palestrantes 2027: foto entra quando chegar (campo img) */
+  var people=[
+    {name:"Ronaldo Dantas",role:"CEO · My Broker",img:"fotos/2027/ronaldo.webp"},
+    {name:"Raul Sena",role:"Fundador · AUVP",img:"fotos/2027/raul.webp",full:true},
+    {name:"Irmãs Coletes",role:"Mentoras",img:"fotos/2027/coletes.webp",full:true},
+    {name:"Raphael Rios",role:"Confirmado 2027",img:"fotos/2027/raphael.webp"},
+    {name:"Leandro Batista",role:"Confirmado 2027",img:"fotos/2027/leandro.webp"},
+    {name:"Victor Albuquerque",role:"Confirmado 2027",img:"fotos/2027/victor.webp"}
+  ];
+  function ini(n){var w=n.split(" ");return (w[0][0]+w[w.length-1][0]).toUpperCase()}
+  var track=document.getElementById("track"),car=document.getElementById("carousel");
+  track.innerHTML=people.map(function(x,i){
+    var media=x.img?'<div class="ph"></div><img class="'+(x.full?'full':'corte')+'" src="'+x.img+'" alt="'+x.name+'"><div class="gray"></div>':'<div class="ph"></div><span class="ini" aria-hidden="true">'+ini(x.name)+'</span><span class="soon">Foto em breve</span>';
+    return '<article class="card" tabindex="0" data-i="'+i+'" aria-label="'+x.name+'">'+media+'<div class="dim"></div><div class="shade"></div><span class="vname" aria-hidden="true">'+x.name+'</span><div class="info"><h3>'+x.name+'</h3><p>'+x.role+'</p><div class="progress"><div class="bar"></div></div></div></article>';
+  }).join("");
+  var cards=[].slice.call(track.children),cur=0,timer=null,autoplay=reduce?1e9:6000,dims=null;
+  function measure(){
+    var a=cards[0].classList.contains("on")?1:0;
+    var on=track.querySelector(".card.on"),off=track.querySelector(".card:not(.on)");
+    var cs=getComputedStyle(track);
+    dims={g:parseFloat(cs.columnGap)||16};
+    var probe=document.createElement("div");probe.style.cssText="position:absolute;visibility:hidden;width:var(--n)";car.appendChild(probe);dims.n=probe.offsetWidth;
+    probe.style.width="var(--a)";dims.a=probe.offsetWidth;probe.remove();
+  }
+  function layout(){
+    if(!dims) measure();
+    var total=dims.a+(cards.length-1)*(dims.n+dims.g),vis=car.clientWidth;
+    var shift=Math.max(0,Math.min(cur*(dims.n+dims.g),total-vis));
+    track.style.setProperty("--shift",shift+"px");
+  }
+  function go(i){
+    cur=(i+cards.length)%cards.length;
+    cards.forEach(function(c,k){
+      var on=k===cur;c.classList.toggle("on",on);c.setAttribute("aria-current",on?"true":"false");
+      if(on){var b=c.querySelector(".bar");b.style.animation="none";void b.offsetWidth;b.style.animation=""}
+    });
+    layout();restart();
+  }
+  function restart(){clearTimeout(timer);if(!car.classList.contains("paused"))timer=setTimeout(function(){go(cur+1)},autoplay)}
+  var visible=true;
+  
+  cards.forEach(function(c){
+    c.addEventListener("click",function(){go(+c.dataset.i)});
+    c.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();go(+c.dataset.i)}});
+  });
+  document.getElementById("sp-prev").addEventListener("click",function(){go(cur-1)});
+  document.getElementById("sp-next").addEventListener("click",function(){go(cur+1)});
+  /* só o mouse pausa (um toque no celular não trava o carrossel) */
+  car.addEventListener("pointerenter",function(e){if(e.pointerType!=="mouse")return;car.classList.add("paused");clearTimeout(timer)});
+  car.addEventListener("pointerleave",function(e){if(!car.classList.contains("paused"))return;car.classList.remove("paused");restart()});
+  var rz;window.addEventListener("resize",function(){clearTimeout(rz);rz=setTimeout(function(){dims=null;layout()},150)});
+  go(0);
+
+  /* quem já passou: nomes em duas faixas */
+  var alumni=[["Chris Gardner","fotos/rostos/chris-gardner.jpg"],["Thiago Nigro","fotos/rostos/thiago-nigro.jpg"],["Clóvis de Barros",""],["Cíntia Chagas",""],["Alfredo Soares",""],["Caio Maia",""],["Clayton Conservani",""],["Paulo Cuenca",""],["Daniel Dias","fotos/rostos/daniel-dias.jpg"],["Darlan Sousa",""],["Paulo Angelim",""],["Gustavo Rangel",""],["Augusto Braga",""],["Israel Pires",""]];
+  alumni[2][1]="fotos/rostos/clovis-de-barros.jpg";
+  function pills(list){var h=list.map(function(x){return '<span class="pill'+(x[1]?'':' np')+'">'+(x[1]?'<img src="'+x[1]+'" alt="" loading="lazy">':'')+x[0]+'</span>'}).join("");return h+h.replace(/<span class="pill/g,'<span aria-hidden="true" class="pill')}
+  document.getElementById("names-a").innerHTML=pills(alumni.slice(0,7));
+  document.getElementById("names-b").innerHTML=pills(alumni.slice(7));
+
+  /* 3D do "27": 10 camadas; o mouse só inclina (CSS faz o balanço) */
+  var m3=document.getElementById("m3"),m3t=document.getElementById("m3t"),L=10,h3="";
+  for(var i=0;i<L;i++){h3+='<span style="--z:'+(-i*6)+';--k:'+((L-i)/L).toFixed(2)+'"'+(i===0?' class="face"':'')+'>27</span>'}
+  m3.innerHTML=h3;
+  var hero=document.querySelector(".hero");
+  if(reduce){m3.style.animation="none"}
+  else{
+    var pend=null;
+    hero.addEventListener("pointermove",function(e){
+      if(pend) return;
+      pend=requestAnimationFrame(function(){pend=null;
+        var r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+        m3t.style.setProperty("--ry",(x*30)+"deg");m3t.style.setProperty("--rx",(-y*18+6)+"deg");
+      });
+    });
+    hero.addEventListener("pointerleave",function(){m3t.style.setProperty("--ry","0deg");m3t.style.setProperty("--rx","8deg")});
+
+    /* cards inclinam (um quadro por movimento) */
+    document.querySelectorAll(".tilt").forEach(function(el){
+      var g=document.createElement("span");g.className="glare";el.appendChild(g);var raf=null,ev=null;
+      el.addEventListener("pointermove",function(e){ev=e;if(raf)return;raf=requestAnimationFrame(function(){raf=null;
+        var r=el.getBoundingClientRect(),x=(ev.clientX-r.left)/r.width,y=(ev.clientY-r.top)/r.height;
+        el.style.transform="perspective(900px) rotateY("+((x-.5)*10)+"deg) rotateX("+((.5-y)*8)+"deg)";
+        el.style.setProperty("--gx",x*100+"%");el.style.setProperty("--gy",y*100+"%");
+      })});
+      el.addEventListener("pointerleave",function(){el.style.transform=""});
+    });
+  }
+
+  var v=document.querySelector(".hero video");
+  if(v&&reduce){v.removeAttribute("autoplay");v.pause()}
+})();
+</script>
+
+</body>
+</html>

@@ -661,8 +661,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   var WA="https://wa.me/5562998810378?text=";
   /* lote em venda: troca para 4 SÓ quando a My Broker pedir (não muda sozinho pela data) */
   /* checkout da Hotmart (My Broker Educação) por lote: pay.hotmart.com/<produto>?off=<oferta>.
-     Os links aparecem quando a Hotmart aprovar os produtos; enquanto vazio, o botão abre o WhatsApp do Ronaldo. */
-  var CHECKOUT={3:{pass:"",vip:"",ultra:""},4:{pass:"",vip:"",ultra:""}};
+     Produtos aprovados em 17/11; um link vazio volta o botão para o WhatsApp do Ronaldo. */
+  var PASS="https://pay.hotmart.com/G108545479U",VIP="https://pay.hotmart.com/N108545759S",ULTRA="https://pay.hotmart.com/E108545853Y?off=gzmni5rv";
+  var CHECKOUT={3:{pass:PASS+"?off=l9ch2706",vip:VIP+"?off=n4nas2w3",ultra:ULTRA},4:{pass:PASS+"?off=dp9xkl23",vip:VIP+"?off=r3gf7xeo",ultra:ULTRA}};
   var LOTE_ATUAL=3;
   function lot(){return LOTE_ATUAL}
   var shownLot=0;

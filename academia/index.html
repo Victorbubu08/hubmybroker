@@ -636,8 +636,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   function p(n){return String(n).padStart(2,"0")}
   function brl(v){return "R$ "+v.toFixed(2).replace(".",",").replace(/\B(?=(\d{3})+(?!\d))/g,".")}
 
-  /* lotes: o 3º vira para o 4º em 20/12 às 23h59 */
-  var TURN=new Date("2026-12-20T23:59:59-03:00").getTime();
+  /* lotes: o 3º vira para o 4º em 20/11 às 23h59 */
+  var TURN=new Date("2026-11-20T23:59:59-03:00").getTime();
   var EVENT=new Date("2027-01-13T08:00:00-03:00").getTime();
   var PRICES={
     3:{pass:794.04,vip:1497,ultra:12500},
@@ -650,7 +650,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   var shownLot=0;
   function renderLot(){
     var L=lot(); if(L===shownLot) return; shownLot=L;
-    var list=[["1º lote","Esgotado","gone"],["2º lote","Esgotado","gone"],["3º lote",L===3?(Date.now()<TURN?"Termina 20/12":"Vendas abertas"):"Esgotado",L===3?"cur":"gone"],["4º lote",L===3?"Em breve":"Vendas abertas",L===4?"cur":""]];
+    var list=[["1º lote","Esgotado","gone"],["2º lote","Esgotado","gone"],["3º lote",L===3?(Date.now()<TURN?"Termina 20/11":"Vendas abertas"):"Esgotado",L===3?"cur":"gone"],["4º lote",L===3?"Em breve":"Vendas abertas",L===4?"cur":""]];
     document.getElementById("lots").innerHTML=list.map(function(x){return '<li class="'+x[2]+'"><b>'+x[0]+'</b><span>'+x[1]+'</span></li>'}).join("");
     document.getElementById("lot-title").textContent="Reserve seu lugar no "+L+"º lote";
     document.getElementById("lot-msg").textContent=L===3?"Últimos dias do 3º lote · o preço sobe na virada para o 4º lote":"4º lote aberto · faltam para a Academia de Vendas 27";
@@ -659,7 +659,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
       var v=PRICES[L][k];
       document.querySelector('[data-price="'+k+'"]').textContent=brl(Math.round(v/12*100)/100);
       document.querySelector('[data-cash="'+k+'"]').textContent="ou "+brl(v)+" à vista";
-      document.querySelector('[data-was="'+k+'"]').textContent=(L===3&&PRICES[4][k]!==PRICES[3][k])?"No 4º lote: "+brl(PRICES[4][k]):"";
+      document.querySelector('[data-was="'+k+'"]').textContent="";
     });
     document.querySelectorAll("[data-buy]").forEach(function(a){
       a.href=WA+encodeURIComponent("Olá! Quero o ingresso "+a.dataset.buy+" do "+L+"º lote da Academia de Vendas 27.");

@@ -4,4 +4,4 @@ Site institucional da My Broker (capa, franquia, corretor) e a página da Academ
 Site estático: não tem build. Publicado como Static Site no Render, com o domínio hubmybroker.com.br.
 
 - WhatsApp de todos os botões e formulários: 5562998810378 (IA do Ronaldo Dantas), em `assets/inst.js`, `assets/mb.js` e `academia/index.html`.
-- Virada do 3º para o 4º lote: 20/12/2026 23:59 (Brasília), em `assets/inst.js`, `assets/mb.js` e `academia/index.html`.
+- Virada do 3º para o 4º lote: 20/11/2026 23:59 (Brasília), em `assets/inst.js`, `assets/mb.js` e `academia/index.html`.

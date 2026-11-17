@@ -49,8 +49,8 @@
       '<div><h4>Para você</h4><ul><li><a href="https://mybroker-portal.vercel.app/prototipos-portal/inicio.html" target="_blank" rel="noopener">Portal de imóveis</a></li><li><a href="https://membros.institutomybroker.com.br/area/vitrine/home" target="_blank" rel="noopener">Broker Academy</a></li></ul></div></div>';
   }
 
-  /* contagem até a virada do 3º lote (20/12) e depois até o evento */
-  var VIRA = new Date("2026-12-20T23:59:59-03:00").getTime(), EVENTO = new Date("2027-01-13T08:00:00-03:00").getTime();
+  /* contagem até a virada do 3º lote (20/11) e depois até o evento */
+  var VIRA = new Date("2026-11-20T23:59:59-03:00").getTime(), EVENTO = new Date("2027-01-13T08:00:00-03:00").getTime();
   var rel = document.querySelectorAll("[data-relogio]");
   if (rel.length){
     var p = function(n){ return String(n).padStart(2,"0"); };

@@ -57,6 +57,19 @@ section{padding-block:clamp(72px,9vw,128px)}
 .clock span{background:rgba(0,0,0,.18);border-radius:999px;padding:5px 10px;font-family:var(--mono);font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
 .clock small{font-size:9px;font-weight:500;opacity:.75;margin-left:4px;text-transform:uppercase;letter-spacing:.06em}
 .promo a{background:#000;color:#fff;text-decoration:none;padding:8px 16px;border-radius:999px;font-size:13px;white-space:nowrap}
+/* no celular a faixa do lote é uma linha só: "3º lote", relógio compacto e botão curto */
+.promo .curto{display:none}
+@media (max-width:640px){
+  .promo .wrap{flex-wrap:nowrap;justify-content:space-between;gap:8px;padding-block:7px;font-size:13px}
+  .promo #lot-msg{display:none}
+  .promo .curto{display:inline;white-space:nowrap;font-weight:700}
+  .clock{gap:3px}
+  .clock span{padding:4px 6px;font-size:12px}
+  .clock small{font-size:8px;margin-left:2px}
+  .clock span:last-child{display:none}
+  .promo a{padding:7px 12px;font-size:12px}
+  .promo a .longo{display:none}
+}
 
 /* topo */
 .nav{position:absolute;top:0;left:0;right:0;z-index:5}
@@ -324,6 +337,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 
 <div class="promo" role="region" aria-label="Oferta do 3º lote">
   <div class="wrap">
+    <span class="curto" id="lot-curto">3º lote</span>
     <span id="lot-msg">Últimos dias do 3º lote · o preço sobe na virada para o 4º lote</span>
     <div class="clock" aria-label="Tempo até a virada do lote">
       <span><b id="cd-d">00</b><small>dias</small></span>
@@ -331,7 +345,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
       <span><b id="cd-m">00</b><small>min</small></span>
       <span><b id="cd-s">00</b><small>seg</small></span>
     </div>
-    <a href="#ingressos">Quero aproveitar</a>
+    <a href="#ingressos"><span class="longo">Quero </span>aproveitar</a>
   </div>
 </div>
 
@@ -657,6 +671,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     var list=[["1º lote","Esgotado","gone"],["2º lote","Esgotado","gone"],["3º lote",L===3?(Date.now()<TURN?"Termina 20/11":"Vendas abertas"):"Esgotado",L===3?"cur":"gone"],["4º lote",L===3?"Em breve":"Vendas abertas",L===4?"cur":""]];
     document.getElementById("lots").innerHTML=list.map(function(x){return '<li class="'+x[2]+'"><b>'+x[0]+'</b><span>'+x[1]+'</span></li>'}).join("");
     document.getElementById("lot-title").textContent="Reserve seu lugar no "+L+"º lote";
+    document.getElementById("lot-curto").textContent=L+"º lote";
     document.getElementById("lot-msg").textContent=L===3?"Últimos dias do 3º lote · o preço sobe na virada para o 4º lote":"4º lote aberto · faltam para a Academia de Vendas 27";
     document.getElementById("offer-txt").textContent=(L===3&&Date.now()<TURN)?"O 3º lote vira em":"Faltam para o evento";
     ["pass","vip","ultra"].forEach(function(k){

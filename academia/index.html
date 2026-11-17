@@ -132,7 +132,8 @@ section{padding-block:clamp(72px,9vw,128px)}
 @media (max-width:860px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 /* palestrantes 2027: carrossel que abre um card por vez (só transform e largura, sem filtro animado) */
-.speakers{--n:min(15vw,220px);--a:min(38vw,520px);--g:16px;--h:clamp(360px,48vw,580px);--autoplay:6s}
+/* medidas e tempos do carrossel da CMO Summit: 152px fechado, 361px aberto, 380px de altura, 20px entre cards, 6s por palestrante, 0,7s de deslize */
+.speakers{--n:152px;--a:361px;--g:20px;--h:380px;--autoplay:6s;--slide:cubic-bezier(.22,1,.36,1)}
 .sp-top{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
 .sp-top .title .muted{color:var(--fg)}
 .sp-nav{display:flex;gap:10px}
@@ -140,8 +141,8 @@ section{padding-block:clamp(72px,9vw,128px)}
 .nav-btn:hover{background:var(--accent);border-color:var(--accent);color:#000}
 .nav-btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .carousel{margin-top:48px;overflow:hidden}
-.track{display:flex;gap:var(--g);height:var(--h);transform:translate3d(calc(var(--shift,0px) * -1),0,0);transition:transform .9s var(--ease);will-change:transform}
-.card{position:relative;flex:0 0 var(--n);height:100%;border-radius:24px;overflow:hidden;background:#111;cursor:pointer;contain:layout paint;transition:flex-basis .9s var(--ease)}
+.track{display:flex;gap:var(--g);height:var(--h);transform:translate3d(calc(var(--shift,0px) * -1),0,0);transition:transform .7s var(--slide);will-change:transform}
+.card{position:relative;flex:0 0 var(--n);height:100%;border-radius:18px;overflow:hidden;background:#141414;cursor:pointer;contain:layout paint;transition:flex-basis .7s var(--slide),opacity .5s var(--slide)}
 .card .ph{position:absolute;inset:0;background:radial-gradient(120% 70% at 50% 110%,rgba(252,156,85,.35),transparent 60%),linear-gradient(180deg,#1b1b1b,#0b0b0b)}
 .card .ini{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-size:clamp(90px,12vw,190px);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(252,156,85,.55);transition:opacity .6s,transform .9s var(--ease)}
 .card img{position:absolute;left:0;right:0;bottom:0;width:100%;object-fit:cover;transition:transform .9s var(--ease)}
@@ -152,11 +153,11 @@ section{padding-block:clamp(72px,9vw,128px)}
 .card .dim{position:absolute;inset:0;background:rgba(0,0,0,.35);transition:opacity .6s}
 .card .shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.9))}
 .card .vname{position:absolute;left:50%;bottom:22px;writing-mode:vertical-rl;transform:translateX(-50%) rotate(180deg);font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;color:var(--accent);transition:opacity .4s}
-.card .info{position:absolute;left:26px;right:26px;bottom:24px;display:grid;gap:8px;opacity:0;transform:translateY(16px);transition:opacity .5s .25s,transform .6s .25s var(--ease)}
-.card .info h3{font-size:clamp(34px,3.4vw,52px)}
+.card .info{position:absolute;left:22px;right:22px;bottom:22px;display:grid;gap:8px;opacity:0;transform:translateY(16px);transition:opacity .5s .25s,transform .6s .25s var(--ease)}
+.card .info h3{font-size:clamp(28px,2.4vw,36px)}
 .card .info p{margin:0;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
 .card .soon{position:absolute;top:18px;left:18px;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--line);background:rgba(0,0,0,.5);border-radius:999px;padding:5px 11px;color:var(--muted);opacity:0;transition:opacity .5s}
-.progress{height:3px;background:rgba(255,250,223,.2);border-radius:3px;overflow:hidden;margin-top:10px}
+.progress{height:2px;background:rgba(255,250,223,.12);border-radius:2px;overflow:hidden;margin-top:10px}
 .bar{height:100%;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left}
 .card.on{flex-basis:var(--a);cursor:default}
 .card.on .gray,.card.on .dim{opacity:0}
@@ -167,7 +168,7 @@ section{padding-block:clamp(72px,9vw,128px)}
 .carousel.paused .card.on .bar{animation-play-state:paused}
 .card:not(.on):hover .dim{opacity:0}
 @keyframes fill{to{transform:scaleX(1)}}
-@media (max-width:640px){.speakers{--n:56px;--g:10px;--a:calc(100vw - 32px - 66px - 28px);--h:440px}.card .vname{font-size:11px}.card .ini{font-size:120px}}
+@media (max-width:640px){.speakers{--n:56px;--g:10px;--a:calc(100vw - 32px - 132px);--h:440px}.card .vname{font-size:11px}.card .ini{font-size:120px}}
 
 /* quem já passou: nomes passando em duas faixas */
 .alumni{margin-top:72px;display:grid;gap:14px}
@@ -645,6 +646,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   };
   var WA="https://wa.me/5562998810378?text=";
   /* lote em venda: troca para 4 SÓ quando a My Broker pedir (não muda sozinho pela data) */
+  /* checkout da Hotmart (My Broker Educação) por lote: pay.hotmart.com/<produto>?off=<oferta>.
+     Os links aparecem quando a Hotmart aprovar os produtos; enquanto vazio, o botão abre o WhatsApp do Ronaldo. */
+  var CHECKOUT={3:{pass:"",vip:"",ultra:""},4:{pass:"",vip:"",ultra:""}};
   var LOTE_ATUAL=3;
   function lot(){return LOTE_ATUAL}
   var shownLot=0;
@@ -662,7 +666,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
       document.querySelector('[data-was="'+k+'"]').textContent="";
     });
     document.querySelectorAll("[data-buy]").forEach(function(a){
-      a.href=WA+encodeURIComponent("Olá! Quero o ingresso "+a.dataset.buy+" do "+L+"º lote da Academia de Vendas 27.");
+      var link=(CHECKOUT[L]||{})[a.dataset.buy.toLowerCase()];
+      if(link){
+        /* direto para a tela de pagamento da Hotmart; src leva a origem da visita para o relatório de vendas */
+        var src="";try{src=sessionStorage.getItem("mb_c")||sessionStorage.getItem("mb_o")||""}catch(e){}
+        a.href=link+(link.indexOf("?")<0?"?":"&")+"sck=site"+(src?"&src="+encodeURIComponent(src.slice(0,60)):"");
+        a.removeAttribute("target");
+      }else{
+        a.href=WA+encodeURIComponent("Olá! Quero o ingresso "+a.dataset.buy+" do "+L+"º lote da Academia de Vendas 27.");
+        a.target="_blank";
+      }
     });
   }
   function tick(){
@@ -712,9 +725,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   ];
   function ini(n){var w=n.split(" ");return (w[0][0]+w[w.length-1][0]).toUpperCase()}
   var track=document.getElementById("track"),car=document.getElementById("carousel");
-  track.innerHTML=people.map(function(x,i){
+  var reais=people.length;
+  track.innerHTML=people.concat(people).map(function(x,i){
     var media=x.img?'<div class="ph"></div><img class="'+(x.full?'full':'corte')+'" src="'+x.img+'" alt="'+x.name+'"><div class="gray"></div>':'<div class="ph"></div><span class="ini" aria-hidden="true">'+ini(x.name)+'</span><span class="soon">Foto em breve</span>';
-    return '<article class="card" tabindex="0" data-i="'+i+'" aria-label="'+x.name+'">'+media+'<div class="dim"></div><div class="shade"></div><span class="vname" aria-hidden="true">'+x.name+'</span><div class="info"><h3>'+x.name+'</h3><p>'+x.role+'</p><div class="progress"><div class="bar"></div></div></div></article>';
+    return '<article class="card" '+(i<reais?'tabindex="0"':'tabindex="-1" aria-hidden="true"')+' data-i="'+(i%reais)+'" aria-label="'+x.name+'">'+media+'<div class="dim"></div><div class="shade"></div><span class="vname" aria-hidden="true">'+x.name+'</span><div class="info"><h3>'+x.name+'</h3><p>'+x.role+'</p><div class="progress"><div class="bar"></div></div></div></article>';
   }).join("");
   var cards=[].slice.call(track.children),cur=0,timer=null,autoplay=reduce?1e9:6000,dims=null;
   function measure(){
@@ -725,22 +739,30 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     var probe=document.createElement("div");probe.style.cssText="position:absolute;visibility:hidden;width:var(--n)";car.appendChild(probe);dims.n=probe.offsetWidth;
     probe.style.width="var(--a)";dims.a=probe.offsetWidth;probe.remove();
   }
+  /* como na CMO Summit: o card ativo vai sempre para a esquerda, os anteriores saem pela esquerda e,
+     depois do último, a fila volta para o primeiro */
   function layout(){
     if(!dims) measure();
-    var total=dims.a+(cards.length-1)*(dims.n+dims.g),vis=car.clientWidth;
-    var shift=Math.max(0,Math.min(cur*(dims.n+dims.g),total-vis));
-    track.style.setProperty("--shift",shift+"px");
+    track.style.setProperty("--shift",cur*(dims.n+dims.g)+"px");
   }
   function go(i){
-    cur=(i+cards.length)%cards.length;
+    cur=(i+reais)%reais;
     cards.forEach(function(c,k){
       var on=k===cur;c.classList.toggle("on",on);c.setAttribute("aria-current",on?"true":"false");
       if(on){var b=c.querySelector(".bar");b.style.animation="none";void b.offsetWidth;b.style.animation=""}
     });
     layout();restart();
   }
-  function restart(){clearTimeout(timer);if(!car.classList.contains("paused"))timer=setTimeout(function(){go(cur+1)},autoplay)}
-  var visible=true;
+  function restart(){clearTimeout(timer);if(visible&&!car.classList.contains("paused"))timer=setTimeout(function(){go(cur+1)},autoplay)}
+  /* começa sempre pelo Ronaldo: a contagem só corre com a seção na tela, e quem chega nela vê o Ronaldo primeiro */
+  var visible=!("IntersectionObserver" in window);
+  if(!visible){
+    new IntersectionObserver(function(es){
+      var v=es[0].isIntersecting;
+      if(v&&!visible){visible=true;go(0)}
+      else if(!v&&visible){visible=false;clearTimeout(timer)}
+    },{threshold:.35}).observe(car);
+  }
   
   cards.forEach(function(c){
     c.addEventListener("click",function(){go(+c.dataset.i)});

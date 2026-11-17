@@ -182,38 +182,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   </section>
 </div>
 
-<section class="s-secao bg-secao bg-largo" id="guiada" aria-labelledby="guiada-titulo">
-    <div class="bg-com-atalhos">
-    <div class="bg" id="bg">
-<div class="bg-capa">
-      <img class="bg-capa__foto" src="assets/portal/capa-busca-guiada.webp" alt="" width="2000" height="1125" loading="lazy" decoding="async">
-      <div class="bg-capa__texto">
-        <p class="bg-capa__sobre"><i class="ph ph-compass"></i>Busca guiada</p>
-        <h2 class="bg-capa__titulo" id="guiada-titulo">Seu próximo lar começa pelas suas escolhas.</h2>
-        <p class="bg-capa__sub">Você não precisa saber exatamente o que procura. Vamos descobrir juntos, com algumas escolhas simples, quais imóveis combinam com a sua rotina e suas prioridades.</p>
-        <ol class="bg-capa__fases"><li><b>1</b>Seu jeito de viver</li><li><b>2</b>Suas prioridades</li><li><b>3</b>Sua busca</li><li><b>4</b>Seu próximo lar</li></ol>
-        <div class="bg-capa__acoes">
-          <a class="s-pilula bg-iniciar" href="https://mybroker-portal.vercel.app/prototipos-portal/inicio.html#guiada" target="_blank" rel="noopener">Começar minha descoberta<i class="ph ph-arrow-right"></i></a>
-        </div>
-        <p class="bg-capa__nota">Você pode mudar suas respostas e ver imóveis a qualquer momento. Sem cadastro.</p>
-      </div>
-    </div>
-</div>
-    <!-- atalhos para a vitrine com filtros menos óbvios (some quando a descoberta começa).
-         PENDENTE no SHIFT: fachada icônica e lazer deslumbrante na view do site, vista (parque/mar) e casas em condomínio.
-         Hoje a vitrine já entende varanda=qualquer e tipo=casas; destaque= e vista= ainda são ignorados. -->
-    <aside class="bg-atalhos" aria-labelledby="atalhos-titulo">
-      <h3 class="bg-atalhos__titulo" id="atalhos-titulo">Ou vá direto a um desejo</h3>
-      <ul>
-        <li><a class="bg-atalho" href="https://mybroker-portal.vercel.app/prototipos-portal/vitrine.html?destaque=fachada-iconica" target="_blank" rel="noopener"><img src="assets/portal/atalho-fachada.webp" alt="" width="240" height="240" loading="lazy" decoding="async"><span><b>Fachada icônica</b><small>Projetos que marcam a paisagem.</small></span><i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
-        <li><a class="bg-atalho" href="https://mybroker-portal.vercel.app/prototipos-portal/vitrine.html?destaque=lazer-deslumbrante" target="_blank" rel="noopener"><img src="assets/portal/atalho-lazer.webp" alt="" width="240" height="240" loading="lazy" decoding="async"><span><b>Lazer deslumbrante</b><small>Áreas comuns com cara de resort.</small></span><i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
-        <li><a class="bg-atalho" href="https://mybroker-portal.vercel.app/prototipos-portal/vitrine.html?varanda=qualquer" target="_blank" rel="noopener"><img src="assets/portal/atalho-varanda.webp" alt="" width="240" height="240" loading="lazy" decoding="async"><span><b>Varanda</b><small>Para viver mais ao ar livre.</small></span><i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
-        <li><a class="bg-atalho" href="https://mybroker-portal.vercel.app/prototipos-portal/vitrine.html?vista=parque|mar" target="_blank" rel="noopener"><img src="assets/portal/atalho-vista.webp" alt="" width="240" height="240" loading="lazy" decoding="async"><span><b>Vista parque ou mar</b><small>Janelas para o verde ou o azul.</small></span><i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
-        <li><a class="bg-atalho" href="https://mybroker-portal.vercel.app/prototipos-portal/vitrine.html?tipo=casas" target="_blank" rel="noopener"><img src="assets/portal/atalho-casa.webp" alt="" width="240" height="240" loading="lazy" decoding="async"><span><b>Casa em condomínio fechado</b><small>Rua tranquila e segurança.</small></span><i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
-      </ul>
-    </aside>
-    </div>
-  </section>
 
 <div class="s-lar s-lar--largo">
   <section class="s-secao" id="historia" aria-labelledby="hist-titulo">
@@ -404,6 +372,39 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       </form>
     </section>
 </div>
+
+<section class="s-secao bg-secao bg-largo" id="guiada" aria-labelledby="guiada-titulo">
+    <div class="bg-com-atalhos">
+    <div class="bg" id="bg">
+<div class="bg-capa">
+      <img class="bg-capa__foto" src="assets/portal/capa-busca-guiada.webp" alt="" width="2000" height="1125" loading="lazy" decoding="async">
+      <div class="bg-capa__texto">
+        <p class="bg-capa__sobre"><i class="ph ph-compass"></i>Busca guiada</p>
+        <h2 class="bg-capa__titulo" id="guiada-titulo">Seu próximo lar começa pelas suas escolhas.</h2>
+        <p class="bg-capa__sub">Você não precisa saber exatamente o que procura. Vamos descobrir juntos, com algumas escolhas simples, quais imóveis combinam com a sua rotina e suas prioridades.</p>
+        <ol class="bg-capa__fases"><li><b>1</b>Seu jeito de viver</li><li><b>2</b>Suas prioridades</li><li><b>3</b>Sua busca</li><li><b>4</b>Seu próximo lar</li></ol>
+        <div class="bg-capa__acoes">
+          <a class="s-pilula bg-iniciar" href="https://mybroker-portal.vercel.app/prototipos-portal/inicio.html#guiada" target="_blank" rel="noopener">Começar minha descoberta<i class="ph ph-arrow-right"></i></a>
+        </div>
+        <p class="bg-capa__nota">Você pode mudar suas respostas e ver imóveis a qualquer momento. Sem cadastro.</p>
+      </div>
+    </div>
+</div>
+    <!-- atalhos para a vitrine com filtros menos óbvios (some quando a descoberta começa).
+         PENDENTE no SHIFT: fachada icônica e lazer deslumbrante na view do site, vista (parque/mar) e casas em condomínio.
+         Hoje a vitrine já entende varanda=qualquer e tipo=casas; destaque= e vista= ainda são ignorados. -->
+    <aside class="bg-atalhos" aria-labelledby="atalhos-titulo">
+      <h3 class="bg-atalhos__titulo" id="atalhos-titulo">Ou vá direto a um desejo</h3>
+      <ul>
+        <li><a class="bg-atalho" href="https://mybroker-portal.vercel.app/prototipos-portal/vitrine.html?destaque=fachada-iconica" target="_blank" rel="noopener"><img src="assets/portal/atalho-fachada.webp" alt="" width="240" height="240" loading="lazy" decoding="async"><span><b>Fachada icônica</b><small>Projetos que marcam a paisagem.</small></span><i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
+        <li><a class="bg-atalho" href="https://mybroker-portal.vercel.app/prototipos-portal/vitrine.html?destaque=lazer-deslumbrante" target="_blank" rel="noopener"><img src="assets/portal/atalho-lazer.webp" alt="" width="240" height="240" loading="lazy" decoding="async"><span><b>Lazer deslumbrante</b><small>Áreas comuns com cara de resort.</small></span><i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
+        <li><a class="bg-atalho" href="https://mybroker-portal.vercel.app/prototipos-portal/vitrine.html?varanda=qualquer" target="_blank" rel="noopener"><img src="assets/portal/atalho-varanda.webp" alt="" width="240" height="240" loading="lazy" decoding="async"><span><b>Varanda</b><small>Para viver mais ao ar livre.</small></span><i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
+        <li><a class="bg-atalho" href="https://mybroker-portal.vercel.app/prototipos-portal/vitrine.html?vista=parque|mar" target="_blank" rel="noopener"><img src="assets/portal/atalho-vista.webp" alt="" width="240" height="240" loading="lazy" decoding="async"><span><b>Vista parque ou mar</b><small>Janelas para o verde ou o azul.</small></span><i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
+        <li><a class="bg-atalho" href="https://mybroker-portal.vercel.app/prototipos-portal/vitrine.html?tipo=casas" target="_blank" rel="noopener"><img src="assets/portal/atalho-casa.webp" alt="" width="240" height="240" loading="lazy" decoding="async"><span><b>Casa em condomínio fechado</b><small>Rua tranquila e segurança.</small></span><i class="ph ph-arrow-right" aria-hidden="true"></i></a></li>
+      </ul>
+    </aside>
+    </div>
+  </section>
 </main>
 
 <footer class="s-rodape">

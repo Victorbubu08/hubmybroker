@@ -644,20 +644,22 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     4:{pass:914.04,vip:1697,ultra:12500}
   };
   var WA="https://wa.me/5562998810378?text=";
-  function lot(){return Date.now()<TURN?3:4}
+  /* lote em venda: troca para 4 SÓ quando a My Broker pedir (não muda sozinho pela data) */
+  var LOTE_ATUAL=3;
+  function lot(){return LOTE_ATUAL}
   var shownLot=0;
   function renderLot(){
     var L=lot(); if(L===shownLot) return; shownLot=L;
-    var list=[["1º lote","Esgotado","gone"],["2º lote","Esgotado","gone"],["3º lote",L===3?"Termina 19/11":"Esgotado",L===3?"cur":"gone"],["4º lote",L===3?"A partir de 20/11":"Vendas abertas",L===4?"cur":""]];
+    var list=[["1º lote","Esgotado","gone"],["2º lote","Esgotado","gone"],["3º lote",L===3?(Date.now()<TURN?"Termina 19/11":"Vendas abertas"):"Esgotado",L===3?"cur":"gone"],["4º lote",L===3?"Em breve":"Vendas abertas",L===4?"cur":""]];
     document.getElementById("lots").innerHTML=list.map(function(x){return '<li class="'+x[2]+'"><b>'+x[0]+'</b><span>'+x[1]+'</span></li>'}).join("");
     document.getElementById("lot-title").textContent="Reserve seu lugar no "+L+"º lote";
     document.getElementById("lot-msg").textContent=L===3?"Últimos dias do 3º lote · o preço sobe na virada para o 4º lote":"4º lote aberto · faltam para a Academia de Vendas 27";
-    document.getElementById("offer-txt").textContent=L===3?"O 3º lote vira em":"Faltam para o evento";
+    document.getElementById("offer-txt").textContent=(L===3&&Date.now()<TURN)?"O 3º lote vira em":"Faltam para o evento";
     ["pass","vip","ultra"].forEach(function(k){
       var v=PRICES[L][k];
       document.querySelector('[data-price="'+k+'"]').textContent=brl(Math.round(v/12*100)/100);
       document.querySelector('[data-cash="'+k+'"]').textContent="ou "+brl(v)+" à vista";
-      document.querySelector('[data-was="'+k+'"]').textContent=(L===3&&PRICES[4][k]!==PRICES[3][k])?"Sobe para "+brl(PRICES[4][k])+" em 20/11":"";
+      document.querySelector('[data-was="'+k+'"]').textContent=(L===3&&PRICES[4][k]!==PRICES[3][k])?"No 4º lote: "+brl(PRICES[4][k]):"";
     });
     document.querySelectorAll("[data-buy]").forEach(function(a){
       a.href=WA+encodeURIComponent("Olá! Quero o ingresso "+a.dataset.buy+" do "+L+"º lote da Academia de Vendas 27.");
@@ -665,7 +667,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   }
   function tick(){
     renderLot();
-    var target=lot()===3?TURN:EVENT;
+    var target=(lot()===3&&Date.now()<TURN)?TURN:EVENT;
     var t=Math.max(0,Math.floor((target-Date.now())/1000));
     var d=Math.floor(t/86400),h=Math.floor(t%86400/3600),m=Math.floor(t%3600/60),sec=t%60;
     document.getElementById("cd-d").textContent=p(d);

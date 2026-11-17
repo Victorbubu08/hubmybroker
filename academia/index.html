@@ -536,11 +536,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
           </div>
           <div class="tier t3 tilt">
             <h3>ULTRA</h3>
-            <span class="kicker">Unidades ultra limitadas · 50 vagas</span>
+            <span class="kicker">Unidades ultra limitadas · 20 vagas</span>
             <span class="was" data-was="ultra"></span>
             <span class="inst" data-inst="ultra">12x de</span>
-            <span class="price" data-price="ultra">R$ 249,75</span>
-            <span class="cash" data-cash="ultra">ou R$ 2.997,00 à vista</span>
+            <span class="price" data-price="ultra">R$ 1.041,67</span>
+            <span class="cash" data-cash="ultra">ou R$ 12.500,00 à vista</span>
             <a class="btn" data-buy="Ultra" href="#" target="_blank" rel="noopener"><span>Aplique-se</span></a>
           </div>
         </div>
@@ -640,8 +640,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   var TURN=new Date("2026-11-19T23:59:59-03:00").getTime();
   var EVENT=new Date("2027-01-13T08:00:00-03:00").getTime();
   var PRICES={
-    3:{pass:794.04,vip:1497,ultra:2997},
-    4:{pass:914.04,vip:1697,ultra:3497}
+    3:{pass:794.04,vip:1497,ultra:12500},
+    4:{pass:914.04,vip:1697,ultra:12500}
   };
   var WA="https://wa.me/5562998810378?text=";
   function lot(){return Date.now()<TURN?3:4}
@@ -657,7 +657,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
       var v=PRICES[L][k];
       document.querySelector('[data-price="'+k+'"]').textContent=brl(Math.round(v/12*100)/100);
       document.querySelector('[data-cash="'+k+'"]').textContent="ou "+brl(v)+" à vista";
-      document.querySelector('[data-was="'+k+'"]').textContent=L===3?"Sobe para "+brl(PRICES[4][k])+" em 20/11":"";
+      document.querySelector('[data-was="'+k+'"]').textContent=(L===3&&PRICES[4][k]!==PRICES[3][k])?"Sobe para "+brl(PRICES[4][k])+" em 20/11":"";
     });
     document.querySelectorAll("[data-buy]").forEach(function(a){
       a.href=WA+encodeURIComponent("Olá! Quero o ingresso "+a.dataset.buy+" do "+L+"º lote da Academia de Vendas 27.");
@@ -688,8 +688,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     ["Área VIP","Com coffee",[0,1,1]],
     ["Primeira fila","Exclusiva Ultra",[0,0,1]],
     ["Encontro com palestrantes","Nos bastidores, com foto",[0,0,1]],
-    ["Jantar Ultra","Noite do dia 13, com palestrantes e diretoria",[0,0,1]],
-    ["Encontro online","Em grupo, depois do evento",[0,0,1]],
+    ["Almoço com os palestrantes","Nos 2 dias, à mesa com quem sobe ao palco",[0,0,1]],
+    ["Mentoria presencial","Com os palestrantes, no evento",[0,0,1]],
+    ["Acompanhamento de 90 dias","Depois do evento",[0,0,1]],
     ["Kit oficial e estacionamento","No Flamboyant",[0,0,1]]
   ];
   var yes='<svg viewBox="0 0 24 24" aria-label="Incluído"><circle class="yes-i" cx="12" cy="12" r="11"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#000" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';

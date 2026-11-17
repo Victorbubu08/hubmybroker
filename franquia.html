@@ -3,12 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Seja franqueado My Broker</title>
+<title>Franquia My Broker</title>
+<meta name="description" content="Empreenda no mercado imobiliário com a força de uma rede nacional. Modelos Start, Smart e Pro, investimento a partir de R$ 200 mil.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Anton&family=Geist+Mono:wght@500;700&display=swap">
 <link rel="stylesheet" href="assets/mb.css">
 <script>window.MB={raiz:"",pagina:"franquia"}</script>
+<style>
+.fq-kpis{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.fq-kpis div{display:grid;gap:2px;padding:12px 20px;border-radius:16px;background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.2);color:#fff;text-align:center}
+.fq-kpis small{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+.fq-kpis b{font-size:clamp(18px,1.7vw,24px);font-weight:600;letter-spacing:-.02em}
+.fq-intro{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(28px,5vw,72px);align-items:end}
+.fq-frase{margin:0;font-size:clamp(20px,1.8vw,26px);font-weight:500;letter-spacing:-.02em;color:var(--azul)}
+.fq-modelos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:44px;align-items:stretch}
+.fq-modelos .cartao{display:grid;gap:14px;align-content:start}
+.fq-modelos h3{font-size:clamp(34px,3vw,44px)}
+.fq-inv{margin:0;display:grid;gap:2px}.fq-inv small{color:var(--mudo);font-size:14px}.fq-inv b{font-size:30px;font-weight:600;letter-spacing:-.03em;color:var(--azul)}
+.fq-modelos ul{list-style:none;margin:0 0 8px;padding:0;display:grid;gap:8px}
+.fq-modelos li{display:flex;gap:10px;align-items:baseline;font-size:16px}.fq-modelos li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--azul);transform:translateY(-1px)}
+.fq-modelos .btn{margin-top:auto}
+.fq-meio{background:var(--azul)!important;color:#fff}.fq-meio .rotulo,.fq-meio .fq-inv small{color:rgba(255,255,255,.75)}.fq-meio .fq-inv b{color:#fff}.fq-meio li::before{background:#fff}
+.fq-nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:44px}
+.fq-nums .cartao{display:grid;gap:6px}.fq-nums b{font-size:clamp(48px,5vw,72px);font-weight:500;letter-spacing:-.04em;line-height:1;color:var(--azul)}
+.fq-nums h3{font-size:22px}.fq-nums p{margin:0;color:var(--mudo);font-size:16px}
+.fq-perfil{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:900px){.fq-intro,.fq-modelos,.fq-nums{grid-template-columns:1fr}}
+@media (max-width:1000px){.fq-perfil{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.fq-perfil{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <header id="topo"></header>
@@ -16,36 +40,66 @@
   <section class="hero">
     <canvas id="heroOndas" aria-hidden="true"></canvas>
     <div class="miolo">
-      <span class="rotulo">Franquia My Broker</span>
-      <h1><span class="s-linha"><span class="s-pal"><span style="--k:0">Leve</span></span> <span class="s-pal"><span style="--k:1">a</span></span> <span class="s-pal"><span style="--k:2">My</span></span> <span class="s-pal"><span style="--k:3">Broker</span></span></span><span class="s-linha"><span class="s-pal"><span style="--k:4">para</span></span> <span class="s-pal"><span style="--k:5">a</span></span> <span class="s-pal"><span style="--k:6">sua</span></span> <span class="s-pal"><span style="--k:7"><em>cidade</em>.</span></span></span></h1>
-      <p class="sob">Marca premiada, método comercial, portal de imóveis e formação do time. Você entra com a praça e a vontade de construir.</p>
-      <div class="btns"><a class="btn btn-branco" href="#quero">Quero ser franqueado</a><a class="btn" href="#como" style="background:rgba(255,255,255,.14);color:#fff">Como funciona</a></div>
+      <span class="rotulo">Franquias My Broker</span>
+      <h1><span class="s-linha"><span class="s-pal"><span style="--k:0">Empreenda</span></span> <span class="s-pal"><span style="--k:1">no</span></span> <span class="s-pal"><span style="--k:2">mercado</span></span> <span class="s-pal"><span style="--k:3">imobiliário</span></span></span> <span class="s-linha"><span class="s-pal"><span style="--k:4">com</span></span> <span class="s-pal"><span style="--k:5">a</span></span> <span class="s-pal"><span style="--k:6">força</span></span> <span class="s-pal"><span style="--k:7">de</span></span> <span class="s-pal"><span style="--k:8">uma</span></span> <span class="s-pal"><span style="--k:9"><em>rede</span></span> <span class="s-pal"><span style="--k:10">nacional</em>.</span></span></span></h1>
+      <p class="sob">Tecnologia, suporte e metodologia para você liderar seu negócio e desenvolver uma operação imobiliária.</p>
+      <div class="fq-kpis"><div><small>Investimento inicial</small><b>a partir de R$ 200 mil</b></div><div><small>Faturamento anual</small><b>maior que R$ 890 mil</b></div></div>
+      <div class="btns"><a class="btn btn-branco" href="#quero">Quero conhecer a My Broker</a><a class="btn" href="#modelos" style="background:rgba(255,255,255,.14);color:#fff">Ver os modelos</a></div>
     </div>
   </section>
 
   <section class="secao">
+    <div class="wrap fq-intro">
+      <div class="cabeca"><span class="rotulo">Seu próximo passo</span><h2 class="titulo">Seu próximo passo como empreendedor pode ser no <em>mercado imobiliário</em>.</h2></div>
+      <div class="cabeca"><p class="apoio">Você não precisa começar essa jornada sozinho. Com a My Broker, você pode desenvolver uma operação imobiliária própria, contando com uma marca, ferramentas de gestão e processos estruturados para apoiar seu negócio.</p><p class="fq-frase">Um negócio para chamar de seu. Uma rede para caminhar junto.</p><div class="btns"><a class="btn btn-azul" href="#quero">Quero empreender com a My Broker</a></div></div>
+    </div>
+  </section>
+
+  <section class="secao" id="modelos" style="padding-top:0">
     <div class="wrap">
-      <div class="cabeca"><span class="rotulo">Por que a My Broker</span><h2 class="titulo">Você não começa do zero. <em>Começa de 15 anos.</em></h2></div>
-      <div class="grade">
-        <div class="cartao"><span class="ico" data-icone="historia"></span><h3>Uma marca reconhecida</h3><p>Great Place to Work, Imobiliária do Ano no Real Estate Awards e Rede Imobiliária no Prêmio Xeque-mate.</p></div>
-        <div class="cartao"><span class="ico" data-icone="casa"></span><h3>Portal e vitrine</h3><p>Os imóveis da sua praça no portal da My Broker, ao lado de lançamentos em 21 cidades, Orlando e Miami.</p></div>
-        <div class="cartao"><span class="ico" data-icone="instituto"></span><h3>Time formado pela Broker Academy</h3><p>Seus corretores treinam com quem vive o mercado: prospecção, captação, precificação e fechamento.</p></div>
-        <div class="cartao"><span class="ico" data-icone="evento"></span><h3>Academia de Vendas</h3><p>Sua equipe no maior evento de vendas do mercado imobiliário, todos os anos.</p></div>
-        <div class="cartao"><span class="ico" data-icone="corretor"></span><h3>Método comercial</h3><p>Atendimento por objetivo do cliente: morar, investir, dolarizar ou consolidar patrimônio.</p></div>
-        <div class="cartao"><span class="ico" data-icone="franquia"></span><h3>Rede de incorporadoras</h3><p>Acesso às parcerias e às condições especiais negociadas pela rede.</p></div>
+      <div class="cabeca"><span class="rotulo">Modelos de franquia</span><h2 class="titulo">Uma rede, três modelos para <em>diferentes objetivos</em> de negócio.</h2><p class="apoio">Escolha entre três formatos de operação, com estruturas e capacidades comerciais pensadas para diferentes projetos empreendedores.</p></div>
+      <div class="fq-modelos">
+        <article class="cartao"><span class="rotulo">Modelo</span><h3>Start</h3><p class="fq-inv"><small>Investimento inicial a partir de</small><b>R$ 200 mil</b></p><ul><li>Sala comercial</li><li>Espaço de até 60 m²</li><li>Equipe de até 15 corretores</li></ul><a class="btn btn-relevo" href="#quero" data-modelo="Start">Quero o Start</a></article>
+        <article class="cartao fq-meio"><span class="rotulo">Modelo</span><h3>Smart</h3><p class="fq-inv"><small>Investimento inicial a partir de</small><b>R$ 300 mil</b></p><ul><li>Office ou loja de rua</li><li>Espaço de até 100 m²</li><li>Equipe de até 30 corretores</li></ul><a class="btn btn-branco" href="#quero" data-modelo="Smart">Quero o Smart</a></article>
+        <article class="cartao"><span class="rotulo">Modelo</span><h3>Pro</h3><p class="fq-inv"><small>Investimento inicial a partir de</small><b>R$ 400 mil</b></p><ul><li>Office ou loja de rua</li><li>Número ilimitado de corretores</li></ul><a class="btn btn-relevo" href="#quero" data-modelo="Pro">Quero o Pro</a></article>
       </div>
     </div>
   </section>
 
-  <section class="secao" id="como" style="padding-top:0">
+  <section class="secao" style="padding-top:0">
     <div class="wrap">
-      <div class="cabeca"><span class="rotulo">Como funciona</span><h2 class="titulo">Do primeiro contato à <em>inauguração</em></h2></div>
-      <ol class="passos">
-        <li><b>Conversa inicial</b><span>Você conta sobre você, a cidade e o seu momento.</span></li>
-        <li><b>Análise da praça</b><span>Estudamos o mercado da sua cidade e o potencial da unidade.</span></li>
-        <li><b>Proposta e contrato</b><span>Modelo, investimento e prazos apresentados em reunião.</span></li>
-        <li><b>Implantação</b><span>Marca, processos, portal e formação do time pela Broker Academy.</span></li>
-        <li><b>Inauguração</b><span>Unidade aberta, com acompanhamento da rede desde o primeiro mês.</span></li>
+      <div class="cabeca"><span class="rotulo">A estrutura</span><h2 class="titulo">Você lidera o negócio. <em>A My Broker oferece a estrutura.</em></h2><p class="apoio">Empreender exige decisões, pessoas e processos. Conheça os recursos que ajudam você a organizar sua operação e desenvolver sua equipe.</p></div>
+      <div class="grade">
+        <div class="cartao"><span class="ico" data-icone="casa"></span><h3>Tecnologia para sua gestão</h3><p>Utilize o sistema Latitude para acompanhar atendimentos, organizar imóveis e monitorar sua operação.</p></div>
+        <div class="cartao"><span class="ico" data-icone="instituto"></span><h3>Treinamento para evoluir</h3><p>Capacitação contínua pela Broker Academy, com conteúdos para o desenvolvimento de líderes e equipes comerciais.</p></div>
+        <div class="cartao"><span class="ico" data-icone="evento"></span><h3>Apoio para vender melhor</h3><p>Orientações de marketing e desenvolvimento comercial para apoiar as ações da sua unidade.</p></div>
+        <div class="cartao"><span class="ico" data-icone="corretor"></span><h3>Suporte para operar</h3><p>Apoio em áreas como jurídico, financeiro, recursos humanos e processos de vendas.</p></div>
+        <div class="cartao"><span class="ico" data-icone="historia"></span><h3>Metodologia para crescer</h3><p>Processos e ferramentas para orientar a rotina comercial, acompanhar indicadores e desenvolver a gestão.</p></div>
+        <div class="cartao"><span class="ico" data-icone="franquia"></span><h3>Uma marca premiada</h3><p>Great Place to Work, Imobiliária do Ano no Real Estate Awards e Rede Imobiliária no Prêmio Xeque-mate.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" style="padding-top:0">
+    <div class="wrap">
+      <div class="cabeca"><span class="rotulo">A rede</span><h2 class="titulo">Uma rede com experiência para apoiar <em>sua próxima decisão</em>.</h2><p class="apoio">A My Broker reúne presença de mercado, recursos próprios de gestão e iniciativas de capacitação para apoiar o desenvolvimento de suas unidades.</p></div>
+      <div class="fq-nums">
+        <div class="cartao"><b data-conta="70">70+</b><h3>unidades</h3><p>Presença da rede em diferentes mercados.</p></div>
+        <div class="cartao"><b data-conta="2000">2.000+</b><h3>corretores</h3><p>Profissionais conectados à operação da rede.</p></div>
+        <div class="cartao"><b data-conta="350">350+</b><h3>horas de conteúdo</h3><p>Capacitação disponível na plataforma de ensino My Broker.</p></div>
+      </div>
+      <p class="fq-frase" style="margin-top:36px">My Broker. Uma rede que apoia, impulsiona e acredita no potencial de quem empreende.</p>
+    </div>
+  </section>
+
+  <section class="secao" style="padding-top:0">
+    <div class="wrap">
+      <div class="cabeca"><span class="rotulo">Perfil do franqueado</span><h2 class="titulo">Mais do que investir, é preciso <em>fazer acontecer</em>.</h2><p class="apoio">A My Broker é para quem deseja assumir um papel ativo na construção e no desenvolvimento de um negócio imobiliário.</p></div>
+      <ol class="passos fq-perfil">
+        <li><b>Visão empreendedora</b><span>Enxergar oportunidades e transformar decisões em ações.</span></li>
+        <li><b>Perfil de liderança</b><span>Formar, orientar e desenvolver uma equipe comercial.</span></li>
+        <li><b>Comprometimento com a operação</b><span>Participar da gestão, acompanhar indicadores e tomar decisões.</span></li>
+        <li><b>Foco no desenvolvimento do negócio</b><span>Trabalhar com planejamento, consistência e visão de longo prazo.</span></li>
       </ol>
     </div>
   </section>
@@ -53,20 +107,20 @@
   <section class="secao" id="quero" style="padding-top:0">
     <div class="wrap dupla">
       <div class="cabeca">
-        <span class="rotulo">Quero ser franqueado</span>
-        <h2 class="titulo">Vamos conversar sobre a <em>sua cidade</em></h2>
-        <p class="apoio">Preencha e a mensagem vai pronta para o WhatsApp do time de expansão. O investimento e o modelo da unidade são apresentados na reunião, depois da análise da praça.</p>
-        <div class="faq"><details><summary>Preciso ter experiência no mercado imobiliário?</summary><p>Ajuda, mas não é obrigatório. Experiência em gestão comercial e vontade de liderar um time pesam tanto quanto.</p></details><details><summary>Quanto custa abrir uma unidade?</summary><p>Depende da cidade e do formato. Os valores são apresentados na reunião, depois da análise da praça.</p></details><details><summary>Em quais cidades a My Broker procura franqueados?</summary><p>Cidades com mercado de lançamentos ativo. Conte qual é a sua e nós avaliamos.</p></details><details><summary>Meu time recebe treinamento?</summary><p>Sim. A formação é feita pelo Broker Academy e inclui a Academia de Vendas.</p></details></div>
+        <span class="rotulo">Seja um franqueado My Broker</span>
+        <h2 class="titulo">Conheça a <em>franquia My Broker</em></h2>
+        <p class="apoio">Agende uma reunião, entenda as condições de investimento e descubra o que é necessário para adquirir sua unidade. Preencha e a mensagem vai pronta para o WhatsApp do time de expansão.</p>
+        <div class="faq"><details><summary>Quanto custa abrir uma unidade?</summary><p>O investimento inicial começa em R$ 200 mil no modelo Start, R$ 300 mil no Smart e R$ 400 mil no Pro. As condições completas são apresentadas na reunião.</p></details><details><summary>Qual modelo é para mim?</summary><p>Start: sala comercial de até 60 m² e até 15 corretores. Smart: office ou loja de rua de até 100 m² e até 30 corretores. Pro: office ou loja de rua, sem limite de corretores.</p></details><details><summary>Preciso participar da operação?</summary><p>A My Broker é para quem quer um papel ativo: liderar o time, acompanhar indicadores e tomar decisões. No formulário, conte como pretende atuar.</p></details><details><summary>Meu time recebe treinamento?</summary><p>Sim. Capacitação contínua pela Broker Academy, mais de 350 horas de conteúdo e a Academia de Vendas.</p></details></div>
       </div>
-      <form class="cartao form" data-whatsapp="Olá! Quero ser franqueado My Broker.">
-        <label>Nome<input id="f-nome" name="Nome" required autocomplete="name"></label>
-        <label>WhatsApp<input id="f-tel" name="WhatsApp" required inputmode="tel" autocomplete="tel"></label>
+      <form class="cartao form" data-whatsapp="Olá! Quero conhecer a franquia My Broker.">
+        <label class="cheio">Nome completo<input id="f-nome" name="Nome" required autocomplete="name"></label>
+        <label>Telefone / WhatsApp<input id="f-tel" name="WhatsApp" required inputmode="tel" autocomplete="tel"></label>
         <label>E-mail<input id="f-email" name="E-mail" type="email" autocomplete="email"></label>
-        <label>Cidade de interesse<input id="f-cidade" name="Cidade de interesse" required></label>
-        <label>Experiência<select id="f-exp" name="Experiência"><option value="">Escolha</option><option>Já atuo no mercado imobiliário</option><option>Tenho experiência em gestão comercial</option><option>Estou começando</option></select></label>
-        <label>Quanto pretende investir<select id="f-inv" name="Investimento pretendido"><option value="">Escolha</option><option>Até R$ 100 mil</option><option>De R$ 100 mil a R$ 300 mil</option><option>Acima de R$ 300 mil</option><option>Prefiro conversar</option></select></label>
-        <label class="cheio">Mensagem (opcional)<textarea id="f-msg" name="Mensagem"></textarea></label>
-        <div class="cheio"><button class="btn btn-azul" type="submit" data-icone="zap">Enviar pelo WhatsApp</button></div>
+        <label>Cidade<input id="f-cidade" name="Cidade" required autocomplete="address-level2"></label>
+        <label>Estado<select id="f-uf" name="Estado" required><option value="">UF</option><option>AC</option><option>AL</option><option>AP</option><option>AM</option><option>BA</option><option>CE</option><option>DF</option><option>ES</option><option>GO</option><option>MA</option><option>MT</option><option>MS</option><option>MG</option><option>PA</option><option>PB</option><option>PR</option><option>PE</option><option>PI</option><option>RJ</option><option>RN</option><option>RS</option><option>RO</option><option>RR</option><option>SC</option><option>SP</option><option>SE</option><option>TO</option></select></label>
+        <label class="cheio">Modelo de interesse<select id="f-modelo" name="Modelo de interesse"><option value="">Ainda não sei</option><option>Start (a partir de R$ 200 mil)</option><option>Smart (a partir de R$ 300 mil)</option><option>Pro (a partir de R$ 400 mil)</option></select></label>
+        <label class="cheio">Como você pretende atuar na sua franquia My Broker?<select id="f-atuar" name="Como pretende atuar" required><option value="">Selecione uma opção</option><option>Quero liderar e participar ativamente da operação.</option><option>Pretendo acompanhar a gestão com uma equipe responsável.</option><option>Busco investir sem participar da operação.</option></select></label>
+        <div class="cheio"><button class="btn btn-azul" type="submit" data-icone="zap">Quero conhecer a My Broker</button></div>
         <p class="ok" hidden></p>
         <p class="nota">Seus dados vão só na mensagem do WhatsApp. Nada fica guardado nesta página.</p>
       </form>
@@ -76,5 +130,13 @@
 <footer id="rodape"></footer>
 <script src="assets/mb.js"></script>
 <script src="assets/fluido.js"></script>
+<script>
+document.querySelectorAll("[data-modelo]").forEach(function(a){a.addEventListener("click",function(){var s=document.getElementById("f-modelo");for(var i=0;i<s.options.length;i++)if(s.options[i].text.indexOf(a.getAttribute("data-modelo"))===0)s.selectedIndex=i;});});
+(function(){var els=document.querySelectorAll("[data-conta]");if(!("IntersectionObserver" in window)||matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;io.unobserve(e.target);var el=e.target,n=+el.getAttribute("data-conta"),t0=performance.now();
+(function f(t){var k=Math.min(1,(t-t0)/1400);el.textContent=Math.round(n*(1-Math.pow(1-k,3))).toLocaleString("pt-BR")+"+";if(k<1)requestAnimationFrame(f);})(t0);});},{threshold:.4});
+els.forEach(function(e){io.observe(e)});})();
+</script>
+
 </body>
 </html>

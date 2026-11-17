@@ -54,3 +54,38 @@
     }, 4200); }, n * 900);
   });
 })();
+
+/* topo no celular: botão Menu, barra compacta ao rolar, some ao descer e volta ao subir */
+(function () {
+  var topo = document.querySelector(".topo"), nav = topo && topo.querySelector("nav");
+  if (!topo || !nav) return;
+  var portal = topo.querySelector(".topo__acoes a");
+  if (portal) {   /* o portal de imóveis entra na lista do menu no celular */
+    var li = document.createElement("li"); li.className = "i-so-cel";
+    li.innerHTML = portal.outerHTML; nav.querySelector("ul").appendChild(li);
+  }
+  var btn = document.createElement("button");
+  btn.type = "button"; btn.className = "i-menu-btn"; btn.setAttribute("aria-expanded", "false"); btn.setAttribute("aria-controls", "menu");
+  btn.innerHTML = '<i class="ph ph-list" aria-hidden="true"></i><span>Menu</span>';
+  topo.appendChild(btn);
+  function abre(sim) {
+    topo.classList.toggle("aberto", sim); btn.setAttribute("aria-expanded", String(sim));
+    btn.querySelector("i").className = "ph " + (sim ? "ph-x" : "ph-list");
+    if (sim) topo.classList.remove("some");
+  }
+  btn.addEventListener("click", function () { abre(!topo.classList.contains("aberto")); });
+  nav.addEventListener("click", function (e) { if (e.target.closest("a")) abre(false); });
+  document.addEventListener("click", function (e) { if (!topo.contains(e.target)) abre(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") abre(false); });
+  var ultimo = window.scrollY, pedido = false;
+  function rola() {
+    pedido = false;
+    var y = window.scrollY, celular = window.matchMedia("(max-width:760px)").matches;
+    topo.classList.toggle("rolou", celular && y > 10);
+    if (celular && !topo.classList.contains("aberto")) topo.classList.toggle("some", y > 140 && y > ultimo + 4 ? true : y < ultimo - 4 ? false : topo.classList.contains("some"));
+    else topo.classList.remove("some");
+    ultimo = y;
+  }
+  window.addEventListener("scroll", function () { if (!pedido) { pedido = true; requestAnimationFrame(rola); } }, {passive: true});
+  rola();
+})();

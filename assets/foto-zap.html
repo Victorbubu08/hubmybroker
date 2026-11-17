@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Foto</title></head>
+<body style="font:14px system-ui;padding:20px">Enviando a foto do Ronaldo…
+<script>
+/* passa a foto do perfil do WhatsApp para a janela que abriu esta página (WhatsApp Manager) */
+fetch("ronaldo-whatsapp.jpg").then(function(r){return r.blob()}).then(function(b){
+  if(window.opener){window.opener.postMessage({fotoRonaldo:b},"*");document.body.textContent="Foto enviada. Pode fechar esta janela.";setTimeout(function(){window.close()},800)}
+});
+</script></body></html>

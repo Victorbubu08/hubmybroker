@@ -130,6 +130,7 @@
 <footer id="rodape"></footer>
 <script src="assets/mb.js"></script>
 <script src="assets/fluido.js"></script>
+<script src="assets/rastreio.js" defer></script>
 <script>
 document.querySelectorAll("[data-modelo]").forEach(function(a){a.addEventListener("click",function(){var s=document.getElementById("f-modelo");for(var i=0;i<s.options.length;i++)if(s.options[i].text.indexOf(a.getAttribute("data-modelo"))===0)s.selectedIndex=i;});});
 (function(){var els=document.querySelectorAll("[data-conta]");if(!("IntersectionObserver" in window)||matchMedia("(prefers-reduced-motion: reduce)").matches)return;

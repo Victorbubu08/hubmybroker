@@ -295,6 +295,34 @@ section{padding-block:clamp(72px,9vw,128px)}
 .sponsor .btn-line:hover{background:#000;color:var(--fg)}
 @media (max-width:860px){.sponsor .box{grid-template-columns:1fr;gap:32px}}
 @media (max-width:480px){.quotas{grid-template-columns:1fr}.quotas li:nth-child(odd){padding-right:0}}
+.sponsor .mk .eyebrow{color:var(--accent);opacity:1}
+.sponsor .mk h2{color:var(--fg);font-size:clamp(40px,5vw,72px)}
+.sponsor .mk p{max-width:60ch;margin:0 auto}
+.spx{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:16px}
+.spx div{background:var(--card);border-radius:20px;padding:24px;display:grid;gap:6px}
+.spx strong{font-family:var(--display);font-weight:400;font-size:clamp(34px,3.6vw,48px);line-height:1;color:var(--accent)}
+.spx span{color:var(--muted);font-size:14px}
+.cotas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px}
+.cota{position:relative;background:var(--card);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:14px}
+.cota.top{background:var(--accent);color:#000}
+.cota .q{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.cota.top .q,.cota.top p,.cota.top li{color:rgba(0,0,0,.75)}
+.cota h3{font-size:30px;margin:0;color:var(--fg)}
+.cota.top h3{color:#000}
+.cota p{margin:0;color:var(--muted);font-size:15px}
+.cota .val{font-family:var(--display);font-size:clamp(40px,4vw,56px);line-height:1;color:var(--accent)}
+.cota.top .val{color:#000}
+.cota .val small{font-family:var(--body);font-size:14px;opacity:.7;display:block;margin-bottom:4px}
+.cota ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;border-top:1px solid var(--line);padding-top:14px;flex:1;align-content:start}
+.cota.top ul{border-color:rgba(0,0,0,.25)}
+.cota li{font-size:14px;color:var(--fg);padding-left:22px;position:relative}
+.cota li:before{content:"";position:absolute;left:0;top:.45em;width:10px;height:6px;border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg)}
+.cota.top li:before{border-color:#000}
+.cota .btn{align-self:flex-start}
+.cota.top .btn{background:#000;border-color:#000;color:var(--fg)}
+.sponsor .cotas-note{color:var(--muted);font-size:14px;text-align:center;margin:24px auto 0;max-width:none}
+@media (max-width:960px){.cotas{grid-template-columns:repeat(2,minmax(0,1fr))}.spx{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.cotas{grid-template-columns:1fr}}
 
 /* faq */
 .faq{max-width:900px;margin:56px auto 0}
@@ -594,7 +622,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
           </div>
         </div>
         <div class="head">
-          <p class="eyebrow">Formatos de cota</p>
+          <p class="eyebrow">O que sua marca pode ter</p>
           <ul class="quotas">
             <li>Naming rights de palestra</li><li>Palco Talk Broker</li>
             <li>Credenciamento oficial</li><li>Stand no evento</li>
@@ -603,6 +631,70 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
           </ul>
         </div>
       </div>
+    </div>
+    <div class="wrap">
+      <div class="spx">
+        <div><strong>+1.500</strong><span>participantes esperados em 2027</span></div>
+        <div><strong>+18h</strong><span>de conteúdo em dois dias</span></div>
+        <div><strong>2,1 mi</strong><span>pessoas alcançadas nas redes</span></div>
+        <div><strong>90%</strong><span>do público é do mercado imobiliário</span></div>
+      </div>
+      <div class="head center mk" style="margin-top:64px">
+        <p class="eyebrow">Mídia kit · Academia de Vendas 27</p>
+        <h2 class="title">Escolha a cota da sua marca</h2>
+        <p class="sub">Seis formatos, do apoio ao protagonismo no palco. As cotas são limitadas e reservadas por ordem de fechamento.</p>
+      </div>
+      <div class="cotas">
+        <article class="cota tilt">
+          <span class="q">Livre</span>
+          <h3>Cota Apoio</h3>
+          <p>A porta de entrada da sua marca na Academia, com presença em canais estratégicos e no kit do participante.</p>
+          <span class="val"><small>Investimento</small>R$ 10 mil</span>
+          <ul><li>Logo em materiais de divulgação</li><li>Menção nominal durante o evento</li><li>Brinde no kit participante</li><li>Menção coletiva no post de agradecimento</li><li>02 ingressos cortesia</li></ul>
+          <a class="btn btn-fill" href="https://wa.me/5562998810378?text=Ol%C3%A1%21%20Quero%20a%20Cota%20Apoio%20da%20Academia%20de%20Vendas%2027%20%28R%24%2010%20mil%29." target="_blank" rel="noopener"><span>Quero esta cota</span></a>
+        </article>
+        <article class="cota tilt">
+          <span class="q">06 cotas</span>
+          <h3>Cota Stand</h3>
+          <p>Presença física e relacionamento direto com quem move o mercado: demonstre, ative e capte no ritmo do evento.</p>
+          <span class="val"><small>Investimento</small>R$ 20 mil</span>
+          <ul><li>Logo em materiais de divulgação</li><li>Menção nominal durante o evento</li><li>Brinde no kit participante</li><li>Menção coletiva no post de agradecimento</li><li>Stand de 12 m² com carpete, balcão adesivado, totem e ponto de tomada</li><li>04 ingressos cortesia</li></ul>
+          <a class="btn btn-fill" href="https://wa.me/5562998810378?text=Ol%C3%A1%21%20Quero%20a%20Cota%20Stand%20da%20Academia%20de%20Vendas%2027%20%28R%24%2020%20mil%29." target="_blank" rel="noopener"><span>Quero esta cota</span></a>
+        </article>
+        <article class="cota tilt">
+          <span class="q">01 cota</span>
+          <h3>Cota Credenciamento</h3>
+          <p>Sua marca recebe cada participante: o credenciamento pode acontecer na sua incorporadora, no decorado ou onde você escolher.</p>
+          <span class="val"><small>Investimento</small>R$ 20 mil</span>
+          <ul><li>Logo em materiais de divulgação</li><li>Menção nominal durante o evento</li><li>Brinde no kit e no credenciamento</li><li>Logo na credencial dos participantes</li><li>1 post de agradecimento individual (feed + stories)</li><li>04 ingressos cortesia</li></ul>
+          <a class="btn btn-fill" href="https://wa.me/5562998810378?text=Ol%C3%A1%21%20Quero%20a%20Cota%20Credenciamento%20da%20Academia%20de%20Vendas%2027%20%28R%24%2020%20mil%29." target="_blank" rel="noopener"><span>Quero esta cota</span></a>
+        </article>
+        <article class="cota tilt">
+          <span class="q">02 cotas</span>
+          <h3>Cota Palco</h3>
+          <p>12 minutos no palco principal e presença digital em vários formatos, para ganhar autoridade com um público qualificado.</p>
+          <span class="val"><small>Investimento</small>R$ 30 mil</span>
+          <ul><li>Logo em materiais de divulgação</li><li>Menção nominal durante o evento</li><li>Vídeo de 1 min na abertura e no encerramento</li><li>1 post individual + 1 collab</li><li>Ativação e sorteio no palco (com menção)</li><li>06 ingressos cortesia</li></ul>
+          <a class="btn btn-fill" href="https://wa.me/5562998810378?text=Ol%C3%A1%21%20Quero%20a%20Cota%20Palco%20da%20Academia%20de%20Vendas%2027%20%28R%24%2030%20mil%29." target="_blank" rel="noopener"><span>Quero esta cota</span></a>
+        </article>
+        <article class="cota tilt">
+          <span class="q">01 cota</span>
+          <h3>Cota Descompressão</h3>
+          <p>Sua marca assina o espaço de relaxamento e bem-estar do evento, um ambiente aconchegante que o público lembra depois.</p>
+          <span class="val"><small>Investimento</small>R$ 40 mil</span>
+          <ul><li>Logo em materiais de divulgação</li><li>Menção nominal durante o evento</li><li>Vídeo de 1 min na abertura e no encerramento</li><li>1 post individual + vídeo de ativação + 1 collab</li><li>Espaço personalizado de descompressão</li><li>08 ingressos cortesia</li></ul>
+          <a class="btn btn-fill" href="https://wa.me/5562998810378?text=Ol%C3%A1%21%20Quero%20a%20Cota%20Descompress%C3%A3o%20da%20Academia%20de%20Vendas%2027%20%28R%24%2040%20mil%29." target="_blank" rel="noopener"><span>Quero esta cota</span></a>
+        </article>
+        <article class="cota top tilt">
+          <span class="q">01 cota</span>
+          <h3>Cota Master</h3>
+          <p>Para quem quer protagonismo: palco nos dois dias, vídeos, logo em pontos estratégicos e Talk Broker com Ronaldo Dantas.</p>
+          <span class="val"><small>Investimento</small>R$ 60 mil</span>
+          <ul><li>Tudo da Cota Palco</li><li>3 posts (pré, durante e pós-evento) + reels com Talk Broker</li><li>15 min de Talk Broker com Ronaldo</li><li>Entrevista exclusiva pós-evento</li><li>Prioridade na próxima edição</li><li>10 ingressos cortesia</li></ul>
+          <a class="btn " href="https://wa.me/5562998810378?text=Ol%C3%A1%21%20Quero%20a%20Cota%20Master%20da%20Academia%20de%20Vendas%2027%20%28R%24%2060%20mil%29." target="_blank" rel="noopener"><span>Quero esta cota</span></a>
+        </article>
+      </div>
+      <p class="cotas-note">Valores por edição. Fale com o time comercial para condições de pagamento e ativações sob medida.</p>
     </div>
   </section>
 
@@ -618,7 +710,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
         <details><summary>Para quem é o evento?</summary><p>Para corretores de imóveis, gestores comerciais, profissionais de vendas e novos talentos que estão entrando no mercado.</p></details>
         <details><summary>Preciso fazer parte da My Broker para participar?</summary><p>Não. A Academia de Vendas é aberta a todo o mercado.</p></details>
         <details><summary>Posso levar a equipe da minha imobiliária?</summary><p>Sim. Há condições para grupos e atendimento dedicado para imobiliárias.</p></details>
-        <details><summary>Como minha marca pode patrocinar?</summary><p>Peça o mídia kit pelo WhatsApp. Temos cotas de naming rights, palco, credenciamento, stand, apoio e presença nas redes.</p></details>
+        <details><summary>Como minha marca pode patrocinar?</summary><p>Há seis cotas: Apoio (R$ 10 mil), Stand (R$ 20 mil), Credenciamento (R$ 20 mil), Palco (R$ 30 mil), Descompressão (R$ 40 mil) e Master (R$ 60 mil). Veja o que cada uma inclui na seção Seja patrocinador e reserve a sua pelo WhatsApp.</p></details>
       </div>
     </div>
   </section>

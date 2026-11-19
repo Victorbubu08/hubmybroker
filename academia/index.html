@@ -403,7 +403,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 <div class="promo" role="region" aria-label="Oferta do 3º lote">
   <div class="wrap">
     <span class="curto" id="lot-curto">3º lote</span>
-    <span id="lot-msg">Últimos dias do 3º lote · o preço sobe em 20/11 às 23:59</span>
+    <span id="lot-msg">3º lote aberto · preço por tempo limitado</span>
     <div class="clock" aria-label="Tempo até a virada do lote">
       <span><b id="cd-d">00</b><small>dias</small></span>
       <span><b id="cd-h">00</b><small>horas</small></span>
@@ -627,7 +627,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     <div class="wrap head center">
       <p class="eyebrow">13 e 14 de janeiro de 2027 · Flamboyant Hall</p>
       <h2 class="title" id="lot-title">Reserve seu lugar no 3º lote</h2>
-      <p class="sub" id="lot-sub">O preço sobe na virada do lote, em 20/11 às 23:59. Parcele em até 12x no cartão e receba a confirmação na hora, no seu e-mail.</p>
+      <p class="sub" id="lot-sub">Preço do 3º lote por tempo limitado: ele sobe quando o lote virar. Parcele em até 12x no cartão e receba a confirmação na hora, no seu e-mail.</p>
       <ol class="lots" aria-label="Lotes de ingresso" id="lots"></ol>
       <div class="offer" id="offer"><span class="dot"></span><span id="offer-txt">O 3º lote vira em</span> <b data-lot-left>00d 00h 00m 00s</b></div>
     </div>
@@ -798,7 +798,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     <div class="wrap">
       <p class="eyebrow">13 e 14 de janeiro de 2027 · Flamboyant Hall</p>
       <h2>Quem domina o mercado, <em>passou por aqui</em></h2>
-      <p class="sub" id="close-sub">Quem garante agora paga o preço do 3º lote. Na virada, em 20/11, o preço sobe.</p>
+      <p class="sub" id="close-sub">Quem garante agora paga o preço do 3º lote. Quando o lote virar, o preço sobe.</p>
       <div class="actions">
         <a class="btn btn-fill" href="#ingressos"><span>Quero participar</span></a>
         <a class="btn btn-line" href="#patrocinio"><span>Seja patrocinador</span></a>
@@ -821,8 +821,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   function p(n){return String(n).padStart(2,"0")}
   function brl(v){return "R$ "+v.toFixed(2).replace(".",",").replace(/\B(?=(\d{3})+(?!\d))/g,".")}
 
-  /* lotes: o 3º vira para o 4º em 20/11 às 23h59 */
-  var TURN=new Date("2026-11-20T23:59:59-03:00").getTime();
+  /* lotes: o 3º segue aberto sem data; o 4º entra só quando a My Broker pedir (LOTE_ATUAL) */
+  var TURN=new Date("2026-11-19T00:00:00-03:00").getTime();
   var EVENT=new Date("2027-01-13T08:00:00-03:00").getTime();
   var PRICES={
     3:{pass:794.04,vip:1497,ultra:12500},
@@ -839,12 +839,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   var shownLot=0;
   function renderLot(){
     var L=lot(); if(L===shownLot) return; shownLot=L;
-    var list=[["1º lote","Esgotado","gone"],["2º lote","Esgotado","gone"],["3º lote",L===3?(Date.now()<TURN?"Termina 20/11":"Vendas abertas"):"Esgotado",L===3?"cur":"gone"],["4º lote",L===3?"Em breve":"Vendas abertas",L===4?"cur":""]];
+    var list=[["1º lote","Esgotado","gone"],["2º lote","Esgotado","gone"],["3º lote",L===3?"Por tempo limitado":"Esgotado",L===3?"cur":"gone"],["4º lote",L===3?"Em breve":"Vendas abertas",L===4?"cur":""]];
     document.getElementById("lots").innerHTML=list.map(function(x){return '<li class="'+x[2]+'"><b>'+x[0]+'</b><span>'+x[1]+'</span></li>'}).join("");
     document.getElementById("lot-title").textContent="Reserve seu lugar no "+L+"º lote";
     document.getElementById("lot-curto").textContent=L+"º lote";
-    var ls=document.getElementById("lot-sub"),cs=document.getElementById("close-sub");if(!(L===3&&Date.now()<TURN)){if(ls)ls.textContent="Parcele em até 12x no cartão e receba a confirmação na hora, no seu e-mail.";if(cs)cs.textContent="Seja parte dos próximos 10 anos da Academia de Vendas.";}
-    document.getElementById("lot-msg").textContent=L===3?"Últimos dias do 3º lote · o preço sobe em 20/11 às 23:59":"4º lote aberto · faltam para a Academia de Vendas 27";
+    var ls=document.getElementById("lot-sub"),cs=document.getElementById("close-sub");if(L!==3){if(ls)ls.textContent="Parcele em até 12x no cartão e receba a confirmação na hora, no seu e-mail.";if(cs)cs.textContent="Seja parte dos próximos 10 anos da Academia de Vendas.";}
+    document.getElementById("lot-msg").textContent=L===3?"3º lote aberto · preço por tempo limitado":"4º lote aberto · faltam para a Academia de Vendas 27";
     document.getElementById("offer-txt").textContent=(L===3&&Date.now()<TURN)?"O 3º lote vira em":"Faltam para o evento";
     ["pass","vip","ultra"].forEach(function(k){
       var v=PRICES[L][k];

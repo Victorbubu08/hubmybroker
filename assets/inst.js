@@ -1,7 +1,7 @@
 /* Comportamentos da capa institucional: contagem da Academia, mapa das cidades e formulários para o WhatsApp */
 (function(){
   var WHATSAPP = "5562998810378"; /* WhatsApp da IA do Ronaldo Dantas */
-  var VIRA = new Date("2026-11-20T23:59:59-03:00").getTime(), EVENTO = new Date("2027-01-13T08:00:00-03:00").getTime();
+  var VIRA = new Date("2026-11-19T00:00:00-03:00").getTime(), EVENTO = new Date("2027-01-13T08:00:00-03:00").getTime();
   var rel = document.querySelectorAll("[data-relogio]");
   function p(n){ return String(n).padStart(2,"0"); }
   function tique(){

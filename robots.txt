@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /divulgar.html
+Disallow: /hotmart/
+
+Sitemap: https://www.hubmybroker.com.br/sitemap.xml

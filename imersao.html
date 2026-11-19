@@ -170,7 +170,7 @@
           <fieldset class="apl__q" data-k="papel"><legend>Qual é o seu papel na empresa?</legend>
             <label><input type="radio" name="papel" value="Dono ou sócio">Dono ou sócio</label>
             <label><input type="radio" name="papel" value="Diretor ou gestor comercial">Diretor ou gestor comercial</label>
-            <label><input type="radio" name="papel" value="Profissional autônomo">Profissional autônomo</label>
+            <label><input type="radio" name="papel" value="Corretor ou profissional autônomo">Corretor ou profissional autônomo</label>
             <label><input type="radio" name="papel" value="Outro">Outro</label>
           </fieldset>
 
@@ -324,20 +324,20 @@
       el.setAttribute('aria-invalid', vazio ? 'true' : 'false'); if (vazio && !faltou) faltou = el;
     });
     if (faltou) { faltou.focus(); conta.textContent = 'Preencha nome, empresa e cidade.'; return; }
-    var papel = valor('papel'), score = pontos('faturamento') + pontos('time') + pontos('quando') + pontos('decide') + pontos('data');
-    var perfil = papel !== 'Profissional autônomo' && pontos('faturamento') >= 2 && pontos('data') >= 0 && score >= 6;
+    var papel = valor('papel');
+    var perfil = pontos('data') >= 0;
     var linhas = ['Olá, Ronaldo! Fiz a aplicação da Imersão de 11 e 12 de janeiro e quero agendar a reunião.', '',
       'Nome: ' + valor('nome'), 'Empresa: ' + valor('empresa') + (valor('site') ? ' (' + valor('site') + ')' : ''), 'Cidade: ' + valor('cidade'),
       'Papel: ' + papel, 'Setor: ' + valor('setor'), 'Faturamento anual: ' + valor('faturamento'), 'Pessoas que vendem: ' + valor('time'),
       'O que trava: ' + valor('trava'), 'Quando quer resolver: ' + valor('quando'), 'Quem decide: ' + valor('decide'),
-      'Goiânia em 11 e 12/01: ' + valor('data'), 'Melhor período para a reunião: ' + valor('periodo'), '', perfil ? '[Aplicação: perfil da imersão]' : '[Aplicação: a avaliar]'];
+      'Goiânia em 11 e 12/01: ' + valor('data'), 'Melhor período para a reunião: ' + valor('periodo'), '', perfil ? '[Aplicação da imersão]' : '[Aplicação da imersão · não pode em 11 e 12/01]'];
     var url = 'https://wa.me/5562998810378?text=' + encodeURIComponent(linhas.join('\n'));
     qs.forEach(function (x) { x.hidden = true; });
     ir.hidden = true; voltar.hidden = true; prog.style.width = '100%'; conta.textContent = 'Aplicação concluída';
     res.hidden = false;
     res.innerHTML = perfil
       ? '<span class="apl__selo">Seu perfil combina com a imersão</span><h3>Próximo passo: a reunião de 30 minutos</h3><p>Mande a aplicação pelo WhatsApp: o Ronaldo já recebe as suas respostas e oferece os horários livres para a reunião por vídeo com o time, de ' + valor('periodo') + '.</p><a class="btn btn-azul" target="_blank" rel="noopener" href="' + url + '">Agendar minha reunião no WhatsApp</a>'
-      : '<span class="apl__selo alt">Vamos olhar com calma</span><h3>Mande a sua aplicação para o time</h3><p>Pelo que você respondeu, talvez a imersão não seja o melhor passo agora. Mande mesmo assim: o time avalia e indica o caminho certo, que pode ser a <a href="academia/">Academia de Vendas 27</a>, nos dias 13 e 14 de janeiro.</p><a class="btn btn-azul" target="_blank" rel="noopener" href="' + url + '">Enviar a aplicação no WhatsApp</a>';
+      : '<span class="apl__selo alt">Datas desta turma</span><h3>Mande a sua aplicação mesmo assim</h3><p>Você disse que não consegue estar em Goiânia em 11 e 12 de janeiro. Mande a aplicação: o time conversa com você e avisa das próximas turmas e de outros formatos com o Ronaldo.</p><a class="btn btn-azul" target="_blank" rel="noopener" href="' + url + '">Enviar a aplicação no WhatsApp</a>';
     res.focus();
     try { if (window.fbq) fbq('track', 'Lead', {content_name: 'Imersão · aplicação', status: perfil ? 'perfil' : 'avaliar'}); } catch (err) {}
   });

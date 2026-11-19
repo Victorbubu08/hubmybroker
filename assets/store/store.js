@@ -102,23 +102,38 @@
     {id: "carregador", nome: "Carregador Portátil", cat: "Acessórios", preco: 149, t: "carregador", c: C.grafite, d: "10.000 mAh, USB-C. O celular não morre no plantão."}
   ];
   var K = [
-    {id: "kit-boas-vindas", nome: "Boas-vindas", frase: "Para o corretor que acabou de entrar na rede.", itens: ["camiseta-elite", "caderno-captacao", "caneta-fechamento", "caneca-49"]},
-    {id: "kit-plantao", nome: "Plantão", frase: "O dia inteiro no estande, com estilo e café gelado.", itens: ["polo-plantao", "garrafa-termica", "bone-trucker"]},
-    {id: "kit-academia", nome: "Academia 27", frase: "Para os dois dias no Flamboyant Hall.", itens: ["camiseta-49", "copo-termico", "ecobag", "caderno-captacao"]},
-    {id: "kit-escritorio", nome: "Escritório", frase: "A mesa de quem fecha negócio.", itens: ["planner-2027", "caneca-49", "mousepad", "caneta-fechamento"]},
-    {id: "kit-viagem", nome: "Viagem", frase: "Visita a terreno, lançamento em outra cidade, voo cedo.", itens: ["mochila-exec", "corta-vento", "garrafa-termica", "carregador"]},
-    {id: "kit-gestor", nome: "Gestor", frase: "Para quem lidera o time na reunião de segunda.", itens: ["moletom-mb", "planner-2027", "copo-termico", "chaveiro"]}
+    {id: "kit-boas-vindas", nome: "Boas-vindas", bg: "#2a3ae1", tinta: "#fff", selo: "Primeiro dia", frase: "Para o corretor que acabou de entrar na rede.", itens: ["camiseta-elite", "caderno-captacao", "caneta-fechamento", "caneca-49"]},
+    {id: "kit-plantao", nome: "Plantão", bg: "#111111", tinta: "#fff", selo: "Estande o dia todo", frase: "O dia inteiro no estande, com estilo e café gelado.", itens: ["polo-plantao", "garrafa-termica", "bone-trucker"]},
+    {id: "kit-academia", nome: "Academia 27", bg: "#FC9C55", tinta: "#111", selo: "13 e 14 de janeiro", frase: "Para os dois dias no Flamboyant Hall.", itens: ["camiseta-49", "copo-termico", "ecobag", "caderno-captacao"]},
+    {id: "kit-escritorio", nome: "Escritório", bg: "#e6dfd2", tinta: "#111", selo: "Mesa de quem fecha", frase: "A mesa de quem fecha negócio.", itens: ["planner-2027", "caneca-49", "mousepad", "caneta-fechamento"]},
+    {id: "kit-viagem", nome: "Viagem", bg: "#3a3a3d", tinta: "#fff", selo: "Visita a terreno", frase: "Visita a terreno, lançamento em outra cidade, voo cedo.", itens: ["mochila-exec", "corta-vento", "garrafa-termica", "carregador"]},
+    {id: "kit-gestor", nome: "Gestor", bg: "#0b1350", tinta: "#fff", selo: "Reunião de segunda", frase: "Para quem lidera o time na reunião de segunda.", itens: ["moletom-mb", "planner-2027", "copo-termico", "chaveiro"]}
   ];
   var byId = {}; P.forEach(function (p) { byId[p.id] = p; });
   function brl(v) { return v.toLocaleString("pt-BR", {style: "currency", currency: "BRL"}); }
   function arte(p, extra) { return svg(p.t, p.c, true, extra); }
   function kitArte(k) {
-    var pos = [[10, 30, 250], [170, 120, 220], [40, 250, 190], [200, 270, 170]];
-    var g = k.itens.map(function (id, i) {
-      var p = byId[id], q = pos[i];
-      return '<svg x="' + q[0] + '" y="' + q[1] + '" width="' + q[2] + '" height="' + (q[2] * 1.25) + '" viewBox="0 0 400 500">' + D[p.t](p.c, true) + '</svg>';
+    /* cartaz do kit: campo de cor, o nome gigante atrás, as peças arrumadas em flat lay com sombra, selo e desconto */
+    var n = k.itens.length, uid = k.id;
+    var lay = n === 3 ? [[40, 150, 210, 0], [200, 120, 180, 8], [150, 300, 150, -6]] : [[18, 140, 190, -4], [196, 118, 186, 6], [40, 300, 150, 5], [210, 292, 150, -7]];
+    var nome = k.nome.toUpperCase();
+    var fs = nome.length > 9 ? 74 : nome.length > 6 ? 92 : 112;
+    var pecas = k.itens.map(function (id, i) {
+      var p = byId[id], q = lay[i];
+      return '<g transform="rotate(' + q[3] + ' ' + (q[0] + q[2] / 2) + ' ' + (q[1] + q[2] * .62) + ')" filter="url(#sb-' + uid + ')"><svg x="' + q[0] + '" y="' + q[1] + '" width="' + q[2] + '" height="' + (q[2] * 1.25) + '" viewBox="0 0 400 500">' + D[p.t](p.c, true) + '</svg></g>';
     }).join('');
-    return '<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kit ' + k.nome + '">' + g + '</svg>';
+    var t = k.tinta, linha = t === "#fff" ? "rgba(255,255,255,.16)" : "rgba(0,0,0,.12)";
+    return '<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kit ' + k.nome + '">' +
+      '<defs><filter id="sb-' + uid + '" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#000" flood-opacity=".28"/></filter>' +
+      '<radialGradient id="lz-' + uid + '" cx="50%" cy="38%" r="70%"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>' +
+      '<rect width="400" height="500" rx="26" fill="' + k.bg + '"/><rect width="400" height="500" rx="26" fill="url(#lz-' + uid + ')"/>' +
+      '<text x="200" y="118" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="' + fs + '" fill="' + linha + '">' + nome + '</text>' +
+      '<text x="24" y="40" font-family="Hanken Grotesk, Arial" font-weight="700" font-size="15" letter-spacing="2" fill="' + t + '">KIT</text>' +
+      '<text x="376" y="40" text-anchor="end" font-family="Hanken Grotesk, Arial" font-weight="600" font-size="14" fill="' + t + '" opacity=".8">' + k.selo + '</text>' +
+      pecas +
+      '<rect x="20" y="446" width="360" height="36" rx="18" fill="' + (t === "#fff" ? "#fff" : "#111") + '"/>' +
+      '<text x="36" y="469" font-family="Hanken Grotesk, Arial" font-weight="700" font-size="15" fill="' + (t === "#fff" ? "#111" : "#fff") + '">' + n + ' peças · Kit ' + k.nome + '</text>' +
+      '<text x="364" y="469" text-anchor="end" font-family="Hanken Grotesk, Arial" font-weight="800" font-size="15" fill="' + (t === "#fff" ? "#2a3ae1" : "#FC9C55") + '">−10%</text></svg>';
   }
   function soma(k) { return k.itens.reduce(function (t, id) { return t + byId[id].preco; }, 0); }
 

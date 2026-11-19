@@ -39,11 +39,11 @@
 #st-palco:focus-visible{box-shadow:inset 0 0 0 3px var(--azul)}
 #st-palco::after{content:"";position:absolute;left:8%;right:8%;bottom:16%;height:2px;background:var(--fio)}
 #st-fila{position:absolute;inset:0}
-.st-vaga{position:absolute;left:50%;bottom:12%;width:min(50%,370px);aspect-ratio:4/5;border:0;padding:0;background:none;cursor:pointer;transform-origin:50% 100%;transition:transform .85s cubic-bezier(.65,0,.35,1),filter .85s cubic-bezier(.65,0,.35,1),opacity .6s;will-change:transform,filter}
-.st-vaga svg{width:100%;height:100%;display:block}
+.st-vaga{position:absolute;left:50%;bottom:12%;width:min(42%,330px);aspect-ratio:4/5;border:0;padding:0;background:none;cursor:pointer;transform-origin:50% 100%;transition:transform .85s cubic-bezier(.65,0,.35,1),filter .85s cubic-bezier(.65,0,.35,1),opacity .6s;will-change:transform,filter}
+.st-vaga svg{width:100%;height:100%;display:block;border-radius:26px;box-shadow:0 30px 60px -20px rgba(10,10,40,.45)}
 .st-palco-info{position:absolute;left:24px;top:22px;right:24px;display:flex;justify-content:space-between;align-items:start;z-index:20;pointer-events:none}
-.st-palco-info h2{font-size:clamp(30px,3.2vw,48px)}
-.st-palco-info p{margin:6px 0 0;color:var(--cinza);max-width:36ch}
+.st-palco-info h2{font-size:clamp(26px,2.4vw,38px);max-width:9ch}
+.st-palco-info p{margin:6px 0 0;color:var(--cinza);max-width:20ch;font-size:15px}
 .st-palco-info .n{font:700 14px/1 "Hanken Grotesk";color:var(--cinza)}
 #st-fechar-foco{position:absolute;right:20px;top:20px;z-index:21;display:none;width:44px;height:44px;border-radius:22px;border:0;background:#111;color:#fff;font-size:20px;cursor:pointer}
 #st-palco.foco #st-fechar-foco{display:block}
@@ -244,7 +244,7 @@
 
 <footer id="rodape"></footer>
 <script src="assets/mb.js?v=7"></script>
-<script src="assets/store/store.js?v=2"></script>
+<script src="assets/store/store.js?v=3"></script>
 <script src="assets/rastreio.js?v=2" defer></script>
 </body>
 </html>

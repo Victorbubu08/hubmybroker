@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Anton&family=Geist+Mono:wght@500;700&display=swap">
-<link rel="stylesheet" href="assets/mb.css?v=6">
+<link rel="stylesheet" href="assets/mb.css?v=7">
 <script>window.MB={raiz:"",pagina:"store"}</script>
 <style>
 .st{--preto:#111;--cinza:#707072;--fio:#E5E5E5;--peca:#F5F5F5}
@@ -65,7 +65,7 @@
 #st-pecas.entra li{animation:st-sobe .55s cubic-bezier(.65,0,.35,1) both;animation-delay:calc(var(--i) * 70ms)}
 @keyframes st-sobe{from{opacity:0;transform:translateY(18px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
 #st-pecas .mini{width:62px;height:62px;border-radius:12px;background:var(--peca);display:grid;place-items:center;overflow:hidden}
-#st-pecas .mini svg{width:56px;height:70px}
+#st-pecas .mini svg,#st-pecas .mini img{width:62px;height:62px;object-fit:cover}
 #st-pecas .txt{display:grid;gap:2px;min-width:0}
 #st-pecas b{font-size:15px;font-weight:600}
 #st-pecas small{color:var(--cinza);font-size:13px}
@@ -92,7 +92,7 @@
 #st-prateleira::before{content:"";position:absolute;left:0;right:0;top:18px;height:8px;border-radius:4px;background:linear-gradient(#cfcfcf,#9c9c9c)}
 .st-peca{flex:0 0 clamp(90px,10vw,140px);scroll-snap-align:center;border:0;background:none;padding:0;cursor:pointer;display:grid;gap:10px;justify-items:center;transition:flex-basis .5s cubic-bezier(.65,0,.35,1)}
 .st-peca .giro{display:block;width:100%;aspect-ratio:4/5;background:var(--peca);border-radius:16px;transform:rotateY(62deg);transform-origin:50% 0;transition:transform .6s cubic-bezier(.65,0,.35,1);box-shadow:var(--relevo-baixo)}
-.st-peca .giro svg{width:100%;height:100%}
+.st-peca .giro svg,.st-peca .giro img{width:100%;height:100%;object-fit:cover;border-radius:16px;display:block}
 .st-peca .nome{font-size:13px;font-weight:600;opacity:0;transition:opacity .3s;text-align:center}
 .st-peca:hover,.st-peca:focus-visible{flex-basis:clamp(180px,20vw,260px)}
 .st-peca:hover .giro,.st-peca:focus-visible .giro{transform:rotateY(0)}
@@ -101,12 +101,12 @@
 #st-modal::backdrop{background:rgba(10,10,20,.6)}
 .st-modal{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;padding:28px;align-items:center}
 .st-modal .palco3d{perspective:1000px;background:var(--peca);border-radius:22px;aspect-ratio:4/5;display:grid;place-items:center}
-.st-modal .obj{position:relative;width:80%;aspect-ratio:4/5;transform-style:preserve-3d;animation:st-gira 14s linear infinite;cursor:grab}
+.st-modal .obj{position:relative;width:92%;aspect-ratio:4/5;transform-style:preserve-3d;animation:st-gira 7s ease-in-out infinite;cursor:grab}
 .st-modal .obj.mao{animation:none;cursor:grabbing}
 .st-modal .obj>span{position:absolute;inset:0;backface-visibility:hidden}
 .st-modal .obj .costas{transform:rotateY(180deg)}
-.st-modal .obj svg{width:100%;height:100%}
-@keyframes st-gira{to{transform:rotateY(360deg)}}
+.st-modal .obj img,.st-modal .obj svg{width:100%;height:100%;object-fit:cover;border-radius:18px}
+@keyframes st-gira{0%,100%{transform:rotateY(-22deg)}50%{transform:rotateY(22deg)}}
 .st-modal h3{margin:0;font-size:30px}
 .st-modal .desc{color:var(--mudo)}
 .st-modal .preco{font-size:26px;font-weight:700}
@@ -134,7 +134,7 @@
 #st-grade.troca .st-card:nth-child(2){animation-delay:60ms}#st-grade.troca .st-card:nth-child(3){animation-delay:120ms}#st-grade.troca .st-card:nth-child(4){animation-delay:180ms}
 .st-card{display:grid;gap:6px;align-content:start}
 .st-card .foto{position:relative;aspect-ratio:4/5;background:#fff;border-radius:22px;overflow:hidden;box-shadow:var(--relevo-baixo)}
-.st-card .foto svg{width:100%;height:100%;transition:transform .5s cubic-bezier(.65,0,.35,1)}
+.st-card .foto svg,.st-card .foto img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.65,0,.35,1)}
 .st-card:hover .foto svg{transform:scale(1.05)}
 .st-card .mais{position:absolute;right:12px;bottom:12px}
 .st-card h3{margin:8px 0 0;font-size:18px;font-weight:600}
@@ -170,7 +170,7 @@
   <section class="secao" style="padding-top:clamp(32px,4vw,56px)">
     <div class="wrap" style="max-width:1400px">
       <div class="st-topo">
-        <div><h1>My Broker Store</h1><p>Vista a marca que vende um imóvel a cada 49 minutos.</p></div>
+        <div><h1>Coleção 49</h1><p>My Broker Store. Peças com as frases de quem vende um imóvel a cada 49 minutos.</p></div>
       </div>
       <div class="st-provador">
         <div>
@@ -243,8 +243,8 @@
 </dialog>
 
 <footer id="rodape"></footer>
-<script src="assets/mb.js?v=7"></script>
-<script src="assets/store/store.js?v=3"></script>
+<script src="assets/mb.js?v=8"></script>
+<script src="assets/store/store.js?v=4"></script>
 <script src="assets/rastreio.js?v=2" defer></script>
 </body>
 </html>

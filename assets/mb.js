@@ -34,7 +34,7 @@
     topo.innerHTML = '<div class="wrap"><a class="marca" href="'+raiz+'index.html" aria-label="My Broker, página inicial"><img src="'+raiz+'assets/my-broker-v1-480.webp" alt="My Broker" width="960" height="212"></a>'+
       '<nav aria-label="Principal"><ul class="menu" id="menu">'+links.map(function(l){
         var ext = l[1].indexOf("http")===0;
-        return '<li><a href="'+l[1]+'"'+(l[0]==="evento"?' class="evento"':'')+(aqui===l[0]?' aria-current="page"':'')+(ext?' target="_blank" rel="noopener"':'')+'>'+I[l[3]]+'<span>'+l[2]+'</span></a></li>';
+        return '<li><a href="'+l[1]+'"'+((l[0]==="evento"||l[0]==="franquia")?' class="evento"':'')+(aqui===l[0]?' aria-current="page"':'')+(ext?' target="_blank" rel="noopener"':'')+'>'+I[l[3]]+'<span>'+l[2]+'</span></a></li>';
       }).join("")+'</ul></nav>'+
       '<a class="acao" href="https://mybroker-portal.vercel.app/prototipos-portal/inicio.html" target="_blank" rel="noopener">'+I.casa+'Portal de imóveis</a>'+
       '<button class="burger" type="button" aria-label="Abrir o menu" aria-expanded="false" aria-controls="menu">'+I.menu+'</button></div>';

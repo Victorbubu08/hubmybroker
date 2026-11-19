@@ -37,7 +37,7 @@ em{font-style:italic;font-weight:400}
 .menu a{display:flex;align-items:center;gap:7px;height:38px;padding:0 13px;border-radius:12px;color:rgba(226,231,255,.9);text-decoration:none;font-size:13.5px;font-weight:600;white-space:nowrap;transition:background .25s,color .25s}
 .menu a svg{width:16px;height:16px;flex:none}
 .menu a:hover,.menu a[aria-current="page"]{background:hsl(235 64% 40%);color:#fff}
-.menu a.evento{color:#fff;background:linear-gradient(135deg,#ff6a2b,#fc9c55)}
+.menu a.evento,.menu a.evento[aria-current="page"]{color:#000;background:linear-gradient(135deg,#ff6a2b,#fc9c55)}
 .menu a.evento:hover{filter:brightness(1.06)}
 .topo .acao{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:12px;background:#fff;color:var(--azul-escuro);font-weight:700;font-size:13.5px;text-decoration:none;white-space:nowrap}
 .burger{display:none;width:42px;height:42px;border-radius:12px;border:0;background:hsl(235 64% 40%);color:#fff;cursor:pointer}

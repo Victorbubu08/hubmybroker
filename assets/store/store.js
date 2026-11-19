@@ -82,58 +82,51 @@
   }
 
   /* ---------- catálogo ---------- */
+  /* Coleção 49: peças renderizadas em estúdio (assets/store/p), cada uma com uma frase da rede */
   var P = [
-    {id: "camiseta-elite", nome: "Camiseta Corretor de Elite", cat: "Vestuário", preco: 89, t: "camiseta", c: C.preto, d: "Algodão penteado, estampa do símbolo no peito."},
-    {id: "camiseta-49", nome: "Camiseta 49 Minutos", cat: "Vestuário", preco: 89, t: "camiseta", c: C.branco, d: "A frase da rede nas costas: uma venda a cada 49 minutos."},
-    {id: "polo-plantao", nome: "Polo Plantão", cat: "Vestuário", preco: 139, t: "polo", c: C.azul, d: "Piquet com o símbolo bordado. Feita para o plantão de vendas."},
-    {id: "moletom-mb", nome: "Moletom My Broker", cat: "Vestuário", preco: 249, t: "moletom", c: C.grafite, d: "Moletom com capuz, felpado por dentro, símbolo grande no peito."},
-    {id: "corta-vento", nome: "Jaqueta Corta-vento", cat: "Vestuário", preco: 289, t: "jaqueta", c: C.preto, d: "Leve, dobra na mochila. Para visita a obra e a terreno."},
-    {id: "bone-trucker", nome: "Boné Trucker", cat: "Vestuário", preco: 79, t: "bone", c: C.azul, d: "Aba curva, regulagem atrás, símbolo bordado."},
-    {id: "planner-2027", nome: "Planner do Corretor 2027", cat: "Escritório", preco: 99, t: "planner", c: C.azul, d: "Metas do mês, funil semanal e a rotina de captação da Broker Academy."},
-    {id: "caderno-captacao", nome: "Caderno Captação", cat: "Escritório", preco: 49, t: "caderno", c: C.preto, d: "Espiral, 120 folhas pontilhadas, para as visitas de captação."},
-    {id: "caneta-fechamento", nome: "Caneta Fechamento", cat: "Escritório", preco: 39, t: "caneta", c: C.preto, d: "Metal com tinta azul. A caneta da assinatura do contrato."},
-    {id: "mousepad", nome: "Mousepad Mesa de Vendas", cat: "Escritório", preco: 45, t: "mousepad", c: C.azul, d: "Base emborrachada, 32 × 22 cm."},
-    {id: "caneca-49", nome: "Caneca 49 Minutos", cat: "Casa", preco: 49, t: "caneca", c: C.branco, d: "Porcelana, 350 ml. Para o café antes da primeira ligação."},
-    {id: "garrafa-termica", nome: "Garrafa Térmica 750 ml", cat: "Casa", preco: 119, t: "garrafa", c: C.azul, d: "Aço inox, 12 h gelada, 6 h quente."},
-    {id: "copo-termico", nome: "Copo Térmico", cat: "Casa", preco: 89, t: "copo", c: C.preto, d: "473 ml com tampa, cabe no porta-copo do carro."},
-    {id: "mochila-exec", nome: "Mochila Executiva", cat: "Acessórios", preco: 329, t: "mochila", c: C.preto, d: "Bolso acolchoado para notebook de 15,6” e saída para carregador."},
-    {id: "ecobag", nome: "Ecobag Academia", cat: "Acessórios", preco: 39, t: "ecobag", c: C.areia, d: "Lona de algodão, alça longa."},
-    {id: "chaveiro", nome: "Chaveiro Chave Entregue", cat: "Acessórios", preco: 29, t: "chaveiro", c: C.azul, d: "Metal esmaltado. Para a entrega das chaves ao cliente."},
-    {id: "carregador", nome: "Carregador Portátil", cat: "Acessórios", preco: 149, t: "carregador", c: C.grafite, d: "10.000 mAh, USB-C. O celular não morre no plantão."}
+    {id: "camiseta-49", nome: "Camiseta 49 Minutos", cat: "Vestuário", preco: 119, img: 1, d: "Preta, algodão penteado 30.1. A frase da rede em bloco, com o 49 em laranja."},
+    {id: "camiseta-chave", nome: "Camiseta Chave Entregue", cat: "Vestuário", preco: 119, img: 1, d: "Off-white. A chave da entrega e a frase: o trabalho só acaba quando o cliente entra em casa."},
+    {id: "camiseta-metodo", nome: "Camiseta Método 49", cat: "Vestuário", preco: 119, img: 1, d: "Azul royal com as quatro etapas: captar, atender, visitar, fechar."},
+    {id: "moletom-vgv", nome: "Moletom VGV", cat: "Vestuário", preco: 289, img: 1, d: "Grafite, felpado, capuz com cordão. VGV: Valor Gerado de Vida."},
+    {id: "polo-plantao", nome: "Polo Plantão", cat: "Vestuário", preco: 159, img: 1, d: "Piquet marinho com o símbolo bordado no peito. Feita para o estande."},
+    {id: "bone-trucker", nome: "Boné Símbolo", cat: "Vestuário", preco: 99, img: 1, d: "Preto, seis gomos, símbolo bordado em alto-relevo."},
+    {id: "planner-2027", nome: "Planner Método 49 · 2027", cat: "Escritório", preco: 129, img: 1, d: "Capa dura azul com o símbolo em relevo, elástico e a rotina do Método 49 semana a semana."},
+    {id: "caneca-49", nome: "Caneca Primeira Ligação", cat: "Casa", preco: 59, img: 1, d: "Porcelana 350 ml: primeiro café, primeira ligação."},
+    {id: "garrafa-termica", nome: "Garrafa Plantão até o Fim", cat: "Casa", preco: 149, img: 1, d: "Inox 750 ml, pintura fosca azul. 12 h gelada."},
+    {id: "ecobag", nome: "Ecobag 12 → 80", cat: "Acessórios", preco: 69, img: 1, d: "Lona crua: de 12 corretores a 80 lojas."}
   ];
   var K = [
-    {id: "kit-boas-vindas", nome: "Boas-vindas", bg: "#2a3ae1", tinta: "#fff", selo: "Primeiro dia", frase: "Para o corretor que acabou de entrar na rede.", itens: ["camiseta-elite", "caderno-captacao", "caneta-fechamento", "caneca-49"]},
-    {id: "kit-plantao", nome: "Plantão", bg: "#111111", tinta: "#fff", selo: "Estande o dia todo", frase: "O dia inteiro no estande, com estilo e café gelado.", itens: ["polo-plantao", "garrafa-termica", "bone-trucker"]},
-    {id: "kit-academia", nome: "Academia 27", bg: "#FC9C55", tinta: "#111", selo: "13 e 14 de janeiro", frase: "Para os dois dias no Flamboyant Hall.", itens: ["camiseta-49", "copo-termico", "ecobag", "caderno-captacao"]},
-    {id: "kit-escritorio", nome: "Escritório", bg: "#e6dfd2", tinta: "#111", selo: "Mesa de quem fecha", frase: "A mesa de quem fecha negócio.", itens: ["planner-2027", "caneca-49", "mousepad", "caneta-fechamento"]},
-    {id: "kit-viagem", nome: "Viagem", bg: "#3a3a3d", tinta: "#fff", selo: "Visita a terreno", frase: "Visita a terreno, lançamento em outra cidade, voo cedo.", itens: ["mochila-exec", "corta-vento", "garrafa-termica", "carregador"]},
-    {id: "kit-gestor", nome: "Gestor", bg: "#0b1350", tinta: "#fff", selo: "Reunião de segunda", frase: "Para quem lidera o time na reunião de segunda.", itens: ["moletom-mb", "planner-2027", "copo-termico", "chaveiro"]}
+    {id: "kit-boas-vindas", nome: "Boas-vindas", bg: "#2a3ae1", tinta: "#fff", selo: "Primeiro dia", frase: "Para o corretor que acabou de entrar na rede.", itens: ["camiseta-chave", "planner-2027", "caneca-49"]},
+    {id: "kit-plantao", nome: "Plantão", bg: "#111111", tinta: "#fff", selo: "Estande o dia todo", frase: "O dia inteiro no estande, com estilo e água gelada.", itens: ["polo-plantao", "garrafa-termica", "bone-trucker"]},
+    {id: "kit-academia", nome: "Academia 27", bg: "#FC9C55", tinta: "#111", selo: "13 e 14 de janeiro", frase: "Para os dois dias no Flamboyant Hall.", itens: ["camiseta-49", "ecobag", "garrafa-termica"]},
+    {id: "kit-metodo", nome: "Método", bg: "#e6dfd2", tinta: "#111", selo: "Captar · fechar", frase: "A rotina do Método 49 na mesa e no peito.", itens: ["camiseta-metodo", "planner-2027", "caneca-49"]},
+    {id: "kit-gestor", nome: "Gestor", bg: "#0b1350", tinta: "#fff", selo: "Reunião de segunda", frase: "Para quem lidera o time.", itens: ["moletom-vgv", "planner-2027", "caneca-49"]},
+    {id: "kit-colecao", nome: "Coleção 49", bg: "#3a3a3d", tinta: "#fff", selo: "Peças-chave", frase: "As quatro peças que contam a história da rede.", itens: ["camiseta-49", "moletom-vgv", "bone-trucker", "ecobag"]}
   ];
   var byId = {}; P.forEach(function (p) { byId[p.id] = p; });
   function brl(v) { return v.toLocaleString("pt-BR", {style: "currency", currency: "BRL"}); }
-  function arte(p, extra) { return svg(p.t, p.c, true, extra); }
+  function arte(p) { return '<img src="assets/store/p/' + p.id + '.jpg" alt="' + p.nome + '" loading="lazy" decoding="async">'; }
   function kitArte(k) {
-    /* cartaz do kit: campo de cor, o nome gigante atrás, as peças arrumadas em flat lay com sombra, selo e desconto */
-    var n = k.itens.length, uid = k.id;
-    var lay = n === 3 ? [[40, 150, 210, 0], [200, 120, 180, 8], [150, 300, 150, -6]] : [[18, 140, 190, -4], [196, 118, 186, 6], [40, 300, 150, 5], [210, 292, 150, -7]];
-    var nome = k.nome.toUpperCase();
-    var fs = nome.length > 9 ? 74 : nome.length > 6 ? 92 : 112;
-    var pecas = k.itens.map(function (id, i) {
-      var p = byId[id], q = lay[i];
-      return '<g transform="rotate(' + q[3] + ' ' + (q[0] + q[2] / 2) + ' ' + (q[1] + q[2] * .62) + ')" filter="url(#sb-' + uid + ')"><svg x="' + q[0] + '" y="' + q[1] + '" width="' + q[2] + '" height="' + (q[2] * 1.25) + '" viewBox="0 0 400 500">' + D[p.t](p.c, true) + '</svg></g>';
+    /* cartaz do kit: campo de cor, nome gigante, as fotos das peças em mosaico, selo e desconto */
+    var n = k.itens.length, uid = k.id, t = k.tinta;
+    var lay = n === 3 ? [[24, 130, 200, 250], [232, 130, 144, 180], [232, 318, 144, 120]] : [[24, 130, 172, 215], [204, 130, 172, 215], [24, 353, 172, 85], [204, 353, 172, 85]];
+    if (n === 4) lay = [[24, 120, 172, 160], [204, 120, 172, 160], [24, 288, 172, 150], [204, 288, 172, 150]];
+    var nome = k.nome.toUpperCase(), fs = nome.length > 9 ? 70 : nome.length > 6 ? 86 : 104;
+    var tiles = k.itens.map(function (id, i) {
+      var q = lay[i];
+      return '<clipPath id="ct-' + uid + i + '"><rect x="' + q[0] + '" y="' + q[1] + '" width="' + q[2] + '" height="' + q[3] + '" rx="16"/></clipPath>' +
+        '<image href="assets/store/p/' + id + '.jpg" x="' + q[0] + '" y="' + q[1] + '" width="' + q[2] + '" height="' + q[3] + '" preserveAspectRatio="xMidYMid slice" clip-path="url(#ct-' + uid + i + ')"/>';
     }).join('');
-    var t = k.tinta, linha = t === "#fff" ? "rgba(255,255,255,.16)" : "rgba(0,0,0,.12)";
+    var linha = t === "#fff" ? "rgba(255,255,255,.18)" : "rgba(0,0,0,.14)";
     return '<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kit ' + k.nome + '">' +
-      '<defs><filter id="sb-' + uid + '" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#000" flood-opacity=".28"/></filter>' +
-      '<radialGradient id="lz-' + uid + '" cx="50%" cy="38%" r="70%"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>' +
-      '<rect width="400" height="500" rx="26" fill="' + k.bg + '"/><rect width="400" height="500" rx="26" fill="url(#lz-' + uid + ')"/>' +
-      '<text x="200" y="118" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="' + fs + '" fill="' + linha + '">' + nome + '</text>' +
-      '<text x="24" y="40" font-family="Hanken Grotesk, Arial" font-weight="700" font-size="15" letter-spacing="2" fill="' + t + '">KIT</text>' +
-      '<text x="376" y="40" text-anchor="end" font-family="Hanken Grotesk, Arial" font-weight="600" font-size="14" fill="' + t + '" opacity=".8">' + k.selo + '</text>' +
-      pecas +
-      '<rect x="20" y="446" width="360" height="36" rx="18" fill="' + (t === "#fff" ? "#fff" : "#111") + '"/>' +
-      '<text x="36" y="469" font-family="Hanken Grotesk, Arial" font-weight="700" font-size="15" fill="' + (t === "#fff" ? "#111" : "#fff") + '">' + n + ' peças · Kit ' + k.nome + '</text>' +
-      '<text x="364" y="469" text-anchor="end" font-family="Hanken Grotesk, Arial" font-weight="800" font-size="15" fill="' + (t === "#fff" ? "#2a3ae1" : "#FC9C55") + '">−10%</text></svg>';
+      '<rect width="400" height="500" rx="26" fill="' + k.bg + '"/>' +
+      '<text x="200" y="104" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="' + fs + '" fill="' + linha + '">' + nome + '</text>' +
+      '<text x="24" y="40" font-family="Hanken Grotesk, Arial" font-weight="700" font-size="15" letter-spacing="2" fill="' + t + '">KIT ' + nome + '</text>' +
+      '<text x="376" y="40" text-anchor="end" font-family="Hanken Grotesk, Arial" font-weight="600" font-size="13" fill="' + t + '" opacity=".8">' + k.selo + '</text>' +
+      tiles +
+      '<rect x="20" y="452" width="360" height="34" rx="17" fill="' + (t === "#fff" ? "#fff" : "#111") + '"/>' +
+      '<text x="36" y="474" font-family="Hanken Grotesk, Arial" font-weight="700" font-size="14" fill="' + (t === "#fff" ? "#111" : "#fff") + '">' + n + ' peças · Coleção 49</text>' +
+      '<text x="364" y="474" text-anchor="end" font-family="Hanken Grotesk, Arial" font-weight="800" font-size="14" fill="' + (t === "#fff" ? "#2a3ae1" : "#FC9C55") + '">−10%</text></svg>';
   }
   function soma(k) { return k.itens.reduce(function (t, id) { return t + byId[id].preco; }, 0); }
 
@@ -250,13 +243,13 @@
 
   /* ---------- prateleira em 3D ---------- */
   var prat = document.getElementById("st-prateleira");
-  var destaque = ["moletom-mb", "garrafa-termica", "camiseta-elite", "mochila-exec", "planner-2027", "caneca-49", "bone-trucker", "carregador"];
+  var destaque = ["moletom-vgv", "camiseta-49", "garrafa-termica", "camiseta-chave", "planner-2027", "caneca-49", "bone-trucker", "camiseta-metodo", "ecobag", "polo-plantao"];
   prat.innerHTML = destaque.map(function (id) { var p = byId[id]; return '<button type="button" class="st-peca" data-id="' + id + '" aria-label="' + p.nome + ', ' + brl(p.preco) + '"><span class="giro">' + arte(p) + '</span><span class="nome">' + p.nome + '</span></button>'; }).join('');
   var modal = document.getElementById("st-modal");
   prat.addEventListener("click", function (e) {
     var b = e.target.closest(".st-peca"); if (!b) return;
     var p = byId[b.getAttribute("data-id")];
-    modal.querySelector(".obj").innerHTML = '<span class="frente">' + arte(p) + '</span><span class="costas">' + svg(p.t, p.c, false) + '</span>';
+    modal.querySelector(".obj").innerHTML = '<span class="frente">' + arte(p) + '</span>';
     modal.querySelector("h3").textContent = p.nome;
     modal.querySelector(".desc").textContent = p.d;
     modal.querySelector(".preco").textContent = brl(p.preco);

@@ -3,5 +3,6 @@ Allow: /
 Disallow: /divulgar.html
 Disallow: /hotmart/
 Disallow: /ponte.html
+Disallow: /store.html
 
 Sitemap: https://www.hubmybroker.com.br/sitemap.xml

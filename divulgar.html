@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kit de divulgação My Broker</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Anton&family=Geist+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="assets/mb.css">
+<script>window.MB={raiz:"",pagina:"kit"}</script>
+<style>
+.kt-quem{display:grid;grid-template-columns:1fr 1fr auto;gap:14px;align-items:end;margin-top:28px}
+.kt-quem label{display:grid;gap:6px;font-size:14px;font-weight:600;color:var(--grafite)}
+.kt-quem input,.kt-quem select{font:inherit;font-size:16px;border:0;border-radius:14px;padding:14px 16px;background:var(--base);box-shadow:var(--afundado);color:var(--tinta)}
+.kt-filtros{display:flex;flex-wrap:wrap;gap:10px;margin-top:36px}
+.kt-filtros button{font:inherit;font-weight:600;font-size:15px;border:0;border-radius:999px;padding:10px 18px;background:var(--base);box-shadow:var(--relevo-baixo);cursor:pointer;color:var(--grafite)}
+.kt-filtros button[aria-pressed="true"]{background:var(--azul);color:#fff;box-shadow:none}
+.kt-grade{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:28px}
+.kt-peca{display:grid;gap:14px;align-content:start}
+.kt-peca .previa{display:grid;grid-template-columns:1.25fr .75fr;gap:10px;align-items:end}
+.kt-peca .previa img{width:100%;height:auto;border-radius:14px;display:block;background:#111}
+.kt-peca h3{margin:0;font-size:20px}
+.kt-peca .tipo{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--azul)}
+.kt-peca .acoes{display:flex;flex-wrap:wrap;gap:8px}
+.kt-peca .acoes a,.kt-peca .acoes button{font:inherit;font-size:14px;font-weight:700;border:0;border-radius:12px;padding:10px 14px;cursor:pointer;text-decoration:none;background:var(--base);box-shadow:var(--relevo-baixo);color:var(--azul-escuro)}
+.kt-peca .acoes .forte{background:var(--azul);color:#fff;box-shadow:none}
+.kt-peca .legenda{margin:0;overflow-wrap:anywhere;font-size:14.5px;color:var(--mudo);white-space:pre-line;background:var(--base);border-radius:14px;padding:12px 14px;box-shadow:var(--afundado)}
+.kt-aviso{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#111;color:#fff;padding:12px 18px;border-radius:12px;font-weight:600;opacity:0;transition:opacity .3s;pointer-events:none;z-index:50}
+.kt-aviso.on{opacity:1}
+@media (max-width:1000px){.kt-grade{grid-template-columns:1fr 1fr}}
+@media (max-width:680px){.kt-grade,.kt-quem{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header id="topo"></header>
+<main>
+  <section class="hero">
+    <canvas id="heroOndas" aria-hidden="true"></canvas>
+    <div class="miolo">
+      <span class="rotulo">Para o time, os gestores e os corretores</span>
+      <h1><span class="s-linha"><span class="s-pal"><span style="--k:0">Kit</span></span> <span class="s-pal"><span style="--k:1">de</span></span> <span class="s-pal"><span style="--k:2"><em>divulgação</em></span></span></span></h1>
+      <p class="sob">Baixe a arte, copie a legenda com o seu link e poste. Cada visita e clique que vier do seu link aparece no painel com o seu nome.</p>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="wrap">
+      <div class="cabeca"><span class="rotulo">Passo 1</span><h2 class="titulo">Quem está <em>divulgando</em>?</h2><p class="apoio">O seu nome vai no link. Assim a gente sabe quanta gente veio de você.</p></div>
+      <div class="kt-quem">
+        <label>Seu nome<input id="kt-nome" placeholder="ex.: Ana, loja Bueno" autocomplete="name"></label>
+        <label>Onde vai postar<select id="kt-canal"><option value="instagram|stories">Stories do Instagram</option><option value="instagram|feed">Feed do Instagram</option><option value="whatsapp|status">Status do WhatsApp</option><option value="whatsapp|grupos">Grupos e listas do WhatsApp</option></select></label>
+        <button class="btn btn-azul" type="button" id="kt-copiar-link">Copiar meu link</button>
+      </div>
+      <div class="kt-filtros" role="group" aria-label="Filtrar as peças"><button type="button" data-f="" aria-pressed="true">Todas</button><button type="button" data-f="academia" aria-pressed="false">Academia de Vendas 27</button><button type="button" data-f="franquia" aria-pressed="false">Franquia</button><button type="button" data-f="ronaldo" aria-pressed="false">Palestras do Ronaldo</button></div>
+      <div class="kt-grade" id="kt-grade"></div>
+    </div>
+  </section>
+</main>
+<footer id="rodape"></footer>
+<div class="kt-aviso" id="kt-aviso" role="status"></div>
+<script src="assets/mb.js?v=4"></script>
+<script src="assets/rastreio.js?v=2" defer></script>
+<script>
+(function(){
+  var PECAS = [
+    {id:"academia-lote", tipo:"academia", nome:"3º lote · vira dia 20/11", destino:"academia/", legenda:"O 3º lote da Academia de Vendas 27 vira dia 20/11 às 23h59. Depois disso, o preço sobe.\n13 e 14 de janeiro, no Flamboyant Hall, em Goiânia.\nGaranta o seu: {link}"},
+    {id:"academia-ronaldo", tipo:"academia", nome:"Uma venda a cada 49 minutos", destino:"academia/", legenda:"Como vender um imóvel a cada 49 minutos? O Ronaldo Dantas mostra no palco da Academia de Vendas 27, na prática.\n13 e 14 de janeiro, Flamboyant Hall, Goiânia.\nIngressos: {link}"},
+    {id:"academia-local", tipo:"academia", nome:"Dois dias dentro do Flamboyant", destino:"academia/", legenda:"Dois dias dentro do Flamboyant: palco, networking, restaurantes e hotéis perto.\nAcademia de Vendas 27, 13 e 14 de janeiro, em Goiânia.\nGaranta o seu lugar: {link}"},
+    {id:"academia-palestrantes", tipo:"academia", nome:"Quem sobe ao palco", destino:"academia/", legenda:"Ronaldo Dantas, Raul Sena, Irmãs Coletes, Raphael Rios, Leandro Batista e Victor Albuquerque no palco da Academia de Vendas 27.\n13 e 14 de janeiro, Goiânia.\nIngressos: {link}"},
+    {id:"academia-prova", tipo:"academia", nome:"+19.500 profissionais", destino:"academia/", legenda:"Mais de 19.500 profissionais já passaram pela Academia de Vendas. Em 2027 é a sua vez.\n13 e 14 de janeiro, Flamboyant Hall, Goiânia.\n{link}"},
+    {id:"academia-grupo", tipo:"academia", nome:"Leve seu time", destino:"academia/", legenda:"Leve o seu time para a Academia de Vendas 27: a partir de 5 corretores, R$ 694 por pessoa. Com 10 ou mais, R$ 594 e 1 VIP para o gestor.\nFale com o Ronaldo: {link}"},
+    {id:"franquia-49", tipo:"franquia", nome:"Agora na sua cidade", destino:"franquia.html", legenda:"Uma venda a cada 49 minutos. Agora na sua cidade.\nAbra uma franquia My Broker, a partir de R$ 200 mil, com marca, método, sistema e formação do time.\nAgende sua reunião: {link}"},
+    {id:"franquia-rede", tipo:"franquia", nome:"A força de uma rede nacional", destino:"franquia.html", legenda:"Tenha sua imobiliária com a força de uma rede nacional: mais de 80 lojas e 3.200 corretores.\nFranquia My Broker a partir de R$ 200 mil.\n{link}"},
+    {id:"ronaldo-palestra", tipo:"ronaldo", nome:"Leve o Ronaldo para o seu evento", destino:"ronaldo.html", legenda:"Leve o Ronaldo Dantas para a sua convenção ou evento: de 12 corretores a 80 lojas, o método de quem vende um imóvel a cada 49 minutos.\nPalestras e mentorias: {link}"}
+  ];
+  var SITE = "https://www.hubmybroker.com.br/";
+  function slug(t){ return (t||"").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,40); }
+  function link(destino){
+    var c = document.getElementById("kt-canal").value.split("|"), n = slug(document.getElementById("kt-nome").value) || "time";
+    return SITE + destino + "?utm_source=" + c[0] + "&utm_medium=" + c[1] + "&utm_campaign=kit-" + n;
+  }
+  try { var salvo = localStorage.getItem("kt_nome"); if (salvo) document.getElementById("kt-nome").value = salvo; } catch(e){}
+  document.getElementById("kt-nome").addEventListener("input", function(){ try { localStorage.setItem("kt_nome", this.value); } catch(e){} desenhar(); });
+  document.getElementById("kt-canal").addEventListener("change", desenhar);
+  var aviso = document.getElementById("kt-aviso"), t;
+  function avisa(m){ aviso.textContent = m; aviso.classList.add("on"); clearTimeout(t); t = setTimeout(function(){ aviso.classList.remove("on"); }, 1800); }
+  function copia(txt, m){
+    (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(function(){ avisa(m); }, function(){ window.prompt("Copie:", txt); });
+  }
+  document.getElementById("kt-copiar-link").addEventListener("click", function(){ copia(link("academia/"), "Link da Academia copiado"); });
+  var filtro = "";
+  document.querySelectorAll(".kt-filtros button").forEach(function(b){ b.addEventListener("click", function(){
+    filtro = b.getAttribute("data-f");
+    document.querySelectorAll(".kt-filtros button").forEach(function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+    desenhar();
+  }); });
+  function desenhar(){
+    var g = document.getElementById("kt-grade");
+    g.innerHTML = PECAS.filter(function(p){ return !filtro || p.tipo === filtro; }).map(function(p){
+      var leg = p.legenda.replace("{link}", link(p.destino));
+      return '<article class="cartao kt-peca"><div class="previa"><img src="assets/kit/'+p.id+'-feed.jpg" alt="Arte para o feed: '+p.nome+'" loading="lazy"><img src="assets/kit/'+p.id+'-story.jpg" alt="Arte para stories: '+p.nome+'" loading="lazy"></div>'+
+        '<span class="tipo">'+({academia:"Academia de Vendas 27",franquia:"Franquia",ronaldo:"Palestras do Ronaldo"})[p.tipo]+'</span><h3>'+p.nome+'</h3>'+
+        '<p class="legenda">'+leg.replace(/&/g,"&amp;").replace(/</g,"&lt;")+'</p>'+
+        '<div class="acoes"><button type="button" class="forte" data-leg="'+encodeURIComponent(leg)+'">Copiar legenda</button><a href="assets/kit/'+p.id+'-feed.jpg" download>Baixar feed</a><a href="assets/kit/'+p.id+'-story.jpg" download>Baixar stories</a></div></article>';
+    }).join("");
+    g.querySelectorAll("[data-leg]").forEach(function(b){ b.addEventListener("click", function(){ copia(decodeURIComponent(b.getAttribute("data-leg")), "Legenda com o seu link copiada"); }); });
+  }
+  desenhar();
+})();
+</script>
+</body>
+</html>

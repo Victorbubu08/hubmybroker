@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My Broker Store | Camisetas, kits e acessórios</title>
+<meta name="description" content="A loja oficial da My Broker: camisetas, moletons, planner do corretor, garrafas, mochilas e kits com 10% de desconto. Peça pelo WhatsApp e receba em casa.">
+<link rel="canonical" href="https://www.hubmybroker.com.br/store.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="My Broker">
+<meta property="og:title" content="My Broker Store | Camisetas, kits e acessórios">
+<meta property="og:description" content="A loja oficial da My Broker: camisetas, moletons, planner do corretor, garrafas, mochilas e kits com 10% de desconto. Peça pelo WhatsApp e receba em casa.">
+<meta property="og:url" content="https://www.hubmybroker.com.br/store.html">
+<meta property="og:image" content="https://www.hubmybroker.com.br/assets/og-mybroker.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Store", "name": "My Broker Store", "url": "https://www.hubmybroker.com.br/store.html", "parentOrganization": {"@type": "Organization", "name": "My Broker", "url": "https://www.hubmybroker.com.br/"}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Anton&family=Geist+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="assets/mb.css?v=6">
+<script>window.MB={raiz:"",pagina:"store"}</script>
+<style>
+.st{--preto:#111;--cinza:#707072;--fio:#E5E5E5;--peca:#F5F5F5}
+.st h1,.st h2,.st .anton{font-family:"Anton",Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:0;line-height:.92}
+.st-topo{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.st-topo h1{font-size:clamp(48px,7vw,110px)}
+.st-topo p{margin:10px 0 0;color:var(--cinza);font-size:18px}
+#st-sacola{position:fixed;right:max(18px,env(safe-area-inset-right,0px));top:84px;z-index:71;display:flex;align-items:center;gap:10px;height:54px;padding:0 20px;border-radius:30px;border:0;background:var(--preto,#111);color:#fff;font:700 15px/1 "Hanken Grotesk",sans-serif;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+#st-sacola b{display:grid;place-items:center;min-width:26px;height:26px;border-radius:13px;background:#fff;color:#111;font-size:13px}
+#st-sacola.pulsa{animation:st-pulsa .5s ease}
+@keyframes st-pulsa{40%{transform:scale(1.12)}}
+
+/* provador de kits */
+.st-provador{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(320px,.8fr);gap:28px;margin-top:28px;align-items:stretch}
+#st-palco{position:relative;height:clamp(420px,62vh,640px);background:#fff;border-radius:28px;overflow:hidden;outline:none;touch-action:pan-y;cursor:grab}
+#st-palco:focus-visible{box-shadow:inset 0 0 0 3px var(--azul)}
+#st-palco::after{content:"";position:absolute;left:8%;right:8%;bottom:16%;height:2px;background:var(--fio)}
+#st-fila{position:absolute;inset:0}
+.st-vaga{position:absolute;left:50%;bottom:12%;width:min(50%,370px);aspect-ratio:4/5;border:0;padding:0;background:none;cursor:pointer;transform-origin:50% 100%;transition:transform .85s cubic-bezier(.65,0,.35,1),filter .85s cubic-bezier(.65,0,.35,1),opacity .6s;will-change:transform,filter}
+.st-vaga svg{width:100%;height:100%;display:block}
+.st-palco-info{position:absolute;left:24px;top:22px;right:24px;display:flex;justify-content:space-between;align-items:start;z-index:20;pointer-events:none}
+.st-palco-info h2{font-size:clamp(30px,3.2vw,48px)}
+.st-palco-info p{margin:6px 0 0;color:var(--cinza);max-width:36ch}
+.st-palco-info .n{font:700 14px/1 "Hanken Grotesk";color:var(--cinza)}
+#st-fechar-foco{position:absolute;right:20px;top:20px;z-index:21;display:none;width:44px;height:44px;border-radius:22px;border:0;background:#111;color:#fff;font-size:20px;cursor:pointer}
+#st-palco.foco #st-fechar-foco{display:block}
+#st-palco.foco .st-palco-info .n{display:none}
+.st-dica{position:absolute;left:50%;bottom:4%;transform:translateX(-50%);z-index:20;font-size:14px;color:var(--cinza);white-space:nowrap}
+.st-controles{display:flex;align-items:center;gap:10px;margin-top:14px}
+.st-controles>button{height:44px;padding:0 16px;border-radius:30px;border:0;background:#fff;color:#111;font:700 14px/1 "Hanken Grotesk";cursor:pointer;box-shadow:var(--relevo-baixo)}
+#st-trilho{display:flex;gap:6px;flex:1;min-width:0}
+#st-trilho button{flex:1;min-width:0;height:44px;border:0;background:transparent;cursor:pointer;padding:0;position:relative}
+#st-trilho button::before{content:"";position:absolute;left:0;right:0;top:50%;height:4px;margin-top:-2px;border-radius:2px;background:var(--fio);transition:background .3s}
+#st-trilho button span{position:relative;display:none;padding:0 12px;background:var(--base);font:700 13px/44px "Hanken Grotesk";white-space:nowrap;color:#111}
+#st-trilho button.ativo{flex:3}
+#st-trilho button.ativo::before{background:#111}
+#st-trilho button.ativo span{display:inline-block}
+.st-painel{background:#fff;border-radius:28px;padding:26px;display:flex;flex-direction:column;gap:14px;box-shadow:var(--relevo-alto)}
+.st-painel h3{margin:0;font-size:22px}
+#st-pecas{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+#st-pecas li{display:grid;grid-template-columns:62px 1fr auto 40px;gap:12px;align-items:center;padding-bottom:10px;border-bottom:1px solid var(--fio)}
+#st-pecas.entra li{animation:st-sobe .55s cubic-bezier(.65,0,.35,1) both;animation-delay:calc(var(--i) * 70ms)}
+@keyframes st-sobe{from{opacity:0;transform:translateY(18px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+#st-pecas .mini{width:62px;height:62px;border-radius:12px;background:var(--peca);display:grid;place-items:center;overflow:hidden}
+#st-pecas .mini svg{width:56px;height:70px}
+#st-pecas .txt{display:grid;gap:2px;min-width:0}
+#st-pecas b{font-size:15px;font-weight:600}
+#st-pecas small{color:var(--cinza);font-size:13px}
+#st-pecas .pr{font-weight:600;font-size:15px}
+.mais{width:40px;height:40px;border-radius:20px;border:1px solid var(--fio);background:#fff;font-size:22px;line-height:1;cursor:pointer;transition:background .2s,color .2s}
+.mais:hover{background:#111;color:#fff}
+.st-fecho{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-top:auto}
+.st-fecho b{display:block;font-size:16px}
+.st-fecho small{color:var(--cinza)}
+.st-fecho s{color:var(--cinza);font-size:15px;display:block;text-align:right}
+.st-fecho strong{font-size:24px}
+#st-add-kit{height:56px;border-radius:30px;border:0;background:#111;color:#fff;font:700 16px/1 "Hanken Grotesk";cursor:pointer;transition:transform .2s}
+#st-add-kit:hover{transform:translateY(-2px)}
+
+/* manifesto */
+#st-manifesto{background:#111;color:#fff;border-radius:34px;padding:clamp(48px,8vw,120px) clamp(24px,6vw,96px);margin-top:clamp(56px,8vw,96px)}
+#st-manifesto p{margin:0;font-family:"Anton",Impact,sans-serif;text-transform:uppercase;font-size:clamp(34px,5.4vw,84px);line-height:1;max-width:18ch}
+#st-manifesto span{opacity:.16;transition:opacity .25s}
+#st-manifesto span.on{opacity:1}
+#st-manifesto small{display:block;margin-top:28px;color:rgba(255,255,255,.6);font-size:16px;font-family:"Hanken Grotesk"}
+
+/* prateleira 3D */
+#st-prateleira{display:flex;gap:4px;margin-top:36px;padding:30px 10px 0;perspective:1200px;overflow-x:auto;scroll-snap-type:x mandatory;position:relative}
+#st-prateleira::before{content:"";position:absolute;left:0;right:0;top:18px;height:8px;border-radius:4px;background:linear-gradient(#cfcfcf,#9c9c9c)}
+.st-peca{flex:0 0 clamp(90px,10vw,140px);scroll-snap-align:center;border:0;background:none;padding:0;cursor:pointer;display:grid;gap:10px;justify-items:center;transition:flex-basis .5s cubic-bezier(.65,0,.35,1)}
+.st-peca .giro{display:block;width:100%;aspect-ratio:4/5;background:var(--peca);border-radius:16px;transform:rotateY(62deg);transform-origin:50% 0;transition:transform .6s cubic-bezier(.65,0,.35,1);box-shadow:var(--relevo-baixo)}
+.st-peca .giro svg{width:100%;height:100%}
+.st-peca .nome{font-size:13px;font-weight:600;opacity:0;transition:opacity .3s;text-align:center}
+.st-peca:hover,.st-peca:focus-visible{flex-basis:clamp(180px,20vw,260px)}
+.st-peca:hover .giro,.st-peca:focus-visible .giro{transform:rotateY(0)}
+.st-peca:hover .nome,.st-peca:focus-visible .nome{opacity:1}
+#st-modal{border:0;border-radius:28px;padding:0;width:min(860px,94vw);background:#fff}
+#st-modal::backdrop{background:rgba(10,10,20,.6)}
+.st-modal{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;padding:28px;align-items:center}
+.st-modal .palco3d{perspective:1000px;background:var(--peca);border-radius:22px;aspect-ratio:4/5;display:grid;place-items:center}
+.st-modal .obj{position:relative;width:80%;aspect-ratio:4/5;transform-style:preserve-3d;animation:st-gira 14s linear infinite;cursor:grab}
+.st-modal .obj.mao{animation:none;cursor:grabbing}
+.st-modal .obj>span{position:absolute;inset:0;backface-visibility:hidden}
+.st-modal .obj .costas{transform:rotateY(180deg)}
+.st-modal .obj svg{width:100%;height:100%}
+@keyframes st-gira{to{transform:rotateY(360deg)}}
+.st-modal h3{margin:0;font-size:30px}
+.st-modal .desc{color:var(--mudo)}
+.st-modal .preco{font-size:26px;font-weight:700}
+.st-modal .fechar{position:absolute;right:16px;top:16px;width:42px;height:42px;border-radius:21px;border:0;background:#111;color:#fff;font-size:18px;cursor:pointer}
+
+/* categorias */
+#st-cats{list-style:none;margin:30px 0 0;padding:0}
+#st-cats button{position:relative;display:block;width:100%;text-align:left;border:0;background:none;padding:6px 0;font-family:"Anton",Impact,sans-serif;text-transform:uppercase;font-size:clamp(46px,8vw,120px);line-height:.95;color:#111;cursor:pointer;isolation:isolate;transition:color .3s}
+#st-cats button::before{content:"";position:absolute;left:-100vw;right:-100vw;top:8%;bottom:8%;background:#111;z-index:-1;transform:scaleY(0);transition:transform .45s cubic-bezier(.65,0,.35,1)}
+#st-cats button:hover,#st-cats button.ativo{color:#fff}
+#st-cats button:hover::before,#st-cats button.ativo::before{transform:scaleY(1)}
+#st-cats sup{font-family:"Hanken Grotesk";font-size:.22em;margin-left:.3em;vertical-align:top;position:relative;top:.4em}
+.st-cats-wrap{overflow:hidden}
+
+/* vitrine */
+.st-vit-topo{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:24px}
+#st-chips{display:flex;gap:8px;flex-wrap:wrap}
+#st-chips button{height:40px;padding:0 16px;border-radius:30px;border:1px solid var(--fio);background:#fff;font:600 14px/1 "Hanken Grotesk";cursor:pointer}
+#st-chips button[aria-pressed="true"]{background:#111;color:#fff;border-color:#111}
+.st-pag{display:flex;align-items:center;gap:10px;color:var(--cinza);font-weight:600}
+.st-pag button{width:44px;height:44px;border-radius:22px;border:1px solid var(--fio);background:#fff;cursor:pointer;font-size:18px}
+.st-pag button:disabled{opacity:.35;cursor:default}
+#st-grade{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;margin-top:24px}
+#st-grade.troca .st-card{animation:st-sobe .5s cubic-bezier(.65,0,.35,1) both}
+#st-grade.troca .st-card:nth-child(2){animation-delay:60ms}#st-grade.troca .st-card:nth-child(3){animation-delay:120ms}#st-grade.troca .st-card:nth-child(4){animation-delay:180ms}
+.st-card{display:grid;gap:6px;align-content:start}
+.st-card .foto{position:relative;aspect-ratio:4/5;background:#fff;border-radius:22px;overflow:hidden;box-shadow:var(--relevo-baixo)}
+.st-card .foto svg{width:100%;height:100%;transition:transform .5s cubic-bezier(.65,0,.35,1)}
+.st-card:hover .foto svg{transform:scale(1.05)}
+.st-card .mais{position:absolute;right:12px;bottom:12px}
+.st-card h3{margin:8px 0 0;font-size:18px;font-weight:600}
+.st-card .cat{margin:0;color:var(--cinza);font-size:14px}
+.st-card .d{margin:0;color:var(--mudo);font-size:14.5px}
+.st-card .pr{margin:4px 0 0;font-weight:700;font-size:17px}
+
+/* sacola */
+#st-gaveta{position:fixed;top:0;right:0;bottom:0;width:min(420px,100vw);background:#fff;z-index:90;transform:translateX(100%);transition:transform .45s cubic-bezier(.65,0,.35,1);display:flex;flex-direction:column;padding:24px;box-shadow:-20px 0 50px rgba(0,0,0,.18)}
+#st-gaveta.aberta{transform:none}
+#st-gaveta h2{font-family:"Anton";text-transform:uppercase;font-weight:400;font-size:40px;margin:0 0 16px}
+#st-gaveta .fechar{position:absolute;right:20px;top:22px;width:42px;height:42px;border-radius:21px;border:0;background:#111;color:#fff;cursor:pointer}
+#st-lista{list-style:none;margin:0;padding:0;overflow:auto;flex:1;display:grid;align-content:start;gap:12px}
+#st-lista li{display:flex;justify-content:space-between;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--fio)}
+#st-lista li div:first-child{display:grid;gap:2px}
+#st-lista li span{color:var(--cinza);font-size:14px}
+#st-lista .vazia{color:var(--cinza);border:0}
+.qtd{display:flex;align-items:center;gap:8px}
+.qtd button{width:32px;height:32px;border-radius:16px;border:1px solid var(--fio);background:#fff;cursor:pointer}
+.st-total{display:flex;justify-content:space-between;font-size:20px;font-weight:700;padding:16px 0}
+#st-fechar-pedido{height:56px;border-radius:30px;border:0;background:#25D366;color:#04130a;font:800 16px/1 "Hanken Grotesk";cursor:pointer}
+#st-fechar-pedido:disabled{opacity:.4;cursor:default}
+.st-nota{font-size:13px;color:var(--cinza);margin:10px 0 0}
+
+@media (max-width:980px){.st-provador{grid-template-columns:1fr}#st-grade{grid-template-columns:1fr 1fr}.st-modal{grid-template-columns:1fr}}
+@media (max-width:560px){#st-sacola{top:auto;bottom:calc(18px + env(safe-area-inset-bottom,0px));left:18px;right:auto}.st-vaga{width:62%}#st-palco{height:440px}.st-palco-info p{display:none}#st-trilho button.ativo span{font-size:12px;padding:0 8px}}
+@media (prefers-reduced-motion:reduce){.st-vaga,.st-peca .giro,#st-cats button::before{transition:none}.st-modal .obj{animation:none}#st-pecas.entra li,#st-grade.troca .st-card{animation:none}}
+</style>
+</head>
+<body>
+<header id="topo"></header>
+<main class="st">
+  <section class="secao" style="padding-top:clamp(32px,4vw,56px)">
+    <div class="wrap" style="max-width:1400px">
+      <div class="st-topo">
+        <div><h1>My Broker Store</h1><p>Vista a marca que vende um imóvel a cada 49 minutos.</p></div>
+      </div>
+      <div class="st-provador">
+        <div>
+          <div id="st-palco" tabindex="0" aria-label="Kits da My Broker Store. Use as setas para trocar de kit e Enter para abrir.">
+            <div class="st-palco-info"><div><h2 id="st-kit-nome">Kit</h2><p id="st-kit-frase"></p></div><span class="n" id="st-kit-n"></span></div>
+            <button type="button" id="st-fechar-foco" aria-label="Fechar o kit">×</button>
+            <div id="st-fila"></div>
+            <span class="st-dica">Clique no kit do meio para ver as peças</span>
+          </div>
+          <div class="st-controles">
+            <button type="button" id="st-ant" aria-label="Kit anterior">←</button>
+            <div id="st-trilho"></div>
+            <button type="button" id="st-prox" aria-label="Próximo kit">→</button>
+            <button type="button" id="st-play" aria-pressed="true">Pausar</button>
+          </div>
+        </div>
+        <aside class="st-painel" aria-live="polite">
+          <h3>Compre o kit</h3>
+          <ul id="st-pecas"></ul>
+          <div class="st-fecho"><div><b>Leve o kit completo</b><small>Economize 10%</small></div><div><s id="st-de"></s><strong id="st-por"></strong></div></div>
+          <button type="button" id="st-add-kit">Adicionar o kit →</button>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" style="max-width:1400px">
+    <div id="st-manifesto"><p>Quem veste a marca carrega a história: de 12 corretores a mais de 80 lojas, uma venda a cada 49 minutos.</p><small>Peças pensadas para o plantão, a visita, o escritório e a Academia de Vendas.</small></div>
+  </section>
+
+  <section class="secao">
+    <div class="wrap" style="max-width:1400px">
+      <h2 class="anton" style="font-size:clamp(40px,6vw,90px)">Direto da prateleira</h2>
+      <p class="apoio" style="margin-top:12px">Passe o mouse para ver a peça de frente. Clique para ver de perto.</p>
+      <div id="st-prateleira" aria-label="Destaques da loja"></div>
+    </div>
+  </section>
+
+  <section class="secao st-cats-wrap" style="padding-top:0">
+    <div class="wrap" style="max-width:1400px">
+      <h2 class="anton" style="font-size:clamp(32px,4vw,56px)">Categorias</h2>
+      <ul id="st-cats"></ul>
+    </div>
+  </section>
+
+  <section class="secao" id="vitrine" style="padding-top:0">
+    <div class="wrap" style="max-width:1400px">
+      <h2 class="anton" style="font-size:clamp(40px,6vw,90px)">Pronto pro plantão</h2>
+      <div class="st-vit-topo"><div id="st-chips" role="group" aria-label="Filtrar por categoria"></div><div class="st-pag"><span id="st-pag"></span><button type="button" id="st-v-ant" aria-label="Página anterior">←</button><button type="button" id="st-v-prox" aria-label="Próxima página">→</button></div></div>
+      <div id="st-grade"></div>
+    </div>
+  </section>
+</main>
+
+<button type="button" id="st-sacola" aria-label="Abrir a sacola">Sacola <b id="st-conta">0</b></button>
+<aside id="st-gaveta" aria-hidden="true" aria-label="Sacola">
+  <button type="button" class="fechar" aria-label="Fechar a sacola">×</button>
+  <h2>Sacola</h2>
+  <ul id="st-lista"></ul>
+  <div class="st-total"><span>Total</span><span id="st-total">R$ 0,00</span></div>
+  <button type="button" id="st-fechar-pedido">Fechar pedido pelo WhatsApp</button>
+  <p class="st-nota">O pedido vai pronto para o WhatsApp da My Broker. Frete e pagamento são combinados por lá.</p>
+</aside>
+<dialog id="st-modal" aria-label="Peça">
+  <div class="st-modal">
+    <div class="palco3d"><div class="obj"></div></div>
+    <div><h3></h3><p class="desc"></p><p class="preco"></p><p><button type="button" class="btn btn-azul add">Adicionar à sacola</button></p></div>
+  </div>
+  <button type="button" class="fechar" aria-label="Fechar">×</button>
+</dialog>
+
+<footer id="rodape"></footer>
+<script src="assets/mb.js?v=7"></script>
+<script src="assets/store/store.js?v=2"></script>
+<script src="assets/rastreio.js?v=2" defer></script>
+</body>
+</html>

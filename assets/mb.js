@@ -14,6 +14,7 @@
     casa:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>',
     seta:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
     menu:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>',
+    sacola:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>',
     zap:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg>'
   };
   window.MB_ICONES = I;
@@ -23,6 +24,7 @@
     ["evento", raiz+"academia/index.html", "Academia de Vendas 27", "evento"],
     ["ronaldo", raiz+"ronaldo.html", "Ronaldo Dantas", "corretor"],
     ["franquia", raiz+"franquia.html", "Seja franqueado", "franquia"],
+    ["store", raiz+"store.html", "Store", "sacola"],
     ["corretor", raiz+"corretor.html", "Seja corretor", "corretor"],
     ["instituto", raiz+"broker-academy.html", "Broker Academy", "instituto"]
   ];
@@ -47,7 +49,7 @@
     rod.innerHTML = '<div class="wrap"><div><img src="'+raiz+'assets/my-broker-v1-480.webp" alt="My Broker"><p>Um ecossistema de prosperidade: imóveis, formação de corretores e o maior evento de vendas do mercado imobiliário.</p></div>'+
       '<div><h4>Institucional</h4><ul><li><a href="'+raiz+'index.html#historia">Nossa história</a></li><li><a href="'+raiz+'index.html#reconhecimentos">Reconhecimentos</a></li><li><a href="'+raiz+'ronaldo.html">Palestras e mentorias</a></li><li><a href="'+raiz+'divulgar.html">Kit de divulgação</a></li><li><a href="https://www.youtube.com/@ronaldodantasmb" target="_blank" rel="noopener">Canal no YouTube</a></li></ul></div>'+
       '<div><h4>Faça parte</h4><ul><li><a href="'+raiz+'franquia.html">Seja franqueado</a></li><li><a href="'+raiz+'corretor.html">Seja corretor</a></li><li><a href="'+raiz+'academia/index.html">Academia de Vendas 27</a></li></ul></div>'+
-      '<div><h4>Para você</h4><ul><li><a href="https://mybroker-portal.vercel.app/prototipos-portal/inicio.html" target="_blank" rel="noopener">Portal de imóveis</a></li><li><a href="'+raiz+'broker-academy.html">Broker Academy</a></li></ul></div></div>';
+      '<div><h4>Para você</h4><ul><li><a href="https://mybroker-portal.vercel.app/prototipos-portal/inicio.html" target="_blank" rel="noopener">Portal de imóveis</a></li><li><a href="'+raiz+'broker-academy.html">Broker Academy</a></li><li><a href="'+raiz+'store.html">My Broker Store</a></li></ul></div></div>';
   }
 
   /* contagem até a virada do 3º lote (20/11) e depois até o evento */

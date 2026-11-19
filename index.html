@@ -3,431 +3,210 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="My Broker: imóveis, formação de corretores e o maior evento de vendas do mercado imobiliário. Seja franqueado, seja corretor ou participe da Academia de Vendas 27.">
-<title>My Broker</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<title>My Broker | Imobiliária, franquia e Academia de Vendas</title>
+<meta name="description" content="A My Broker vende um imóvel a cada 49 minutos: mais de 80 lojas e 3.200 corretores. Seja franqueado, seja corretor ou garanta seu ingresso na Academia de Vendas 27.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Anton&family=Geist+Mono:wght@500;700&display=swap">
-<link rel="stylesheet" href="assets/ph/regular/style.css">
-<link rel="stylesheet" href="assets/ph/fill/style.css">
-<script>document.documentElement.classList.add("menu-azul")</script>
-<style>
-  :root {
-    color-scheme: light;
-    --base: #edece8;
-    --sombra: rgba(163, 157, 146, .5);
-    --luz: rgba(255, 255, 255, .92);
-    --tinta: #121212;
-    --grafite: #2e2e2c;
-    --mudo: #5f5d59;
-    --azul: #2a3ae1;
-    --azul-escuro: #1f2cb8;
-    --marinho: #1c1e3d;
-    --fonte: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
-    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
-    --relevo: 8px 8px 18px var(--sombra), -8px -8px 18px var(--luz);
-    --relevo-baixo: 5px 5px 12px var(--sombra), -5px -5px 12px var(--luz);
-    --afundado: inset 5px 5px 11px var(--sombra), inset -5px -5px 11px var(--luz);
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  ::selection { background: var(--azul); color: #fff; }
-  html { background: var(--base); scrollbar-color: #bdb9b0 var(--base); }
-  body { font-family: var(--fonte); color: var(--tinta); background: var(--base); min-height: 100dvh; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-  a { color: inherit; text-decoration: none; }
-  button { font: inherit; color: inherit; border: 0; background: none; cursor: pointer; }
-  ul { list-style: none; }
-  :focus-visible { outline: 2px solid var(--azul); outline-offset: 4px; border-radius: 14px; }
-  .so-leitor { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-
-  /* ---------- topo com menu neumórfico (opção 17, clara) ---------- */
-  .topo { position: relative; z-index: 3; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; padding: 22px clamp(16px, 4vw, 48px); }
-  .marca img { height: 30px; width: auto; display: block; }
-  .neu { display: inline-flex; gap: 12px; padding: 10px; border-radius: 24px; background: var(--base); box-shadow: var(--relevo); }
-  .tecla { position: relative; display: flex; align-items: center; height: 48px; padding: 0 18px; border-radius: 16px;
-           color: var(--grafite); font-size: 14px; font-weight: 600; white-space: nowrap; }
-  .tecla::before, .tecla::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; transition: opacity 220ms var(--ease-out); }
-  .tecla::before { box-shadow: var(--relevo-baixo); }
-  .tecla::after { opacity: 0; box-shadow: var(--afundado); }
-  .tecla .conteudo { display: flex; align-items: center; gap: 9px; transition: transform 200ms var(--ease-out), color 200ms ease; }
-  .tecla i { font-size: 19px; }
-  .tecla.ativo { color: var(--tinta); }
-  .tecla.ativo i { color: var(--azul); }
-  .tecla.ativo::before { opacity: 0; }
-  .tecla.ativo::after { opacity: 1; }
-  .tecla.ativo .conteudo { transform: translateY(1px) scale(0.97); }
-  .tecla:active::before { opacity: 0; transition-duration: 100ms; }
-  .tecla:active::after { opacity: 1; transition-duration: 100ms; }
-  .tecla:active .conteudo { transform: translateY(1px) scale(0.95); transition-duration: 100ms; }
-  @media (any-hover: hover) { .tecla:not(.ativo):hover { color: var(--tinta); } }
-  .topo__acoes { justify-self: end; display: flex; gap: 10px; }
-  @media (max-width: 1500px) { .topo__acoes .rotulo { display: none; } .topo__acoes .tecla:has(.rotulo) { padding: 0 14px; } }
-  /* telas médias: o menu encolhe para os sete itens e as ações caberem na linha */
-  @media (max-width: 1400px) { .topo { gap: 14px; } .topo nav .neu { gap: 6px; } .topo nav .tecla { padding: 0 10px; font-size: 13px; } .topo nav .tecla i { font-size: 17px; } .topo nav .conteudo { gap: 6px; } }
-  .entrar { height: 44px; padding: 0 20px; border-radius: 14px; }
-
-  /* ---------- cartas: as protagonistas ---------- */
-  .cartas { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(16px, 2.2vw, 30px); margin-top: 26px; perspective: 1600px; }
-  .carta { position: relative; aspect-ratio: 3 / 4; width: 100%; text-align: left; z-index: calc(4 - var(--i));
-           opacity: 0; transform: translateY(90px) rotate(var(--giro)) scale(0.94);
-           transition: opacity 380ms ease, transform 760ms var(--ease-out); transition-delay: calc(var(--i) * 100ms); }
-  .fase-cartas .carta { opacity: 1; transform: none; }
-  .ergue { position: absolute; inset: 0; transition: transform 260ms var(--ease-out); }
-  .carta__miolo { position: absolute; inset: 0; transform-style: preserve-3d; transform: rotateY(180deg);
-                  transition: transform 820ms var(--ease-in-out); transition-delay: calc(var(--i) * 160ms); }
-  .fase-viradas .carta__miolo { transform: rotateY(0deg); }
-  .face { position: absolute; inset: 0; border-radius: 28px; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
-
-  /* verso: o símbolo da marca extravasa a carta */
-  .face--verso { transform: rotateY(180deg); }
-  .simbolo { position: absolute; width: var(--tam); aspect-ratio: 480 / 502; left: var(--mx); top: var(--my); rotate: var(--rot);
-             -webkit-mask: url("assets/portal/simbolo-branco.png") center / contain no-repeat; mask: url("assets/portal/simbolo-branco.png") center / contain no-repeat; }
-  .verso-fundo { position: absolute; inset: 0; border-radius: inherit; overflow: hidden; background: var(--azul);
-                 box-shadow: 12px 16px 30px rgba(42, 58, 225, .26), -6px -6px 16px var(--luz); }
-  .verso-fundo::before { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 90% at 20% 0%, rgba(255,255,255,.22), transparent 60%); }
-  .simbolo--dentro { background: linear-gradient(160deg, #ffffff, #c9d0ff); }
-  .verso-fundo::after { content: ""; position: absolute; inset: 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,.3); }
-
-  /* frente: foto que representa cada busca */
-  .face--frente { background: var(--base); box-shadow: var(--relevo); padding: 9px; }
-  .foto { position: absolute; inset: 9px; border-radius: 21px; overflow: hidden; background: #d9d6cf; }
-  .foto img { width: 100%; height: 100%; object-fit: cover; object-position: var(--foco, center); display: block; transition: transform 700ms var(--ease-out); }
-  .foto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14, 15, 30, 0) 34%, rgba(14, 15, 30, .55) 62%, rgba(14, 15, 30, .9) 100%); }
-  .sobre { position: absolute; inset: 9px; padding: clamp(16px, 1.8vw, 24px); display: grid; grid-template-rows: auto 1fr auto auto; gap: 8px; color: #fff; z-index: 1; }
-  .icone { width: 46px; height: 46px; border-radius: 15px; display: grid; place-items: center; color: #fff;
-           background: rgba(14, 15, 30, .42); border: 1px solid rgba(255,255,255,.3);
-           backdrop-filter: blur(10px) saturate(1.4); -webkit-backdrop-filter: blur(10px) saturate(1.4); }
-  .icone i { font-size: 22px; }
-  .desejo { grid-row: 3; font-size: 14px; line-height: 1.45; color: rgba(255,255,255,.86); text-wrap: pretty; }
-  .titulo { grid-row: 4; display: flex; align-items: end; justify-content: space-between; gap: 12px; font-size: clamp(21px, 2vw, 28px); font-weight: 600;
-            line-height: 1.06; letter-spacing: -0.025em; text-wrap: balance; }
-  .seta { flex: none; width: 38px; height: 38px; border-radius: 50%; background: var(--azul); display: grid; place-items: center; transition: transform 260ms var(--ease-out); }
-  .seta i { font-size: 18px; }
-  @media (any-hover: hover) {
-    .fase-botoes .carta:hover .ergue { transform: translateY(-8px); }
-    .fase-botoes .carta:hover .foto img { transform: scale(1.05); }
-    .fase-botoes .carta:hover .seta { transform: rotate(-45deg); }
-  }
-  .carta:active .ergue { transform: scale(0.98); transition-duration: 120ms; }
-
-  /* ---------- botões ---------- */
-  .saidas { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; margin-top: 40px; }
-  .saida { display: inline-flex; align-items: center; gap: 10px; height: 54px; padding: 0 24px; border-radius: 18px; font-size: 15px; font-weight: 600;
-           opacity: 0; transform: translateY(12px); transition: opacity 320ms ease, transform 420ms var(--ease-out), box-shadow 200ms ease, background-color 200ms ease; }
-  .saida:nth-child(2) { transition-delay: 70ms; }
-  .fase-botoes .saida { opacity: 1; transform: none; }
-  .saida i { font-size: 19px; }
-  .saida--neu { background: var(--base); box-shadow: var(--relevo-baixo); color: var(--tinta); }
-  .saida--neu:active { box-shadow: var(--afundado); }
-  /* botão azul "de borracha": o relevo de fora do neumorfismo mais um brilho em cima e uma sombra embaixo, por dentro */
-  .saida--azul { background: var(--azul); color: #fff; box-shadow: 6px 8px 18px rgba(42, 58, 225, .3), -5px -5px 12px var(--luz), inset 2px 2px 4px rgba(255, 255, 255, .28), inset -3px -3px 6px rgba(10, 14, 90, .35); }
-  .saida--azul:active { box-shadow: inset 4px 4px 9px rgba(10, 14, 90, .45), inset -3px -3px 6px rgba(255, 255, 255, .18); }
-  @media (any-hover: hover) { .saida--azul:hover { background: var(--azul-escuro); } }
-  .saida:active { transform: scale(0.97); transition-duration: 120ms; transition-delay: 0ms; }
-  /* entre 760 e 1180 px o menu não cabe ao lado da marca e do Entrar: desce para uma segunda linha, centralizado */
-  @media (max-width: 1180px) { .topo { grid-template-columns: auto 1fr; } .topo nav { grid-column: 1 / -1; grid-row: 2; justify-self: center; } }
-
-  @media (max-width: 1080px) { .tecla .rotulo { display: none; } .tecla { padding: 0 14px; } }
-  @media (max-width: 760px) {
-    .topo { grid-template-columns: auto 1fr; }
-    .topo nav { grid-column: 1 / -1; grid-row: 2; justify-self: center; }
-    .cartas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .desejo { display: none; }
-    .titulo { font-size: 17px; }
-    .seta { width: 32px; height: 32px; }
-    .icone { width: 40px; height: 40px; border-radius: 13px; }
-    .simbolo { scale: .82; }
-    .saida { width: 100%; justify-content: center; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .carta, .carta__miolo, .saida { transition-duration: 1ms !important; transition-delay: 0ms !important; }
-  }
-
-.topo{position:sticky;top:env(safe-area-inset-top,0px);z-index:40}
-.topo .tecla.i-tecla-evento{background:linear-gradient(135deg,#ff6a2b,#fc9c55);color:#000;border-radius:12px}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:hsl(235 60% 50%)}
-</style>
-<link rel="stylesheet" href="assets/portal/inicio-secoes.css">
-<link rel="stylesheet" href="assets/portal/busca-guiada.css">
-<link rel="stylesheet" href="assets/portal/menu-azul.css">
-<link rel="stylesheet" href="assets/inst.css">
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Anton&display=swap">
+<link rel="stylesheet" href="assets/mb.css?v=5">
+<link rel="stylesheet" href="assets/home.css?v=1">
+<script>window.MB={raiz:"",pagina:"inicio"}</script>
 </head>
 <body>
-<header class="topo">
-  <a class="marca" href="#conteudo" aria-label="My Broker, início"><img src="assets/portal/my-broker-v1-480.webp" alt="My Broker" width="960" height="212"></a>
-  <nav aria-label="Principal"><ul class="neu" id="menu"><li><a class="tecla" href="#historia"><span class="conteudo"><i class="ph ph-clock-counter-clockwise"></i><span class="rotulo">Nossa história</span></span></a></li><li><a class="tecla" href="#unidades"><span class="conteudo"><i class="ph ph-map-pin"></i><span class="rotulo">Onde estamos</span></span></a></li><li><a class="tecla i-tecla-evento" href="academia/index.html"><span class="conteudo"><i class="ph ph-ticket"></i><span class="rotulo">Academia de Vendas 27</span></span></a></li><li><a class="tecla" href="ronaldo.html"><span class="conteudo"><i class="ph ph-microphone-stage"></i><span class="rotulo">Ronaldo Dantas</span></span></a></li><li><a class="tecla" href="franquia.html"><span class="conteudo"><i class="ph ph-storefront"></i><span class="rotulo">Seja franqueado</span></span></a></li><li><a class="tecla" href="corretor.html"><span class="conteudo"><i class="ph ph-identification-badge"></i><span class="rotulo">Seja corretor</span></span></a></li><li><a class="tecla" href="https://membros.institutomybroker.com.br/area/vitrine/home" target="_blank" rel="noopener"><span class="conteudo"><i class="ph ph-graduation-cap"></i><span class="rotulo">Broker Academy</span></span></a></li></ul></nav>
-  <div class="topo__acoes"><a class="tecla" href="https://mybroker-portal.vercel.app/prototipos-portal/inicio.html" target="_blank" rel="noopener"><span class="conteudo"><i class="ph ph-house-line"></i><span class="rotulo">Portal de imóveis</span></span></a></div>
-</header>
-
-<main id="conteudo">
-<section class="s-hero i-hero" aria-label="Boas-vindas">
-    <canvas id="heroOndas" aria-hidden="true"></canvas>
-    <div class="i-hero__miolo">
-      <span class="i-hero__selo"><i class="ph ph-sparkle"></i>Desde 2011 · Uma venda a cada 49 minutos</span>
-      <h1><span class="s-pal"><span style="--k:0">Bem-vindo</span></span> <span class="s-pal"><span style="--k:1">ao</span></span> <span class="s-pal"><span style="--k:2">seu</span></span> <span class="s-pal"><span style="--k:3">ecossistema</span></span> <span class="s-pal"><span style="--k:4">de</span></span> <span class="s-pal"><span style="--k:5"><em>prosperidade</em>.</span></span></h1>
-      <p>Formação, orientação, comunidade, tecnologia, execução e resultados.</p>
-      <a class="i-hero__cta" href="#caminhos">Escolher meu caminho<span><i class="ph ph-arrow-down"></i></span></a>
+<header id="topo"></header>
+<main>
+  <section class="h-hero wrap" aria-labelledby="h-titulo">
+    <h1 id="h-titulo">Uma venda <span class="h-slot" aria-hidden="true"><img src="assets/evento/palestra.jpg" alt="" class="on"><img src="assets/portal/morar-bem-full.webp" alt=""><img src="assets/ronaldo.webp" alt="" style="object-position:50% 18%"><img src="assets/evento/2025.jpg" alt=""><img src="assets/portal/casa-de-ferias-full.webp" alt=""></span> a cada 49 minutos.</h1>
+    <div class="h-abre">
+      <div class="entra">
+        <p>A My Broker é a rede de imobiliárias que nasceu em Goiânia em 2011 e hoje tem mais de 80 lojas, 3.200 corretores e o maior evento de vendas do mercado imobiliário.</p>
+        <div class="btns"><a class="btn btn-azul" href="#caminhos">Escolher meu caminho</a><a class="btn btn-relevo" href="academia/index.html">Academia de Vendas 27</a></div>
+      </div>
+      <div class="h-vivo entra" style="--d:90ms" id="vivo" aria-live="polite">
+        <span class="agora">Nesta semana, no ritmo médio da rede</span>
+        <span class="conta" id="vivo-conta">1 a cada 49 min</span>
+        <span class="prox" id="vivo-prox">Todos os dias, nas 80 lojas.</span>
+        <small>Média de 2025: R$ 4,7 bilhões vendidos.</small>
+      </div>
     </div>
   </section>
 
-<div class="s-lar s-lar--largo">
-  <section class="s-secao" id="caminhos" aria-labelledby="cam-titulo">
-    <div class="s-cabeca">
-      <h2 class="s-titulo" id="cam-titulo">Qual história você quer <em>construir</em>?</h2>
-      <p class="s-texto">Comprar, vender, empreender ou fazer carreira. Escolha o seu caminho no ecossistema My Broker.</p>
+  <section class="h-sec wrap" id="caminhos" aria-labelledby="cam-titulo">
+    <div class="h-duas">
+      <h2 id="cam-titulo" class="entra" style="grid-column:1/9">Escolha seu caminho na rede</h2>
+      <ul class="h-cam">
+        <li class="entra"><a class="ac" href="academia/index.html"><span class="foto"><img src="assets/evento/2026.jpg" alt="Plateia da Academia de Vendas 2026" loading="lazy"></span><h3>Participar da Academia de Vendas 27</h3><p>13 e 14 de janeiro, no Flamboyant Hall, em Goiânia. 3º lote até 20/11.</p><span class="ir" aria-hidden="true">→</span></a></li>
+        <li class="entra" style="--d:70ms"><a href="franquia.html"><span class="foto"><img src="assets/portal/comercial-full.webp" alt="Loja comercial com área de atendimento" loading="lazy"></span><h3>Abrir uma franquia</h3><p>Uma unidade My Broker na sua cidade, a partir de R$ 200 mil.</p><span class="ir" aria-hidden="true">→</span></a></li>
+        <li class="entra" style="--d:140ms"><a href="corretor.html"><span class="foto"><img src="assets/evento/2017.jpg" alt="Corretores reunidos na Academia de Vendas" loading="lazy"></span><h3>Ser corretor</h3><p>Formação pela Broker Academy e lançamentos em 21 cidades.</p><span class="ir" aria-hidden="true">→</span></a></li>
+        <li class="entra" style="--d:210ms"><a href="https://mybroker-portal.vercel.app/prototipos-portal/inicio.html" target="_blank" rel="noopener"><span class="foto"><img src="assets/portal/vender-full.webp" alt="Casa com piscina e jardim" loading="lazy"></span><h3>Comprar ou investir</h3><p>Morar, investir ou dolarizar, com a curadoria de um consultor.</p><span class="ir" aria-hidden="true">→</span></a></li>
+        <li class="entra" style="--d:280ms"><a href="ronaldo.html"><span class="foto"><img src="assets/evento/2025.jpg" alt="Palco da Academia de Vendas 2025" loading="lazy"></span><h3>Levar o Ronaldo para sua empresa</h3><p>Palestras, mentorias e consultoria de lançamento.</p><span class="ir" aria-hidden="true">→</span></a></li>
+      </ul>
     </div>
-    <div class="i-caminhos"><a class="i-caminho i-caminho--evento" href="academia/index.html"><span class="i-fotos" data-fotos><img src="assets/evento/palestra.jpg" alt="" loading="lazy" class="on"><img src="assets/evento/2026.jpg" alt="" loading="lazy"><img src="assets/evento/2025.jpg" alt="" loading="lazy"><img src="assets/evento/2024.jpg" alt="" loading="lazy"><img src="assets/evento/2023.jpg" alt="" loading="lazy"></span><span class="i-tag">3º lote · 13 e 14 jan</span><h3>Participar do maior evento de vendas</h3><p>Academia de Vendas 27, no Flamboyant Hall, em Goiânia.</p><span class="i-ir">Garantir meu ingresso<i class="ph ph-arrow-right" aria-hidden="true"></i></span></a><a class="i-caminho" href="franquia.html"><span class="i-fotos" data-fotos><img src="assets/portal/comercial-full.webp" alt="" loading="lazy" class="on"><img src="assets/portal/patrimonio-full.webp" alt="" loading="lazy"><img src="assets/portal/rentabilizar-full.webp" alt="" loading="lazy"></span><span class="i-tag">Franquia</span><h3>Quero ser franqueado</h3><p>Abra uma unidade My Broker na sua cidade, com marca, método e formação do time.</p><span class="i-ir">Conhecer a franquia<i class="ph ph-arrow-right" aria-hidden="true"></i></span></a><a class="i-caminho" href="corretor.html"><span class="i-fotos" data-fotos><img src="assets/evento/2016.jpg" alt="" loading="lazy" class="on"><img src="assets/evento/2017.jpg" alt="" loading="lazy"><img src="assets/evento/2025.jpg" alt="" loading="lazy"></span><span class="i-tag">Carreira</span><h3>Quero ser corretor</h3><p>Venda com uma das imobiliárias mais premiadas do país, com treinamento contínuo.</p><span class="i-ir">Fazer parte do time<i class="ph ph-arrow-right" aria-hidden="true"></i></span></a><a class="i-caminho" href="https://mybroker-portal.vercel.app/prototipos-portal/inicio.html" target="_blank" rel="noopener"><span class="i-fotos" data-fotos><img src="assets/portal/morar-bem-full.webp" alt="" loading="lazy" class="on"><img src="assets/portal/dolarizar-full.webp" alt="" loading="lazy"><img src="assets/portal/casa-de-ferias-full.webp" alt="" loading="lazy"><img src="assets/portal/vender-full.webp" alt="" loading="lazy"></span><span class="i-tag">Imóveis</span><h3>Quero comprar ou investir</h3><p>Morar, investir ou dolarizar, com a curadoria de um consultor.</p><span class="i-ir">Abrir o portal de imóveis<i class="ph ph-arrow-right" aria-hidden="true"></i></span></a></div>
   </section>
-</div>
 
-
-<div class="s-lar s-lar--largo">
-  <section class="s-secao" id="ronaldo" aria-labelledby="ron-titulo">
-    <div class="i-ron">
-      <div class="i-ron__foto"><img src="assets/ronaldo.webp" alt="Ronaldo Dantas, fundador e CEO da My Broker" width="720" height="888" loading="lazy"></div>
-      <div class="i-ron__texto">
-        <span class="i-ron__rot">Fundador e CEO da My Broker</span>
-        <h2 class="s-titulo" id="ron-titulo">Ronaldo <em>Dantas</em></h2>
-        <p class="i-ron__frase">Começou em 2011, em Goiânia, com 12 corretores. Hoje lidera uma rede que vende um imóvel a cada 49 minutos.</p>
-        <p class="s-texto">Empresário, incorporador e professor da Broker Academy. Passa o dia entre reuniões com incorporadoras, visitas a terrenos e lançamentos, e divide o que aprende com quem quer crescer no mercado imobiliário.</p>
-        <ul class="i-ron__nums" aria-label="A My Broker em números">
-          <li><b>1 venda</b><span>a cada 49 minutos</span></li>
+  <section class="h-ron" id="ronaldo" aria-labelledby="ron-titulo">
+    <div class="wrap h-duas">
+      <div class="txt">
+        <h2 id="ron-titulo" class="entra">Começou com 12 corretores</h2>
+        <p class="entra" style="--d:80ms">Ronaldo Dantas abriu a My Broker em 2011, em Goiânia. Hoje é empresário, incorporador e professor da Broker Academy, e passa o dia entre reuniões com incorporadoras, terrenos e lançamentos.</p>
+        <ul class="h-nums entra" style="--d:160ms">
           <li><b>R$ 4,7 bi</b><span>vendidos em 2025</span></li>
           <li><b>80+</b><span>lojas no Brasil e nos EUA</span></li>
           <li><b>3.200+</b><span>corretores na rede</span></li>
+          <li><b>19.500+</b><span>alunos na Academia de Vendas</span></li>
         </ul>
-        <div class="i-ron__acoes">
-          <a class="i-ron__btn" href="https://wa.me/5562998810378?text=Ol%C3%A1%2C%20Ronaldo!%20Vim%20pelo%20site%20da%20My%20Broker." target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i>Falar com o Ronaldo</a>
-          <a class="i-ron__link" href="ronaldo.html">Palestras e mentorias<i class="ph ph-arrow-right" aria-hidden="true"></i></a>
-          <a class="i-ron__link" href="https://www.youtube.com/@ronaldodantasmb" target="_blank" rel="noopener">Acompanhar no YouTube<i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
-        </div>
+        <div class="btns entra" style="--d:240ms"><a class="btn btn-branco" href="https://wa.me/5562998810378?text=Ol%C3%A1%2C%20Ronaldo!%20Vim%20pelo%20site%20da%20My%20Broker." target="_blank" rel="noopener">Falar com o Ronaldo</a><a class="btn btn-linha" href="ronaldo.html">Palestras e mentorias</a></div>
       </div>
-    </div>
-  </section>
-</div>
-
-<div class="s-lar s-lar--largo">
-  <section class="s-secao" id="historia" aria-labelledby="hist-titulo">
-    <div class="s-cabeca">
-      <h2 class="s-titulo" id="hist-titulo">Nossa história</h2>
-      <p class="s-texto">Desde 2011, uma imobiliária de Goiânia que decidiu investir em gente quando todo mundo cortava. Hoje forma corretores, reúne milhares de profissionais e é reconhecida pelo mercado.</p>
-    </div>
-    <div class="i-tempo"><div class="i-marco"><span class="i-ano">2011</span><h3>A My Broker nasce em Goiânia</h3><p>Ronaldo Dantas começa com 12 corretores e uma ideia: tratar cada imóvel como o começo de uma história, não como uma transação.</p></div><div class="i-marco"><span class="i-ano">2016</span><h3>Nasce a Academia de Vendas</h3><p>Na maior crise financeira do país, enquanto muitos cortavam gastos, a My Broker decidiu investir em quem vende.</p></div><div class="i-marco"><span class="i-ano">2020</span><h3>Conexões além do presencial</h3><p>Uma edição online manteve o conhecimento e as conexões em movimento.</p></div><div class="i-marco"><span class="i-ano">2023</span><h3>Primeira Academia fora de Goiânia</h3><p>Mais de 2.000 corretores reunidos no WTC, em São Paulo.</p></div><div class="i-marco"><span class="i-ano">2024</span><h3>Uma edição épica no Sul</h3><p>Balneário Camboriú recebeu mais de 2.000 corretores em 2 dias.</p></div><div class="i-marco"><span class="i-ano">2025</span><h3>Reconhecida pelo mercado</h3><p>Melhor Imobiliária no Prêmio Autimob e Rede Imobiliária no Prêmio Xeque-mate.</p></div><div class="i-marco"><span class="i-ano">2026</span><h3>Uma década de Academia</h3><p>Great Place to Work, Imobiliária do Ano no Real Estate Awards e 10 anos de Academia de Vendas.</p></div><div class="i-marco i-marco--agora"><span class="i-ano">2027</span><h3>Os próximos 10 anos começam aqui</h3><p>Academia de Vendas 27, 13 e 14 de janeiro, no Flamboyant Hall. <a href="academia/index.html">Garantir meu lugar</a></p></div></div>
-  </section>
-
-  <section class="s-secao" id="sobre">
-      <!-- no celular os painéis da mesma imagem ficam um embaixo do outro, para o texto continuar legível -->
-      <!-- fundo sem texto (painel azul limpo por IA); os textos são HTML por cima, na fonte do site -->
-      <div class="s-man">
-        <div class="s-man__painel s-man__painel--1">
-          <p class="s-man__vgv"><span>O nosso</span> <span class="s-man__sigla">VGV</span> <span>tem outro significado:</span> <strong><b>V</b>alor <b>G</b>erado de <b>V</b>ida.</strong></p>
-        </div>
-        <div class="s-man__painel s-man__painel--2">
-          <img class="s-man__marca" src="assets/portal/my-broker-branco.png" alt="My Broker" width="599" height="132" loading="lazy">
-          <h2 class="s-man__titulo">Nós medimos <em>trajetórias.</em></h2>
-          <ul class="s-man__lista">
-            <li>Vidas transformadas</li>
-            <li>Carreiras desenvolvidas</li>
-            <li>Patrimônio construído ao longo do tempo</li>
-            <li>Pessoas que saíram maiores do que entraram</li>
-          </ul>
-        </div>
-        <div class="s-man__painel s-man__painel--3" role="img" aria-label="Retrato de um homem olhando para o horizonte"></div>
-      </div>
-    </section>
-
-  <section class="s-secao" id="unidades" aria-labelledby="uni-titulo">
-    <div class="s-cabeca">
-      <h2 class="s-titulo" id="uni-titulo">Onde a My Broker está</h2>
-      <p class="s-texto">21 cidades no Brasil, de Goiânia ao litoral de Santa Catarina, além de Orlando e Miami. Toque numa cidade para vê-la no mapa.</p>
-    </div>
-    <div class="i-mapa">
-      <div class="i-mapa__tela">
-        <div class="i-mapa__eua"><b>Estados Unidos</b>Orlando e Miami, na Flórida</div>
-        <svg viewBox="0 0 1000 1023" role="img" aria-label="Mapa do Brasil com as cidades onde a My Broker atua">
-          <g><path class="uf" d="M14.9,328.0L38.9,339.0L96.7,352.4L138.2,374.8L191.2,399.1L180.6,408.0L171.6,410.5L164.0,419.2L155.2,418.2L150.6,425.7L142.9,429.7L138.5,430.5L137.4,426.8L120.6,424.9L107.7,424.8L98.2,428.6L92.7,425.1L90.4,426.8L90.3,396.1L92.5,394.7L90.9,389.3L93.6,385.9L75.4,399.9L51.0,400.8L51.8,395.6L48.7,394.3L46.5,387.6L24.9,385.5L30.2,380.2L31.9,374.5L23.0,364.7L23.2,361.1L16.7,357.7L14.4,349.3L10.8,346.3L13.0,342.9L5.4,337.2L6.0,331.7L12.6,330.7L10.0,325.6L14.9,328.0Z"><title>Acre</title></path><path class="uf" d="M978.2,370.2L985.4,371.9L985.3,374.2L954.8,413.8L950.4,411.6L948.9,407.5L941.7,404.4L939.6,400.2L919.6,391.4L908.2,383.3L920.2,371.1L921.8,374.6L927.0,373.9L940.6,384.7L942.7,381.7L949.4,383.6L959.0,379.2L957.9,377.4L963.0,372.6L978.2,370.2Z"><title>Alagoas</title></path><path class="uf" d="M173.6,87.7L179.4,95.4L179.6,110.2L185.4,108.5L199.0,120.9L204.9,120.8L210.1,116.3L217.6,114.3L219.9,117.6L217.4,121.7L218.7,123.6L224.0,116.3L227.7,116.5L229.7,110.4L231.8,111.5L237.1,106.3L238.7,108.6L247.6,100.8L249.1,105.0L255.2,98.4L257.7,89.0L266.0,88.0L273.4,83.0L279.3,84.0L282.2,88.1L290.3,90.0L287.8,99.1L292.0,103.2L296.8,115.1L294.6,127.3L303.3,149.1L300.7,157.4L295.2,160.3L307.1,169.6L310.7,176.8L317.3,177.8L321.4,181.6L317.7,176.8L318.6,164.9L321.6,157.8L327.9,153.5L335.3,155.0L341.7,163.8L350.8,159.4L348.5,153.8L357.6,133.7L386.5,133.7L387.1,149.5L390.7,151.9L391.3,158.2L398.1,163.5L400.9,170.3L405.0,172.5L408.7,169.3L410.1,177.0L424.4,185.4L430.2,185.3L433.4,190.3L441.1,193.2L440.2,196.9L442.5,198.1L457.1,193.3L447.9,203.6L449.5,204.5L402.5,308.9L397.0,314.9L405.6,332.0L399.4,344.5L401.9,352.1L398.6,361.5L398.1,367.0L400.9,367.5L399.1,369.0L318.6,369.5L315.3,366.6L308.5,371.6L304.9,369.6L303.3,364.1L299.6,364.6L298.8,358.9L294.8,358.7L286.8,348.4L267.2,347.9L263.3,357.1L259.0,357.4L259.5,363.7L254.3,367.5L253.8,373.7L236.4,374.6L229.9,386.0L226.1,381.5L221.0,383.0L221.4,386.9L217.3,385.5L212.3,390.0L207.8,385.5L196.8,385.3L194.4,391.2L186.7,396.0L138.2,374.8L96.7,352.4L38.9,339.0L10.0,325.6L14.0,316.5L26.8,309.6L24.3,297.5L31.3,287.7L35.0,273.5L58.5,258.1L82.3,254.7L89.6,247.9L90.3,249.6L97.8,248.4L101.0,254.2L103.3,251.5L105.0,253.8L107.0,252.5L121.3,170.0L115.5,160.0L115.8,153.7L104.6,145.4L105.0,126.0L116.0,124.1L119.2,121.4L122.3,124.6L128.4,123.6L124.6,112.8L110.0,112.3L110.1,95.8L117.4,93.9L152.6,95.5L149.8,93.0L151.3,89.5L158.1,92.9L171.5,82.1L173.6,87.7Z"><title>Amazonas</title></path><path class="uf" d="M581.3,36.2L584.0,39.3L585.5,61.3L593.4,84.9L599.8,83.3L605.1,93.6L613.1,96.2L613.8,109.5L608.8,122.3L600.8,124.3L594.2,135.7L580.4,143.6L568.7,161.0L568.1,168.3L565.4,170.6L561.0,169.7L558.8,172.7L549.8,167.9L550.4,163.4L547.0,162.8L547.4,155.9L544.5,155.8L543.2,148.4L537.0,144.2L530.9,130.6L532.7,122.7L525.0,116.3L524.6,108.2L521.8,109.0L518.9,103.9L507.9,101.8L502.3,95.2L491.3,94.3L490.8,83.2L488.0,77.4L492.8,76.8L493.4,80.0L499.1,83.0L510.7,82.4L516.0,78.6L521.7,81.8L526.8,79.3L529.5,81.5L528.6,84.1L536.8,84.1L546.6,75.0L552.2,58.0L569.5,35.3L572.0,25.4L579.5,31.4L581.3,36.2Z"><title>Amapá</title></path><path class="uf" d="M881.6,363.4L883.0,367.1L894.0,369.4L897.2,374.1L900.2,370.1L901.9,374.8L906.7,375.4L909.0,385.7L914.2,387.7L914.2,398.6L918.4,400.8L920.8,409.4L917.7,411.9L918.9,418.8L914.2,420.7L908.8,419.2L908.4,424.6L914.8,431.9L914.7,437.1L918.9,440.2L926.3,441.1L930.7,438.4L912.9,469.4L905.4,477.6L901.8,479.2L898.6,477.1L889.8,486.2L891.7,495.6L889.0,498.2L890.7,503.3L887.2,523.2L892.5,553.3L883.5,587.3L885.5,600.9L874.6,611.3L872.0,618.1L858.0,608.5L858.0,602.1L847.9,593.5L851.2,580.0L856.5,580.4L857.1,577.9L854.9,577.4L856.7,571.9L859.6,572.0L867.3,559.9L857.8,551.8L849.5,551.8L843.0,547.8L830.0,550.3L829.4,543.9L818.2,533.5L810.8,535.8L783.4,521.8L774.5,526.1L765.6,521.9L768.1,513.7L757.2,511.0L748.4,513.7L735.3,524.4L710.2,537.8L709.1,535.9L713.0,530.0L710.8,526.5L711.7,515.8L714.5,514.1L705.4,507.4L705.5,496.7L708.0,494.2L706.0,490.0L711.1,486.2L704.2,486.7L704.0,481.4L709.2,476.7L704.4,477.6L705.1,468.1L708.2,465.4L705.7,465.7L703.2,461.6L702.1,453.9L707.8,450.3L702.7,449.4L704.2,443.3L710.0,443.4L700.0,440.2L696.5,434.3L705.0,424.4L706.8,417.7L716.5,412.1L719.1,404.8L722.2,403.6L727.4,412.4L726.4,416.9L731.1,422.2L739.1,425.0L748.0,417.1L754.2,415.1L759.2,417.3L771.2,400.9L771.4,396.6L768.1,394.6L766.4,389.0L775.6,381.7L780.8,385.8L788.6,385.4L793.8,390.8L807.0,382.3L817.2,381.1L828.7,367.2L835.5,367.1L846.8,378.9L844.0,386.6L847.9,387.3L855.2,384.0L857.3,376.3L864.7,376.0L866.3,370.4L871.9,369.2L871.4,366.0L881.6,363.4Z"><title>Bahia</title></path><path class="uf" d="M863.2,214.4L882.5,224.4L897.3,236.2L902.2,237.0L913.8,251.0L933.0,266.3L923.2,268.7L910.0,295.3L906.5,298.9L902.9,298.9L899.5,304.0L898.9,306.8L901.1,307.3L897.2,314.8L898.6,317.1L894.8,322.5L900.7,330.4L897.6,337.4L889.8,344.7L886.6,345.0L885.5,341.5L881.1,340.0L880.9,336.8L872.2,330.8L857.4,334.0L849.8,332.9L854.3,317.6L845.2,313.7L840.7,297.8L840.3,275.4L832.1,267.2L836.1,249.1L835.5,245.7L832.0,245.6L832.3,237.2L829.8,236.3L830.8,231.4L827.7,228.2L831.9,220.9L830.2,216.6L851.0,213.0L863.2,214.4Z"><title>Ceará</title></path><path class="uf" d="M845.4,683.0L839.5,695.0L820.3,690.3L820.4,683.7L816.2,680.8L818.2,673.5L816.7,670.7L819.3,666.4L828.7,666.0L830.6,659.7L833.7,658.1L834.1,652.5L839.7,647.3L840.7,643.0L836.7,636.3L837.9,634.3L832.3,631.2L840.5,630.2L837.1,625.3L837.8,620.9L833.8,620.4L834.4,617.0L837.0,613.3L844.2,613.0L841.4,608.2L845.9,609.6L850.3,606.2L872.1,617.6L870.0,630.9L871.5,643.0L868.5,651.9L860.1,659.7L852.9,677.6L845.4,683.0Z"><title>Espírito Santo</title></path><path class="uf" d="M607.1,463.6L603.7,474.7L627.0,486.0L627.9,480.6L633.4,473.4L637.0,477.7L640.2,473.9L646.4,480.4L646.8,487.1L648.8,482.2L650.5,486.5L657.2,482.7L657.5,486.8L660.1,485.0L666.1,487.0L669.7,491.0L670.9,481.6L676.1,486.4L693.2,478.1L700.7,478.1L701.6,474.3L702.9,478.6L709.2,476.7L704.0,481.4L705.1,487.9L711.1,486.2L706.0,490.0L708.0,494.2L705.5,496.7L705.4,507.4L714.5,514.1L711.7,515.8L709.9,529.3L704.9,529.0L699.4,523.2L699.4,532.3L688.8,532.4L688.4,536.9L691.0,539.3L688.2,545.3L691.6,554.0L678.8,557.9L678.9,546.4L676.3,543.9L656.6,543.9L654.6,558.3L679.2,558.5L675.3,570.0L680.6,574.3L683.7,582.5L673.2,594.8L680.1,598.8L677.5,604.6L679.7,610.5L662.8,622.0L655.0,617.6L641.0,618.9L638.0,617.0L631.2,619.7L626.8,625.7L622.8,621.8L616.6,625.7L610.7,624.6L603.3,627.2L597.5,637.6L590.5,642.6L589.9,648.0L583.6,643.0L552.2,630.5L549.3,627.0L537.5,625.6L536.3,623.1L541.5,618.1L532.8,617.1L531.7,611.1L533.6,608.6L529.1,596.8L535.1,579.3L544.8,570.8L543.4,564.8L552.3,558.7L554.2,554.2L563.7,552.4L572.3,532.7L583.7,528.8L586.5,512.5L590.1,507.2L589.1,497.9L595.8,487.0L599.1,471.3L607.1,463.6Z"><title>Goiás</title></path><path class="uf" d="M686.1,374.4L691.8,359.1L698.4,357.0L700.3,350.5L696.9,346.0L685.8,350.1L674.1,334.1L672.0,334.1L674.3,330.4L668.0,327.9L673.5,322.1L677.3,303.7L674.3,284.3L665.6,280.4L664.5,277.4L652.4,275.0L642.6,279.7L666.9,259.9L671.4,259.1L678.8,245.9L684.7,240.9L685.9,233.3L695.0,221.0L695.0,215.5L697.6,214.5L695.4,210.6L701.6,206.4L701.2,198.8L705.0,196.6L706.8,188.3L704.0,186.5L708.3,184.1L708.3,172.4L713.0,167.8L713.4,172.8L716.0,167.7L715.7,173.9L716.8,170.9L717.3,173.8L720.2,170.2L719.2,177.1L722.7,173.3L724.3,177.3L727.0,174.1L726.2,180.7L729.4,174.8L728.5,185.7L729.6,182.2L733.6,178.7L734.1,180.3L734.8,175.9L735.4,180.1L742.0,177.4L740.0,182.5L741.9,181.5L742.5,183.7L745.0,181.0L746.4,182.8L742.8,184.0L742.7,186.1L745.0,185.8L742.1,187.8L747.6,185.9L746.5,188.9L749.3,188.4L747.5,189.9L750.3,191.2L750.0,196.3L754.4,205.6L762.1,202.9L760.1,204.7L763.7,205.1L763.1,207.5L772.4,198.3L775.5,202.2L783.2,202.3L801.0,211.1L817.6,211.3L818.3,217.7L814.7,223.5L810.2,225.4L808.0,229.9L800.6,230.3L788.2,250.7L791.7,257.2L789.2,265.2L793.0,275.4L792.3,279.7L785.4,287.1L786.0,298.1L792.2,305.5L789.9,314.1L777.3,318.6L769.8,314.9L761.8,316.5L754.9,325.8L748.4,328.6L745.3,333.0L742.0,332.1L725.9,340.2L718.1,364.6L712.3,372.9L717.6,387.3L713.5,407.5L711.4,405.4L702.8,405.2L699.7,396.3L695.8,393.8L698.0,387.4L692.9,385.4L688.8,376.5L685.1,376.4L686.1,374.4ZM738.1,175.5L738.3,173.8L741.4,175.3L737.8,177.2L738.1,175.5Z"><title>Maranhão</title></path><path class="uf" d="M757.4,511.3L768.1,513.7L765.6,521.9L774.5,526.1L783.4,521.8L810.8,535.8L818.2,533.5L829.4,543.9L830.0,550.3L845.8,548.3L849.5,551.8L857.8,551.8L865.8,557.0L865.8,564.3L859.6,572.0L856.7,571.9L854.9,577.4L857.1,577.9L856.5,580.4L851.2,580.0L847.9,593.5L859.2,605.2L858.0,608.5L850.3,606.2L845.9,609.6L841.4,608.2L844.2,613.0L837.0,613.3L834.4,617.0L833.8,620.4L837.8,620.9L837.1,625.3L840.5,630.2L832.3,631.2L837.9,634.3L839.8,647.0L834.1,652.5L833.7,658.1L830.6,659.7L828.7,666.0L819.3,666.4L817.0,669.6L818.0,677.8L813.7,685.4L809.3,686.4L811.1,688.0L803.8,703.2L806.3,705.7L786.0,715.5L781.7,713.3L768.5,714.7L727.4,730.1L719.3,728.1L716.7,731.9L719.4,734.3L717.4,735.4L703.4,736.6L703.7,732.9L700.1,731.3L701.9,727.2L693.9,721.1L697.0,716.6L693.9,715.1L696.6,713.3L694.7,708.8L699.3,699.3L695.3,696.5L686.6,698.1L680.8,684.1L684.4,677.8L679.5,672.7L680.4,665.4L675.1,660.1L670.8,662.3L665.2,660.9L664.3,664.3L662.2,662.0L658.8,664.8L655.5,661.8L655.4,664.7L640.8,665.3L638.9,672.5L636.6,665.3L630.9,668.9L628.6,663.7L630.0,660.3L622.4,658.6L613.9,659.6L599.2,655.3L585.9,663.3L584.9,652.9L603.3,627.2L610.7,624.6L616.6,625.7L622.8,621.8L626.8,625.7L631.2,619.7L638.0,617.0L641.0,618.9L655.0,617.6L662.8,622.0L679.7,610.5L677.5,604.6L680.1,598.8L674.4,596.6L673.3,593.1L683.7,582.5L680.6,574.3L675.4,569.1L679.3,557.4L691.6,554.0L688.2,545.3L691.0,539.3L688.4,536.9L688.8,532.4L699.4,532.3L699.4,523.2L704.9,529.0L712.0,528.4L710.2,537.8L735.3,524.4L748.4,513.7L757.4,511.3Z"><title>Minas Gerais</title></path><path class="uf" d="M513.3,607.0L517.9,609.3L533.5,610.0L531.7,611.1L533.6,617.9L541.5,618.1L536.3,623.1L537.5,625.6L547.2,626.1L560.2,634.6L584.4,643.6L587.8,649.6L584.7,654.0L585.8,663.5L584.1,667.5L577.2,670.3L571.0,677.6L570.2,685.3L563.8,690.6L564.0,696.2L558.7,700.5L558.7,705.7L550.3,716.8L520.0,737.8L516.9,747.4L510.5,751.1L506.8,764.7L502.9,767.0L493.2,760.3L486.4,764.2L476.1,765.0L471.3,755.4L471.6,744.2L468.1,735.2L469.3,730.2L463.4,720.5L454.3,720.3L449.7,715.0L438.4,721.0L424.9,719.1L418.9,715.6L409.3,715.5L413.7,685.6L410.9,684.4L412.7,682.6L410.1,681.6L412.6,680.3L409.5,679.3L409.2,672.4L404.9,665.5L412.7,660.3L405.8,654.8L414.6,635.9L416.8,635.3L415.0,632.4L420.3,615.2L422.9,615.0L414.3,597.5L416.4,597.1L417.1,601.6L422.9,606.5L433.2,602.0L441.1,591.0L448.4,591.6L456.8,587.3L481.6,599.9L495.4,595.1L502.5,600.2L508.2,599.0L517.5,588.9L517.5,600.2L512.9,602.5L511.2,605.9L513.3,607.0Z"><title>Mato Grosso do Sul</title></path><path class="uf" d="M349.5,486.7L356.4,476.2L356.9,468.9L364.3,461.7L355.9,448.7L355.7,442.2L360.6,437.2L359.2,430.0L349.8,429.6L347.0,426.5L319.5,426.4L321.7,411.7L318.2,404.8L320.5,397.2L318.8,393.4L321.3,391.1L317.4,381.7L320.1,381.1L321.5,372.6L318.6,369.5L398.6,369.4L400.9,367.5L398.1,367.0L401.9,352.1L399.4,344.5L404.0,338.9L405.6,331.8L418.1,354.3L419.4,368.4L429.5,372.9L432.9,379.6L438.9,381.2L440.4,385.3L605.4,396.6L595.9,418.0L595.7,428.6L592.5,438.1L595.5,464.0L593.3,468.7L598.4,475.8L595.8,487.0L589.1,497.9L590.1,507.2L586.5,512.5L583.7,528.8L572.3,532.7L563.7,552.4L554.2,554.2L552.3,558.7L543.4,564.8L544.6,571.3L535.1,579.3L529.8,590.8L529.1,600.9L533.5,610.0L511.4,607.0L513.8,601.3L517.5,600.2L517.5,588.9L508.0,599.1L501.6,600.2L495.4,595.1L481.6,599.9L456.8,587.3L448.4,591.6L441.1,591.0L433.2,602.0L422.9,606.5L417.1,601.6L416.0,596.7L408.0,595.8L399.1,587.8L397.2,575.2L401.0,563.8L354.3,563.9L352.6,543.2L344.3,533.7L352.4,533.4L351.7,521.0L346.2,509.8L349.0,504.6L346.8,499.6L340.5,496.6L348.8,490.7L349.5,486.7Z"><title>Mato Grosso</title></path><path class="uf" d="M688.1,159.6L688.0,162.9L690.8,159.7L690.7,163.0L692.8,161.8L693.3,164.5L696.0,161.0L695.1,165.9L701.3,162.9L699.5,165.9L701.3,168.3L702.3,166.2L704.4,168.7L707.3,163.8L705.2,171.0L707.8,166.4L707.8,170.6L710.3,167.0L708.3,184.1L704.0,186.5L706.8,188.3L705.0,196.6L701.2,198.8L701.6,206.4L695.4,210.6L697.6,214.5L695.0,215.5L695.0,221.0L685.9,233.3L684.7,240.9L678.8,245.9L672.2,258.2L666.9,259.9L642.6,279.7L651.9,280.9L658.1,286.3L654.2,290.3L655.8,295.3L650.7,301.3L652.0,306.6L649.0,305.8L646.1,308.5L644.8,313.9L631.1,320.8L631.7,328.8L626.7,336.9L632.6,343.6L630.9,353.8L621.4,370.6L610.2,382.3L605.4,396.6L440.6,385.3L438.9,381.2L432.9,379.6L429.5,372.9L419.4,368.4L418.1,354.3L397.0,314.9L402.5,308.9L449.5,204.5L447.9,203.6L457.1,193.3L442.5,198.1L440.2,196.9L441.1,193.2L433.4,190.3L430.2,185.3L424.4,185.4L410.1,177.0L408.7,169.3L405.0,172.5L398.2,167.3L398.1,163.5L391.3,158.2L390.8,152.0L387.1,149.5L386.5,108.6L388.4,110.0L391.3,106.9L396.6,107.5L396.3,102.5L399.4,102.3L401.0,99.0L409.0,101.4L409.4,97.3L420.8,96.3L426.7,88.5L428.5,90.1L432.2,87.8L439.6,92.3L448.2,89.6L460.7,92.5L462.1,87.4L456.1,81.6L460.2,74.7L466.7,78.0L475.1,77.6L476.8,75.1L486.0,73.3L490.8,83.2L491.3,94.3L502.3,95.2L507.9,101.8L518.9,103.9L521.8,109.0L524.6,108.2L525.0,116.3L532.7,122.7L530.9,130.6L537.0,144.2L543.2,148.4L544.5,155.8L547.4,155.9L547.0,162.8L550.4,163.4L549.8,167.9L558.1,172.4L568.1,168.3L568.7,161.0L580.4,143.6L594.2,135.7L600.1,124.9L607.1,122.2L610.1,125.6L609.6,131.7L619.3,131.0L626.4,140.1L638.1,146.4L651.2,147.2L649.7,153.5L661.9,158.9L664.2,154.9L665.6,158.2L666.3,155.1L667.5,157.1L669.1,154.5L671.1,158.8L673.2,156.3L674.6,160.4L675.7,155.9L682.8,157.9L682.6,160.7L684.6,157.8L685.4,161.5L688.1,159.6Z"><title>Pará</title></path><path class="uf" d="M933.7,297.6L935.4,300.6L929.9,305.6L927.2,315.2L932.2,314.7L933.5,318.1L943.6,315.7L946.5,322.3L951.9,317.8L951.4,312.3L953.7,313.0L951.3,308.3L954.7,304.3L957.6,304.7L958.4,308.1L962.6,307.2L965.2,309.4L973.3,308.3L985.6,311.2L990.6,309.3L995.1,326.7L994.3,337.0L987.9,333.0L977.8,334.3L976.5,339.7L964.7,343.9L953.9,343.9L953.4,346.5L949.2,347.4L948.8,351.6L939.6,356.6L935.3,353.0L934.5,347.7L930.4,348.1L935.6,343.0L935.2,337.9L939.8,335.3L933.5,329.9L926.9,332.3L920.7,339.9L912.2,344.3L906.9,344.3L905.1,340.3L899.2,342.3L896.0,338.6L900.7,330.4L894.8,322.5L898.6,317.1L897.2,314.8L901.1,307.3L898.9,306.8L902.6,305.3L901.9,307.1L911.2,310.3L920.3,304.2L920.5,301.7L933.7,297.6Z"><title>Paraíba</title></path><path class="uf" d="M934.9,330.8L939.8,335.3L935.2,337.9L935.6,343.0L930.4,348.1L934.5,347.7L935.3,353.0L939.6,356.6L948.8,351.6L949.2,347.4L953.4,346.5L953.9,343.9L964.7,343.9L976.5,339.7L977.8,334.3L987.9,333.0L993.9,336.9L994.0,348.9L986.1,372.5L978.1,369.9L971.0,372.6L967.3,371.0L961.5,373.6L957.9,377.4L959.0,379.2L949.4,383.6L942.7,381.7L940.6,384.7L927.0,373.9L921.8,374.6L920.2,371.1L908.2,383.3L906.7,375.4L901.9,374.8L902.0,370.9L899.7,370.4L898.0,374.4L894.0,369.4L883.2,367.2L879.2,362.6L871.4,366.0L871.4,369.5L866.3,370.4L864.7,376.0L857.3,376.3L855.2,384.0L847.9,387.3L844.0,386.6L846.8,378.9L842.9,376.9L840.4,370.5L837.9,370.7L835.5,367.1L829.3,367.1L848.8,352.3L849.9,344.5L846.6,342.5L845.6,335.0L849.8,332.9L857.4,334.0L872.2,330.8L880.9,336.8L881.1,340.0L885.5,341.5L886.6,345.0L896.1,338.9L899.2,342.3L905.1,340.3L906.9,344.3L912.2,344.3L920.7,339.9L926.9,332.3L934.9,330.8Z"><title>Pernambuco</title></path><path class="uf" d="M819.7,213.6L831.9,218.7L827.7,228.2L830.8,231.4L829.8,236.3L832.3,237.2L832.0,245.6L835.5,245.7L836.1,249.1L832.1,267.2L840.3,275.4L840.7,297.8L845.2,313.7L854.3,317.6L849.8,332.9L845.6,335.0L846.6,342.5L849.9,344.5L848.8,352.3L828.7,367.2L817.2,381.1L807.0,382.3L793.8,390.8L788.6,385.4L780.8,385.8L775.6,381.7L766.4,389.0L768.1,394.6L771.4,396.6L771.2,400.9L759.3,417.3L754.2,415.1L748.0,417.1L739.1,425.0L731.1,422.2L726.4,416.9L727.4,412.4L722.8,404.0L717.3,407.7L713.3,406.5L717.6,387.3L712.3,372.9L718.1,364.6L724.8,342.2L728.8,337.8L742.0,332.1L745.3,333.0L748.4,328.6L754.9,325.8L761.3,316.7L769.8,314.9L777.3,318.6L789.9,314.1L792.2,305.5L786.0,298.1L785.4,287.1L792.3,279.7L793.0,275.4L789.2,265.2L791.7,257.2L788.2,250.7L800.6,230.3L808.0,229.9L817.6,219.2L817.0,212.7L819.7,213.6Z"><title>Piauí</title></path><path class="uf" d="M559.0,727.0L571.7,731.2L579.2,730.5L588.6,733.8L592.4,738.1L611.5,736.4L613.4,740.4L618.0,741.9L622.1,750.2L621.0,761.3L631.3,774.1L628.7,782.6L646.9,782.6L649.0,784.4L647.6,793.4L655.3,790.6L656.9,796.3L661.0,797.2L650.5,808.2L646.7,816.6L631.9,817.2L622.4,823.4L612.6,817.4L604.8,818.0L603.0,820.7L596.7,817.3L593.0,823.6L583.8,823.1L579.7,825.6L580.1,833.2L575.5,835.9L573.0,832.3L563.8,832.8L555.9,828.8L542.0,826.1L533.1,827.4L528.3,823.6L521.4,824.8L514.3,816.4L512.8,807.4L507.6,807.3L507.6,804.1L499.3,809.3L495.1,806.6L503.6,774.6L501.5,768.5L507.6,763.7L510.5,751.1L516.9,747.4L520.0,737.8L536.1,727.9L555.0,730.6L559.0,727.0Z"><title>Paraná</title></path><path class="uf" d="M749.7,746.8L744.3,748.7L740.5,745.6L742.4,739.1L755.8,734.7L758.6,730.7L752.9,728.0L746.6,728.9L742.6,723.2L768.5,714.7L781.7,713.3L786.0,715.5L806.3,705.7L803.8,703.2L811.1,688.0L809.3,686.4L813.7,685.4L816.3,681.0L820.4,683.7L820.3,690.3L839.5,695.0L836.5,700.5L838.8,713.1L821.0,720.9L814.1,727.0L813.5,731.8L816.6,732.7L812.4,736.6L812.8,739.1L786.6,738.7L784.5,737.5L787.2,732.4L785.7,730.7L780.6,733.9L783.3,738.8L773.9,741.1L769.9,740.6L773.2,740.2L766.8,736.6L757.7,740.5L752.2,737.6L751.7,739.7L745.2,741.3L744.6,745.2L746.4,744.0L746.1,746.8L748.5,745.0L749.7,746.8ZM756.7,741.5L760.2,743.7L753.8,745.0L756.7,741.5Z"><title>Rio de Janeiro</title></path><path class="uf" d="M935.6,269.0L940.3,268.6L947.2,273.1L965.3,271.8L977.6,274.8L983.3,283.2L990.7,309.4L985.6,311.2L973.3,308.3L965.2,309.4L962.6,307.2L958.4,308.1L957.6,304.7L954.7,304.3L951.3,308.3L953.7,313.0L951.4,312.3L951.9,317.8L946.5,322.3L943.6,315.7L933.5,318.1L932.2,314.7L927.2,315.2L927.2,311.0L935.2,301.1L935.0,297.9L920.5,301.7L920.3,304.2L911.2,310.3L899.6,305.7L902.9,298.9L907.2,298.5L911.0,293.8L923.2,268.7L933.0,266.3L935.6,269.0Z"><title>Rio Grande do Norte</title></path><path class="uf" d="M195.5,397.5L186.7,396.0L194.4,391.2L196.8,385.3L207.8,385.5L212.3,390.0L217.3,385.5L221.4,386.9L221.0,383.0L226.1,381.5L229.9,386.0L236.4,374.6L254.0,373.5L254.0,368.1L259.5,363.7L259.0,357.4L263.3,357.1L267.2,347.9L286.2,348.1L294.8,358.7L298.8,358.9L299.5,364.4L303.3,364.1L304.9,369.6L310.5,371.5L315.3,366.6L321.5,372.6L320.1,381.1L317.4,381.7L321.3,391.1L318.8,393.4L320.5,397.2L318.2,404.8L321.7,411.7L319.5,426.4L347.0,426.5L349.8,429.6L358.9,429.8L360.6,437.2L355.7,442.2L355.9,448.7L364.3,461.7L356.9,468.9L356.6,475.8L351.5,481.0L348.8,490.7L340.7,496.9L333.0,491.5L312.1,493.1L303.8,481.8L298.2,482.4L291.7,478.0L288.4,479.1L278.9,468.8L275.4,470.6L263.0,464.0L258.7,466.6L250.2,465.9L244.9,462.2L244.8,458.7L239.6,457.4L239.7,455.1L238.5,456.9L236.4,453.1L231.5,452.7L230.2,445.4L225.8,445.2L227.0,440.6L224.6,439.9L223.2,433.3L226.0,426.5L221.5,413.3L225.0,406.5L225.1,396.7L222.9,393.0L221.1,392.2L218.2,396.7L212.8,393.9L195.5,397.5Z"><title>Rondônia</title></path><path class="uf" d="M360.7,58.7L358.8,70.6L361.2,79.0L365.6,81.3L364.9,92.1L367.1,91.9L366.4,94.8L370.3,95.8L377.5,104.4L386.7,107.7L386.5,133.7L357.6,133.7L348.5,153.8L350.9,159.0L345.2,163.3L339.6,162.9L335.3,155.0L331.1,153.5L322.5,157.0L319.7,160.2L317.5,174.4L321.2,181.7L317.3,177.8L310.7,176.8L307.1,169.6L295.2,160.3L300.7,157.4L303.3,149.1L294.6,127.3L296.2,112.3L287.8,99.1L290.3,90.0L273.8,83.3L272.6,77.1L264.9,78.6L256.2,75.5L257.7,68.4L251.7,59.5L252.9,47.9L245.3,41.9L236.9,29.7L243.4,33.8L253.4,33.1L258.5,39.9L261.1,37.8L265.6,38.8L265.7,36.0L270.2,40.5L272.0,37.0L277.6,37.7L277.1,40.7L283.8,46.6L287.0,43.3L289.5,44.5L289.2,35.5L294.0,36.0L297.0,31.7L304.4,34.5L308.5,31.8L309.8,33.7L313.8,29.9L319.2,29.8L320.4,25.9L326.0,24.5L325.2,22.5L333.4,23.0L335.9,17.8L343.7,12.3L340.3,4.7L347.6,5.7L353.3,3.4L358.8,10.8L354.5,23.2L366.8,26.7L365.6,31.7L370.8,37.9L362.0,47.4L363.5,53.2L360.7,58.7Z"><title>Roraima</title></path><path class="uf" d="M559.5,962.3L557.8,961.7L558.9,964.9L554.1,969.4L558.9,974.1L558.1,977.6L552.9,982.8L544.7,1002.4L524.8,1018.9L521.8,1015.3L524.0,1014.2L524.5,1003.4L527.3,1000.8L528.9,1002.0L532.2,993.9L535.8,992.5L538.0,996.6L541.7,995.8L545.8,987.1L543.1,981.6L544.9,977.1L540.5,980.4L542.3,983.4L533.4,990.4L525.6,988.6L519.1,983.3L516.5,975.4L507.6,971.5L495.3,959.2L478.8,954.1L470.3,943.0L459.4,949.4L459.0,941.8L439.2,924.0L432.6,923.6L428.8,928.8L421.1,928.7L418.1,926.2L435.2,911.9L444.7,898.4L449.2,897.1L452.5,889.8L462.5,881.7L462.8,878.6L467.2,880.3L468.0,877.9L465.3,875.6L479.9,865.5L484.1,865.5L482.8,863.5L486.5,863.3L489.6,857.0L492.9,858.2L495.3,855.0L503.0,854.8L505.8,849.8L508.1,851.0L513.3,846.5L519.1,849.0L526.0,845.6L527.5,848.9L534.6,845.3L535.9,849.0L556.4,850.3L561.9,853.1L563.4,856.8L569.9,855.9L583.8,864.9L595.3,879.4L607.2,882.2L607.9,880.4L617.1,881.2L618.9,885.4L612.8,888.2L612.3,897.5L606.9,901.7L610.2,904.4L608.2,902.0L612.5,900.5L618.4,903.8L602.7,934.3L591.7,950.2L558.6,977.4L560.3,971.8L558.1,969.1L564.4,969.9L573.5,962.1L574.9,963.6L575.0,959.8L579.9,959.2L581.6,949.1L586.4,948.4L586.7,944.6L593.4,940.7L592.7,930.9L595.3,929.8L596.6,933.8L596.0,926.4L594.1,929.0L587.8,929.9L587.6,932.6L584.5,931.5L585.1,928.4L579.6,926.1L578.4,921.3L578.5,929.2L583.5,931.2L579.3,933.4L578.4,940.8L576.1,938.3L576.6,944.0L573.3,945.1L574.7,949.6L570.3,951.0L570.3,954.3L562.7,955.4L559.5,962.3Z"><title>Rio Grande do Sul</title></path><path class="uf" d="M517.2,831.8L519.1,823.8L528.3,823.6L533.1,827.4L542.0,826.1L563.8,832.8L573.0,832.3L575.5,835.9L580.1,833.2L579.7,825.6L583.8,823.1L593.0,823.6L596.7,817.3L603.0,820.7L604.8,818.0L612.6,817.4L622.4,823.4L631.9,817.2L645.4,816.1L649.2,822.9L644.5,836.1L646.8,837.6L646.4,846.5L649.9,847.0L646.1,849.8L648.4,851.9L645.3,855.8L647.1,866.4L642.9,882.5L629.0,892.2L618.4,903.8L612.1,900.4L608.2,902.0L609.5,904.2L607.3,900.6L612.1,898.3L612.8,888.2L618.9,885.5L617.1,881.2L607.9,880.4L607.2,882.2L595.3,879.4L583.8,864.9L569.9,855.9L563.4,856.8L561.9,853.1L556.4,850.3L535.9,849.0L534.6,845.3L527.5,848.9L526.0,845.6L522.9,848.5L514.3,847.6L518.4,841.7L517.2,831.8ZM651.3,853.4L652.5,854.9L647.2,865.0L647.8,855.2L651.3,853.4Z"><title>Santa Catarina</title></path><path class="uf" d="M915.1,388.6L939.6,400.2L941.7,404.4L948.9,407.5L950.4,411.6L954.7,413.8L943.1,420.1L931.1,438.4L926.3,441.1L921.7,441.4L914.7,437.1L914.8,431.9L908.1,423.6L908.8,419.2L914.2,420.7L918.9,418.8L917.7,411.9L920.8,409.4L918.4,400.8L914.2,398.6L913.1,389.7L915.1,388.6Z"><title>Sergipe</title></path><path class="uf" d="M708.6,761.5L707.5,764.9L704.9,766.3L702.4,764.4L688.4,772.4L686.6,775.9L665.6,790.5L659.1,799.3L661.0,797.2L656.9,796.3L655.3,790.6L653.2,793.0L651.2,790.6L648.3,793.8L646.9,792.5L649.0,784.4L646.9,782.6L628.7,782.6L631.3,774.1L621.0,761.3L622.1,750.2L619.2,743.4L613.4,740.4L611.5,736.4L592.4,738.1L588.6,733.8L579.2,730.5L567.7,730.5L557.9,726.5L555.0,730.6L545.8,727.8L536.1,727.9L533.1,730.2L532.6,728.6L550.3,716.8L558.7,705.7L558.7,700.5L564.0,696.2L563.8,690.6L570.2,685.3L571.0,677.6L577.2,670.3L584.1,667.5L586.7,661.9L596.6,656.2L629.7,660.0L630.3,668.5L636.6,665.3L638.9,672.5L640.8,665.3L655.4,664.7L655.5,661.8L658.8,664.8L662.2,662.0L664.3,664.3L665.2,660.9L670.8,662.3L674.9,660.0L681.0,666.7L679.5,672.7L684.4,678.2L680.8,684.1L686.6,698.1L695.3,696.5L699.3,699.3L694.7,708.8L696.6,713.3L693.9,715.1L697.0,716.6L693.9,721.1L701.9,727.2L700.1,731.3L703.7,732.9L703.1,736.4L717.4,735.4L719.4,734.3L716.7,731.9L719.3,728.1L727.3,730.1L742.2,723.6L746.6,728.9L752.9,728.0L758.5,730.6L755.8,734.7L742.6,738.6L740.2,745.0L744.3,748.7L739.7,747.8L735.3,752.7L727.1,755.3L727.2,760.5L716.1,758.8L708.6,761.5ZM729.3,762.9L725.7,762.2L729.1,757.9L731.7,762.6L729.3,762.9Z"><title>São Paulo</title></path><path class="uf" d="M686.0,374.3L685.1,376.4L688.8,376.5L692.9,385.4L698.0,387.4L695.8,393.8L699.7,396.3L702.8,405.2L717.3,407.7L719.7,405.1L716.5,412.1L706.8,417.7L705.0,424.4L696.5,434.3L700.0,440.2L709.9,443.0L704.2,443.3L702.7,449.4L707.8,450.3L702.1,453.9L703.2,461.6L705.7,465.7L708.2,465.4L705.1,468.1L704.4,477.6L709.1,476.9L702.9,478.6L701.6,474.3L700.7,478.1L693.2,478.1L676.1,486.4L670.9,481.6L669.7,491.0L666.1,487.0L660.1,485.0L657.5,486.8L657.2,482.7L650.5,486.5L648.8,482.2L646.8,487.1L646.4,480.4L640.0,473.8L637.0,477.7L633.4,473.4L630.4,475.8L627.0,486.0L603.7,474.7L607.5,463.1L601.9,467.0L598.2,475.2L595.4,474.2L593.3,468.7L595.5,464.0L592.9,446.1L594.5,442.4L592.4,438.6L595.7,428.6L595.9,418.0L610.2,382.3L629.2,358.6L632.6,343.6L626.7,336.9L631.7,328.8L631.1,320.8L644.8,313.9L648.8,305.9L652.0,306.6L650.7,301.3L655.8,295.3L654.2,290.3L658.2,287.3L651.9,280.9L642.6,279.7L652.4,275.0L664.5,277.4L665.6,280.4L674.3,284.3L677.3,303.7L673.5,322.1L668.0,327.9L674.3,330.4L672.0,334.1L674.1,334.1L685.8,350.1L696.9,346.0L700.3,350.5L698.4,357.0L691.8,359.1L686.0,374.3Z"><title>Tocantins</title></path><path class="uf" d="M679.1,557.9L654.6,558.3L656.6,543.9L676.3,543.9L678.9,546.4L677.4,556.4L679.1,557.9Z"><title>Distrito Federal</title></path></g>
-          <g id="pinos"><g class="i-pino sede" data-i="0" transform="translate(629.7,574.8)"><circle class="halo" r="14"/><circle class="ponto" r="9"/></g><g class="i-pino" data-i="1" transform="translate(764.3,658.9)"><circle class="halo" r="14"/><circle class="ponto" r="7"/></g><g class="i-pino" data-i="2" transform="translate(766.5,660.7)"><circle class="halo" r="14"/><circle class="ponto" r="7"/></g><g class="i-pino" data-i="3" transform="translate(696.1,753.4)"><circle class="halo" r="14"/><circle class="ponto" r="7"/></g><g class="i-pino" data-i="4" transform="translate(783.5,736.7)"><circle class="halo" r="14"/><circle class="ponto" r="7"/></g><g class="i-pino" data-i="5" transform="translate(855.8,669.2)"><circle class="halo" r="14"/><circle class="ponto" r="7"/></g><g class="i-pino" data-i="6" transform="translate(856.3,669.6)"><circle class="halo" r="14"/><circle class="ponto" r="7"/></g><g class="i-pino" data-i="7" transform="translate(629.5,802.3)"><circle class="halo" r="14"/><circle class="ponto" r="7"/></g><g class="i-pino" data-i="8" transform="translate(647.8,858.7)"><circle class="halo" r="14"/><circle class="ponto" r="7"/></g><g class="i-pino" data-i="9" transform="translate(645.6,843.0)"><circle class="halo" r="14"/><circle class="ponto" r="7"/></g><g class="i-pino" data-i="10" transform="translate(645.1,843.9)"><circle class="halo" r="14"/><circle class="ponto" r="7"/></g><g class="i-pino" data-i="11" transform="translate(644.9,840.8)"><circle class="halo" r="14"/><circle class="ponto" r="7"/></g><g class="i-pino" data-i="12" transform="translate(645.1,840.6)"><circle class="halo" r="14"/><circle class="ponto" r="7"/></g><g class="i-pino" data-i="13" transform="translate(646.2,845.6)"><circle class="halo" r="14"/><circle class="ponto" r="7"/></g><g class="i-pino" data-i="14" transform="translate(647.7,847.3)"><circle class="halo" r="14"/><circle class="ponto" r="7"/></g><g class="i-pino" data-i="15" transform="translate(644.6,837.1)"><circle class="halo" r="14"/><circle class="ponto" r="7"/></g><g class="i-pino" data-i="16" transform="translate(645.3,837.2)"><circle class="halo" r="14"/><circle class="ponto" r="7"/></g><g class="i-pino" data-i="17" transform="translate(644.3,833.7)"><circle class="halo" r="14"/><circle class="ponto" r="7"/></g><g class="i-pino" data-i="18" transform="translate(993.8,325.8)"><circle class="halo" r="14"/><circle class="ponto" r="7"/></g><g class="i-pino" data-i="19" transform="translate(994.1,322.2)"><circle class="halo" r="14"/><circle class="ponto" r="7"/></g><g class="i-pino" data-i="20" transform="translate(992.9,350.1)"><circle class="halo" r="14"/><circle class="ponto" r="7"/></g></g>
-          <g class="i-rotulos" aria-hidden="true"><text x="652" y="583">Goiânia</text><text x="568" y="745">São Paulo</text><text x="782" y="649">Belo Horizonte</text><text x="800" y="763">Rio de Janeiro</text><text x="872" y="675">Vitória</text><text x="530" y="830">Curitiba</text><text x="668" y="877">Litoral de SC</text><text x="864" y="320">João Pessoa</text><text x="911" y="374">Recife</text></g>
-        </svg>
-      </div>
-      <div class="i-mapa__lista"><div class="i-regiao"><h3>Centro-Oeste · 1</h3><ul><li><button type="button" data-i="0" class="sede">Goiânia</button></li></ul></div><div class="i-regiao"><h3>Sudeste · 6</h3><ul><li><button type="button" data-i="1">Belo Horizonte</button></li><li><button type="button" data-i="2">Nova Lima</button></li><li><button type="button" data-i="3">São Paulo</button></li><li><button type="button" data-i="4">Rio de Janeiro</button></li><li><button type="button" data-i="5">Vitória</button></li><li><button type="button" data-i="6">Vila Velha</button></li></ul></div><div class="i-regiao"><h3>Sul · 11</h3><ul><li><button type="button" data-i="7">Curitiba</button></li><li><button type="button" data-i="8">Florianópolis</button></li><li><button type="button" data-i="9">Balneário Camboriú</button></li><li><button type="button" data-i="10">Camboriú</button></li><li><button type="button" data-i="11">Itajaí</button></li><li><button type="button" data-i="12">Navegantes</button></li><li><button type="button" data-i="13">Itapema</button></li><li><button type="button" data-i="14">Porto Belo</button></li><li><button type="button" data-i="15">Balneário Piçarras</button></li><li><button type="button" data-i="16">Penha</button></li><li><button type="button" data-i="17">Barra Velha</button></li></ul></div><div class="i-regiao"><h3>Nordeste · 3</h3><ul><li><button type="button" data-i="18">João Pessoa</button></li><li><button type="button" data-i="19">Cabedelo</button></li><li><button type="button" data-i="20">Recife</button></li></ul></div><p class="i-mapa__nota">Goiânia é a sede. A lista de unidades será atualizada pela My Broker.</p></div>
+      <div class="foto"><img src="assets/ronaldo.webp" alt="Ronaldo Dantas, fundador e CEO da My Broker" width="720" height="888" loading="lazy" style="mix-blend-mode:multiply"></div>
     </div>
   </section>
 
-  <section class="s-secao" aria-label="Academia de Vendas 27">
-    <div class="i-evento">
-      <img src="assets/academia-2026.jpg" alt="" loading="lazy">
-      <div>
-        <span class="i-rot">13 e 14 jan 2027 · Flamboyant Hall · Goiânia</span>
-        <h2>Participe do maior evento para <b>corretores</b> do Brasil</h2>
-        <p>Academia de Vendas 27, by Broker Academy Education. Dois dias de conteúdo, prática e networking com quem mais vende imóveis no país.</p>
-      </div>
-      <div class="i-lado">
-        <span class="i-rot" data-relogio-rotulo>O 3º lote vira em</span>
-        <div class="i-relogio" data-relogio></div>
-        <a class="i-btn-pessego" href="academia/index.html">Garantir meu ingresso</a>
+  <section class="h-ac h-sec" aria-labelledby="ac-titulo">
+    <div class="wrap h-duas">
+      <div class="foto"><img src="assets/evento/palestra.jpg" alt="Plateia da Academia de Vendas com as lanternas dos celulares acesas" loading="lazy"></div>
+      <div class="txt">
+        <h2 id="ac-titulo" class="entra">Academia de Vendas 27</h2>
+        <p class="entra" style="--d:80ms"><b>13 e 14 de janeiro, no Flamboyant Hall, dentro do Flamboyant Shopping, em Goiânia.</b> Dois dias com o método de quem vende um imóvel a cada 49 minutos.</p>
+        <p class="entra" style="--d:160ms" data-relogio-rotulo>O 3º lote vira em</p>
+        <div class="relogio entra" style="--d:200ms" data-relogio></div>
+        <div class="entra" style="--d:260ms"><a class="btn btn-pessego" href="academia/index.html">Garantir meu ingresso</a></div>
       </div>
     </div>
   </section>
 
-  <section class="s-secao" id="conhecimento" aria-labelledby="con-titulo">
-      <div class="s-cabeca">
-        <h2 class="s-titulo" id="con-titulo">Aprenda com quem entende do assunto</h2>
-        <p class="s-texto">Comprar, investir ou vender um imóvel fica mais simples quando você entende o mercado. Por isso a My Broker compartilha o que sabe: em reportagens, em vídeo e na formação de corretores.</p>
+  <section class="h-sec h-hist wrap" id="historia" aria-labelledby="hist-titulo">
+    <div class="h-duas">
+      <div class="lado">
+        <h2 id="hist-titulo" class="entra">Quinze anos em oito datas</h2>
+        <p class="vgv entra" style="--d:80ms">O nosso VGV tem outro significado: Valor Gerado de Vida.</p>
+        <img class="entra" style="--d:160ms" src="assets/evento/2016.jpg" alt="A primeira Academia de Vendas, em 2016" loading="lazy">
       </div>
-      <div class="s-apr__grade" id="materias" aria-live="polite">
-      <a class="s-apr__lead" href="https://mybroker-portal.vercel.app/prototipos-portal/noticia.html?slug=exemplo-de-calculo-mes-a-mes-do-reajuste-de-incc" target="_blank" rel="noopener">
-        <img src="assets/portal/mat-incc.webp" alt="Guindastes destacados em azul sobre um edifício em construção, ilustrando uma matéria com exemplo de cálculo mensal do reajuste pelo INCC nas parcelas de um imóvel na planta." loading="lazy" decoding="async">
-        <h3>Exemplo de cálculo mês a mês do reajuste de INCC</h3>
-        <p>INCC na prática: como calcular o reajuste de cada parcela mês a mês</p>
-        <p class="s-mudo">Ana Cristina Pinheiro F. Meira, 2 de novembro de 2026, 6 min de leitura</p>
-      </a>
-      <div class="s-apr__lado">
-        <a class="s-apr__item" href="https://mybroker-portal.vercel.app/prototipos-portal/noticia.html?slug=quanto-eu-consigo-financiar-com-a-minha-renda" target="_blank" rel="noopener">
-          <img src="assets/portal/mat-financiar.webp" alt="" loading="lazy" decoding="async">
-          <b>Quanto eu consigo financiar com a minha renda?</b><small>Ana Cristina Pinheiro F. Meira, 2 de novembro de 2026</small>
-        </a><a class="s-apr__item" href="https://mybroker-portal.vercel.app/prototipos-portal/noticia.html?slug=devo-escolher-sac-ou-price-na-hora-de-financiar" target="_blank" rel="noopener">
-          <img src="assets/portal/mat-sac.webp" alt="" loading="lazy" decoding="async">
-          <b>Devo escolher SAC ou Price na hora de financiar?</b><small>Ana Cristina Pinheiro F. Meira, 2 de novembro de 2026</small>
-        </a>
-      </div>
-</div>
-      <a class="s-link s-apr__todas" href="https://mybroker-portal.vercel.app/prototipos-portal/noticias.html" target="_blank" rel="noopener">Ver todos os conteúdos<i class="ph ph-arrow-right"></i></a>
+      <dl class="h-anos">
+        <div class="entra"><dt>2011</dt><dd><b>A My Broker nasce em Goiânia</b><span>Com 12 corretores e uma ideia: cada imóvel é o começo de uma história.</span></dd></div>
+        <div class="entra"><dt>2016</dt><dd><b>Nasce a Academia de Vendas</b><span>Na maior crise do país, a empresa decide investir em quem vende.</span></dd></div>
+        <div class="entra"><dt>2020</dt><dd><b>Edição online</b><span>O conhecimento e as conexões seguem em movimento.</span></dd></div>
+        <div class="entra"><dt>2023</dt><dd><b>Academia no WTC, em São Paulo</b><span>Mais de 2.000 corretores reunidos.</span></dd></div>
+        <div class="entra"><dt>2024</dt><dd><b>Balneário Camboriú</b><span>Mais de 2.000 corretores em 2 dias no Sul.</span></dd></div>
+        <div class="entra"><dt>2025</dt><dd><b>Reconhecida pelo mercado</b><span>Melhor Imobiliária no Autimob e Rede Imobiliária no Xeque-mate.</span></dd></div>
+        <div class="entra"><dt>2026</dt><dd><b>Uma década de Academia</b><span>Great Place to Work e Imobiliária do Ano no Real Estate Awards.</span></dd></div>
+        <div class="entra agora"><dt>2027</dt><dd><b>Os próximos 10 anos</b><span>Academia de Vendas 27, 13 e 14 de janeiro. <a href="academia/index.html">Garantir meu lugar</a></span></dd></div>
+      </dl>
+    </div>
+  </section>
 
-      <div class="s-apr__canais">
-        <div class="s-apr__yt">
-          <div class="s-apr__lado-texto">
-            <h3 class="s-sub"><i class="ph-fill ph-youtube-logo" aria-hidden="true"></i>Canal no YouTube</h3>
-            <p>Ronaldo Dantas, sócio fundador da My Broker, sobre mercado, investimento e os bastidores da empresa.</p>
-            <a class="s-apr__canal" href="https://www.youtube.com/@ronaldodantasmb" target="_blank" rel="noopener">Assistir no YouTube<i class="ph ph-arrow-up-right"></i><span class="so-leitor"> (abre em nova aba)</span></a>
-          </div>
-          <div class="s-videos">
-            <a class="s-video" href="https://www.youtube.com/watch?v=5QZCYfK4ZGw" target="_blank" rel="noopener">
-              <span class="s-video__capa">
-                <img src="assets/portal/capa-selic-15-16x9.webp" alt="" width="1376" height="768" loading="lazy" decoding="async">
-                <span class="s-video__play" aria-hidden="true"><i class="ph-fill ph-play"></i></span><span class="s-video__tempo" aria-hidden="true">6:37</span>
-              </span>
-              <span class="s-video__titulo">Por que as pessoas continuam comprando imóvel mesmo com a taxa de juros alta<span class="so-leitor"> (vídeo de 6 min 37 s, abre o YouTube em nova aba)</span></span>
-            </a>
-            <a class="s-video" href="https://www.youtube.com/watch?v=xUQ8UyL2AzI" target="_blank" rel="noopener">
-              <span class="s-video__capa">
-                <img src="assets/portal/video-xUQ8UyL2AzI-1280.webp" alt="" width="1280" height="720" loading="lazy" decoding="async">
-                <span class="s-video__play" aria-hidden="true"><i class="ph-fill ph-play"></i></span><span class="s-video__tempo" aria-hidden="true">24:12</span>
-              </span>
-              <span class="s-video__titulo">Como comprei 2 apartamentos com 2 reais? Feirão da Independência My Broker<span class="so-leitor"> (vídeo de 24 min 12 s, abre o YouTube em nova aba)</span></span>
-            </a>
-          </div>
-        </div>
-        <div class="s-apr__inst">
-          <div class="s-apr__lado-texto">
-          <div class="s-apr__marca i-ba"><h3 class="s-sub">Broker Academy</h3></div>
-          <p>Treinamentos para corretores de imóveis, com quem vive o mercado todos os dias.</p>
-          <a class="s-link" href="https://membros.institutomybroker.com.br/area/vitrine/home" target="_blank" rel="noopener">Conhecer a Broker Academy<i class="ph ph-arrow-up-right"></i><span class="so-leitor"> (abre em nova aba)</span></a>
-          </div>
-          <ul class="s-cursos" aria-label="Cursos mais vistos">
-            <li>SPIN Selling na prática: o poder das perguntas</li>
-            <li>Imóvel pronto x na planta<small>com Clóvis Reis</small></li>
-            <li>Prospecção: multiplique suas oportunidades<small>com Matheus Percussor</small></li>
-            <li>Máquina de captação de clientes<small>com Ronaldo Dantas</small></li>
-            <li>Precificação: o corretor de elite não chuta preço</li>
-            <li>Cartório na prática: operações imobiliárias<small>com João Gabriel Gebran</small></li>
-          </ul>
-        </div>
+  <section class="h-sec h-onde" id="unidades" aria-labelledby="onde-titulo">
+    <div class="wrap h-duas">
+      <h2 id="onde-titulo" class="entra" style="grid-column:1/10">Mais de 80 lojas, de Goiânia a Miami</h2>
+      <p class="intro entra" style="grid-column:1/8;--d:80ms">A sede fica em Goiânia. A rede vende lançamentos e prontos em 21 cidades do Brasil e na Flórida.</p>
+      <div class="h-regioes">
+        <div class="entra"><h3>Centro-Oeste</h3><ul><li class="sede">Goiânia, a sede</li></ul></div>
+        <div class="entra" style="--d:70ms"><h3>Sudeste</h3><ul><li>São Paulo</li><li>Belo Horizonte</li><li>Nova Lima</li><li>Rio de Janeiro</li><li>Vitória</li><li>Vila Velha</li></ul></div>
+        <div class="entra" style="--d:140ms"><h3>Sul</h3><ul><li>Curitiba</li><li>Florianópolis</li><li>Balneário Camboriú</li><li>Camboriú, Itajaí e Navegantes</li><li>Itapema e Porto Belo</li><li>Piçarras, Penha e Barra Velha</li></ul></div>
+        <div class="entra" style="--d:210ms"><h3>Nordeste</h3><ul><li>João Pessoa</li><li>Cabedelo</li><li>Recife</li></ul></div>
+        <div class="entra" style="--d:280ms"><h3>Estados Unidos</h3><ul><li>Orlando</li><li>Miami</li></ul></div>
       </div>
-    </section>
-  <section class="s-secao" id="duvida" aria-labelledby="duvida-titulo">
-      <div class="s-duvida">
-        <div>
-          <h2 class="s-titulo" id="duvida-titulo">Ainda ficou alguma dúvida?</h2>
-          <p class="s-texto" style="margin-top:10px">Envie para nós.</p>
-        </div>
-        <form class="s-duvida__form" id="formDuvida" novalidate data-whatsapp="Olá! Tenho uma dúvida para a My Broker.">
-          <div class="s-campo s-campo--largo"><label for="d-pergunta">Sua dúvida</label><textarea class="s-entrada" id="d-pergunta" name="pergunta" required></textarea></div>
-          <div class="s-campo"><label for="d-contato">Telefone ou e-mail para a resposta</label><input class="s-entrada" id="d-contato" name="contato" type="text" autocomplete="email" required></div>
-          <button class="s-botao" type="submit">Enviar dúvida</button>
-          <p class="s-aviso" id="avisoDuvida" role="status"></p>
-        </form>
+    </div>
+  </section>
+
+  <section class="h-sec h-apr wrap" id="conhecimento" aria-labelledby="apr-titulo">
+    <div class="h-duas">
+      <div class="titulo-lado">
+        <h2 id="apr-titulo" class="entra">Aprenda com quem vende</h2>
+        <p class="intro entra" style="--d:80ms">O Ronaldo fala de mercado, investimento e dos bastidores da empresa no YouTube. De graça.</p>
+        <p class="entra" style="--d:140ms;margin-top:24px"><a class="btn btn-azul" href="https://www.youtube.com/@ronaldodantasmb" target="_blank" rel="noopener">Ver o canal no YouTube</a></p>
       </div>
-    </section>
-  <section class="s-secao" id="reconhecimentos" aria-labelledby="pre-titulo">
-      <div class="s-pre">
-        <h2 class="s-titulo" id="pre-titulo">Reconhecimentos</h2>
-        <p class="s-pre__frase">Avaliada por quem trabalha conosco, pelo mercado e pelos nossos processos.</p>
-        <figure class="s-pre__expo" id="premiosExpo">
-          <img src="assets/portal/trofeus-full.webp" alt="Troféus e placas recebidos pela My Broker: Great Place to Work 2026, Real Estate Awards 2026, Brazil Quality Certification 2026, Prêmio Autimob 2025 e Prêmio Xeque-mate 2025." width="1326" height="578" loading="lazy" decoding="async">
-          <span class="s-pre__veu" aria-hidden="true"></span>
-        </figure>
-        <ul class="s-pre__lista">
-          <li><button class="s-premio" type="button" data-x="16" data-y="46" aria-pressed="false"><b>Great Place to Work</b><time>2026</time><small>Melhores Empresas para Trabalhar, Brasil · Great Place to Work</small></button></li>
-          <li><button class="s-premio" type="button" data-x="32" data-y="48" aria-pressed="false"><b>Real Estate Awards</b><time>2026</time><small>Imobiliária do Ano · Trinca</small></button></li>
-          <li><button class="s-premio" type="button" data-x="51" data-y="52" aria-pressed="false"><b>Brazil Quality Certification</b><time>2026</time><small>Certificação de qualidade · Latin American Quality Institute</small></button></li>
-          <li><button class="s-premio" type="button" data-x="68" data-y="60" aria-pressed="false"><b>Prêmio Autimob</b><time>2025</time><small>Melhor Imobiliária · Autimob</small></button></li>
-          <li><button class="s-premio" type="button" data-x="84" data-y="44" aria-pressed="false"><b>Prêmio Xeque-mate</b><time>2025</time><small>Rede Imobiliária · Xeque-mate</small></button></li>
+      <div class="h-videos">
+        <a class="entra" href="https://www.youtube.com/watch?v=5QZCYfK4ZGw" target="_blank" rel="noopener"><span class="capa"><img src="assets/portal/capa-selic-15-16x9.webp" alt="" loading="lazy"><span>6:37</span></span><b>Por que as pessoas continuam comprando imóvel com juros altos</b></a>
+        <a class="entra" style="--d:80ms" href="https://www.youtube.com/watch?v=xUQ8UyL2AzI" target="_blank" rel="noopener"><span class="capa"><img src="assets/portal/video-xUQ8UyL2AzI-1280.webp" alt="" loading="lazy"><span>24:12</span></span><b>Como comprei 2 apartamentos com 2 reais</b></a>
+      </div>
+      <div class="h-cursos">
+        <div class="ba entra"><h3>Broker Academy</h3><p>Os cursos online para corretores, com quem vive o mercado todos os dias.</p><a class="btn btn-branco" href="https://membros.institutomybroker.com.br/area/vitrine/home" target="_blank" rel="noopener">Conhecer os cursos</a></div>
+        <ul class="entra" style="--d:80ms" aria-label="Cursos mais vistos">
+          <li>SPIN Selling na prática<small>o poder das perguntas</small></li>
+          <li>Imóvel pronto x na planta<small>com Clóvis Reis</small></li>
+          <li>Prospecção<small>com Matheus Percussor</small></li>
+          <li>Máquina de captação de clientes<small>com Ronaldo Dantas</small></li>
+          <li>Precificação<small>o corretor de elite não chuta preço</small></li>
+          <li>Cartório na prática<small>com João Gabriel Gebran</small></li>
         </ul>
       </div>
-    </section>
-  <section class="s-parc" aria-labelledby="parc-titulo">
-      <h2 class="s-parc__titulo" id="parc-titulo">Parceiros</h2>
-      <ul class="s-parc__logos">
-        <li><img class="s-parc__logo s-parc__logo--atrinca" src="assets/portal/atrinca.png" alt="ATrinca" loading="lazy" decoding="async"></li>
-        <li><img class="s-parc__logo s-parc__logo--city" src="assets/portal/city.webp" alt="City Soluções Urbanas" loading="lazy" decoding="async"></li>
-        <li><img class="s-parc__logo s-parc__logo--cmo" src="assets/portal/cmo.png" alt="CMO Construtora" loading="lazy" decoding="async"></li>
-        <li><img class="s-parc__logo s-parc__logo--opus" src="assets/portal/opus.png" alt="Opus" loading="lazy" decoding="async"></li>
-        <li><img class="s-parc__logo s-parc__logo--sousa-andrade" src="assets/portal/sousa-andrade.png" alt="Sousa Andrade Construtora" loading="lazy" decoding="async"></li>
-        <li><img class="s-parc__logo s-parc__logo--eztec" src="assets/portal/eztec.svg" alt="Eztec" loading="lazy" decoding="async"></li>
-        <li><img class="s-parc__logo s-parc__logo--vitacon" src="assets/portal/vitacon.png" alt="Vitacon" loading="lazy" decoding="async"></li>
-        <li><img class="s-parc__logo s-parc__logo--pulte" src="assets/portal/pulte-homes.webp" alt="Pulte Homes" loading="lazy" decoding="async"></li>
-      </ul>
-    </section>
-  <section class="s-secao s-con-f" id="contato" aria-labelledby="contato-titulo">
-      <div>
-        <h2 class="s-titulo" id="contato-titulo">Diga o que procura.<br>A curadoria é com a gente.</h2>
-        <p class="s-texto">Tipo de imóvel, cidade e momento. Um consultor responde com uma seleção personalizada que poupa o seu tempo.</p>
+      <div class="h-mat">
+        <a class="entra" href="https://mybroker-portal.vercel.app/prototipos-portal/noticia.html?slug=exemplo-de-calculo-mes-a-mes-do-reajuste-de-incc" target="_blank" rel="noopener"><img src="assets/portal/mat-incc.webp" alt="" loading="lazy"><b>Como calcular o reajuste do INCC mês a mês</b></a>
+        <a class="entra" style="--d:70ms" href="https://mybroker-portal.vercel.app/prototipos-portal/noticia.html?slug=quanto-eu-consigo-financiar-com-a-minha-renda" target="_blank" rel="noopener"><img src="assets/portal/mat-financiar.webp" alt="" loading="lazy"><b>Quanto eu consigo financiar com a minha renda?</b></a>
+        <a class="entra" style="--d:140ms" href="https://mybroker-portal.vercel.app/prototipos-portal/noticia.html?slug=devo-escolher-sac-ou-price-na-hora-de-financiar" target="_blank" rel="noopener"><img src="assets/portal/mat-sac.webp" alt="" loading="lazy"><b>SAC ou Price na hora de financiar?</b></a>
       </div>
-      <form class="s-form" id="formContato" novalidate data-whatsapp="Olá! Quero uma curadoria de imóveis da My Broker.">
-        <div class="s-campo"><label for="f-nome">Nome</label><input class="s-entrada" id="f-nome" name="nome" type="text" autocomplete="name" required></div>
-        <div class="s-campo"><label for="f-contato">Telefone ou e-mail</label><input class="s-entrada" id="f-contato" name="contato" type="text" autocomplete="email" required></div>
-        <input type="hidden" id="f-briefing" name="briefing">
-        <div class="s-campo s-campo--largo"><label for="f-localizacao">Localização de interesse <span>(opcional)</span></label><input class="s-entrada" id="f-localizacao" name="localizacao" type="text" autocomplete="off" placeholder="Bairro, cidade ou região"></div>
-        <div class="s-campo"><label for="f-interesse">Interesse</label><select class="s-entrada" id="f-interesse" name="interesse"><option>Morar bem</option><option>Ter uma casa de férias</option><option>Dolarizar</option><option>Rentabilizar</option><option>Vender meu imóvel</option><option>Consolidar patrimônio</option><option>Imóvel comercial</option><option>Condições de financiamento</option><option>Ainda não sei</option></select></div>
-        <div class="s-campo"><label for="f-cidade">Cidade</label><select class="s-entrada" id="f-cidade" name="cidade"><option>Miami</option><option>Orlando</option><option>João Pessoa</option><option>Goiânia</option><option>Belo Horizonte</option><option>Curitiba</option><option>São Paulo</option><option>Outra / ainda não sei</option></select></div>
-        <div class="s-form__fim"><button class="s-botao" type="submit">Enviar</button><p class="s-aviso" id="avisoContato" role="status"></p></div>
+    </div>
+  </section>
+
+  <section class="h-sec h-prem wrap" id="reconhecimentos" aria-labelledby="pre-titulo">
+    <h2 id="pre-titulo" class="entra">Premiada em 2025 e 2026</h2>
+    <p class="intro entra" style="--d:80ms">Avaliada por quem trabalha com a gente, pelo mercado e pelos nossos processos.</p>
+    <img class="entra" style="--d:140ms" src="assets/portal/trofeus-full.webp" alt="Troféus e placas recebidos pela My Broker" width="1326" height="578" loading="lazy">
+    <ul>
+      <li><b>Great Place to Work</b><span>2026 · Melhores Empresas para Trabalhar</span></li>
+      <li><b>Real Estate Awards</b><span>2026 · Imobiliária do Ano</span></li>
+      <li><b>Brazil Quality Certification</b><span>2026 · Certificação de qualidade</span></li>
+      <li><b>Prêmio Autimob</b><span>2025 · Melhor Imobiliária</span></li>
+      <li><b>Prêmio Xeque-mate</b><span>2025 · Rede Imobiliária</span></li>
+    </ul>
+  </section>
+
+  <section class="h-sec h-parc wrap" aria-labelledby="parc-titulo" style="padding-top:0">
+    <h2 id="parc-titulo" class="entra" style="font-size:clamp(32px,3.4vw,52px)">Quem vende com a gente</h2>
+    <ul>
+      <li><img src="assets/portal/atrinca.png" alt="ATrinca" loading="lazy"></li>
+      <li><img src="assets/portal/city.webp" alt="City Soluções Urbanas" loading="lazy"></li>
+      <li><img src="assets/portal/cmo.png" alt="CMO Construtora" loading="lazy"></li>
+      <li><img src="assets/portal/opus.png" alt="Opus" loading="lazy"></li>
+      <li><img src="assets/portal/sousa-andrade.png" alt="Sousa Andrade Construtora" loading="lazy"></li>
+      <li><img src="assets/portal/eztec.svg" alt="Eztec" loading="lazy"></li>
+      <li><img src="assets/portal/vitacon.png" alt="Vitacon" loading="lazy"></li>
+      <li><img src="assets/portal/pulte-homes.webp" alt="Pulte Homes" loading="lazy"></li>
+    </ul>
+  </section>
+
+  <section class="h-sec h-con wrap" id="contato" aria-labelledby="contato-titulo">
+    <div class="h-duas">
+      <div class="lado">
+        <h2 id="contato-titulo" class="entra">Diga o que procura</h2>
+        <p class="intro entra" style="--d:80ms">Um consultor da My Broker monta uma seleção de imóveis para você. A mensagem vai pronta para o WhatsApp.</p>
+      </div>
+      <form class="form entra" style="--d:120ms" data-whatsapp="Olá! Quero uma curadoria de imóveis da My Broker.">
+        <label>Nome<input name="Nome" required autocomplete="name"></label>
+        <label>Telefone ou e-mail<input name="Contato" required autocomplete="tel"></label>
+        <label>Interesse<select name="Interesse"><option>Morar bem</option><option>Ter uma casa de férias</option><option>Dolarizar</option><option>Rentabilizar</option><option>Vender meu imóvel</option><option>Imóvel comercial</option><option>Condições de financiamento</option><option>Ainda não sei</option></select></label>
+        <label>Cidade<select name="Cidade"><option>Goiânia</option><option>São Paulo</option><option>Belo Horizonte</option><option>Curitiba</option><option>João Pessoa</option><option>Balneário Camboriú</option><option>Miami</option><option>Orlando</option><option>Outra / ainda não sei</option></select></label>
+        <label class="cheio">Bairro ou região (opcional)<input name="Localização" autocomplete="off"></label>
+        <div class="cheio"><button class="btn btn-azul" type="submit">Enviar pelo WhatsApp</button></div>
+        <p class="ok" hidden></p>
+        <p class="nota">Seus dados vão só na mensagem do WhatsApp. Nada fica guardado nesta página.</p>
       </form>
-    </section>
-</div>
-
-</main>
-
-<footer class="s-rodape">
-  <div class="s-lar s-lar--largo">
-    <div class="s-rodape__topo">
-      <div class="s-rodape__marca"><img src="assets/portal/my-broker-branco.png" alt="My Broker" width="599" height="132" loading="lazy"></div>
-      <nav aria-label="Faça parte"><ul>
-        <li><a href="academia/index.html">Academia de Vendas 27</a></li>
-        <li><a href="franquia.html">Seja franqueado</a></li>
-        <li><a href="corretor.html">Seja corretor</a></li>
-        <li><a href="https://membros.institutomybroker.com.br/area/vitrine/home" target="_blank" rel="noopener">Broker Academy</a></li>
-      </ul></nav>
-      <nav aria-label="Institucional"><ul>
-        <li><a href="#historia">Nossa história</a></li>
-        <li><a href="#unidades">Onde estamos</a></li>
-        <li><a href="#reconhecimentos">Reconhecimentos</a></li>
-        <li><a href="https://mybroker-portal.vercel.app/prototipos-portal/inicio.html" target="_blank" rel="noopener">Portal de imóveis</a></li>
-      </ul></nav>
     </div>
-    <p class="s-rodape__legal">© 2026 My Broker · CRECI 29886</p>
-  </div>
-</footer>
-<a class="i-zap" href="https://wa.me/5562998810378?text=Ol%C3%A1%2C%20Ronaldo!%20Vim%20pelo%20site%20da%20My%20Broker." target="_blank" rel="noopener" aria-label="Falar com o Ronaldo Dantas no WhatsApp">
-  <img src="assets/ronaldo-avatar.jpg" alt="" width="56" height="56">
-  <span class="i-zap__txt"><b>Fale com o Ronaldo</b><small>Responde no WhatsApp</small></span>
-  <span class="i-zap__ico" aria-hidden="true"><i class="ph-fill ph-whatsapp-logo"></i></span>
-</a>
-<script src="assets/inst.js"></script>
-<script src="assets/fluido.js"></script>
+  </section>
+</main>
+<footer id="rodape"></footer>
+<script src="assets/mb.js?v=5"></script>
+<script>
+(function(){
+  /* a janela de fotos dentro da frase */
+  var fotos = document.querySelectorAll(".h-slot img"), i = 0;
+  if (fotos.length > 1 && !matchMedia("(prefers-reduced-motion: reduce)").matches)
+    setInterval(function(){ fotos[i].classList.remove("on"); i = (i + 1) % fotos.length; fotos[i].classList.add("on"); }, 2600);
+  /* o elemento vivo: no ritmo de uma venda a cada 49 minutos, quantas já saíram hoje e quando sai a próxima */
+  var c = document.getElementById("vivo-conta"), p = document.getElementById("vivo-prox");
+  function pad(n){ return String(n).padStart(2, "0"); }
+  function tique(){
+    var agora = new Date(Date.now() - 3 * 3600e3), seg = ((agora.getUTCDay() + 6) % 7) * 86400 + agora.getUTCHours() * 3600 + agora.getUTCMinutes() * 60 + agora.getUTCSeconds();
+    var feitas = Math.floor(seg / 2940), falta = 2940 - seg % 2940;
+    c.textContent = feitas + (feitas === 1 ? " imóvel vendido" : " imóveis vendidos");
+    p.innerHTML = "A próxima venda sai em <b>" + pad(Math.floor(falta / 60)) + ":" + pad(falta % 60) + "</b>.";
+  }
+  tique(); setInterval(tique, 1000);
+  /* a foto da Academia aproxima quando entra */
+  var ac = document.querySelector(".h-ac .foto img");
+  if (ac && "IntersectionObserver" in window){ var o = new IntersectionObserver(function(e){ if (e[0].isIntersecting){ ac.classList.add("dentro"); o.disconnect(); } }); o.observe(ac); }
+})();
+</script>
 <script src="assets/rastreio.js?v=2" defer></script>
-
 </body>
 </html>

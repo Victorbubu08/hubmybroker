@@ -211,7 +211,10 @@ em{font-style:italic;font-weight:400}
 .rodape a{text-decoration:none}
 .rodape a:hover{color:#fff}
 .rodape p{margin:14px 0 0;font-size:14px;max-width:34ch}
-@media (max-width:800px){.rodape .wrap{grid-template-columns:1fr 1fr}}
+.rodape .wrap>*{min-width:0}
+.rodape a{overflow-wrap:anywhere}
+@media (max-width:800px){.rodape .wrap{grid-template-columns:1fr 1fr;gap:24px 18px}}
+@media (max-width:420px){.rodape .wrap{grid-template-columns:1fr 1fr}.rodape .wrap>:first-child{grid-column:1 / -1}.rodape ul{font-size:14px}}
 
 @media (prefers-reduced-motion:reduce){.s-pal>span,.btn-pessego{animation:none}html{scroll-behavior:auto}}
 

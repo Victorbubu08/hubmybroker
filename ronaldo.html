@@ -20,19 +20,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Anton&family=Geist+Mono:wght@500;700&display=swap">
-<link rel="stylesheet" href="assets/mb.css?v=5">
+<link rel="stylesheet" href="assets/mb.css?v=6">
 <script>window.MB={raiz:"",pagina:"ronaldo"}</script>
 <style>
-.rd-hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:end;gap:clamp(20px,4vw,56px);width:100%;margin:0;overflow:hidden;color:#fff;background:var(--azul);padding:clamp(28px,5vw,72px) clamp(24px,5vw,72px) 0}
+.rd-hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:end;gap:clamp(20px,4vw,56px);width:calc(100% - 32px);max-width:1680px;margin:16px auto 0;border-radius:28px;overflow:hidden;color:#fff;background:radial-gradient(90% 110% at 78% 45%,#4c60f2 0%,#2a3ae1 42%,#0a10a0 100%);padding:clamp(28px,5vw,72px) clamp(24px,5vw,72px) 0}
 .rd-hero .txt{display:grid;gap:18px;padding-bottom:clamp(28px,5vw,72px);align-self:center}
 .rd-hero .rotulo{color:rgba(255,255,255,.75)}
 .rd-hero h1{margin:0;font-size:clamp(40px,5.4vw,84px);letter-spacing:-.045em;line-height:1}
-.rd-hero h1 em{color:inherit}
+.rd-hero h1 em{font-weight:500;color:#c9cfff}
 .rd-hero .sob{margin:0;font-size:clamp(18px,1.6vw,23px);color:rgba(255,255,255,.88);max-width:46ch}
 .rd-hero .papeis{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
-.rd-hero .papeis li{font-size:19px;font-weight:600}.rd-hero .papeis li+li::before{content:"· ";}
+.rd-hero .papeis li{padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.14);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);font-size:14px;font-weight:600}
 .rd-hero .foto{align-self:end;justify-self:center;width:100%;max-width:520px}
-.rd-hero .foto img{display:block;width:100%;height:auto;mix-blend-mode:multiply}
+.rd-hero .foto img{display:block;width:100%;height:auto}
 .rd-nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:8px}
 .rd-nums .cartao{display:grid;gap:4px}
 .rd-nums b{font-size:clamp(32px,3.4vw,52px);font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--azul)}
@@ -41,7 +41,7 @@
 .rd-ofertas .cartao{display:grid;gap:12px;align-content:start}
 .rd-ofertas .cartao h3{font-size:24px;margin:0}
 .rd-ofertas .cartao p{margin:0;color:var(--mudo);font-size:16px}
-.rd-ofertas .para{font-size:16px;font-weight:600;color:var(--azul)}
+.rd-ofertas .para{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--azul)}
 .rd-ofertas ul{list-style:none;margin:0;padding:0;display:grid;gap:7px}
 .rd-ofertas li{display:flex;gap:10px;align-items:baseline;font-size:15.5px}
 .rd-ofertas li::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--azul);transform:translateY(-1px)}
@@ -51,7 +51,7 @@
 .rd-ofertas .destaque li::before{background:#fff}
 .rd-temas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:40px}
 .rd-temas .cartao{display:grid;gap:8px}
-.rd-temas small{font-size:16px;font-weight:600;color:var(--azul)}
+.rd-temas small{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--azul)}
 .rd-temas h3{margin:0;font-size:22px}
 .rd-temas p{margin:0;color:var(--mudo)}
 .rd-mais{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:40px}
@@ -70,6 +70,7 @@
 <main>
   <section class="rd-hero" aria-label="Ronaldo Dantas">
     <div class="txt">
+      <span class="rotulo">Fundador e CEO da My Broker</span>
       <h1>Ronaldo <em>Dantas</em></h1>
       <p class="sob">Começou em 2011 com 12 corretores. Hoje lidera uma rede que vende um imóvel a cada 49 minutos, e ensina, no palco e de perto, como fez.</p>
       <ul class="papeis"><li>Empresário</li><li>Incorporador</li><li>Palestrante</li><li>Mentor</li></ul>
@@ -91,7 +92,7 @@
 
   <section class="secao" style="padding-top:0">
     <div class="wrap dupla">
-      <div class="cabeca"><h2 class="titulo">Quem vende, <em>lidera</em>.</h2></div>
+      <div class="cabeca"><span class="rotulo">A história</span><h2 class="titulo">Quem vende, <em>lidera</em>.</h2></div>
       <div class="cabeca">
         <p class="apoio">A My Broker nasceu em Goiânia, em 2011, com 12 corretores e uma ideia: tratar cada imóvel como o começo de uma história, não como uma transação. Em 2016, na maior crise financeira do país, enquanto o mercado cortava, Ronaldo decidiu investir em quem vende e criou a Academia de Vendas.</p>
         <p class="apoio">Dez anos depois, a rede tem mais de 80 lojas, mais de 3.200 corretores, uma incorporadora própria e é Great Place to Work. O dia dele é feito de reuniões com incorporadoras, visitas a terrenos e lançamentos. É isso que ele leva para o palco e para as mentorias: o que funciona na prática, testado em escala.</p>
@@ -101,7 +102,7 @@
 
   <section class="secao" id="ofertas" style="padding-top:0">
     <div class="wrap">
-      <div class="cabeca"><h2 class="titulo">Seis formas de trabalhar juntos</h2><p class="apoio">Vagas e agenda limitadas. Cada proposta é montada sob medida para o seu momento.</p></div>
+      <div class="cabeca"><span class="rotulo">Trabalhe com o Ronaldo</span><h2 class="titulo">Seis formas de <em>trabalhar juntos</em></h2><p class="apoio">Vagas e agenda limitadas. Cada proposta é montada sob medida para o seu momento.</p></div>
       <div class="rd-ofertas">
         <article class="cartao destaque"><span class="para">Para eventos e empresas</span><h3>Palestras</h3><p>Convenções de vendas, eventos do mercado, kickoffs de lançamento e encontros de franquias.</p><ul><li>Presencial ou online</li><li>Conteúdo adaptado ao seu público</li><li>De 40 minutos a meio dia</li></ul><a class="btn btn-branco" href="#contato" data-assunto="Palestra">Consultar agenda</a></article>
         <article class="cartao"><span class="para">Para donos e gestores</span><h3>Mentoria individual</h3><p>Encontros com o Ronaldo para destravar o crescimento da sua imobiliária, do seu time comercial ou da sua incorporadora.</p><ul><li>Diagnóstico do negócio</li><li>Plano de 90 dias</li><li>Acompanhamento direto</li></ul><a class="btn btn-azul" href="#contato" data-assunto="Mentoria individual">Quero aplicar</a></article>
@@ -115,7 +116,7 @@
 
   <section class="secao" style="padding-top:0">
     <div class="wrap">
-      <div class="cabeca"><h2 class="titulo">Temas que <em>enchem a sala</em></h2></div>
+      <div class="cabeca"><span class="rotulo">Palestras</span><h2 class="titulo">Temas que <em>enchem a sala</em></h2></div>
       <div class="rd-temas">
         <div class="cartao"><small>Vendas</small><h3>A máquina de vendas imobiliárias</h3><p>Como uma rede vende um imóvel a cada 49 minutos: prospecção, captação, rotina e números.</p></div>
         <div class="cartao"><small>Liderança</small><h3>Times de alta performance</h3><p>Recrutar, treinar e manter corretores que vendem, com cultura de Great Place to Work.</p></div>
@@ -127,10 +128,10 @@
 
   <section class="secao" style="padding-top:0">
     <div class="wrap">
-      <div class="cabeca"><h2 class="titulo">Comece <em>por aqui</em></h2></div>
+      <div class="cabeca"><span class="rotulo">Mais do Ronaldo</span><h2 class="titulo">Comece <em>por aqui</em></h2></div>
       <div class="rd-mais">
         <a class="cartao" href="academia/index.html"><b>Academia de Vendas 27</b><span>13 e 14 de janeiro, no Flamboyant Hall, em Goiânia.</span><i>Garantir ingresso</i></a>
-        <a class="cartao" href="https://membros.institutomybroker.com.br/area/vitrine/home" target="_blank" rel="noopener"><b>Broker Academy</b><span>Os cursos online, com a aula Máquina de captação de clientes.</span><i>Conhecer</i></a>
+        <a class="cartao" href="broker-academy.html"><b>Broker Academy</b><span>Os cursos online, com a aula Máquina de captação de clientes.</span><i>Conhecer</i></a>
         <a class="cartao" href="franquia.html"><b>Franquia My Broker</b><span>Abra uma unidade da rede na sua cidade.</span><i>Ver os modelos</i></a>
         <a class="cartao" href="https://www.youtube.com/@ronaldodantasmb" target="_blank" rel="noopener"><b>YouTube</b><span>Conteúdo gratuito sobre vendas e mercado.</span><i>Assistir</i></a>
       </div>
@@ -140,6 +141,7 @@
   <section class="secao" id="contato" style="padding-top:0">
     <div class="wrap dupla">
       <div class="cabeca">
+        <span class="rotulo">Fale com o Ronaldo</span>
         <h2 class="titulo">Conte o que você <em>precisa</em></h2>
         <p class="apoio">Preencha em 1 minuto. A mensagem vai pronta para o WhatsApp do Ronaldo, e o time volta com agenda e proposta.</p>
         <div class="faq"><details><summary>Quanto custa uma palestra ou mentoria?</summary><p>Depende do formato, da duração, da cidade e da data. Mande os detalhes e você recebe a proposta pelo WhatsApp.</p></details><details><summary>Ele vai a outras cidades?</summary><p>Sim. Palestras e encontros acontecem em todo o Brasil, e também online.</p></details><details><summary>Podcasts e imprensa?</summary><p>Escolha "Podcast, entrevista ou imprensa" no formulário com o nome do programa e a data.</p></details></div>
@@ -159,7 +161,7 @@
   </section>
 </main>
 <footer id="rodape"></footer>
-<script src="assets/mb.js?v=5"></script>
+<script src="assets/mb.js?v=6"></script>
 <script src="assets/rastreio.js?v=2" defer></script>
 <script>
 document.querySelectorAll("[data-assunto]").forEach(function(a){a.addEventListener("click",function(){var s=document.getElementById("r-assunto");for(var i=0;i<s.options.length;i++)if(s.options[i].text===a.getAttribute("data-assunto"))s.selectedIndex=i;});});

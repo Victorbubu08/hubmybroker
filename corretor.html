@@ -20,15 +20,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Anton&family=Geist+Mono:wght@500;700&display=swap">
-<link rel="stylesheet" href="assets/mb.css?v=5">
+<link rel="stylesheet" href="assets/mb.css?v=6">
 <script>window.MB={raiz:"",pagina:"corretor"}</script>
 </head>
 <body>
 <header id="topo"></header>
 <main>
   <section class="hero">
-        <div class="miolo">
-      <h1>Venda com quem forma corretores</h1>
+    <canvas id="heroOndas" aria-hidden="true"></canvas>
+    <div class="miolo">
+      <span class="rotulo">Carreira na My Broker</span>
+      <h1><span class="s-pal"><span style="--k:0">Venda</span></span> <span class="s-pal"><span style="--k:1">com</span></span> <span class="s-pal"><span style="--k:2">quem</span></span> <span class="s-pal"><span style="--k:3">forma</span></span> <span class="s-pal"><span style="--k:4"><em>corretores</em></span></span></h1>
       <p class="sob">Treinamento contínuo, lançamentos das principais incorporadoras e um time premiado como um dos melhores lugares para trabalhar no Brasil.</p>
       <div class="btns"><a class="btn btn-branco" href="#quero">Quero fazer parte</a><a class="btn" href="#beneficios" style="background:rgba(255,255,255,.14);color:#fff">O que você recebe</a></div>
     </div>
@@ -36,7 +38,7 @@
 
   <section class="secao" id="beneficios">
     <div class="wrap">
-      <div class="cabeca"><h2 class="titulo">O que você recebe</h2></div>
+      <div class="cabeca"><span class="rotulo">O que você recebe</span><h2 class="titulo">O que você <em>recebe</em></h2></div>
       <div class="grade">
         <div class="cartao"><span class="ico" data-icone="instituto"></span><h3>Formação pela Broker Academy</h3><p>Prospecção, captação, precificação, cartório e SPIN Selling na prática, com quem vive o mercado.</p></div>
         <div class="cartao"><span class="ico" data-icone="evento"></span><h3>Academia de Vendas</h3><p>O maior evento de vendas do mercado imobiliário, com quem já passou por milhares de negociações.</p></div>
@@ -50,7 +52,7 @@
 
   <section class="secao" style="padding-top:0">
     <div class="wrap">
-      <div class="cabeca"><h2 class="titulo">Como entrar no time</h2></div>
+      <div class="cabeca"><span class="rotulo">Como entrar</span><h2 class="titulo">Como entrar no <em>time</em></h2></div>
       <ol class="passos">
         <li><b>Inscrição</b><span>Mande seus dados pelo formulário abaixo.</span></li>
         <li><b>Conversa</b><span>Um gestor fala com você sobre experiência e objetivos.</span></li>
@@ -64,6 +66,7 @@
   <section class="secao" id="quero" style="padding-top:0">
     <div class="wrap dupla">
       <div class="cabeca">
+        <span class="rotulo">Quero ser corretor My Broker</span>
         <h2 class="titulo">Comece a sua <em>trajetória</em></h2>
         <p class="apoio">Preencha e a mensagem vai pronta para o WhatsApp do time de recrutamento.</p>
         <div class="faq"><details><summary>Preciso ter CRECI?</summary><p>Para intermediar vendas, sim. Se você ainda não tem, conte no formulário: indicamos o caminho do curso técnico e você já começa a se preparar com a gente.</p></details><details><summary>Preciso ter experiência?</summary><p>Não. O Broker Academy forma quem está começando e aprofunda quem já vende.</p></details><details><summary>Como é a remuneração?</summary><p>Comissão por venda, com regras apresentadas na conversa com o gestor.</p></details><details><summary>Em quais cidades posso atuar?</summary><p>Nas cidades onde a My Broker tem operação ou franquia. Diga a sua no formulário.</p></details></div>
@@ -83,7 +86,8 @@
   </section>
 </main>
 <footer id="rodape"></footer>
-<script src="assets/mb.js?v=5"></script>
+<script src="assets/mb.js?v=6"></script>
+<script src="assets/fluido.js"></script>
 <script src="assets/rastreio.js?v=2" defer></script>
 </body>
 </html>

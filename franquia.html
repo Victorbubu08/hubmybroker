@@ -20,12 +20,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Anton&family=Geist+Mono:wght@500;700&display=swap">
-<link rel="stylesheet" href="assets/mb.css?v=5">
+<link rel="stylesheet" href="assets/mb.css?v=6">
 <script>window.MB={raiz:"",pagina:"franquia"}</script>
 <style>
-.fq-kpis{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-start}
-.fq-kpis div{display:grid;gap:2px;padding:14px 20px;background:var(--azul-escuro);color:#fff;text-align:left}
-.fq-kpis small{font-size:15px;color:#fff}
+.fq-kpis{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.fq-kpis div{display:grid;gap:2px;padding:12px 20px;border-radius:16px;background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.2);color:#fff;text-align:center}
+.fq-kpis small{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.72)}
 .fq-kpis b{font-size:clamp(18px,1.7vw,24px);font-weight:600;letter-spacing:-.02em}
 .fq-intro{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(28px,5vw,72px);align-items:end}
 .fq-frase{margin:0;font-size:clamp(20px,1.8vw,26px);font-weight:500;letter-spacing:-.02em;color:var(--azul)}
@@ -56,8 +56,10 @@
 <header id="topo"></header>
 <main>
   <section class="hero">
-        <div class="miolo">
-      <h1>Sua imobiliária, com a força da rede</h1>
+    <canvas id="heroOndas" aria-hidden="true"></canvas>
+    <div class="miolo">
+      <span class="rotulo">Franquias My Broker</span>
+      <h1><span class="s-pal"><span style="--k:0">Sua</span></span> <span class="s-pal"><span style="--k:1">imobiliária,</span></span> <span class="s-pal"><span style="--k:2">com</span></span> <span class="s-pal"><span style="--k:3">a</span></span> <span class="s-pal"><span style="--k:4">força</span></span> <span class="s-pal"><span style="--k:5">da</span></span> <span class="s-pal"><span style="--k:6"><em>rede</em></span></span></h1>
       <p class="sob">Tecnologia, suporte e metodologia para você liderar seu negócio e desenvolver uma operação imobiliária.</p>
       <div class="fq-kpis"><div><small>Investimento inicial</small><b>a partir de R$ 200 mil</b></div><div><small>Faturamento anual</small><b>maior que R$ 890 mil</b></div></div>
       <div class="btns"><a class="btn btn-branco" href="#quero">Agendar minha reunião</a><a class="btn" href="#modelos" style="background:rgba(255,255,255,.14);color:#fff">Ver os modelos</a></div>
@@ -66,25 +68,25 @@
 
   <section class="secao">
     <div class="wrap fq-intro">
-      <div class="cabeca"><h2 class="titulo">Seu próximo negócio é imobiliário</h2></div>
+      <div class="cabeca"><span class="rotulo">Seu próximo passo</span><h2 class="titulo">Seu próximo negócio é <em>imobiliário</em></h2></div>
       <div class="cabeca"><p class="apoio">Você não precisa começar essa jornada sozinho. Com a My Broker, você pode desenvolver uma operação imobiliária própria, contando com uma marca, ferramentas de gestão e processos estruturados para apoiar seu negócio.</p><p class="fq-frase">Um negócio para chamar de seu. Uma rede para caminhar junto.</p><div class="btns"><a class="btn btn-azul" href="#quero">Quero empreender com a My Broker</a></div></div>
     </div>
   </section>
 
   <section class="secao" id="modelos" style="padding-top:0">
     <div class="wrap">
-      <div class="cabeca"><h2 class="titulo">Três modelos de franquia</h2><p class="apoio">Escolha entre três formatos de operação, com estruturas e capacidades comerciais pensadas para diferentes projetos empreendedores.</p></div>
+      <div class="cabeca"><span class="rotulo">Modelos de franquia</span><h2 class="titulo">Três modelos de <em>franquia</em></h2><p class="apoio">Escolha entre três formatos de operação, com estruturas e capacidades comerciais pensadas para diferentes projetos empreendedores.</p></div>
       <div class="fq-modelos">
-        <article class="cartao"><h3>Start</h3><p class="fq-inv"><small>Investimento inicial a partir de</small><b>R$ 200 mil</b></p><ul><li>Sala comercial</li><li>Espaço de até 60 m²</li><li>Equipe de até 15 corretores</li></ul><a class="btn btn-relevo" href="#quero" data-modelo="Start">Quero o Start</a></article>
-        <article class="cartao fq-meio"><h3>Smart</h3><p class="fq-inv"><small>Investimento inicial a partir de</small><b>R$ 300 mil</b></p><ul><li>Office ou loja de rua</li><li>Espaço de até 100 m²</li><li>Equipe de até 30 corretores</li></ul><a class="btn btn-branco" href="#quero" data-modelo="Smart">Quero o Smart</a></article>
-        <article class="cartao"><h3>Pro</h3><p class="fq-inv"><small>Investimento inicial a partir de</small><b>R$ 400 mil</b></p><ul><li>Office ou loja de rua</li><li>Número ilimitado de corretores</li></ul><a class="btn btn-relevo" href="#quero" data-modelo="Pro">Quero o Pro</a></article>
+        <article class="cartao"><span class="rotulo">Modelo</span><h3>Start</h3><p class="fq-inv"><small>Investimento inicial a partir de</small><b>R$ 200 mil</b></p><ul><li>Sala comercial</li><li>Espaço de até 60 m²</li><li>Equipe de até 15 corretores</li></ul><a class="btn btn-relevo" href="#quero" data-modelo="Start">Quero o Start</a></article>
+        <article class="cartao fq-meio"><span class="rotulo">Modelo</span><h3>Smart</h3><p class="fq-inv"><small>Investimento inicial a partir de</small><b>R$ 300 mil</b></p><ul><li>Office ou loja de rua</li><li>Espaço de até 100 m²</li><li>Equipe de até 30 corretores</li></ul><a class="btn btn-branco" href="#quero" data-modelo="Smart">Quero o Smart</a></article>
+        <article class="cartao"><span class="rotulo">Modelo</span><h3>Pro</h3><p class="fq-inv"><small>Investimento inicial a partir de</small><b>R$ 400 mil</b></p><ul><li>Office ou loja de rua</li><li>Número ilimitado de corretores</li></ul><a class="btn btn-relevo" href="#quero" data-modelo="Pro">Quero o Pro</a></article>
       </div>
     </div>
   </section>
 
   <section class="secao" style="padding-top:0">
     <div class="wrap">
-      <div class="cabeca"><h2 class="titulo">Você lidera, a rede estrutura</h2><p class="apoio">Empreender exige decisões, pessoas e processos. Conheça os recursos que ajudam você a organizar sua operação e desenvolver sua equipe.</p></div>
+      <div class="cabeca"><span class="rotulo">A estrutura</span><h2 class="titulo">Você lidera, <em>a rede estrutura</em></h2><p class="apoio">Empreender exige decisões, pessoas e processos. Conheça os recursos que ajudam você a organizar sua operação e desenvolver sua equipe.</p></div>
       <div class="grade">
         <div class="cartao"><span class="ico" data-icone="casa"></span><h3>Tecnologia para sua gestão</h3><p>Utilize o sistema Latitude para acompanhar atendimentos, organizar imóveis e monitorar sua operação.</p></div>
         <div class="cartao"><span class="ico" data-icone="instituto"></span><h3>Treinamento para evoluir</h3><p>Capacitação contínua pela Broker Academy, com conteúdos para o desenvolvimento de líderes e equipes comerciais.</p></div>
@@ -98,7 +100,7 @@
 
   <section class="secao" style="padding-top:0">
     <div class="wrap">
-      <div class="cabeca"><h2 class="titulo">A rede em números</h2><p class="apoio">A My Broker reúne presença de mercado, recursos próprios de gestão e iniciativas de capacitação para apoiar o desenvolvimento de suas unidades.</p></div>
+      <div class="cabeca"><span class="rotulo">A rede</span><h2 class="titulo">A rede em <em>números</em></h2><p class="apoio">A My Broker reúne presença de mercado, recursos próprios de gestão e iniciativas de capacitação para apoiar o desenvolvimento de suas unidades.</p></div>
       <div class="fq-nums">
         <div class="cartao"><b data-conta="80">80+</b><h3>lojas</h3><p>Presença da rede em diferentes mercados.</p></div>
         <div class="cartao"><b data-conta="3200">3.200+</b><h3>corretores</h3><p>Profissionais conectados à operação da rede.</p></div>
@@ -111,7 +113,7 @@
 
   <section class="secao" style="padding-top:0">
     <div class="wrap">
-      <div class="cabeca"><h2 class="titulo">Para quem faz acontecer</h2><p class="apoio">A My Broker é para quem deseja assumir um papel ativo na construção e no desenvolvimento de um negócio imobiliário.</p></div>
+      <div class="cabeca"><span class="rotulo">Perfil do franqueado</span><h2 class="titulo">Para quem faz <em>acontecer</em></h2><p class="apoio">A My Broker é para quem deseja assumir um papel ativo na construção e no desenvolvimento de um negócio imobiliário.</p></div>
       <ol class="passos fq-perfil">
         <li><b>Visão empreendedora</b><span>Enxergar oportunidades e transformar decisões em ações.</span></li>
         <li><b>Perfil de liderança</b><span>Formar, orientar e desenvolver uma equipe comercial.</span></li>
@@ -126,7 +128,8 @@
       <div class="cartao fq-ron">
         <img src="assets/ronaldo.webp" alt="Ronaldo Dantas, fundador e CEO da My Broker" width="720" height="888" loading="lazy">
         <div class="cabeca">
-          <h2 class="titulo">Ronaldo Dantas, fundador e CEO</h2>
+          <span class="rotulo">Quem está à frente da rede</span>
+          <h2 class="titulo">Ronaldo Dantas, <em>fundador e CEO</em>.</h2>
           <blockquote>Começou em 2011 com 12 corretores em Goiânia. Hoje são mais de 80 lojas e um imóvel vendido a cada 49 minutos.</blockquote>
           <p class="apoio">O mesmo método que fez a My Broker crescer é o que chega à sua unidade: gestão, formação do time pela Broker Academy e a Academia de Vendas para os seus corretores.</p>
           <p><a class="btn btn-azul" href="#quero" data-icone="zap">Agendar minha reunião</a></p>
@@ -138,7 +141,8 @@
   <section class="secao" id="quero" style="padding-top:0">
     <div class="wrap dupla">
       <div class="cabeca">
-        <h2 class="titulo">Agende sua reunião</h2>
+        <span class="rotulo">Seja um franqueado My Broker</span>
+        <h2 class="titulo">Agende sua <em>reunião</em></h2>
         <p class="apoio">Preencha em 1 minuto. A mensagem vai pronta para o WhatsApp do Ronaldo, que já marca sua reunião com o time de expansão para apresentar o modelo, o investimento e o retorno da sua unidade.</p>
         <div class="faq"><details><summary>Quanto custa abrir uma unidade?</summary><p>O investimento inicial começa em R$ 200 mil no modelo Start, R$ 300 mil no Smart e R$ 400 mil no Pro. As condições completas são apresentadas na reunião.</p></details><details><summary>Qual modelo é para mim?</summary><p>Start: sala comercial de até 60 m² e até 15 corretores. Smart: office ou loja de rua de até 100 m² e até 30 corretores. Pro: office ou loja de rua, sem limite de corretores.</p></details><details><summary>Preciso participar da operação?</summary><p>A My Broker é para quem quer um papel ativo: liderar o time, acompanhar indicadores e tomar decisões. No formulário, conte como pretende atuar.</p></details><details><summary>Meu time recebe treinamento?</summary><p>Sim. Capacitação contínua pela Broker Academy, mais de 350 horas de conteúdo e a Academia de Vendas.</p></details></div>
       </div>
@@ -158,7 +162,8 @@
   </section>
 </main>
 <footer id="rodape"></footer>
-<script src="assets/mb.js?v=5"></script>
+<script src="assets/mb.js?v=6"></script>
+<script src="assets/fluido.js"></script>
 <script src="assets/rastreio.js?v=2" defer></script>
 <script>
 document.querySelectorAll("[data-modelo]").forEach(function(a){a.addEventListener("click",function(){var s=document.getElementById("f-modelo");for(var i=0;i<s.options.length;i++)if(s.options[i].text.indexOf(a.getAttribute("data-modelo"))===0)s.selectedIndex=i;});});

@@ -21,6 +21,7 @@
   var links = [
     ["historia", raiz+"index.html#historia", "Nossa história", "historia"],
     ["evento", raiz+"academia/index.html", "Academia de Vendas 27", "evento"],
+    ["ronaldo", raiz+"ronaldo.html", "Ronaldo Dantas", "corretor"],
     ["franquia", raiz+"franquia.html", "Seja franqueado", "franquia"],
     ["corretor", raiz+"corretor.html", "Seja corretor", "corretor"],
     ["instituto", "https://membros.institutomybroker.com.br/area/vitrine/home", "Broker Academy", "instituto"]
@@ -44,7 +45,7 @@
   if (rod){
     rod.className = "rodape";
     rod.innerHTML = '<div class="wrap"><div><img src="'+raiz+'assets/my-broker-v1-480.webp" alt="My Broker"><p>Um ecossistema de prosperidade: imóveis, formação de corretores e o maior evento de vendas do mercado imobiliário.</p></div>'+
-      '<div><h4>Institucional</h4><ul><li><a href="'+raiz+'index.html#historia">Nossa história</a></li><li><a href="'+raiz+'index.html#reconhecimentos">Reconhecimentos</a></li><li><a href="https://www.youtube.com/@ronaldodantasmb" target="_blank" rel="noopener">Canal no YouTube</a></li></ul></div>'+
+      '<div><h4>Institucional</h4><ul><li><a href="'+raiz+'index.html#historia">Nossa história</a></li><li><a href="'+raiz+'index.html#reconhecimentos">Reconhecimentos</a></li><li><a href="'+raiz+'ronaldo.html">Palestras e mentorias</a></li><li><a href="https://www.youtube.com/@ronaldodantasmb" target="_blank" rel="noopener">Canal no YouTube</a></li></ul></div>'+
       '<div><h4>Faça parte</h4><ul><li><a href="'+raiz+'franquia.html">Seja franqueado</a></li><li><a href="'+raiz+'corretor.html">Seja corretor</a></li><li><a href="'+raiz+'academia/index.html">Academia de Vendas 27</a></li></ul></div>'+
       '<div><h4>Para você</h4><ul><li><a href="https://mybroker-portal.vercel.app/prototipos-portal/inicio.html" target="_blank" rel="noopener">Portal de imóveis</a></li><li><a href="https://membros.institutomybroker.com.br/area/vitrine/home" target="_blank" rel="noopener">Broker Academy</a></li></ul></div></div>';
   }

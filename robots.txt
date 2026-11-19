@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /divulgar.html
 Disallow: /hotmart/
+Disallow: /ponte.html
 
 Sitemap: https://www.hubmybroker.com.br/sitemap.xml

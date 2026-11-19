@@ -1,0 +1,19 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Ponte de arquivos</title></head>
+<body style="font-family:sans-serif;padding:24px">Enviando as artes para o Gerenciador de Anúncios…
+<script>
+/* Entrega as artes do kit ao Gerenciador de Anúncios (janela que abriu esta) por postMessage. Só responde ao domínio da Meta. */
+(async function () {
+  var q = new URLSearchParams(location.search), nomes = (q.get("f") || "").split(",").filter(Boolean);
+  var destino = "https://adsmanager.facebook.com";
+  if (!window.opener) { document.body.textContent = "Abra esta página pelo Gerenciador de Anúncios."; return; }
+  var arquivos = [];
+  for (var i = 0; i < nomes.length; i++) {
+    if (!/^[a-z0-9-]+\.jpg$/.test(nomes[i])) continue;
+    var r = await fetch("assets/kit/" + nomes[i]); if (!r.ok) continue;
+    arquivos.push({nome: nomes[i], blob: await r.blob()});
+  }
+  window.opener.postMessage({tipo: "mb-artes", arquivos: arquivos}, destino);
+  document.body.textContent = arquivos.length + " artes enviadas. Pode fechar esta janela.";
+  setTimeout(function () { window.close(); }, 1500);
+})();
+</script></body></html>

@@ -7,6 +7,18 @@
   function set(store, k, v) { try { window[store].setItem(k, v); } catch (e) {} }
   if (get("localStorage", "mb_equipe")) return;
 
+  /* Pixel do Meta (conta de anúncios My Broker): visita, interesse na Academia, clique em comprar, WhatsApp e formulário.
+     Com ele os patrocinados aprendem quem realmente compra e conversa. */
+  var PIXEL = "1246014229756406";
+  !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) };
+    if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = "2.0"; n.queue = []; t = b.createElement(e); t.async = !0;
+    t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s) }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+  fbq("init", PIXEL);
+  fbq("track", "PageView");
+  if (/\/academia\//.test(location.pathname)) fbq("track", "ViewContent", {content_name: "Academia de Vendas 27", content_category: "evento"});
+  else if (/franquia/.test(location.pathname)) fbq("track", "ViewContent", {content_name: "Franquia My Broker", content_category: "franquia"});
+  function px(ev, dados) { try { fbq("track", ev, dados || {}); } catch (e) {} }
+
   var id = get("localStorage", "mb_v");
   if (!id) {
     id = "";
@@ -50,13 +62,14 @@
     var el = e.target.closest ? e.target.closest("a,[data-buy]") : null;
     if (!el) return;
     var buy = el.getAttribute("data-buy");
-    if (buy) return envia("comprar_" + buy.toLowerCase());
+    if (buy) { px("InitiateCheckout", {content_name: "Academia de Vendas 27 - " + buy, currency: "BRL"}); return envia("comprar_" + buy.toLowerCase()); }
     var href = el.getAttribute("href") || "";
-    if (/wa\.me|whatsapp\.com/.test(href)) envia("whatsapp");
+    if (/wa\.me|whatsapp\.com/.test(href)) { px("Contact", {content_name: /academia/.test(location.pathname) ? "Academia" : /franquia/.test(location.pathname) ? "Franquia" : "Site"}); envia("whatsapp"); }
     else if (/mybroker-portal|portal/.test(href) && /^https?:/.test(href)) envia("portal");
   }, true);
   document.addEventListener("submit", function (e) {
     var p = location.pathname;
+    px("Lead", {content_name: /franquia/.test(p) ? "Franquia" : /corretor/.test(p) ? "Corretor" : "Contato"});
     envia(/franquia/.test(p) ? "form_franquia" : /corretor/.test(p) ? "form_corretor" : "whatsapp");
   }, true);
 })();

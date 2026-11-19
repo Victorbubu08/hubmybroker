@@ -148,3 +148,23 @@
 }
 @media (max-width:760px) and (prefers-reduced-motion:reduce){html.menu-azul .topo,html.menu-azul .topo nav{transition:none}}
 @media (min-width:761px){.i-so-cel{display:none}}
+
+/* Ronaldo como rosto da marca (founder-led): foto, a história em uma frase, os números e o WhatsApp */
+.i-ron{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,5vw,72px);align-items:center;background:#fff;border-radius:34px;padding:clamp(24px,4vw,56px) clamp(24px,4vw,56px) 0;box-shadow:var(--relevo-alto);overflow:hidden}
+.i-ron__foto{align-self:end;display:flex;justify-content:center}
+.i-ron__foto img{display:block;width:100%;max-width:440px;height:auto}
+.i-ron__texto{display:grid;gap:16px;padding-bottom:clamp(24px,4vw,56px)}
+.i-ron__rot{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--azul)}
+.i-ron .s-titulo{margin:0}
+.i-ron__frase{margin:0;font-size:clamp(21px,2vw,28px);font-weight:500;letter-spacing:-.02em;line-height:1.25;color:var(--tinta)}
+.i-ron .s-texto{margin:0}
+.i-ron__nums{list-style:none;margin:6px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.i-ron__nums li{display:grid;gap:2px;padding:14px 14px;border-radius:18px;background:var(--base)}
+.i-ron__nums b{font-size:clamp(20px,1.8vw,26px);font-weight:600;letter-spacing:-.03em;color:var(--azul);line-height:1.1}
+.i-ron__nums span{font-size:13.5px;color:var(--mudo);line-height:1.3}
+.i-ron__acoes{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;margin-top:6px}
+.i-ron__btn{display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 26px;border-radius:100px;background:#25D366;color:#06301a;font-weight:700;text-decoration:none;box-shadow:6px 8px 18px rgba(37,211,102,.35)}
+.i-ron__btn i{font-size:22px}
+.i-ron__link{display:inline-flex;align-items:center;gap:6px;color:var(--azul);font-weight:700;text-decoration:none}
+@media (max-width:1000px){.i-ron__nums{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:820px){.i-ron{grid-template-columns:1fr;padding-top:28px}.i-ron__foto{order:2}.i-ron__foto img{max-width:300px}.i-ron__texto{padding-bottom:0}}

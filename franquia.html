@@ -25,11 +25,17 @@
 .fq-modelos li{display:flex;gap:10px;align-items:baseline;font-size:16px}.fq-modelos li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--azul);transform:translateY(-1px)}
 .fq-modelos .btn{margin-top:auto}
 .fq-meio{background:var(--azul)!important;color:#fff}.fq-meio .rotulo,.fq-meio .fq-inv small{color:rgba(255,255,255,.75)}.fq-meio .fq-inv b{color:#fff}.fq-meio li::before{background:#fff}
-.fq-nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:44px}
+.fq-nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;margin-top:44px}
 .fq-nums .cartao{display:grid;gap:6px}.fq-nums b{font-size:clamp(48px,5vw,72px);font-weight:500;letter-spacing:-.04em;line-height:1;color:var(--azul)}
 .fq-nums h3{font-size:22px}.fq-nums p{margin:0;color:var(--mudo);font-size:16px}
+.fq-ron{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,5vw,64px);align-items:center;padding-bottom:0!important;overflow:hidden}
+.fq-ron img{display:block;width:100%;max-width:380px;height:auto;align-self:end;justify-self:center;mix-blend-mode:multiply}
+.fq-ron .cabeca{padding-bottom:clamp(24px,4vw,48px)}
+.fq-ron blockquote{margin:0;font-size:clamp(20px,1.8vw,26px);font-weight:500;letter-spacing:-.02em;line-height:1.3;color:var(--azul)}
+@media (max-width:900px){.fq-ron{grid-template-columns:1fr}.fq-ron img{order:2;max-width:280px}.fq-ron .cabeca{padding-bottom:0}}
 .fq-perfil{grid-template-columns:repeat(4,minmax(0,1fr))}
-@media (max-width:900px){.fq-intro,.fq-modelos,.fq-nums{grid-template-columns:1fr}}
+@media (max-width:900px){.fq-intro,.fq-modelos{grid-template-columns:1fr}.fq-nums{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.fq-nums{grid-template-columns:1fr}}
 @media (max-width:1000px){.fq-perfil{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.fq-perfil{grid-template-columns:1fr}}
 </style>
@@ -44,7 +50,7 @@
       <h1><span class="s-linha"><span class="s-pal"><span style="--k:0">Empreenda</span></span> <span class="s-pal"><span style="--k:1">no</span></span> <span class="s-pal"><span style="--k:2">mercado</span></span> <span class="s-pal"><span style="--k:3">imobiliário</span></span></span> <span class="s-linha"><span class="s-pal"><span style="--k:4">com</span></span> <span class="s-pal"><span style="--k:5">a</span></span> <span class="s-pal"><span style="--k:6">força</span></span> <span class="s-pal"><span style="--k:7">de</span></span> <span class="s-pal"><span style="--k:8">uma</span></span> <span class="s-pal"><span style="--k:9"><em>rede</span></span> <span class="s-pal"><span style="--k:10">nacional</em>.</span></span></span></h1>
       <p class="sob">Tecnologia, suporte e metodologia para você liderar seu negócio e desenvolver uma operação imobiliária.</p>
       <div class="fq-kpis"><div><small>Investimento inicial</small><b>a partir de R$ 200 mil</b></div><div><small>Faturamento anual</small><b>maior que R$ 890 mil</b></div></div>
-      <div class="btns"><a class="btn btn-branco" href="#quero">Quero conhecer a My Broker</a><a class="btn" href="#modelos" style="background:rgba(255,255,255,.14);color:#fff">Ver os modelos</a></div>
+      <div class="btns"><a class="btn btn-branco" href="#quero">Agendar minha reunião</a><a class="btn" href="#modelos" style="background:rgba(255,255,255,.14);color:#fff">Ver os modelos</a></div>
     </div>
   </section>
 
@@ -87,6 +93,7 @@
         <div class="cartao"><b data-conta="80">80+</b><h3>lojas</h3><p>Presença da rede em diferentes mercados.</p></div>
         <div class="cartao"><b data-conta="3200">3.200+</b><h3>corretores</h3><p>Profissionais conectados à operação da rede.</p></div>
         <div class="cartao"><b data-conta="350">350+</b><h3>horas de conteúdo</h3><p>Capacitação disponível na plataforma de ensino My Broker.</p></div>
+        <div class="cartao"><b>49 min</b><h3>uma venda a cada</h3><p>R$ 4,7 bilhões vendidos pela rede em 2025.</p></div>
       </div>
       <p class="fq-frase" style="margin-top:36px">My Broker. Uma rede que apoia, impulsiona e acredita no potencial de quem empreende.</p>
     </div>
@@ -104,12 +111,27 @@
     </div>
   </section>
 
+  <section class="secao" style="padding-top:0">
+    <div class="wrap">
+      <div class="cartao fq-ron">
+        <img src="assets/ronaldo.webp" alt="Ronaldo Dantas, fundador e CEO da My Broker" width="720" height="888" loading="lazy">
+        <div class="cabeca">
+          <span class="rotulo">Quem está à frente da rede</span>
+          <h2 class="titulo">Ronaldo Dantas, <em>fundador e CEO</em>.</h2>
+          <blockquote>Começou em 2011 com 12 corretores em Goiânia. Hoje são mais de 80 lojas e um imóvel vendido a cada 49 minutos.</blockquote>
+          <p class="apoio">O mesmo método que fez a My Broker crescer é o que chega à sua unidade: gestão, formação do time pela Broker Academy e a Academia de Vendas para os seus corretores.</p>
+          <p><a class="btn btn-azul" href="#quero" data-icone="zap">Agendar minha reunião</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="secao" id="quero" style="padding-top:0">
     <div class="wrap dupla">
       <div class="cabeca">
         <span class="rotulo">Seja um franqueado My Broker</span>
         <h2 class="titulo">Conheça a <em>franquia My Broker</em></h2>
-        <p class="apoio">Agende uma reunião, entenda as condições de investimento e descubra o que é necessário para adquirir sua unidade. Preencha e a mensagem vai pronta para o WhatsApp do time de expansão.</p>
+        <p class="apoio">Preencha em 1 minuto. A mensagem vai pronta para o WhatsApp do Ronaldo, que já marca sua reunião com o time de expansão para apresentar o modelo, o investimento e o retorno da sua unidade.</p>
         <div class="faq"><details><summary>Quanto custa abrir uma unidade?</summary><p>O investimento inicial começa em R$ 200 mil no modelo Start, R$ 300 mil no Smart e R$ 400 mil no Pro. As condições completas são apresentadas na reunião.</p></details><details><summary>Qual modelo é para mim?</summary><p>Start: sala comercial de até 60 m² e até 15 corretores. Smart: office ou loja de rua de até 100 m² e até 30 corretores. Pro: office ou loja de rua, sem limite de corretores.</p></details><details><summary>Preciso participar da operação?</summary><p>A My Broker é para quem quer um papel ativo: liderar o time, acompanhar indicadores e tomar decisões. No formulário, conte como pretende atuar.</p></details><details><summary>Meu time recebe treinamento?</summary><p>Sim. Capacitação contínua pela Broker Academy, mais de 350 horas de conteúdo e a Academia de Vendas.</p></details></div>
       </div>
       <form class="cartao form" data-whatsapp="Olá! Quero conhecer a franquia My Broker.">
@@ -120,7 +142,7 @@
         <label>Estado<select id="f-uf" name="Estado" required><option value="">UF</option><option>AC</option><option>AL</option><option>AP</option><option>AM</option><option>BA</option><option>CE</option><option>DF</option><option>ES</option><option>GO</option><option>MA</option><option>MT</option><option>MS</option><option>MG</option><option>PA</option><option>PB</option><option>PR</option><option>PE</option><option>PI</option><option>RJ</option><option>RN</option><option>RS</option><option>RO</option><option>RR</option><option>SC</option><option>SP</option><option>SE</option><option>TO</option></select></label>
         <label class="cheio">Modelo de interesse<select id="f-modelo" name="Modelo de interesse"><option value="">Ainda não sei</option><option>Start (a partir de R$ 200 mil)</option><option>Smart (a partir de R$ 300 mil)</option><option>Pro (a partir de R$ 400 mil)</option></select></label>
         <label class="cheio">Como você pretende atuar na sua franquia My Broker?<select id="f-atuar" name="Como pretende atuar" required><option value="">Selecione uma opção</option><option>Quero liderar e participar ativamente da operação.</option><option>Pretendo acompanhar a gestão com uma equipe responsável.</option><option>Busco investir sem participar da operação.</option></select></label>
-        <div class="cheio"><button class="btn btn-azul" type="submit" data-icone="zap">Quero conhecer a My Broker</button></div>
+        <div class="cheio"><button class="btn btn-azul" type="submit" data-icone="zap">Quero agendar minha reunião</button></div>
         <p class="ok" hidden></p>
         <p class="nota">Seus dados vão só na mensagem do WhatsApp. Nada fica guardado nesta página.</p>
       </form>

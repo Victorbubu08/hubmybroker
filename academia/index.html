@@ -124,6 +124,30 @@ section{padding-block:clamp(72px,9vw,128px)}
 
 /* faixa de fotos passando */
 .legacy{padding-bottom:0}
+.venue-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:260px 260px;gap:12px;margin-top:48px}
+.venue-grid figure{position:relative;margin:0;border-radius:22px;overflow:hidden;background:var(--card)}
+.venue-grid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s var(--ease)}
+.venue-grid figure:hover img{transform:scale(1.05)}
+.venue-grid figcaption{position:absolute;left:14px;bottom:14px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;border-radius:100px;background:rgba(0,0,0,.6);color:var(--fg);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.venue-grid .v-big{grid-row:span 2}
+.venue-grid .v-wide{grid-column:span 2}
+.venue-perks{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.venue-perks li{background:var(--card);border-radius:18px;padding:20px;display:grid;gap:4px}
+.venue-perks b{font-size:18px;color:var(--accent);font-weight:600}
+.venue-perks span{color:var(--muted);font-size:14.5px}
+.venue-cta{margin-top:28px}
+@media (max-width:860px){.venue-grid{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:200px}.venue-grid .v-big{grid-column:span 2;grid-row:auto;height:260px}.venue-perks{grid-template-columns:1fr 1fr}}
+
+.founder{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(20px,4vw,56px);align-items:end;margin-top:12px;background:var(--fg);color:#000;border-radius:24px;padding:clamp(24px,4vw,48px) clamp(24px,4vw,48px) 0;overflow:hidden}
+.founder img{display:block;width:100%;max-width:380px;height:auto;mix-blend-mode:multiply;justify-self:center}
+.founder-txt{display:grid;gap:14px;padding-bottom:clamp(24px,4vw,48px);align-self:center}
+.founder .eyebrow{color:var(--accent-deep);margin:0}
+.founder h3{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(40px,5vw,72px);line-height:.95;margin:0}
+.founder p{margin:0;color:rgba(0,0,0,.78);font-size:17px;max-width:52ch}
+.founder .founder-chamada{color:#000;font-weight:600}
+.founder .btn-line{color:#000;border-color:rgba(0,0,0,.35)}
+@media (max-width:760px){.founder{grid-template-columns:1fr}.founder img{order:2;max-width:260px}.founder-txt{padding-bottom:0}}
+
 .marquee{margin-top:56px;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
 .marquee-track{display:flex;align-items:center;gap:18px;width:max-content;animation:slide 60s linear infinite;will-change:transform;padding-block:24px}
 .marquee:hover .marquee-track{animation-play-state:paused}
@@ -366,7 +390,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 <div class="promo" role="region" aria-label="Oferta do 3º lote">
   <div class="wrap">
     <span class="curto" id="lot-curto">3º lote</span>
-    <span id="lot-msg">Últimos dias do 3º lote · o preço sobe na virada para o 4º lote</span>
+    <span id="lot-msg">Últimos dias do 3º lote · o preço sobe em 20/11 às 23:59</span>
     <div class="clock" aria-label="Tempo até a virada do lote">
       <span><b id="cd-d">00</b><small>dias</small></span>
       <span><b id="cd-h">00</b><small>horas</small></span>
@@ -385,6 +409,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
         <ul>
           <li><a href="#evento">O evento</a></li>
           <li><a href="#palestrantes">Palestrantes</a></li>
+          <li><a href="#local">O local</a></li>
           <li><a href="#patrocinio">Seja patrocinador</a></li>
         </ul>
         <a class="btn btn-fill" href="#ingressos"><span>Reserve seu lugar</span></a>
@@ -399,10 +424,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
       <h1 aria-label="Participe do maior evento para corretores do Brasil">
         <span class="w" aria-hidden="true"><span style="--d:.05s">Participe</span></span> <span class="w" aria-hidden="true"><span style="--d:.12s">do</span></span> <span class="w" aria-hidden="true"><span style="--d:.19s">maior</span></span> <span class="w" aria-hidden="true"><span style="--d:.26s">evento</span></span> <span class="w" aria-hidden="true"><span style="--d:.33s">para</span></span> <span class="w" aria-hidden="true"><span style="--d:.40s">corretores</span></span> <span class="w" aria-hidden="true"><span style="--d:.47s">do</span></span> <span class="w" aria-hidden="true"><span style="--d:.54s">Brasil</span></span>
       </h1>
-      <p class="lead">Dois dias intensos de conteúdo, prática e networking com quem mais vende imóveis no país.</p>
+      <p class="lead">Dois dias para voltar vendendo mais. O método de quem vende um imóvel a cada 49 minutos, na prática, ao lado de quem mais vende no país.</p>
       <div class="actions">
-        <a class="btn btn-fill" href="#ingressos"><span>Ingresso individual</span></a>
-        <a class="btn btn-line" href="#ingressos"><span>Ingresso em grupo</span></a>
+        <a class="btn btn-fill" href="#ingressos"><span>Garantir meu ingresso</span></a>
+        <a class="btn btn-line" href="#grupos"><span>Levar meu time</span></a>
       </div>
       <div class="proof">
         <div class="faces" aria-hidden="true">
@@ -451,6 +476,19 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
         <div class="stat tilt"><strong>+120</strong><span>marcas impactadas</span></div>
         <div class="stat tilt"><strong>90%</strong><span>do público vem do mercado imobiliário</span></div>
         <div class="stat tilt"><strong>55/45</strong><span>% de mulheres e homens no público</span></div>
+      </div>
+      <div class="founder tilt">
+        <img src="fotos/2027/ronaldo.webp" alt="Ronaldo Dantas, criador da Academia de Vendas" width="720" height="969" loading="lazy">
+        <div class="founder-txt">
+          <p class="eyebrow">Quem criou a Academia</p>
+          <h3>Ronaldo Dantas</h3>
+          <p>Em 2016, na maior crise financeira do país, enquanto o mercado cortava custos, Ronaldo decidiu investir em quem vende. Dez anos depois, a My Broker vende um imóvel a cada 49 minutos, e a Academia já recebeu mais de 19.500 profissionais.</p>
+          <p class="founder-chamada">Em 2027 ele sobe ao palco para mostrar como faz. Na prática, sem teoria.</p>
+          <div class="actions">
+            <a class="btn btn-fill" href="#ingressos"><span>Quero estar lá</span></a>
+            <a class="btn btn-line" href="https://wa.me/5562998810378?text=Ol%C3%A1%2C%20Ronaldo!%20Quero%20saber%20da%20Academia%20de%20Vendas%2027." target="_blank" rel="noopener"><span>Falar com o Ronaldo</span></a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -546,11 +584,37 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     </div>
   </section>
 
+  <section class="venue" id="local">
+    <div class="wrap head">
+      <p class="eyebrow">O local · Flamboyant Hall</p>
+      <h2 class="title">Dentro do Flamboyant. Com tudo em volta.</h2>
+      <p class="sub">Os dois dias acontecem no Flamboyant Hall, o espaço de eventos do Flamboyant Shopping, no Jardim Goiás, um dos endereços mais valorizados de Goiânia. Você desce do palco e está a passos de restaurantes, cafés, lojas e cinema, com hotéis a poucos minutos e o Parque Flamboyant ao lado.</p>
+    </div>
+    <div class="wrap">
+      <div class="venue-grid">
+        <figure class="v-big"><img src="fotos/local/shopping-noite.jpg" alt="Entrada do Flamboyant Shopping à noite, com palmeiras iluminadas" loading="lazy"><figcaption>Flamboyant Shopping</figcaption></figure>
+        <figure><img src="fotos/local/vista-jeronimo.jpg" alt="Vista de Goiânia a partir de um restaurante do Flamboyant Shopping" loading="lazy"><figcaption>Restaurantes com vista da cidade</figcaption></figure>
+        <figure><img src="fotos/local/praca-alimentacao.jpg" alt="Praça de alimentação do Flamboyant Shopping" loading="lazy"><figcaption>Gastronomia no mesmo lugar</figcaption></figure>
+        <figure class="v-wide"><img src="fotos/local/parque-noite.jpg" alt="Parque Flamboyant iluminado à noite" loading="lazy"><figcaption>Parque Flamboyant, ao lado</figcaption></figure>
+      </div>
+      <ul class="venue-perks">
+        <li><b>Hotéis</b><span>a poucos minutos a pé ou de carro</span></li>
+        <li><b>Restaurantes e cafés</b><span>para almoço, jantar e networking</span></li>
+        <li><b>Estacionamento</b><span>do próprio shopping</span></li>
+        <li><b>Perto do aeroporto</b><span>fácil para quem vem de fora</span></li>
+      </ul>
+      <div class="actions venue-cta">
+        <a class="btn btn-fill" href="#ingressos"><span>Garantir meu lugar</span></a>
+        <a class="btn btn-line" href="https://wa.me/5562998810378?text=Ol%C3%A1%2C%20Ronaldo!%20Vou%20de%20fora%20para%20a%20Academia%20de%20Vendas%2027%20e%20quero%20dicas%20de%20hotel." target="_blank" rel="noopener"><span>Vem de fora? Fale comigo</span></a>
+      </div>
+    </div>
+  </section>
+
   <section id="ingressos">
     <div class="wrap head center">
       <p class="eyebrow">13 e 14 de janeiro de 2027 · Flamboyant Hall</p>
       <h2 class="title" id="lot-title">Reserve seu lugar no 3º lote</h2>
-      <p class="sub">Garanta seu ingresso no maior evento para corretores do Brasil.</p>
+      <p class="sub" id="lot-sub">O preço sobe na virada do lote, em 20/11 às 23:59. Parcele em até 12x no cartão e receba a confirmação na hora, no seu e-mail.</p>
       <ol class="lots" aria-label="Lotes de ingresso" id="lots"></ol>
       <div class="offer" id="offer"><span class="dot"></span><span id="offer-txt">O 3º lote vira em</span> <b data-lot-left>00d 00h 00m 00s</b></div>
     </div>
@@ -587,11 +651,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
           </div>
         </div>
       </div>
-      <div class="group">
+      <div class="group" id="grupos">
         <div class="lead-g tilt">
           <small>Para sua imobiliária</small>
           <h3>Leve seu time inteiro</h3>
-          <p>Ingresso Pass com preço de grupo, atendimento dedicado e a equipe toda falando a mesma língua comercial.</p>
+          <p>Preço de grupo, atendimento dedicado e a equipe inteira voltando com o mesmo método de vendas. Chame o Ronaldo no WhatsApp e receba a proposta da sua imobiliária hoje.</p>
           <a class="btn btn-fill" href="https://wa.me/5562998810378?text=Ol%C3%A1!%20Quero%20levar%20a%20equipe%20da%20minha%20imobili%C3%A1ria%20para%20a%20Academia%20de%20Vendas%2027." target="_blank" rel="noopener"><span>Quero ingressos para grupos</span></a>
         </div>
         <div class="tilt">
@@ -708,7 +772,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
         <details><summary>O que é a Academia de Vendas?</summary><p>É o maior treinamento de vendas do mercado imobiliário: dois dias intensos de conteúdo, prática e networking. Foi criada pela My Broker em 2016 e hoje é aberta a todo o mercado.</p></details>
         <details><summary>Para quem é o evento?</summary><p>Para corretores de imóveis, gestores comerciais, profissionais de vendas e novos talentos que estão entrando no mercado.</p></details>
         <details><summary>Preciso fazer parte da My Broker para participar?</summary><p>Não. A Academia de Vendas é aberta a todo o mercado.</p></details>
-        <details><summary>Posso levar a equipe da minha imobiliária?</summary><p>Sim. Há condições para grupos e atendimento dedicado para imobiliárias.</p></details>
+        <details><summary>Posso levar a equipe da minha imobiliária?</summary><p>Sim. A partir de 5 corretores o Pass sai por R$ 694 por pessoa, e a partir de 10, por R$ 594, com 1 VIP para o gestor. Chame o Ronaldo no WhatsApp para fechar.</p></details>
+        <details><summary>Posso parcelar?</summary><p>Sim, em até 12x no cartão, no checkout seguro da Hotmart. A confirmação chega na hora no seu e-mail.</p></details>
+        <details><summary>Vou de outra cidade. Onde fico?</summary><p>O Flamboyant Hall fica dentro do Flamboyant Shopping, no Jardim Goiás, com hotéis a poucos minutos, restaurantes no próprio shopping e fácil acesso a partir do aeroporto. Fale com o Ronaldo e ele te indica as opções.</p></details>
         <details><summary>Como minha marca pode patrocinar?</summary><p>Há seis cotas: Apoio (R$ 10 mil), Stand (R$ 20 mil), Credenciamento (R$ 20 mil), Palco (R$ 30 mil), Descompressão (R$ 40 mil) e Master (R$ 60 mil). Veja o que cada uma inclui na seção Seja patrocinador e reserve a sua pelo WhatsApp.</p></details>
       </div>
     </div>
@@ -719,7 +785,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     <div class="wrap">
       <p class="eyebrow">13 e 14 de janeiro de 2027 · Flamboyant Hall</p>
       <h2>Quem domina o mercado, <em>passou por aqui</em></h2>
-      <p class="sub">Seja parte dos próximos 10 anos da Academia de Vendas.</p>
+      <p class="sub" id="close-sub">Quem garante agora paga o preço do 3º lote. Na virada, em 20/11, o preço sobe.</p>
       <div class="actions">
         <a class="btn btn-fill" href="#ingressos"><span>Quero participar</span></a>
         <a class="btn btn-line" href="#patrocinio"><span>Seja patrocinador</span></a>
@@ -732,7 +798,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   <div class="wrap">
     <span class="logo"><b>ACADEMIA DE VENDAS <span>27</span></b><small>by Broker Academy Education</small></span>
     <span>Criada pela My Broker em 2016 · <a href="https://instagram.com/academiadevendas" target="_blank" rel="noopener">@academiadevendas</a></span>
-    <small style="flex-basis:100%;font-size:11px;opacity:.6">Fotos: Chris Gardner por Angela George (CC BY-SA 3.0); Thiago Nigro por Guilherme Cácomo de Medeiros (CC BY-SA 4.0); Clóvis de Barros Filho por CPFL Cultura (CC BY 2.0); Daniel Dias por Fernando Frazão/Agência Brasil (CC BY 3.0 BR), via Wikimedia Commons.</small>
+    <small style="flex-basis:100%;font-size:11px;opacity:.6">Fotos: Chris Gardner por Angela George (CC BY-SA 3.0); Thiago Nigro por Guilherme Cácomo de Medeiros (CC BY-SA 4.0); Clóvis de Barros Filho por CPFL Cultura (CC BY 2.0); Daniel Dias por Fernando Frazão/Agência Brasil (CC BY 3.0 BR), via Wikimedia Commons. Local: Flamboyant Shopping à noite, vista do Jeronimo e Parque Flamboyant por Fronteira (CC BY-SA 4.0); praça de alimentação por Ycaro Gouveia Ribeiro (domínio público), via Wikimedia Commons.</small>
   </div>
 </footer>
 <a class="zapf" href="https://wa.me/5562998810378?text=Ol%C3%A1%2C%20Ronaldo!%20Quero%20saber%20da%20Academia%20de%20Vendas%2027." target="_blank" rel="noopener" aria-label="Falar com o Ronaldo Dantas no WhatsApp"><img src="fotos/ronaldo-avatar.jpg" alt="" width="52" height="52"><span class="zapf__t"><b>Fale com o Ronaldo</b><small>Ingressos e grupos no WhatsApp</small></span><span class="zapf__i" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg></span></a>
@@ -764,7 +830,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     document.getElementById("lots").innerHTML=list.map(function(x){return '<li class="'+x[2]+'"><b>'+x[0]+'</b><span>'+x[1]+'</span></li>'}).join("");
     document.getElementById("lot-title").textContent="Reserve seu lugar no "+L+"º lote";
     document.getElementById("lot-curto").textContent=L+"º lote";
-    document.getElementById("lot-msg").textContent=L===3?"Últimos dias do 3º lote · o preço sobe na virada para o 4º lote":"4º lote aberto · faltam para a Academia de Vendas 27";
+    var ls=document.getElementById("lot-sub"),cs=document.getElementById("close-sub");if(!(L===3&&Date.now()<TURN)){if(ls)ls.textContent="Parcele em até 12x no cartão e receba a confirmação na hora, no seu e-mail.";if(cs)cs.textContent="Seja parte dos próximos 10 anos da Academia de Vendas.";}
+    document.getElementById("lot-msg").textContent=L===3?"Últimos dias do 3º lote · o preço sobe em 20/11 às 23:59":"4º lote aberto · faltam para a Academia de Vendas 27";
     document.getElementById("offer-txt").textContent=(L===3&&Date.now()<TURN)?"O 3º lote vira em":"Faltam para o evento";
     ["pass","vip","ultra"].forEach(function(k){
       var v=PRICES[L][k];

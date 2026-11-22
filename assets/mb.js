@@ -51,8 +51,8 @@
       '<div><h4>Para você</h4><ul><li><a href="https://mybroker-portal.vercel.app/prototipos-portal/inicio.html" target="_blank" rel="noopener">Portal de imóveis</a></li><li><a href="'+raiz+'broker-academy.html">A Liga de Vendas</a></li></ul></div></div>';
   }
 
-  /* o 3º lote segue sem data de virada: a contagem é até o evento */
-  var VIRA = new Date("2026-11-19T00:00:00-03:00").getTime(), EVENTO = new Date("2027-01-13T08:00:00-03:00").getTime();
+  /* o 3º lote vira em 30/11; depois disso a contagem é até o evento */
+  var VIRA = new Date("2026-11-30T00:00:00-03:00").getTime(), EVENTO = new Date("2027-01-13T08:00:00-03:00").getTime();
   var rel = document.querySelectorAll("[data-relogio]");
   if (rel.length){
     var p = function(n){ return String(n).padStart(2,"0"); };

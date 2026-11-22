@@ -86,9 +86,9 @@
   /* WhatsApp do Ronaldo, sempre à mão */
   var zap = document.createElement("a");
   zap.className = "i-zap"; zap.target = "_blank"; zap.rel = "noopener";
-  zap.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent("Olá, Ronaldo! Vim pelo site da My Broker.");
-  zap.setAttribute("aria-label", "Falar com o Ronaldo Dantas no WhatsApp");
-  zap.innerHTML = '<img src="'+raiz+'assets/ronaldo-avatar.jpg" alt="" width="52" height="52"><span class="i-zap__txt"><b>Fale com o Ronaldo</b><small>Responde no WhatsApp</small></span><span class="i-zap__ico" aria-hidden="true">'+I.zap+'</span>';
+  zap.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent("Olá, equipe do Ronaldo! Vim pelo site da My Broker.");
+  zap.setAttribute("aria-label", "Falar com a equipe do Ronaldo Dantas no WhatsApp");
+  zap.innerHTML = '<img src="'+raiz+'assets/ronaldo-avatar.jpg" alt="" width="52" height="52"><span class="i-zap__txt"><b>Fale com a equipe do Ronaldo</b><small>Responde no WhatsApp</small></span><span class="i-zap__ico" aria-hidden="true">'+I.zap+'</span>';
   document.body.appendChild(zap);
   document.querySelectorAll("[data-icone]").forEach(function(el){ el.insertAdjacentHTML("afterbegin", I[el.getAttribute("data-icone")] || ""); });
 })();

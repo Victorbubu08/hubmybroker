@@ -478,7 +478,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
       </h1>
       <p class="lead">Treinamento presencial para corretores, gestores e donos de imobiliária. Dois dias com quem resolve na prática: prospecção, conversão, previsibilidade, IA aplicada e finanças do corretor.</p>
       <div class="actions">
-        <a class="btn btn-fill" href="#ingressos"><span data-hero-cta>Garantir meu Pass em 12x de R$ 66,17</span></a>
+        <a class="btn btn-fill" href="#ingressos"><span data-hero-cta>Garantir meu ingresso</span></a>
         <a class="btn btn-line" href="#grupos"><span>Levar meu time</span></a>
       </div>
       <div class="proof">
@@ -971,7 +971,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
       document.querySelector('[data-cash="'+k+'"]').textContent="ou "+brl(v)+" à vista";
       document.querySelector('[data-was="'+k+'"]').textContent="";
     });
-    var hc=document.querySelector("[data-hero-cta]");if(hc)hc.textContent="Garantir meu Pass em 12x de "+brl(Math.round(PRICES[L].pass/12*100)/100);
+    
     document.querySelectorAll("[data-buy]").forEach(function(a){
       var link=(CHECKOUT[L]||{})[a.dataset.buy.toLowerCase()];
       if(link){

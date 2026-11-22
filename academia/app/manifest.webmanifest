@@ -1,0 +1,15 @@
+{
+  "name": "Academia de Vendas 27",
+  "short_name": "Academia 27",
+  "description": "Sua área de participante da Academia de Vendas 27: ingresso, contagem regressiva, palestrantes e novidades.",
+  "start_url": "/academia/app/",
+  "scope": "/academia/app/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "lang": "pt-BR",
+  "icons": [
+    {"src": "/academia/app/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "/academia/app/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ]
+}

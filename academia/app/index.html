@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Academia 27">
+<title>Minha Academia 27</title>
+<link rel="manifest" href="/academia/app/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/academia/app/apple-touch-icon.png">
+<link rel="icon" href="/academia/app/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600;700&display=swap">
+<style>
+:root{--bg:#000;--card:#141414;--card2:#0d0d0d;--fg:#FFFADF;--muted:rgba(255,250,223,.62);--line:rgba(255,250,223,.12);
+  --accent:#FC9C55;--accent-deep:#F26B1D;--ok:#4ADE80;--display:"Anton",Impact,sans-serif;--body:"Geist",system-ui,sans-serif;
+  --mono:"Geist Mono",ui-monospace,monospace}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;
+  padding-bottom:calc(90px + env(safe-area-inset-bottom))}
+a{color:var(--accent)}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;line-height:.98;margin:0;letter-spacing:.005em}
+.eyebrow{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+.top{position:sticky;top:0;z-index:5;background:rgba(0,0,0,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+  padding-top:env(safe-area-inset-top)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.brand{font-family:var(--display);font-size:20px;letter-spacing:.02em}
+.brand b{color:var(--accent);font-weight:400}
+.pill{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--accent);
+  color:#000;border-radius:999px;padding:6px 12px}
+section{padding:28px 0;border-bottom:1px solid var(--line)}
+.hero{padding-top:30px}
+.hero h1{font-size:clamp(40px,11vw,68px)}
+.hero h1 span{color:var(--accent)}
+.hero p.sub{color:var(--muted);margin:12px 0 0;font-size:17px}
+.count{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:22px 0 14px}
+.count div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 4px;text-align:center}
+.count b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(34px,10vw,52px);line-height:1;
+  font-variant-numeric:tabular-nums}
+.count small{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.meta{font-family:var(--mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg);margin:0}
+h2{font-size:clamp(30px,8vw,42px);margin-bottom:16px}
+.ticket{width:100%;border-radius:14px;display:block;background:var(--card);aspect-ratio:2400/900;object-fit:cover;border:1px solid var(--line)}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--mono);font-weight:700;font-size:13px;
+  letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border-radius:999px;padding:15px 22px;border:2px solid var(--accent);
+  background:var(--accent);color:#000;cursor:pointer;min-height:48px}
+.btn.ghost{background:transparent;color:var(--fg);border-color:var(--line)}
+.btn.full{width:100%}
+.code{font-family:var(--mono);font-size:14px;color:var(--muted);margin:12px 0 0}
+.code b{color:var(--fg);letter-spacing:.08em}
+ul.benef{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+ul.benef li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px 12px 40px;position:relative}
+ul.benef li:before{content:"";position:absolute;left:15px;top:19px;width:12px;height:7px;border-left:2px solid var(--ok);
+  border-bottom:2px solid var(--ok);transform:rotate(-45deg)}
+.speakers{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;margin:0 -16px;padding-left:16px;
+  padding-right:16px;scrollbar-width:none}
+.speakers::-webkit-scrollbar{display:none}
+.sp{flex:0 0 78%;max-width:300px;scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.sp .ph{aspect-ratio:4/5;background:#1d1d1d center/cover no-repeat;position:relative}
+.sp .ph.initials{display:grid;place-items:center;font-family:var(--display);font-size:64px;color:var(--accent)}
+.sp .ph:after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(transparent,rgba(0,0,0,.85))}
+.sp .nm{position:absolute;left:14px;right:14px;bottom:12px;z-index:1;font-family:var(--display);font-size:26px;line-height:1;text-transform:uppercase}
+.sp .tx{padding:14px}
+.sp .tema{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 6px}
+.sp .res{margin:0;font-size:14px;color:var(--muted)}
+.hint{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.06em;margin:10px 0 0}
+.ed{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:12px}
+.ed .dt{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.ed h3{font-size:26px;margin-bottom:10px}
+.ed p{margin:0 0 10px}
+.ed .dica{background:#1f1a14;border:1px solid #3a2a1a;border-radius:12px;padding:14px;margin:12px 0}
+.ed .dica b{display:block;color:var(--accent);margin-bottom:4px}
+.empty{background:var(--card);border:1px dashed var(--line);border-radius:16px;padding:18px;color:var(--muted)}
+.check{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.check label{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:13px 14px;cursor:pointer}
+.check input{width:22px;height:22px;accent-color:var(--accent);flex:0 0 auto;margin:1px 0 0}
+.check input:checked+span{color:var(--muted);text-decoration:line-through}
+.bar{height:8px;background:var(--card);border-radius:99px;overflow:hidden;margin:0 0 14px;border:1px solid var(--line)}
+.bar i{display:block;height:100%;background:var(--accent);width:0;transition:width .4s}
+.local{border-radius:16px;overflow:hidden;background:var(--card);border:1px solid var(--line)}
+.local img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
+.local div{padding:16px}
+.local p{margin:0 0 8px}
+.ref{background:linear-gradient(135deg,#2a1608,#141414);border:1px solid #4a2a12;border-radius:16px;padding:18px}
+.ref p{margin:0 0 12px}
+.install{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.install p{margin:0 0 8px;font-size:15px}
+.fab{position:fixed;left:16px;right:16px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:6;max-width:688px;margin:0 auto}
+.fab .btn{width:100%;background:rgba(20,20,20,.94);color:var(--fg);border-color:rgba(252,156,85,.55);min-height:46px;padding:12px 18px;
+  backdrop-filter:blur(8px);box-shadow:0 10px 30px rgba(0,0,0,.6)}
+.gate{min-height:80vh;display:grid;place-items:center;text-align:center}
+.gate form{display:grid;gap:10px;max-width:380px;margin:18px auto 0}
+.gate input{font:inherit;font-size:17px;padding:15px 16px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--fg)}
+.gate p{color:var(--muted)}
+.hide{display:none!important}
+@media (min-width:720px){.sp{flex-basis:260px}}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><div class="brand">ACADEMIA DE VENDAS <b>27</b></div><span class="pill hide" id="pill"></span></div></div>
+
+<main class="wrap">
+  <div id="gate" class="gate hide">
+    <div>
+      <p class="eyebrow">Área do participante</p>
+      <h1 style="font-size:44px" id="gateTitle">Entre com o e-mail da compra</h1>
+      <p id="gateText">Mandamos o link do seu acesso para o e-mail que você usou ao comprar o ingresso.</p>
+      <form id="gateForm">
+        <input type="email" id="gateEmail" required placeholder="seu@email.com" autocomplete="email" inputmode="email">
+        <button class="btn" type="submit">Receber meu acesso</button>
+      </form>
+      <p id="gateOk" class="hide" style="color:var(--fg)">Pronto! Se este e-mail tiver ingresso da Academia, o link chega em instantes. Confira também o spam.</p>
+    </div>
+  </div>
+
+  <div id="app" class="hide">
+    <section class="hero">
+      <p class="eyebrow">13 e 14 de janeiro de 2027</p>
+      <h1>Olá, <span id="nome"></span>!<br>Seu lugar está garantido.</h1>
+      <div class="count" aria-live="polite">
+        <div><b id="cd">0</b><small>dias</small></div><div><b id="ch">0</b><small>horas</small></div>
+        <div><b id="cm">0</b><small>min</small></div><div><b id="cs">0</b><small>seg</small></div>
+      </div>
+      <p class="meta">Das 8h às 20h · Flamboyant Hall · Goiânia</p>
+    </section>
+
+    <section id="ingresso">
+      <p class="eyebrow">Seu ingresso</p>
+      <h2>Apresente na entrada</h2>
+      <img class="ticket" id="ticket" alt="Seu ingresso da Academia de Vendas 27 com QR Code">
+      <p class="code">Código <b id="codigo"></b></p>
+      <div class="row">
+        <a class="btn" id="pdf" href="#">Baixar ingresso em PDF</a>
+      </div>
+    </section>
+
+    <section>
+      <p class="eyebrow">O que está no seu ingresso <span id="tier"></span></p>
+      <ul class="benef" id="benef"></ul>
+    </section>
+
+    <section>
+      <p class="eyebrow">No palco</p>
+      <h2>Os palestrantes</h2>
+      <div class="speakers" id="speakers"></div>
+      <p class="hint">Arraste para o lado · toda semana um novo nome é revelado</p>
+    </section>
+
+    <section>
+      <p class="eyebrow">Toda quinta</p>
+      <h2>Novidades da semana</h2>
+      <div id="eds"></div>
+    </section>
+
+    <section>
+      <p class="eyebrow">Até o evento</p>
+      <h2>Seu checklist</h2>
+      <div class="bar"><i id="barra"></i></div>
+      <ul class="check" id="check"></ul>
+    </section>
+
+    <section>
+      <p class="eyebrow">O local</p>
+      <div class="local">
+        <img src="/academia/fotos/local/shopping-noite.jpg" alt="Flamboyant Shopping à noite" loading="lazy">
+        <div>
+          <h3 style="font-size:28px;margin-bottom:8px">Flamboyant Hall</h3>
+          <p>Dentro do Flamboyant Shopping, no Jardim Goiás, em Goiânia. Restaurantes, cafés e praça de alimentação no shopping, hotéis a poucos minutos e o aeroporto perto.</p>
+          <a class="btn ghost" id="mapa" target="_blank" rel="noopener">Abrir no mapa</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="ref">
+        <p class="eyebrow">Indique e ganhe</p>
+        <h3 style="font-size:28px;margin-bottom:10px">Traga um colega e ganhe 5%</h3>
+        <p>Cada ingresso vendido pelo seu link pessoal te rende 5%, pago direto pela Hotmart. Peça sua afiliação e a gente aprova.</p>
+        <a class="btn" id="afiliado" target="_blank" rel="noopener">Quero indicar</a>
+      </div>
+    </section>
+
+    <section style="border-bottom:0">
+      <div class="install">
+        <p class="eyebrow">Tenha no celular</p>
+        <p><b>iPhone:</b> toque em Compartilhar e depois em "Adicionar à Tela de Início".</p>
+        <p><b>Android:</b> toque no menu do navegador e em "Instalar app" ou "Adicionar à tela inicial".</p>
+        <button class="btn ghost hide" id="instalar" type="button">Instalar agora</button>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="fab hide" id="fab"><a class="btn" id="zap" target="_blank" rel="noopener">Falar com a equipe no WhatsApp</a></div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
+  var params=new URLSearchParams(location.search), code=(params.get('c')||store('av27_code')||'').trim().toUpperCase();
+
+  function gate(title,text){
+    $('gate').classList.remove('hide');$('app').classList.add('hide');$('fab').classList.add('hide');
+    if(title)$('gateTitle').textContent=title; if(text)$('gateText').textContent=text;
+  }
+  $('gateForm').addEventListener('submit',function(ev){
+    ev.preventDefault();
+    fetch('/api/participante/link',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:$('gateEmail').value})})
+      .finally(function(){$('gateForm').classList.add('hide');$('gateOk').classList.remove('hide')});
+  });
+
+  function dataBR(iso){var p=iso.split('-');return p[2]+'/'+p[1]}
+
+  function render(d){
+    store('av27_code',d.codigo);
+    if(params.get('c')) history.replaceState(null,'',location.pathname);
+    $('gate').classList.add('hide');$('app').classList.remove('hide');$('fab').classList.remove('hide');
+    $('nome').textContent=d.primeiro||'participante';
+    $('pill').textContent=d.ingresso;$('pill').classList.remove('hide');$('tier').textContent='· '+d.ingresso;
+    $('ticket').src='/api/ingresso/imagem?c='+encodeURIComponent(d.codigo);
+    $('pdf').href='/api/ingresso/pdf?c='+encodeURIComponent(d.codigo);
+    $('codigo').textContent=d.codigo;
+    $('mapa').href=d.mapa;$('afiliado').href=d.afiliado;$('zap').href=d.whatsapp;
+
+    d.beneficios.forEach(function(b){$('benef').appendChild(el('li',null,b))});
+
+    d.palestrantes.forEach(function(p){
+      var c=el('article','sp'),ph=el('div','ph');
+      if(p.foto){ph.style.backgroundImage='url(/academia/fotos/2027/'+p.foto+')'}
+      else{ph.classList.add('initials');ph.textContent=p.nome.split(' ').map(function(w){return w[0]}).slice(0,2).join('')}
+      ph.appendChild(el('div','nm',p.nome));c.appendChild(ph);
+      var tx=el('div','tx');tx.appendChild(el('p','tema',p.tema));if(p.resumo)tx.appendChild(el('p','res',p.resumo));
+      c.appendChild(tx);$('speakers').appendChild(c);
+    });
+
+    if(!d.edicoes.length){
+      $('eds').appendChild(el('div','empty',d.proxima?'A primeira edição chega na quinta, '+dataBR(d.proxima)+'. Toda semana, uma novidade da Academia e uma dica para você aplicar já.':'Em breve.'));
+    }else{
+      if(d.proxima) $('eds').appendChild(el('p','hint','Próxima edição: '+dataBR(d.proxima)));
+      d.edicoes.forEach(function(e,i){
+        var c=el('article','ed');c.appendChild(el('p','dt','Edição '+e.n+' · '+dataBR(e.data)+(i===0?' · nova':'')));
+        c.appendChild(el('h3',null,e.titulo));c.appendChild(el('p',null,e.abertura));
+        var dc=el('div','dica');dc.appendChild(el('b',null,e.dica_titulo));dc.appendChild(document.createTextNode(e.dica));c.appendChild(dc);
+        c.appendChild(el('p',null,e.novidade));$('eds').appendChild(c);
+      });
+    }
+
+    var key='av27_check_'+d.codigo, feitos={};
+    try{feitos=JSON.parse(store(key)||'{}')||{}}catch(e){}
+    function barra(){var n=Object.keys(feitos).filter(function(k){return feitos[k]}).length;$('barra').style.width=(100*n/d.checklist.length)+'%'}
+    d.checklist.forEach(function(t,i){
+      var li=el('li'),lb=el('label'),cb=el('input');cb.type='checkbox';cb.checked=!!feitos[i];
+      cb.addEventListener('change',function(){feitos[i]=cb.checked;store(key,JSON.stringify(feitos));barra()});
+      lb.appendChild(cb);lb.appendChild(el('span',null,t));li.appendChild(lb);$('check').appendChild(li);
+    });
+    barra();
+
+    function tick(){
+      var s=Math.max(0,Math.floor(d.evento-Date.now()/1000));
+      $('cd').textContent=Math.floor(s/86400);$('ch').textContent=Math.floor(s%86400/3600);
+      $('cm').textContent=Math.floor(s%3600/60);$('cs').textContent=s%60;
+    }
+    tick();setInterval(tick,1000);
+  }
+
+  var pedido=null;
+  window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();pedido=e;$('instalar').classList.remove('hide')});
+  $('instalar').addEventListener('click',function(){if(pedido){pedido.prompt();pedido=null;$('instalar').classList.add('hide')}});
+
+  if(!code){gate();return}
+  fetch('/api/participante?c='+encodeURIComponent(code)).then(function(r){return r.json()}).then(function(d){
+    if(d&&d.ok)render(d);
+    else{try{localStorage.removeItem('av27_code')}catch(e){} gate('Não achamos este ingresso','Peça seu acesso de novo com o e-mail que você usou na compra.')}
+  }).catch(function(){gate('Sem conexão agora','Confira sua internet e abra de novo. Se preferir, peça o link de acesso pelo e-mail da compra.')});
+})();
+</script>
+</body>
+</html>

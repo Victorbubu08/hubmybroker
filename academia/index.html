@@ -188,6 +188,10 @@ section{padding-block:clamp(72px,9vw,128px)}
 .speakers{--n:152px;--a:361px;--g:20px;--h:380px;--autoplay:6s;--slide:cubic-bezier(.22,1,.36,1)}
 .sp-top{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
 .sp-top .title .muted{color:var(--fg)}
+.reveal-line{margin:14px 0 0;font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:var(--muted)}
+.reveal-line b{color:var(--accent);font-weight:600}
+.card.mystery .ini{-webkit-text-stroke:2px rgba(252,156,85,.9)}
+.card.mystery .soon{opacity:1;color:var(--accent);border-color:rgba(252,156,85,.5)}
 .sp-nav{display:flex;gap:10px}
 .nav-btn{width:52px;height:52px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--fg);display:grid;place-items:center;cursor:pointer;transition:background .3s,border-color .3s,color .3s}
 .nav-btn:hover{background:var(--accent);border-color:var(--accent);color:#000}
@@ -563,6 +567,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
         <div class="head">
           <p class="eyebrow">Palestrantes já confirmados</p>
           <h2 class="title">Quem sobe ao <span class="muted">palco em 2027</span></h2>
+          <p class="reveal-line" id="reveal-line">Toda quarta-feira revelamos um novo palestrante.</p>
         </div>
         <div class="sp-nav">
           <button class="nav-btn" type="button" id="sp-prev" aria-label="Palestrante anterior"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
@@ -633,7 +638,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
         <article class="talk talk-more tilt">
           <div class="talk-top"><span class="n">+</span><span class="tema">Também no palco</span></div>
           <h3>IA aplicada à rotina do corretor e mais nomes confirmados</h3>
-          <p>Camila Alcântara (FGR), Raphael Rios, Leandro Batista e Victor Albuquerque. Os temas destas palestras serão anunciados em breve.</p>
+          <p>Camila Alcântara (FGR), Raphael Rios, Leandro Batista e Victor Albuquerque. Os temas destas palestras serão anunciados em breve, e toda quarta-feira revelamos um novo palestrante.</p>
           <a class="btn btn-fill" href="#ingressos"><span>Garantir meu lugar</span></a>
         </article>
       </div>
@@ -1017,6 +1022,18 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   document.getElementById("ptable").insertAdjacentHTML("beforeend",html);
 
   /* palestrantes 2027: foto entra quando chegar (campo img) */
+  /* REVELAÇÃO SEMANAL: toda quarta, 9h, entra um palestrante novo.
+     Para revelar, preencha name, role e img da data. Data que passou sem nome fica escondida
+     e o card-surpresa pula para a próxima quarta. */
+  var REVEAL=[
+    {date:"2026-11-26"},{date:"2026-12-03"},{date:"2026-12-10"},{date:"2026-12-17"},
+    {date:"2026-12-24"},{date:"2026-12-31"},{date:"2027-01-06"}
+  ];
+  function rt(d){return new Date(d+"T09:00:00-03:00").getTime()}
+  var nowR=Date.now();
+  var revealed=REVEAL.filter(function(r){return r.name&&rt(r.date)<=nowR});
+  var nextR=REVEAL.filter(function(r){return rt(r.date)>nowR})[0];
+  function dm(d){return d.slice(8,10)+"/"+d.slice(5,7)}
   var people=[
     {name:"Ronaldo Dantas",role:"CEO · My Broker",img:"fotos/2027/ronaldo.webp"},
     {name:"Pedro Fonseca",role:"Reforma Tributária",img:"fotos/2027/pedro.webp",full:true},
@@ -1030,10 +1047,20 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     {name:"Leandro Batista",role:"Confirmado 2027",img:"fotos/2027/leandro.webp"},
     {name:"Victor Albuquerque",role:"Confirmado 2027",img:"fotos/2027/victor.webp"}
   ];
+  people=revealed.map(function(r){return {name:r.name,role:r.role||"Revelado em "+dm(r.date),img:r.img,full:r.full}}).concat(people);
+  if(nextR) people.push({name:"Novo palestrante",role:"Revelado na quarta, "+dm(nextR.date),mystery:true,date:nextR.date});
+  (function(){
+    var el=document.getElementById("reveal-line"); if(!el||!nextR) return;
+    function upd(){var t=Math.max(0,Math.floor((rt(nextR.date)-Date.now())/1000)),d=Math.floor(t/86400),h=Math.floor(t%86400/3600),m=Math.floor(t%3600/60);
+      el.innerHTML="Toda quarta-feira revelamos um novo palestrante. Próximo: <b>quarta, "+dm(nextR.date)+"</b> · faltam "+d+"d "+h+"h "+m+"min";}
+    upd(); setInterval(upd,30000);
+  })();
   function ini(n){var w=n.split(" ");return (w[0][0]+w[w.length-1][0]).toUpperCase()}
   var track=document.getElementById("track"),car=document.getElementById("carousel");
   var reais=people.length;
   track.innerHTML=people.concat(people).map(function(x,i){
+    if(x.mystery){var mm='<div class="ph"></div><span class="ini" aria-hidden="true">?</span><span class="soon">'+dm(x.date)+'</span>';
+      return '<article class="card mystery" '+(i<reais?'tabindex="0"':'tabindex="-1" aria-hidden="true"')+' data-i="'+(i%reais)+'" aria-label="Novo palestrante, revelado em '+dm(x.date)+'">'+mm+'<div class="dim"></div><div class="shade"></div><span class="vname" aria-hidden="true">Em breve</span><div class="info"><h3>'+x.name+'</h3><p>'+x.role+'</p><div class="progress"><div class="bar"></div></div></div></article>';}
     var media=x.img?'<div class="ph"></div><img class="'+(x.full?'full':'corte')+'" src="'+x.img+'" alt="'+x.name+'"><div class="gray"></div>':'<div class="ph"></div><span class="ini" aria-hidden="true">'+ini(x.name)+'</span><span class="soon">Foto em breve</span>';
     return '<article class="card" '+(i<reais?'tabindex="0"':'tabindex="-1" aria-hidden="true"')+' data-i="'+(i%reais)+'" aria-label="'+x.name+'">'+media+'<div class="dim"></div><div class="shade"></div><span class="vname" aria-hidden="true">'+x.name+'</span><div class="info"><h3>'+x.name+'</h3><p>'+x.role+'</p><div class="progress"><div class="bar"></div></div></div></article>';
   }).join("");

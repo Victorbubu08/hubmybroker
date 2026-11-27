@@ -2,6 +2,13 @@
  "_como_usar": "Cópia de segurança: a contagem real vem de /api/cotas, editada no painel do Hub.",
  "cotas": [
   {
+   "id": "apoio",
+   "nome": "Cota Apoio",
+   "total": 10,
+   "vendidas": 0,
+   "valor": 10000
+  },
+  {
    "id": "assinatura",
    "nome": "Cota Assinatura",
    "total": 2,

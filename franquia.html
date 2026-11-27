@@ -376,16 +376,17 @@ form .ok{font-size:14px;color:var(--verde2)}form .ok a{text-decoration:underline
   var WA = "5562998810378";
   var ab = document.getElementById("abertura"), v = document.getElementById("ab-v"), pula = document.getElementById("ab-pula"), anel = document.getElementById("ab-anel");
   var reduz = matchMedia("(prefers-reduced-motion: reduce)").matches, visto = false;
-  try { visto = sessionStorage.getItem("fq_abertura") === "1"; } catch (e) {}
-  if (/[?&]sem-abertura/.test(location.search) || location.hash) visto = true;
+  if (/[?&]sem-abertura/.test(location.search)) visto = true;
+  var alvo = null; try { alvo = location.hash ? document.getElementById(decodeURIComponent(location.hash.slice(1))) : null; } catch (e) {}
+  if (alvo && !visto) { history.replaceState(null, "", location.pathname + location.search); scrollTo(0, 0); }
   var iniciou = false;
   function fechar(){
     if (!ab || ab.classList.contains("fim")) return;
-    try { sessionStorage.setItem("fq_abertura", "1"); } catch (e) {}
     try { v.pause(); } catch (e) {}
     ab.classList.add("fim"); document.body.classList.remove("travado");
     setTimeout(function(){ ab.remove(); }, 1000);
     iniciar();
+    if (alvo) setTimeout(function(){ alvo.scrollIntoView({behavior: "smooth"}); history.replaceState(null, "", "#" + alvo.id); }, 700);
   }
   function iniciar(){
     if (iniciou) return; iniciou = true;

@@ -26,14 +26,14 @@
    "id": "protagonista",
    "nome": "Cota Protagonista",
    "total": 7,
-   "vendidas": 0,
+   "vendidas": 3,
    "valor": 25000
   },
   {
    "id": "stand",
    "nome": "Cota Stand",
    "total": 6,
-   "vendidas": 0,
+   "vendidas": 3,
    "valor": 30000
   },
   {
@@ -53,6 +53,13 @@
   {
    "id": "master",
    "nome": "Cota Master",
+   "total": 1,
+   "vendidas": 0,
+   "valor": 60000
+  },
+  {
+   "id": "vip",
+   "nome": "Cota VIP",
    "total": 1,
    "vendidas": 0,
    "valor": 60000

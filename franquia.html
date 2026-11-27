@@ -214,14 +214,12 @@ form .ok{font-size:14px;color:var(--verde2)}form .ok a{text-decoration:underline
     <p class="mono">Franquias My Broker</p>
     <h1>Uma nova forma de ter a sua imobiliária <span class="grad-txt">chegou.</span></h1>
     <button class="btn" id="ab-entrar" type="button">Entrar <span class="seta">↗</span></button>
-    <small>Com som, é melhor.</small>
   </div>
   <div class="ab-logo" aria-hidden="true"><img src="assets/my-broker-v1-480.webp" alt="" style="filter:brightness(0) invert(1)"></div>
   <div class="ab-video">
-    <video id="ab-v" playsinline preload="metadata" src="academia/video/destaques.mp4"></video>
+    <video id="ab-v" playsinline muted preload="metadata" src="academia/video/destaques.mp4"></video>
     <span class="tag mono">A rede My Broker</span>
   </div>
-  <button class="ab-ctrl som" id="ab-som" type="button" aria-pressed="true">🔊 Som</button>
   <button class="ab-ctrl pula" id="ab-pula" type="button"><span id="ab-pula-t">Pular abertura</span><svg class="anel" viewBox="0 0 22 22" aria-hidden="true"><circle class="f" cx="11" cy="11" r="9"/><circle class="p" id="ab-anel" cx="11" cy="11" r="9"/></svg></button>
 </div>
 
@@ -422,11 +420,9 @@ form .ok{font-size:14px;color:var(--verde2)}form .ok a{text-decoration:underline
       setTimeout(function(){
         ab.classList.remove("logo"); ab.classList.add("video");
         document.getElementById("ab-pula-t").textContent = "Pular vídeo";
-        v.muted = false; var p = v.play();
-        if (p && p.catch) p.catch(function(){ v.muted = true; document.getElementById("ab-som").textContent = "🔇 Som"; v.play().catch(fechar); });
+        var p = v.play(); if (p && p.catch) p.catch(fechar);
       }, 2600);
     });
-    document.getElementById("ab-som").addEventListener("click", function(){ v.muted = !v.muted; this.setAttribute("aria-pressed", String(!v.muted)); this.textContent = v.muted ? "🔇 Som" : "🔊 Som"; });
     pula.addEventListener("click", fechar);
     v.addEventListener("timeupdate", function(){ if (v.duration) anel.style.strokeDashoffset = 56.5 * (1 - v.currentTime / v.duration); });
     v.addEventListener("ended", fechar); v.addEventListener("error", function(){ if (ab && ab.classList.contains("video")) fechar(); });

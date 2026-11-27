@@ -25,8 +25,8 @@
 <style>
 /* Layout: palco preto, texto creme, pêssego só em títulos e ações; cards de foto que passam e abrem */
 :root{
-  --bg:#000000; --card:#141414; --card-2:#0d0d0d; --fg:#FFFADF; --muted:rgba(255,250,223,.6); --line:rgba(255,250,223,.12);
-  --accent:#FC9C55; --accent-deep:#F26B1D; --bar:#FF4A12; --on-accent:#000000; --ok:#4ADE80;
+  --bg:#050816; --card:#0c1330; --card-2:#080e24; --fg:#FFFFFF; --muted:rgba(214,224,255,.66); --line:rgba(140,165,255,.16);
+  --accent:#3A6BFF; --accent-deep:#1F4FFF; --bar:#1F4FFF; --on-accent:#FFFFFF; --ok:#4ADE80;
   --tier-1:linear-gradient(160deg,#16306b 0%,#0b1838 55%,#060d22 100%);
   --tier-2:linear-gradient(160deg,#a3200f 0%,#5c0f08 55%,#2a0603 100%);
   --tier-3:linear-gradient(160deg,#e9e9e9 0%,#b9b9b9 45%,#7d7d7d 100%);
@@ -62,7 +62,7 @@ section{padding-block:clamp(72px,9vw,128px)}
 .btn-fill:hover{animation-duration:1s}
 .btn-line{background:transparent;color:var(--accent)}
 .btn-line:hover,.btn-line:focus-visible{background:var(--accent);color:var(--on-accent)}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(252,156,85,.7)}50%{box-shadow:0 0 0 18px rgba(252,156,85,0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(58,107,255,.7)}50%{box-shadow:0 0 0 18px rgba(58,107,255,0)}}
 
 /* barra do lote */
 .promo{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--bar);color:#fff}
@@ -114,7 +114,7 @@ section{padding-block:clamp(72px,9vw,128px)}
 .actions{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
 .proof{display:flex;align-items:center;gap:14px;margin-top:32px}
 .faces{display:flex}
-.faces img{width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:78% 20%;border:2px solid #000;background:#1a1a1a}
+.faces img{width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:78% 20%;border:2px solid #000;background:#111a3a}
 .faces img + img{margin-left:-12px}
 .proof p{margin:0;font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-align:left;line-height:1.4}
 .proof strong{color:var(--accent);font-weight:600}
@@ -128,14 +128,14 @@ section{padding-block:clamp(72px,9vw,128px)}
 .mono3d{position:absolute;left:50%;top:38%;z-index:0;width:min(900px,120vw);aspect-ratio:2/1;transform:translate(-50%,-50%);perspective:1400px;pointer-events:none}
 .m3-tilt{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(var(--rx,8deg)) rotateY(var(--ry,0deg));transition:transform 1s var(--ease)}
 .m3-inner{position:absolute;inset:0;transform-style:preserve-3d;animation:sway 14s ease-in-out infinite;will-change:transform}
-.m3-inner span{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-size:min(560px,72vw);line-height:1;letter-spacing:-.02em;color:transparent;transform:translateZ(calc(var(--z) * 1px));-webkit-text-stroke:1px rgba(252,156,85,calc(.06 + var(--k) * .22))}
-.m3-inner span.face{color:rgba(8,8,8,.6);-webkit-text-stroke:2px rgba(252,156,85,.9)}
+.m3-inner span{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-size:min(560px,72vw);line-height:1;letter-spacing:-.02em;color:transparent;transform:translateZ(calc(var(--z) * 1px));-webkit-text-stroke:1px rgba(58,107,255,calc(.06 + var(--k) * .22))}
+.m3-inner span.face{color:rgba(8,8,8,.6);-webkit-text-stroke:2px rgba(58,107,255,.9)}
 @keyframes sway{0%,100%{transform:rotateY(-24deg) translateY(0)}50%{transform:rotateY(4deg) translateY(-12px)}}
 @media (max-width:640px){.mono3d{top:30%;opacity:.7}}
 
 /* 3D: cards inclinam com o mouse */
 .tilt{transform-style:preserve-3d;will-change:transform;transition:transform .5s var(--ease)}
-.tilt .glare{position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,250,223,.22),transparent 55%);opacity:0;transition:opacity .4s;z-index:3}
+.tilt .glare{position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(214,224,255,.22),transparent 55%);opacity:0;transition:opacity .4s;z-index:3}
 .tilt:hover .glare{opacity:1}
 
 /* faixa de fotos passando */
@@ -147,7 +147,7 @@ section{padding-block:clamp(72px,9vw,128px)}
 .venue-grid figure:hover img{transform:scale(1.04)}
 .venue-grid figcaption{position:absolute;z-index:1;left:16px;bottom:16px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;border-radius:100px;background:rgba(0,0,0,.55);color:var(--fg);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .venue-grid .v-big{grid-row:span 2}
-.v-info{border-radius:22px;padding:26px 28px;background:radial-gradient(120% 140% at 100% 0%,rgba(252,156,85,.22),transparent 60%),var(--card);border:1px solid rgba(252,156,85,.25);display:flex;flex-direction:column;justify-content:center;gap:8px}
+.v-info{border-radius:22px;padding:26px 28px;background:radial-gradient(120% 140% at 100% 0%,rgba(58,107,255,.22),transparent 60%),var(--card);border:1px solid rgba(58,107,255,.25);display:flex;flex-direction:column;justify-content:center;gap:8px}
 .v-info .v-k{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
 .v-info h3{margin:0;font-family:var(--display,inherit);font-size:clamp(28px,3vw,40px);line-height:1;text-transform:uppercase}
 .v-info p{margin:0;color:var(--muted);font-size:15px;line-height:1.5}
@@ -196,17 +196,17 @@ section{padding-block:clamp(72px,9vw,128px)}
 .sp-top .title .muted{color:var(--fg)}
 .reveal-line{margin:14px 0 0;font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:var(--muted)}
 .reveal-line b{color:var(--accent);font-weight:600}
-.card.mystery .ini{-webkit-text-stroke:2px rgba(252,156,85,.9)}
-.card.mystery .soon{opacity:1;color:var(--accent);border-color:rgba(252,156,85,.5)}
+.card.mystery .ini{-webkit-text-stroke:2px rgba(58,107,255,.9)}
+.card.mystery .soon{opacity:1;color:var(--accent);border-color:rgba(58,107,255,.5)}
 .sp-nav{display:flex;gap:10px}
 .nav-btn{width:52px;height:52px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--fg);display:grid;place-items:center;cursor:pointer;transition:background .3s,border-color .3s,color .3s}
 .nav-btn:hover{background:var(--accent);border-color:var(--accent);color:#000}
 .nav-btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .carousel{margin-top:48px;overflow:hidden}
 .track{display:flex;gap:var(--g);height:var(--h);transform:translate3d(calc(var(--shift,0px) * -1),0,0);transition:transform .7s var(--slide);will-change:transform}
-.card{position:relative;flex:0 0 var(--n);height:100%;border-radius:18px;overflow:hidden;background:#141414;cursor:pointer;contain:layout paint;transition:flex-basis .7s var(--slide),opacity .5s var(--slide)}
-.card .ph{position:absolute;inset:0;background:radial-gradient(120% 70% at 50% 110%,rgba(252,156,85,.35),transparent 60%),linear-gradient(180deg,#1b1b1b,#0b0b0b)}
-.card .ini{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-size:clamp(90px,12vw,190px);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(252,156,85,.55);transition:opacity .6s,transform .9s var(--ease)}
+.card{position:relative;flex:0 0 var(--n);height:100%;border-radius:18px;overflow:hidden;background:#0c1330;cursor:pointer;contain:layout paint;transition:flex-basis .7s var(--slide),opacity .5s var(--slide)}
+.card .ph{position:absolute;inset:0;background:radial-gradient(120% 70% at 50% 110%,rgba(58,107,255,.35),transparent 60%),linear-gradient(180deg,#111a3a,#070c1f)}
+.card .ini{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-size:clamp(90px,12vw,190px);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(58,107,255,.55);transition:opacity .6s,transform .9s var(--ease)}
 .card img{position:absolute;left:0;right:0;bottom:0;width:100%;object-fit:cover;transition:transform .9s var(--ease)}
 .card img.corte{top:7%;height:93%;object-position:50% 0%}
 .card img.full{top:0;height:100%;object-position:50% 25%}
@@ -219,7 +219,7 @@ section{padding-block:clamp(72px,9vw,128px)}
 .card .info h3{font-size:clamp(28px,2.4vw,36px)}
 .card .info p{margin:0;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
 .card .soon{position:absolute;top:18px;left:18px;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--line);background:rgba(0,0,0,.5);border-radius:999px;padding:5px 11px;color:var(--muted);opacity:0;transition:opacity .5s}
-.progress{height:2px;background:rgba(255,250,223,.12);border-radius:2px;overflow:hidden;margin-top:10px}
+.progress{height:2px;background:rgba(214,224,255,.12);border-radius:2px;overflow:hidden;margin-top:10px}
 .bar{height:100%;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left}
 .card.on{flex-basis:var(--a);cursor:default}
 .card.on .gray,.card.on .dim{opacity:0}
@@ -322,7 +322,7 @@ section{padding-block:clamp(72px,9vw,128px)}
 .lots .cur{border-top-color:var(--accent)}
 .lots .cur span{color:var(--accent)}
 @media (max-width:520px){.lots{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.offer{display:inline-flex;align-items:center;gap:12px;margin-top:22px;background:rgba(255,74,18,.12);border:1px solid rgba(255,74,18,.5);color:var(--fg);border-radius:999px;padding:12px 22px;font-family:var(--mono);font-size:14px;font-weight:500}
+.offer{display:inline-flex;align-items:center;gap:12px;margin-top:22px;background:rgba(31,79,255,.12);border:1px solid rgba(31,79,255,.5);color:var(--fg);border-radius:999px;padding:12px 22px;font-family:var(--mono);font-size:14px;font-weight:500}
 .offer b{color:var(--accent);font-variant-numeric:tabular-nums}
 .offer .dot{width:9px;height:9px;border-radius:50%;background:var(--bar);animation:blink 1.2s infinite}
 @keyframes blink{50%{opacity:.25}}
@@ -349,7 +349,7 @@ section{padding-block:clamp(72px,9vw,128px)}
 .cell{border-bottom:1px solid var(--line);display:grid;place-items:center;padding:18px 0;background:var(--card-2)}
 .cell svg{width:22px;height:22px}
 .yes-i{fill:var(--ok)}
-.no-i{fill:none;stroke:rgba(255,250,223,.25);stroke-width:2.4;stroke-linecap:round}
+.no-i{fill:none;stroke:rgba(214,224,255,.25);stroke-width:2.4;stroke-linecap:round}
 .pricing .spacer{border-bottom:0}
 .group{margin-top:48px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:16px;align-items:stretch}
 .group > div{background:var(--card);border-radius:22px;padding:28px;display:grid;gap:10px;align-content:start;position:relative}
@@ -379,7 +379,7 @@ section{padding-block:clamp(72px,9vw,128px)}
 .sponsor .mk .eyebrow{color:var(--accent);opacity:1}
 .sponsor .mk h2{color:var(--fg);font-size:clamp(40px,5vw,72px)}
 .sponsor .mk p{max-width:60ch;margin:0 auto}
-.spx{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:16px}
+.spx{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px}
 .spx div{background:var(--card);border-radius:20px;padding:24px;display:grid;gap:6px}
 .spx strong{font-family:var(--display);font-weight:400;font-size:clamp(34px,3.6vw,48px);line-height:1;color:var(--accent)}
 .spx span{color:var(--muted);font-size:14px}
@@ -404,6 +404,14 @@ section{padding-block:clamp(72px,9vw,128px)}
 .palestras-cota{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:24px}
 .palestras-cota a{display:grid;gap:6px;background:var(--card);border-radius:18px;padding:20px;text-decoration:none;color:var(--fg)}
 .palestras-cota b{font-size:17px}.palestras-cota span{color:var(--muted);font-size:14px;line-height:1.45}.palestras-cota small{font-family:var(--mono);font-size:12px;color:var(--accent)}
+.cota.esgotada{opacity:.55}.cota.esgotada .btn{pointer-events:none}.cota .q.restam{color:var(--accent);font-weight:700}
+.tema44{position:relative;overflow:hidden;padding:96px 0;background:radial-gradient(60% 80% at 75% 50%,rgba(31,79,255,.22),transparent 70%)}
+.tema44 .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:24px;align-items:center}
+.t44{margin:10px 0 0;font-family:var(--display);text-transform:uppercase;font-style:italic;line-height:.86;font-size:clamp(64px,9vw,140px);letter-spacing:-.01em}
+.t44 span{display:block;color:#fff}.t44 b{display:block;color:var(--accent-deep);font-weight:400}
+.tema44 .sub{margin-top:22px;max-width:520px}
+.t44-img{width:100%;height:auto;-webkit-mask-image:radial-gradient(70% 70% at 55% 50%,#000 55%,transparent 100%);mask-image:radial-gradient(70% 70% at 55% 50%,#000 55%,transparent 100%)}
+@media (max-width:800px){.tema44 .wrap{grid-template-columns:1fr}.t44-img{order:-1;max-width:520px;margin:0 auto}}
 .sponsor .cotas-note{color:var(--muted);font-size:14px;text-align:center;margin:24px auto 0;max-width:none}
 @media (max-width:960px){.cotas{grid-template-columns:repeat(2,minmax(0,1fr))}.spx{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:600px){.cotas{grid-template-columns:1fr}}
@@ -499,6 +507,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
         </div>
         <p><strong>+19.500 profissionais</strong><br>já passaram pela Academia</p>
       </div>
+    </div>
+  </section>
+
+  <section class="tema44" id="tema">
+    <div class="wrap">
+      <div class="t44-txt">
+        <p class="eyebrow">Tema da 44ª edição</p>
+        <h2 class="t44"><span>Evolua ou</span><b>morra</b></h2>
+        <p class="sub"><strong>O mercado imobiliário mudou.</strong> Quem não se adapta fica pelo caminho. Na 44ª edição, a Academia de Vendas reúne grandes nomes do mercado para mostrar como evoluir em vendas, negócios e posicionamento.</p>
+      </div>
+      <img class="t44-img" src="fotos/evolua-dino.jpg" alt="" aria-hidden="true">
     </div>
   </section>
 
@@ -857,7 +876,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
           <h2>Sua marca no maior palco de vendas do mercado imobiliário</h2>
           <p>Associe sua marca à Academia de Vendas e fale com quem mais vende imóveis no país, antes, durante e depois do evento.</p>
           <div class="actions">
-            <a class="btn btn-fill" href="https://wa.me/5562998810378?text=Ol%C3%A1!%20Quero%20receber%20o%20m%C3%ADdia%20kit%20da%20Academia%20de%20Vendas%2027." target="_blank" rel="noopener"><span>Solicitar mídia kit</span></a>
+            <a class="btn btn-fill" href="midia-kit.pdf" target="_blank" rel="noopener"><span>Baixar o mídia kit</span></a>
             <a class="btn btn-line" href="https://wa.me/5562998810378?text=Ol%C3%A1!%20Quero%20patrocinar%20a%20Academia%20de%20Vendas%2027." target="_blank" rel="noopener"><span>Falar no WhatsApp</span></a>
           </div>
         </div>
@@ -874,9 +893,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     </div>
     <div class="wrap">
       <div class="spx">
-        <div><strong>+1.500</strong><span>participantes esperados em 2027</span></div>
-        <div><strong>+18h</strong><span>de conteúdo em dois dias</span></div>
-        <div><strong>2,1 mi</strong><span>pessoas alcançadas nas redes</span></div>
+        <div><strong>+19.500</strong><span>participantes nas edições</span></div>
+        <div><strong>+572h</strong><span>de conteúdo</span></div>
+        <div><strong>+120</strong><span>marcas impactadas</span></div>
+        <div><strong>2,1 mi</strong><span>de alcance nas redes</span></div>
+        <div><strong>5,1 mi</strong><span>de visualizações</span></div>
         <div><strong>90%</strong><span>do público é do mercado imobiliário</span></div>
       </div>
       <div class="head center mk" style="margin-top:64px">
@@ -885,7 +906,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
         <p class="sub">Seis formatos, do palco ao credenciamento. As cotas são limitadas e reservadas por ordem de fechamento.</p>
       </div>
       <div class="cotas">
-        <article class="cota tilt">
+        <article class="cota tilt" data-cota="conexao">
           <span class="q">04 cotas</span>
           <h3>Cota Conexão</h3>
           <p>Conteúdo que agrega valor e gera negócios: 30 minutos para compartilhar conhecimento e apresentar sua marca ao mercado imobiliário.</p>
@@ -893,7 +914,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
           <ul><li>30 min no palco principal: 20 min de conteúdo técnico como palestrante do evento + 10 min para apresentar a marca ou o produto</li><li>Assinatura exclusiva com logo no palco durante a palestra</li><li>01 vídeo de entrevista com o Ronaldo Dantas</li><li>01 post de anúncio como palestrante do evento, com assinatura da marca em collab</li><li>Vídeo da marca de 1 min na abertura e no encerramento do evento</li><li>Logo em materiais institucionais de divulgação</li><li>Menção nominal estratégica durante o evento</li><li>01 post de anúncio como patrocinador + 1 post em collab, com conteúdo a critério da marca, sujeito à aprovação prévia</li><li>04 ingressos Pass + 02 ingressos VIP de cortesia</li></ul>
           <a class="btn btn-fill" href="https://wa.me/5562998810378?text=Ol%C3%A1%21%20Quero%20a%20Cota%20Conex%C3%A3o%20da%20Academia%20de%20Vendas%2027%20%28R%24%2025%20mil%29." target="_blank" rel="noopener"><span>Quero esta cota</span></a>
         </article>
-        <article class="cota tilt">
+        <article class="cota tilt" data-cota="talk-broker">
           <span class="q">04 cotas</span>
           <h3>Cota Talk Broker</h3>
           <p>Bate-papo de 12 minutos no palco principal com Ronaldo Dantas, em um dos dias, e presença digital em vários formatos para gerar autoridade com um público qualificado.</p>
@@ -901,7 +922,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
           <ul><li>Bate-papo de 12 min no palco com o Ronaldo Dantas</li><li>01 vídeo de entrevista com o Ronaldo Dantas, antes ou depois do bate-papo</li><li>Logo em materiais institucionais de divulgação</li><li>Menção nominal estratégica durante o evento</li><li>01 post de anúncio como patrocinador + 1 post em collab, com conteúdo a critério da marca, sujeito à aprovação prévia</li><li>04 ingressos Pass + 02 ingressos VIP de cortesia</li></ul>
           <a class="btn btn-fill" href="https://wa.me/5562998810378?text=Ol%C3%A1%21%20Quero%20a%20Cota%20Talk%20Broker%20da%20Academia%20de%20Vendas%2027%20%28R%24%2025%20mil%29." target="_blank" rel="noopener"><span>Quero esta cota</span></a>
         </article>
-        <article class="cota top tilt">
+        <article class="cota top tilt" data-cota="protagonista">
           <span class="q">07 cotas</span>
           <h3>Cota Protagonista</h3>
           <p>A marca assina uma das principais palestras do evento, com tempo de palco, associando seu nome a grandes personalidades do mercado imobiliário.</p>
@@ -909,7 +930,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
           <ul><li>7 min no palco para apresentar a marca antes do palestrante escolhido</li><li>Chamada do palestrante no palco</li><li>Assinatura exclusiva com logo no palco durante a palestra</li><li>01 vídeo de entrevista com o palestrante, antes ou depois da palestra</li><li>Vídeo da marca de 1 min na abertura e no encerramento do evento</li><li>Logo em materiais institucionais de divulgação</li><li>Menção nominal estratégica durante o evento</li><li>01 post de anúncio como patrocinador + 1 post em collab, com conteúdo a critério da marca, sujeito à aprovação prévia</li><li>04 ingressos Pass + 02 ingressos VIP de cortesia</li></ul>
           <a class="btn " href="https://wa.me/5562998810378?text=Ol%C3%A1%21%20Quero%20a%20Cota%20Protagonista%20da%20Academia%20de%20Vendas%2027%20%28R%24%2030%20mil%29." target="_blank" rel="noopener"><span>Quero esta cota</span></a>
         </article>
-        <article class="cota tilt">
+        <article class="cota tilt" data-cota="stand">
           <span class="q">06 cotas</span>
           <h3>Cota Stand</h3>
           <p>Presença física e relacionamento direto com quem move o mercado: gere conexões, ative experiências e transforme visibilidade em oportunidades de negócio.</p>
@@ -917,7 +938,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
           <ul><li>Espaço de 9 m² com estrutura básica: carpete, parede de fundo com ativação, pontos de tomada e iluminação</li><li>Distribuição de brindes no stand</li><li>01 vídeo de entrevista com o Ronaldo Dantas</li><li>01 vídeo de cobertura da presença da marca no evento, em collab</li><li>Logo em materiais institucionais de divulgação</li><li>Menção nominal estratégica durante o evento</li><li>01 post de anúncio como patrocinador + 1 post em collab, com conteúdo a critério da marca, sujeito à aprovação prévia</li><li>06 ingressos Pass + 02 ingressos VIP de cortesia</li></ul>
           <a class="btn btn-fill" href="https://wa.me/5562998810378?text=Ol%C3%A1%21%20Quero%20a%20Cota%20Stand%20da%20Academia%20de%20Vendas%2027%20%28R%24%2030%20mil%29." target="_blank" rel="noopener"><span>Quero esta cota</span></a>
         </article>
-        <article class="cota tilt">
+        <article class="cota tilt" data-cota="credenciamento">
           <span class="q">01 cota</span>
           <h3>Cota Credenciamento</h3>
           <p>A experiência começa no primeiro contato: sua marca recebe todos os participantes desde a chegada, assinando o credenciamento nos dois dias de evento.</p>
@@ -925,7 +946,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
           <ul><li>Espaço personalizado de credenciamento, com estrutura completa montada conforme o projeto e o conceito visual do evento</li><li>Espaço extra para ativação da marca (opcional)</li><li>Logo nas credenciais de todos os participantes</li><li>Distribuição de brindes na recepção</li><li>01 vídeo de entrevista com o Ronaldo Dantas</li><li>01 vídeo de cobertura da presença da marca no evento, em collab</li><li>Logo em materiais institucionais de divulgação</li><li>Menção nominal estratégica durante o evento</li><li>01 post de anúncio como patrocinador + 1 post em collab, com conteúdo a critério da marca, sujeito à aprovação prévia</li><li>06 ingressos Pass + 02 ingressos VIP de cortesia</li></ul>
           <a class="btn btn-fill" href="https://wa.me/5562998810378?text=Ol%C3%A1%21%20Quero%20a%20Cota%20Credenciamento%20da%20Academia%20de%20Vendas%2027%20%28R%24%2040%20mil%29." target="_blank" rel="noopener"><span>Quero esta cota</span></a>
         </article>
-        <article class="cota tilt">
+        <article class="cota tilt" data-cota="descompressao">
           <span class="q">01 cota</span>
           <h3>Cota Descompressão</h3>
           <p>Sua marca assina o espaço de relaxamento e bem-estar do evento, um ambiente aconchegante que fica na memória do público.</p>
@@ -1167,5 +1188,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 </script>
 
 <script src="../assets/rastreio.js?v=2" defer></script>
+<script>
+/* cotas de patrocínio: quantas restam vem de cotas.json (o mesmo arquivo do mídia kit e do Ronaldo do WhatsApp) */
+fetch("cotas.json",{cache:"no-store"}).then(function(r){return r.json()}).then(function(d){
+  d.cotas.forEach(function(c){
+    var el=document.querySelector('[data-cota="'+c.id+'"]'); if(!el) return;
+    var q=el.querySelector(".q"), b=el.querySelector(".btn"), resta=Math.max(0,c.total-c.vendidas);
+    if(resta===0){ q.textContent="Esgotada"; el.classList.add("esgotada"); if(b){ b.removeAttribute("href"); b.querySelector("span").textContent="Cota esgotada"; } }
+    else if(c.vendidas>0){ q.textContent=(resta===1?"Resta 1":"Restam "+resta)+" de "+c.total+" cotas"; q.classList.add("restam"); }
+    else { q.textContent=c.total===1?"Cota única":(c.total<10?"0":"")+c.total+" cotas"; }
+  });
+}).catch(function(){});
+</script>
 </body>
 </html>

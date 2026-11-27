@@ -41,7 +41,7 @@
    "nome": "Cota Credenciamento",
    "total": 1,
    "vendidas": 0,
-   "valor": 60000
+   "valor": 40000
   },
   {
    "id": "descompressao",
@@ -49,6 +49,13 @@
    "total": 1,
    "vendidas": 1,
    "valor": 40000
+  },
+  {
+   "id": "master",
+   "nome": "Cota Master",
+   "total": 1,
+   "vendidas": 0,
+   "valor": 60000
   }
  ]
 }

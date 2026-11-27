@@ -421,6 +421,30 @@ section{padding-block:clamp(72px,9vw,128px)}
 .combo-cupom p{margin:0;color:var(--muted)}
 .cc-r{display:grid;justify-items:end;gap:4px;text-align:right}.cc-r s{color:var(--muted)}.cc-r b{font-family:var(--display);font-size:clamp(44px,5vw,64px);line-height:1;color:var(--accent)}.cc-r span{font-size:14px;color:#7ee2a6}.cc-r .btn{margin-top:10px}
 @media (max-width:700px){.combo-cupom{grid-template-columns:1fr;padding:24px}.cc-r{justify-items:start;text-align:left}}
+.cotas4{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;perspective:1400px;margin-top:10px}
+.cotas4 .cota{padding:16px 16px 14px;gap:7px;border-radius:18px;transform-style:preserve-3d;animation:flutua 7s ease-in-out infinite;animation-delay:calc(var(--i) * -.9s);transition:box-shadow .3s}
+.cotas4 .cota:hover{animation-play-state:paused;box-shadow:0 24px 60px rgba(188,63,42,.35)}
+@keyframes flutua{0%,100%{transform:rotateY(-7deg) rotateX(4deg) translateY(0)}50%{transform:rotateY(7deg) rotateX(-3deg) translateY(-8px)}}
+.cotas4 .cota h3{font-size:19px;line-height:1.05}
+.cotas4 .cota .val{font-size:clamp(26px,2.2vw,32px)}.cotas4 .cota .val small{display:none}
+.cotas4 .cota .q{font-size:11px}
+.cotas4 .resumo{margin:0;font-size:12.5px;line-height:1.4;color:var(--muted)}
+.vagas small{display:block;margin-top:6px;font:600 11px var(--mono);letter-spacing:.06em;color:var(--muted)}
+.vagas small b{color:var(--fg)}
+.vg{height:9px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden}
+.vg i{display:block;height:100%;width:0;border-radius:99px;background:repeating-linear-gradient(45deg,var(--accent) 0 10px,var(--accent-deep) 10px 20px);background-size:28px 28px;animation:listra 1s linear infinite;transition:width 1.8s cubic-bezier(.22,1,.36,1)}
+@keyframes listra{to{background-position:28px 0}}
+.cotas4 details{border-top:1px solid var(--line);padding-top:8px}
+.cotas4 summary{cursor:pointer;font:700 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);list-style:none}
+.cotas4 summary::-webkit-details-marker{display:none}.cotas4 summary::after{content:" +"}.cotas4 details[open] summary::after{content:" −"}
+.cotas4 details ul{margin-top:10px;border:0;padding-top:0;gap:6px}.cotas4 details li{font-size:12.5px}
+.cotas4 .btn{align-self:stretch;justify-content:center;margin-top:auto;padding:11px 14px;min-height:0;font-size:12px}
+.mini-cupom{display:grid;gap:1px;border:1.5px dashed var(--accent);border-radius:12px;padding:6px 10px;background:rgba(224,106,79,.12);text-decoration:none;color:var(--fg)}
+.mc-tag{font:700 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.mini-cupom b{font-size:14px}.mc-p{font-size:13px;color:var(--muted)}.mc-p strong{color:var(--fg);font-size:16px}
+@media (max-width:1100px){.cotas4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.cotas4{grid-template-columns:1fr}.cotas4 .cota{animation:none}}
+@media (prefers-reduced-motion:reduce){.cotas4 .cota,.vg i{animation:none}}
 .sponsor .cotas-note{color:var(--muted);font-size:14px;text-align:center;margin:24px auto 0;max-width:none}
 @media (max-width:960px){.cotas{grid-template-columns:repeat(2,minmax(0,1fr))}.spx{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:600px){.cotas{grid-template-columns:1fr}}
@@ -914,68 +938,87 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
         <h2 class="title">Escolha a cota da sua marca</h2>
         <p class="sub">Seis formatos, do palco ao credenciamento. As cotas são limitadas e reservadas por ordem de fechamento.</p>
       </div>
-      <div class="cotas">
-        <article class="cota top tilt" data-cota="assinatura">
-          <span class="q">02 cotas</span>
-          <h3>Cota Assinatura</h3>
-          <p>Sua marca assina a Academia de Vendas 27: o maior palco de vendas do mercado imobiliário passa a ser apresentado por ela.</p>
-          <span class="val"><small>Investimento</small>R$ 100 mil</span>
-          <ul><li>A marca assina o evento: Academia de Vendas 27 apresentada pela sua marca</li><li>Benefícios montados sob medida com o time comercial</li></ul>
-          <a class="btn " href="https://wa.me/5562998810378?text=Ol%C3%A1%21%20Quero%20a%20Cota%20Assinatura%20da%20Academia%20de%20Vendas%2027%20%28R%24%20100%20mil%29." target="_blank" rel="noopener"><span>Quero esta cota</span></a>
-        </article>
-        <article class="cota tilt" data-cota="conexao">
-          <span class="q">04 cotas</span>
-          <h3>Cota Conexão</h3>
-          <p>Conteúdo que agrega valor e gera negócios: 30 minutos para compartilhar conhecimento e apresentar sua marca ao mercado imobiliário.</p>
-          <span class="val"><small>Investimento</small>R$ 25 mil</span>
-          <ul><li>30 min no palco principal: 20 min de conteúdo técnico como palestrante do evento + 10 min para apresentar a marca ou o produto</li><li>Assinatura exclusiva com logo no palco durante a palestra</li><li>01 vídeo de entrevista com o Ronaldo Dantas</li><li>01 post de anúncio como palestrante do evento, com assinatura da marca em collab</li><li>Vídeo da marca de 1 min na abertura e no encerramento do evento</li><li>Logo em materiais institucionais de divulgação</li><li>Menção nominal estratégica durante o evento</li><li>01 post de anúncio como patrocinador + 1 post em collab, com conteúdo a critério da marca, sujeito à aprovação prévia</li><li>04 ingressos Pass + 02 ingressos VIP de cortesia</li></ul>
-          <a class="btn btn-fill" href="https://wa.me/5562998810378?text=Ol%C3%A1%21%20Quero%20a%20Cota%20Conex%C3%A3o%20da%20Academia%20de%20Vendas%2027%20%28R%24%2025%20mil%29." target="_blank" rel="noopener"><span>Quero esta cota</span></a>
-        </article>
-        <article class="cota tilt" data-cota="talk-broker">
-          <span class="q">03 cotas</span>
+      <div class="cotas cotas4">
+        <article class="cota c3d" data-cota="talk-broker" style="--i:0">
+          <span class="q">Resta 1 de 3</span>
           <h3>Cota Talk Broker</h3>
-          <p>Bate-papo de 12 minutos no palco principal com Ronaldo Dantas, em um dos dias, e presença digital em vários formatos para gerar autoridade com um público qualificado.</p>
-          <span class="val"><small>Investimento</small>R$ 25 mil</span>
-          <ul><li>Bate-papo de 12 min no palco com o Ronaldo Dantas</li><li>01 vídeo de entrevista com o Ronaldo Dantas, antes ou depois do bate-papo</li><li>Logo em materiais institucionais de divulgação</li><li>Menção nominal estratégica durante o evento</li><li>01 post de anúncio como patrocinador + 1 post em collab, com conteúdo a critério da marca, sujeito à aprovação prévia</li><li>04 ingressos Pass + 02 ingressos VIP de cortesia</li></ul>
+          <span class="val">R$ 25 mil</span>
+          <div class="vagas"><div class="vg"><i data-p="67"></i></div><small><b class="vg-n">2</b> de 3 vagas preenchidas</small></div>
+          <p class="resumo">Bate-papo de 12 min no palco principal com o Ronaldo Dantas.</p>
+          
+          <details><summary>Ver benefícios</summary><ul><li>Bate-papo de 12 min no palco com o Ronaldo Dantas</li><li>01 vídeo de entrevista com o Ronaldo Dantas, antes ou depois do bate-papo</li><li>Logo em materiais institucionais de divulgação</li><li>Menção nominal estratégica durante o evento</li><li>01 post de anúncio como patrocinador + 1 post em collab, com conteúdo a critério da marca, sujeito à aprovação prévia</li><li>04 ingressos Pass + 02 ingressos VIP de cortesia</li></ul></details>
           <a class="btn btn-fill" href="https://wa.me/5562998810378?text=Ol%C3%A1%21%20Quero%20a%20Cota%20Talk%20Broker%20da%20Academia%20de%20Vendas%2027%20%28R%24%2025%20mil%29." target="_blank" rel="noopener"><span>Quero esta cota</span></a>
         </article>
-        <article class="cota tilt" data-cota="protagonista">
+        <article class="cota c3d" data-cota="conexao" style="--i:1">
+          <span class="q">Restam 2 de 4</span>
+          <h3>Cota Conexão</h3>
+          <span class="val">R$ 25 mil</span>
+          <div class="vagas"><div class="vg"><i data-p="50"></i></div><small><b class="vg-n">2</b> de 4 vagas preenchidas</small></div>
+          <p class="resumo">30 min no palco principal: 20 de conteúdo técnico e 10 para a sua marca.</p>
+          
+          <details><summary>Ver benefícios</summary><ul><li>30 min no palco principal: 20 min de conteúdo técnico como palestrante do evento + 10 min para apresentar a marca ou o produto</li><li>Assinatura exclusiva com logo no palco durante a palestra</li><li>01 vídeo de entrevista com o Ronaldo Dantas</li><li>01 post de anúncio como palestrante do evento, com assinatura da marca em collab</li><li>Vídeo da marca de 1 min na abertura e no encerramento do evento</li><li>Logo em materiais institucionais de divulgação</li><li>Menção nominal estratégica durante o evento</li><li>01 post de anúncio como patrocinador + 1 post em collab, com conteúdo a critério da marca, sujeito à aprovação prévia</li><li>04 ingressos Pass + 02 ingressos VIP de cortesia</li></ul></details>
+          <a class="btn btn-fill" href="https://wa.me/5562998810378?text=Ol%C3%A1%21%20Quero%20a%20Cota%20Conex%C3%A3o%20da%20Academia%20de%20Vendas%2027%20%28R%24%2025%20mil%29." target="_blank" rel="noopener"><span>Quero esta cota</span></a>
+        </article>
+        <article class="cota c3d" data-cota="protagonista" style="--i:2">
           <span class="q">07 cotas</span>
           <h3>Cota Protagonista</h3>
-          <p>A marca assina uma das principais palestras do evento, com tempo de palco, associando seu nome a grandes personalidades do mercado imobiliário.</p>
-          <span class="val"><small>Investimento</small>R$ 25 mil</span>
-          <ul><li>7 min no palco para apresentar a marca antes do palestrante escolhido</li><li>Chamada do palestrante no palco</li><li>Assinatura exclusiva com logo no palco durante a palestra</li><li>01 vídeo de entrevista com o palestrante, antes ou depois da palestra</li><li>Vídeo da marca de 1 min na abertura e no encerramento do evento</li><li>Logo em materiais institucionais de divulgação</li><li>Menção nominal estratégica durante o evento</li><li>01 post de anúncio como patrocinador + 1 post em collab, com conteúdo a critério da marca, sujeito à aprovação prévia</li><li>04 ingressos Pass + 02 ingressos VIP de cortesia</li></ul>
+          <span class="val">R$ 25 mil</span>
+          <div class="vagas"><div class="vg"><i data-p="0"></i></div><small><b class="vg-n">0</b> de 7 vagas preenchidas</small></div>
+          <p class="resumo">Sua marca assina uma das 7 palestras, com 7 min de palco antes do palestrante.</p>
+          
+          <details><summary>Ver benefícios</summary><ul><li>7 min no palco para apresentar a marca antes do palestrante escolhido</li><li>Chamada do palestrante no palco</li><li>Assinatura exclusiva com logo no palco durante a palestra</li><li>01 vídeo de entrevista com o palestrante, antes ou depois da palestra</li><li>Vídeo da marca de 1 min na abertura e no encerramento do evento</li><li>Logo em materiais institucionais de divulgação</li><li>Menção nominal estratégica durante o evento</li><li>01 post de anúncio como patrocinador + 1 post em collab, com conteúdo a critério da marca, sujeito à aprovação prévia</li><li>04 ingressos Pass + 02 ingressos VIP de cortesia</li></ul></details>
           <a class="btn btn-fill" href="https://wa.me/5562998810378?text=Ol%C3%A1%21%20Quero%20a%20Cota%20Protagonista%20da%20Academia%20de%20Vendas%2027%20%28R%24%2025%20mil%29." target="_blank" rel="noopener"><span>Quero esta cota</span></a>
         </article>
-        <article class="cota tilt" data-cota="stand">
+        <article class="cota c3d" data-cota="stand" style="--i:3">
           <span class="q">06 cotas</span>
           <h3>Cota Stand</h3>
-          <p>Presença física e relacionamento direto com quem move o mercado: gere conexões, ative experiências e transforme visibilidade em oportunidades de negócio.</p>
-          <span class="val"><small>Investimento</small>R$ 30 mil</span>
-          <ul><li>Espaço de 9 m² com estrutura básica: carpete, parede de fundo com ativação, pontos de tomada e iluminação</li><li>Distribuição de brindes no stand</li><li>01 vídeo de entrevista com o Ronaldo Dantas</li><li>01 vídeo de cobertura da presença da marca no evento, em collab</li><li>Logo em materiais institucionais de divulgação</li><li>Menção nominal estratégica durante o evento</li><li>01 post de anúncio como patrocinador + 1 post em collab, com conteúdo a critério da marca, sujeito à aprovação prévia</li><li>06 ingressos Pass + 02 ingressos VIP de cortesia</li></ul>
+          <span class="val">R$ 30 mil</span>
+          <div class="vagas"><div class="vg"><i data-p="0"></i></div><small><b class="vg-n">0</b> de 6 vagas preenchidas</small></div>
+          <p class="resumo">Stand de 9 m² para gerar conexões e ativar a sua marca nos dois dias.</p>
+          <a class="mini-cupom" href="https://wa.me/5562998810378?text=Ol%C3%A1%21%20Quero%20o%20combo%20Cota%20Stand%20%2B%20Cota%20Protagonista%20da%20Academia%20de%20Vendas%2027%20%28R%24%2040%20mil%29." target="_blank" rel="noopener"><span class="mc-tag">Cupom · combo</span><b>Stand + Protagonista</b><span class="mc-p"><s>R$ 55 mil</s> <strong>R$ 40 mil</strong></span></a>
+          <details><summary>Ver benefícios</summary><ul><li>Espaço de 9 m² com estrutura básica: carpete, parede de fundo com ativação, pontos de tomada e iluminação</li><li>Distribuição de brindes no stand</li><li>01 vídeo de entrevista com o Ronaldo Dantas</li><li>01 vídeo de cobertura da presença da marca no evento, em collab</li><li>Logo em materiais institucionais de divulgação</li><li>Menção nominal estratégica durante o evento</li><li>01 post de anúncio como patrocinador + 1 post em collab, com conteúdo a critério da marca, sujeito à aprovação prévia</li><li>06 ingressos Pass + 02 ingressos VIP de cortesia</li></ul></details>
           <a class="btn btn-fill" href="https://wa.me/5562998810378?text=Ol%C3%A1%21%20Quero%20a%20Cota%20Stand%20da%20Academia%20de%20Vendas%2027%20%28R%24%2030%20mil%29." target="_blank" rel="noopener"><span>Quero esta cota</span></a>
         </article>
-        <article class="cota tilt" data-cota="credenciamento">
-          <span class="q">01 cota</span>
+        <article class="cota c3d" data-cota="credenciamento" style="--i:4">
+          <span class="q">Cota única</span>
           <h3>Cota Credenciamento</h3>
-          <p>A experiência começa no primeiro contato: sua marca recebe todos os participantes desde a chegada, assinando o credenciamento nos dois dias de evento.</p>
-          <span class="val"><small>Investimento</small>R$ 60 mil</span>
-          <ul><li>Espaço personalizado de credenciamento, com estrutura completa montada conforme o projeto e o conceito visual do evento</li><li>Espaço extra para ativação da marca (opcional)</li><li>Logo nas credenciais de todos os participantes</li><li>Distribuição de brindes na recepção</li><li>01 vídeo de entrevista com o Ronaldo Dantas</li><li>01 vídeo de cobertura da presença da marca no evento, em collab</li><li>Logo em materiais institucionais de divulgação</li><li>Menção nominal estratégica durante o evento</li><li>01 post de anúncio como patrocinador + 1 post em collab, com conteúdo a critério da marca, sujeito à aprovação prévia</li><li>06 ingressos Pass + 02 ingressos VIP de cortesia</li></ul>
-          <a class="btn btn-fill" href="https://wa.me/5562998810378?text=Ol%C3%A1%21%20Quero%20a%20Cota%20Credenciamento%20da%20Academia%20de%20Vendas%2027%20%28R%24%2060%20mil%29." target="_blank" rel="noopener"><span>Quero esta cota</span></a>
+          <span class="val">R$ 40 mil</span>
+          <div class="vagas"><div class="vg"><i data-p="0"></i></div><small><b class="vg-n">0</b> de 1 vaga preenchida</small></div>
+          <p class="resumo">Sua marca recebe todos os participantes, nos dois dias, desde a chegada.</p>
+          
+          <details><summary>Ver benefícios</summary><ul><li>Espaço personalizado de credenciamento, com estrutura completa montada conforme o projeto e o conceito visual do evento</li><li>Espaço extra para ativação da marca (opcional)</li><li>Logo nas credenciais de todos os participantes</li><li>Distribuição de brindes na recepção</li><li>01 vídeo de entrevista com o Ronaldo Dantas</li><li>01 vídeo de cobertura da presença da marca no evento, em collab</li><li>Logo em materiais institucionais de divulgação</li><li>Menção nominal estratégica durante o evento</li><li>01 post de anúncio como patrocinador + 1 post em collab, com conteúdo a critério da marca, sujeito à aprovação prévia</li><li>06 ingressos Pass + 02 ingressos VIP de cortesia</li></ul></details>
+          <a class="btn btn-fill" href="https://wa.me/5562998810378?text=Ol%C3%A1%21%20Quero%20a%20Cota%20Credenciamento%20da%20Academia%20de%20Vendas%2027%20%28R%24%2040%20mil%29." target="_blank" rel="noopener"><span>Quero esta cota</span></a>
         </article>
-        <article class="cota tilt esgotada" data-cota="descompressao">
+        <article class="cota c3d esgotada" data-cota="descompressao" style="--i:5">
           <span class="q">Esgotada</span>
           <h3>Cota Descompressão</h3>
-          <p>Sua marca assina o espaço de relaxamento e bem-estar do evento, um ambiente aconchegante que fica na memória do público.</p>
-          <span class="val"><small>Investimento</small>R$ 40 mil</span>
-          <ul><li>Espaço personalizado de descompressão, com estrutura completa montada conforme o projeto e o conceito visual do evento</li><li>01 vídeo de entrevista com o Ronaldo Dantas</li><li>01 vídeo de cobertura da presença da marca no evento, em collab</li><li>Logo em materiais institucionais de divulgação</li><li>Menção nominal estratégica durante o evento</li><li>01 post de anúncio como patrocinador + 1 post em collab, com conteúdo a critério da marca, sujeito à aprovação prévia</li><li>06 ingressos Pass + 02 ingressos VIP de cortesia</li></ul>
+          <span class="val">R$ 40 mil</span>
+          <div class="vagas"><div class="vg"><i data-p="100"></i></div><small><b class="vg-n">1</b> de 1 vaga preenchida</small></div>
+          <p class="resumo">Sua marca assina o espaço de relaxamento e bem-estar do evento.</p>
+          
+          <details><summary>Ver benefícios</summary><ul><li>Espaço personalizado de descompressão, com estrutura completa montada conforme o projeto e o conceito visual do evento</li><li>01 vídeo de entrevista com o Ronaldo Dantas</li><li>01 vídeo de cobertura da presença da marca no evento, em collab</li><li>Logo em materiais institucionais de divulgação</li><li>Menção nominal estratégica durante o evento</li><li>01 post de anúncio como patrocinador + 1 post em collab, com conteúdo a critério da marca, sujeito à aprovação prévia</li><li>06 ingressos Pass + 02 ingressos VIP de cortesia</li></ul></details>
           <a class="btn btn-fill"><span>Cota esgotada</span></a>
         </article>
-      </div>
-      <div class="combo-cupom" data-combo>
-        <div class="cc-l"><span class="cc-tag">Cupom · combo</span><h3>Cota Stand + Cota Protagonista</h3><p>Seu stand no evento e a sua marca assinando uma das palestras, juntos.</p></div>
-        <div class="cc-r"><s>de R$ 55 mil</s><b>R$ 40 mil</b><span>economia de R$ 15 mil</span>
-        <a class="btn btn-fill" href="https://wa.me/5562998810378?text=Ol%C3%A1%21%20Quero%20o%20combo%20Cota%20Stand%20%2B%20Cota%20Protagonista%20da%20Academia%20de%20Vendas%2027%20%28R%24%2040%20mil%29." target="_blank" rel="noopener"><span>Quero o combo</span></a></div>
+        <article class="cota c3d" data-cota="master" style="--i:6">
+          <span class="q">Cota única</span>
+          <h3>Cota Master</h3>
+          <span class="val">R$ 60 mil</span>
+          <div class="vagas"><div class="vg"><i data-p="0"></i></div><small><b class="vg-n">0</b> de 1 vaga preenchida</small></div>
+          <p class="resumo">Protagonismo nos dois dias: palco, Talk Broker com o Ronaldo e vídeos.</p>
+          
+          <details><summary>Ver benefícios</summary><ul><li>Palco nos dois dias do evento: 12 min no palco principal em cada dia</li><li>15 min de Talk Broker com o Ronaldo Dantas</li><li>Vídeo da marca de 1 min na abertura e no encerramento do evento</li><li>Ativação e sorteio no palco, com menção</li><li>3 posts (antes, durante e depois do evento) + reels com o Talk Broker</li><li>Entrevista exclusiva pós-evento</li><li>Logo em materiais institucionais e menção nominal durante o evento</li><li>Prioridade na próxima edição</li><li>10 ingressos de cortesia</li></ul></details>
+          <a class="btn btn-fill" href="https://wa.me/5562998810378?text=Ol%C3%A1%21%20Quero%20a%20Cota%20Master%20da%20Academia%20de%20Vendas%2027%20%28R%24%2060%20mil%29." target="_blank" rel="noopener"><span>Quero esta cota</span></a>
+        </article>
+        <article class="cota c3d top" data-cota="assinatura" style="--i:7">
+          <span class="q">Resta 1 de 2</span>
+          <h3>Cota Assinatura</h3>
+          <span class="val">R$ 100 mil</span>
+          <div class="vagas"><div class="vg"><i data-p="50"></i></div><small><b class="vg-n">1</b> de 2 vagas preenchidas</small></div>
+          <p class="resumo">Sua marca assina a Academia de Vendas 27, apresentada por ela.</p>
+          
+          <details><summary>Ver benefícios</summary><ul><li>A marca assina o evento: Academia de Vendas 27 apresentada pela sua marca</li><li>Benefícios montados sob medida com o time comercial</li></ul></details>
+          <a class="btn btn-fill" href="https://wa.me/5562998810378?text=Ol%C3%A1%21%20Quero%20a%20Cota%20Assinatura%20da%20Academia%20de%20Vendas%2027%20%28R%24%20100%20mil%29." target="_blank" rel="noopener"><span>Quero esta cota</span></a>
+        </article>
       </div>
       <div class="head center" style="margin-top:56px"><p class="eyebrow">Cota Protagonista</p><h2 class="title">As 7 palestras que a sua marca pode assinar</h2><p class="sub">Uma marca por palestra. Escolha o tema que mais combina com o seu público.</p></div>
       <div class="palestras-cota"><a href="https://www.instagram.com/marcusarauj0/" target="_blank" rel="noopener"><b>Marcus Araújo</b><span>O futuro imediato do mercado imobiliário e suas oportunidades</span><small>@marcusarauj0</small></a><a href="https://www.instagram.com/oraulsena/" target="_blank" rel="noopener"><b>Raul Sena</b><span>Finanças do corretor: como transformar a comissão em patrimônio e estabilidade financeira</span><small>@oraulsena</small></a><a href="https://www.instagram.com/coleteconsultoria/" target="_blank" rel="noopener"><b>Colete Consultoria</b><span>Minha Casa, Minha Vida: da oportunidade ao fechamento</span><small>@coleteconsultoria</small></a><a href="https://www.instagram.com/guilhermenogueirabh/" target="_blank" rel="noopener"><b>Guilherme Nogueira</b><span>Além das vendas: o poder das parcerias para o corretor</span><small>@guilhermenogueirabh</small></a><a href="https://www.instagram.com/phftax/" target="_blank" rel="noopener"><b>Pedro Fonseca</b><span>Reforma tributária para quem vende imóveis</span><small>@phftax</small></a><a href="https://www.instagram.com/muriloarjona/" target="_blank" rel="noopener"><b>Murilo Arjona</b><span>Crédito que vende: estratégias de financiamento para fechar mais negócios</span><small>@muriloarjona</small></a><a href="https://www.instagram.com/drjorge.rodrigues/" target="_blank" rel="noopener"><b>Dr. Jorge Rodrigues</b><span>Decifrando o cliente: da leitura comportamental à decisão de compra</span><small>@drjorge.rodrigues</small></a></div>
@@ -1211,16 +1254,24 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 
 <script src="../assets/rastreio.js?v=2" defer></script>
 <script>
-/* cotas de patrocínio: quantas restam vem de cotas.json (o mesmo arquivo do mídia kit e do Ronaldo do WhatsApp) */
-fetch("/api/cotas",{cache:"no-store"}).then(function(r){if(!r.ok)throw 0;return r.json()}).catch(function(){return fetch("cotas.json").then(function(r){return r.json()})}).then(function(d){
-  d.cotas.forEach(function(c){
-    var el=document.querySelector('[data-cota="'+c.id+'"]'); if(!el) return;
-    var q=el.querySelector(".q"), b=el.querySelector(".btn"), resta=Math.max(0,c.total-c.vendidas);
-    if(resta===0){ q.textContent="Esgotada"; el.classList.add("esgotada"); if(b){ b.removeAttribute("href"); b.querySelector("span").textContent="Cota esgotada"; } }
-    else if(c.vendidas>0){ q.textContent=(resta===1?"Resta 1":"Restam "+resta)+" de "+c.total+" cotas"; q.classList.add("restam"); }
-    else { q.textContent=c.total===1?"Cota única":(c.total<10?"0":"")+c.total+" cotas"; }
-  });
-}).catch(function(){});
+/* cotas de patrocínio: a contagem vem do painel do Hub (/api/cotas); a barra enche quando os cards aparecem */
+(function(){
+  function encher(){ document.querySelectorAll(".cotas4 .vg i").forEach(function(i,k){ setTimeout(function(){ i.style.width=Math.max(4,+i.dataset.p)+"%"; }, 150*k); }); }
+  var grade=document.querySelector(".cotas4");
+  if(grade){ if("IntersectionObserver" in window){ var io=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ io.disconnect(); encher(); } },{threshold:.15}); io.observe(grade); } else encher(); }
+  fetch("/api/cotas",{cache:"no-store"}).then(function(r){if(!r.ok)throw 0;return r.json()}).catch(function(){return fetch("cotas.json").then(function(r){return r.json()})}).then(function(d){
+    d.cotas.forEach(function(c){
+      var el=document.querySelector('[data-cota="'+c.id+'"]'); if(!el) return;
+      var q=el.querySelector(".q"), b=el.querySelector(".btn"), total=+c.total, vend=+c.vendidas, resta=Math.max(0,total-vend);
+      var bar=el.querySelector(".vg i"), n=el.querySelector(".vg-n");
+      if(bar){ bar.dataset.p=Math.round(vend/total*100); if(bar.style.width) bar.style.width=Math.max(4,+bar.dataset.p)+"%"; }
+      if(n){ n.textContent=vend; n.parentNode.lastChild.textContent=" de "+total+(total===1?" vaga preenchida":" vagas preenchidas"); }
+      if(resta===0){ q.textContent="Esgotada"; el.classList.add("esgotada"); if(b){ b.removeAttribute("href"); b.querySelector("span").textContent="Cota esgotada"; } }
+      else if(vend>0){ q.textContent=(resta===1?"Resta 1":"Restam "+resta)+" de "+total; q.classList.add("restam"); }
+      else { q.textContent=total===1?"Cota única":(total<10?"0":"")+total+" cotas"; }
+    });
+  }).catch(function(){});
+})();
 </script>
 </body>
 </html>

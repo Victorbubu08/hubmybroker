@@ -1,12 +1,54 @@
 {
-  "_como_usar": "Quando uma cota for vendida, aumente 'vendidas'. O site, o mídia kit e o Ronaldo do WhatsApp passam a mostrar quantas restam.",
-  "atualizado": "2026-11-27",
-  "cotas": [
-    {"id": "conexao", "nome": "Cota Conexão", "total": 4, "vendidas": 0, "valor": 25000},
-    {"id": "talk-broker", "nome": "Cota Talk Broker", "total": 4, "vendidas": 0, "valor": 25000},
-    {"id": "protagonista", "nome": "Cota Protagonista", "total": 7, "vendidas": 0, "valor": 30000},
-    {"id": "stand", "nome": "Cota Stand", "total": 6, "vendidas": 0, "valor": 30000},
-    {"id": "credenciamento", "nome": "Cota Credenciamento", "total": 1, "vendidas": 0, "valor": 40000},
-    {"id": "descompressao", "nome": "Cota Descompressão", "total": 1, "vendidas": 0, "valor": 40000}
-  ]
+ "_como_usar": "Cópia de segurança: a contagem real vem de /api/cotas, editada no painel do Hub.",
+ "cotas": [
+  {
+   "id": "assinatura",
+   "nome": "Cota Assinatura",
+   "total": 2,
+   "vendidas": 1,
+   "valor": 100000
+  },
+  {
+   "id": "conexao",
+   "nome": "Cota Conexão",
+   "total": 4,
+   "vendidas": 2,
+   "valor": 25000
+  },
+  {
+   "id": "talk-broker",
+   "nome": "Cota Talk Broker",
+   "total": 3,
+   "vendidas": 2,
+   "valor": 25000
+  },
+  {
+   "id": "protagonista",
+   "nome": "Cota Protagonista",
+   "total": 7,
+   "vendidas": 0,
+   "valor": 25000
+  },
+  {
+   "id": "stand",
+   "nome": "Cota Stand",
+   "total": 6,
+   "vendidas": 0,
+   "valor": 30000
+  },
+  {
+   "id": "credenciamento",
+   "nome": "Cota Credenciamento",
+   "total": 1,
+   "vendidas": 0,
+   "valor": 60000
+  },
+  {
+   "id": "descompressao",
+   "nome": "Cota Descompressão",
+   "total": 1,
+   "vendidas": 1,
+   "valor": 40000
+  }
+ ]
 }
